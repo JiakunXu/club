@@ -1,0 +1,822 @@
+.global-type-global {
+    min-height: 87px;
+    _height: 87px;
+}
+
+.global-reset {
+    font: 400 12px/1.5 Verdana,Arial,"Hiragino Sans GB","宋体",sans-serif;
+}
+
+.global-reset ol,.global-reset ul {
+    list-style: none;
+}
+
+.global-reset img {
+    border: 0;
+}
+
+.global-reset .fn-clear {
+    zoom: 1;
+}
+
+.global-reset .fn-clear:before,.global-reset .fn-clear:after {
+    content: "";
+    display: table;
+}
+
+.global-reset .fn-clear:after {
+    clear: both;
+}
+
+.global-hide,.global-cms-block {
+    display: none;
+}
+
+.global-loading {
+    height: 50px;
+    background: url(../../image/nav/loading.gif) center no-repeat;
+}
+
+.global-top-a .global-top {
+    height: 27px;
+    background: #3d474a;
+    color: #fff;
+}
+
+.global-top-a .global-top ul {
+    margin: 0;
+    padding: 0;
+}
+
+.global-top-a .global-top a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.global-top-a .global-top a:hover {
+    text-decoration: underline;
+}
+
+.global-top-a .global-top .iconfont {
+    cursor: pointer;
+    color: #fff;
+}
+
+.global-top-a .global-top-container {
+    width: 990px;
+    margin: auto;
+}
+
+.global-top-a .global-top-left {
+    float: left;
+}
+
+.global-top-a .global-top-right {
+    float: right;
+}
+
+.global-top-a .global-top-item {
+    float: left;
+    padding: 0 7px;
+    line-height: 26px;
+    height: 27px;
+}
+
+.global-top-a .global-top-item-first {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.global-top-a .global-top-item-last {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.global-top-a .global-top .global-top-angle {
+    display: inline-block;
+    color: #ddd;
+    -webkit-transition: -webkit-transform .5s ease;
+    -moz-transition: -moz-transform .5s ease;
+    -o-transition: -o-transform .5s ease;
+    -ms-transition: -ms-transform .5s ease;
+    transition: transform .5s ease;
+    font-size: 10px;
+    margin-left: 1px;
+}
+
+.global-top-a .global-top-item-hover {
+    color: #3d474a;
+    height: 18px;
+    border-top: 4px solid #3d474a;
+    line-height: 18px;
+    background: #f2f2f2;
+    -webkit-border-radius: 1px 1px 0 0;
+    border-radius: 1px 1px 0 0;
+    padding-bottom: 5px;
+    zoom: 1;
+}
+
+.global-top-a .global-top-item-hover .global-top-angle {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: #686d71;
+}
+
+.global-top-a .global-top-item-hover a {
+    color: #3d474a;
+}
+
+.global-top-a .global-top-item-hover a:hover {
+    color: #e66e1e;
+}
+
+.global-top-a .global-top-item-hover a.global-msg-count {
+    color: #fff;
+}
+
+.global-top-a .global-top-item-hover a.global-msg-count:hover {
+    color: #fff;
+}
+
+.global-top-a .global-top-item-hover .iconfont {
+    color: #3d474a;
+}
+
+.global-top-a .global-top-overlay {
+    padding: 3px 6px;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    border-top: 0;
+}
+
+.global-top-a .global-top-overlay ul {
+    margin: 0;
+    padding: 0;
+}
+
+.global-top-a .global-top-overlay a {
+    text-decoration: none;
+    color: #666;
+}
+
+.global-top-a .global-top-overlay a:hover {
+    text-decoration: underline;
+    color: #e66e1e;
+}
+
+.global-top-a .global-top-overlay-item {
+    padding: 5px 7px;
+    height: 18px;
+    line-height: 18px;
+    border-bottom: 1px solid #ccc;
+}
+
+.global-top-a #globalUser {
+    cursor: pointer;
+}
+
+.global-top-a .global-top-seperator {
+    padding: 0 4px;
+    color: #61676d;
+}
+
+.global-top-a .global-widget-help .iconfont,.global-top-a .global-widget-more .iconfont {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 16px;
+    color: #3d474a;
+    font-size: 14px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.global-top-a #globalMore {
+    background-color: #505a5d;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    margin: 4px 0 0 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 18px;
+    line-height: 18px;
+}
+
+.global-top-a #globalMore.global-top-item-hover {
+    background: #f2f2f2;
+    -webkit-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    margin-top: 0;
+}
+
+.global-top-a .global-button {
+    display: inline-block;
+    *display: inline;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: verdana,Hiragino Sans GB;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 0 20px;
+    *zoom: 1;
+    *overflow: visible;
+}
+
+.global-top-a .global-button:hover {
+    text-decoration: none;
+}
+
+.global-top-a .global-button.ui-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.global-top-a .global-button-sorange {
+    border: 1px solid #f67600;
+    color: #fff;
+    background-color: #f5aa2b;
+    background: -webkit-linear-gradient(top,#ffa600,#fe9200);
+    background: -moz-linear-gradient(top,#ffa600,#fe9200);
+    background: -o-linear-gradient(top,#ffa600,#fe9200);
+    background: -ms-linear-gradient(top,#ffa600,#fe9200);
+    background: linear-gradient(to bottom,#ffa600,#fe9200);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFA600, endColorstr=#FFFE9200);
+    -webkit-box-shadow: 0 -2px 3px rgba(255,255,255,.4) inset;
+    box-shadow: 0 -2px 3px rgba(255,255,255,.4) inset;
+    padding: 0 12px;
+    line-height: 23px;
+    height: 23px;
+    font-size: 12px;
+}
+
+.global-top-a .global-button-sorange:hover {
+    border: 1px solid #f26600;
+    background-color: #f5aa2b;
+    background: -webkit-linear-gradient(top,#ffb91c,#ffa700);
+    background: -moz-linear-gradient(top,#ffb91c,#ffa700);
+    background: -o-linear-gradient(top,#ffb91c,#ffa700);
+    background: -ms-linear-gradient(top,#ffb91c,#ffa700);
+    background: linear-gradient(to bottom,#ffb91c,#ffa700);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFB91C, endColorstr=#FFFFA700);
+    -webkit-box-shadow: 0 -2px 2px rgba(255,255,255,.4) inset;
+    box-shadow: 0 -2px 2px rgba(255,255,255,.4) inset;
+}
+
+.global-top-a .global-top-overlay .global-button-sorange {
+    color: #fff;
+}
+
+.global-top-a .global-top-overlay .global-button-sorange:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.global-top-a .global-button-swhite {
+    border: 1px solid #b3b3b3;
+    line-height: 23px;
+    height: 23px;
+    padding: 0 12px;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    background: -webkit-linear-gradient(top,#fff,#ebebeb);
+    background: -moz-linear-gradient(top,#fff,#ebebeb);
+    background: -o-linear-gradient(top,#fff,#ebebeb);
+    background: -ms-linear-gradient(top,#fff,#ebebeb);
+    background: linear-gradient(to bottom,#fff,#ebebeb);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFEBEBEB);
+    -webkit-box-shadow: 0 -2px 2px rgba(255,255,255,.33) inset;
+    box-shadow: 0 -2px 2px rgba(255,255,255,.33) inset;
+}
+
+.global-top-a .global-button-swhite:hover {
+    border: 1px solid #999;
+    background: -webkit-linear-gradient(top,#fff,#f0f0f0);
+    background: -moz-linear-gradient(top,#fff,#f0f0f0);
+    background: -o-linear-gradient(top,#fff,#f0f0f0);
+    background: -ms-linear-gradient(top,#fff,#f0f0f0);
+    background: linear-gradient(to bottom,#fff,#f0f0f0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF0F0F0);
+    background-color: #f6f6f6;
+}
+
+.global-top-a .global-button-swhite:active {
+    color: #595959;
+}
+
+.global-top-a .global-top-overlay .global-button-swhite {
+    color: #595959;
+}
+
+.global-top-a .global-top-overlay .global-button-swhite:hover {
+    color: #595959;
+    text-decoration: none;
+}
+
+.global-top-a #globalMsg {
+    background: #61676a;
+    margin-left: 5px;
+}
+
+.global-top-a #globalMsg a {
+    -webkit-transition: background-color .6s;
+    -moz-transition: background-color .6s;
+    -o-transition: background-color .6s;
+    -ms-transition: background-color .6s;
+    transition: background-color .6s;
+    padding: 0 2px;
+}
+
+.global-top-a #globalMsg .iconfont {
+    font-size: 14px;
+}
+
+.global-top-a #globalMsg.global-msg-active {
+    background: #ff6800;
+}
+
+.global-top-a #globalMsg.global-msg-active a {
+    display: block;
+}
+
+.global-top-a #globalMsg.global-msg-active a:hover {
+    text-decoration: none;
+}
+
+.global-top-a .global-msg-tit {
+    color: gray;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 0 2px;
+    margin: 0 0 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.global-top-a .global-msg-tit a {
+    color: #08c;
+}
+
+.global-top-a .global-msg-tit-link {
+    padding: 0 6px;
+}
+
+.global-top-a .global-msg-tit-action {
+    float: right;
+    font-weight: 400;
+}
+
+.global-top-a .global-msg-item {
+    position: relative;
+    padding: 4px 5px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.global-top-a .global-msg-item .global-msg-item-content:hover {
+    color: #666;
+    text-decoration: none;
+}
+
+.global-top-a .global-msg-item .global-msg-item-priority {
+    color: #c30;
+}
+
+.global-top-a .global-msg-item .global-msg-item-priority:hover {
+    color: #c30;
+}
+
+.global-top-a .global-msg-item .global-msg-item-close {
+    position: absolute;
+    right: -12px;
+}
+
+.global-top-a .global-msg-item .global-msg-item-close .iconfont {
+    cursor: pointer;
+}
+
+.global-top-a .global-msg-item .global-msg-item-close:hover {
+    text-decoration: none;
+    right: 4px;
+}
+
+.global-top-a .global-msg-item-hover {
+    background: #e6e6e6;
+}
+
+.global-top-a .global-msg-item-hover .global-msg-item-close {
+    right: 4px;
+}
+
+.global-top-a .global-msg-confirm {
+    height: 50px;
+    padding: 4px 5px;
+    background: #fff;
+}
+
+.global-top-a .global-msg-confirm .global-msg-comfirm-txt {
+    margin: 0;
+    padding: 0 0 5px;
+}
+
+.global-top-a .global-account {
+    border: 1px solid #f2f2f2;
+    border-top: 0;
+    padding: 0;
+    color: #666;
+}
+
+.global-top-a .global-account a {
+    color: #08c;
+}
+
+.global-top-a .global-account a:hover {
+    text-decoration: underline;
+}
+
+.global-top-a .global-account .global-account-head {
+    position: relative;
+    height: 40px;
+    padding-left: 60px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.global-top-a .global-account .global-account-head .global-account-name {
+    margin-bottom: 3px;
+}
+
+.global-top-a .global-account .global-account-body {
+    background: #fff;
+    padding: 10px;
+}
+
+.global-top-a .global-account .global-account-body p {
+    margin: 0;
+}
+
+.global-top-a .global-account .global-account-body hr {
+    border: 0;
+    border-top: 1px dashed #e3e3e3;
+    margin: 8px 0;
+    height: 0;
+}
+
+.global-top-a .global-account .global-top-seperator {
+    color: #ccc;
+}
+
+.global-top-a .global-account .global-account-img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.global-top-a .global-account .global-account-img img {
+    border: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.global-top-a .global-account .global-account-img .iconfont {
+    background: #dbdbdb;
+    border: 1px solid #ddd;
+    color: #ababab;
+    float: left;
+    font-size: 30px;
+    height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: 40px;
+}
+
+.global-top-a .global-account .global-account-robot {
+    position: absolute;
+    top: 36px;
+    left: 40px;
+    display: block;
+}
+
+.global-top-a .global-account .global-account-robot .iconfont {
+    position: relative;
+    z-index: 1;
+    font-size: 12px;
+    cursor: pointer;
+    color: #666;
+}
+
+.global-top-a .global-account .global-account-robot .global-account-robot-face {
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    width: 11px;
+    height: 10px;
+    background: #fff;
+}
+
+.global-top-a .global-account .global-account-robot:hover {
+    text-decoration: none;
+}
+
+.global-top-a .global-account .global-account-robot:hover .iconfont {
+    color: #ffac00;
+}
+
+.global-top-a .global-account .global-account-balance {
+    margin-right: 5px;
+    color: #f98d00;
+    font-size: 14px;
+}
+
+.global-top-a .global-account .global-account-showbalance {
+    display: inline-block;
+    background: #f3fcff;
+    color: #08c;
+    border: 1px solid #dfe8eb;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-right: 5px;
+    padding: 0 5px;
+}
+
+.global-top-a .global-account .global-account-showbalance:hover {
+    color: #fff;
+    border: 1px solid #08c;
+    text-decoration: none;
+    background: #08c;
+}
+
+.global-common-a .global {
+    background-color: #f6f6f6;
+}
+
+.global-common-a .global-header {
+    padding: 17px 0 18px;
+    background: #f6f6f6;
+    height: 75px;
+}
+
+.global-common-a .global-header-content {
+    margin: 0 auto;
+    width: 990px;
+}
+
+.global-common-a .global-logo {
+    float: left;
+    display: inline;
+}
+
+.global-common-a .global-logo a {
+    display: block;
+    height: 40px;
+    width: 115px;
+    background: url(../../image/nav/logo.png) no-repeat;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx) {
+    .global-common-a .global-logo a {
+        background: url(../../image/nav/logo.png) no-repeat;
+        -webkit-background-size: 115px 40px;
+        -moz-background-size: 115px 40px;
+        background-size: 115px 40px;
+    }
+}
+
+.global-common-a .global-slogan {
+    float: left;
+    display: block;
+    height: 40px;
+    width: 130px;
+    margin-left: 5px;
+    background: url(../../image/nav/loading.gif);
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx) {
+    .global-common-a .global-slogan {
+        background: url(../../image/nav/loading.gif);
+        -webkit-background-size: 130px 40px;
+        -moz-background-size: 130px 40px;
+        background-size: 130px 40px;
+    }
+}
+
+.global-common-a .global-logo-neighbor {
+    float: left;
+    height: 40px;
+    line-height: 43px;
+}
+
+.global-common-a .global-title {
+    border-left: 1px solid #728695;
+    float: left;
+    display: inline;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 10px;
+    line-height: 60px;
+    font-size: 18px;
+    color: #728695;
+    font-weight: 700;
+}
+
+.global-common-a .global-nav {
+    float: right;
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 16px;
+    width: auto;
+    height: auto;
+}
+
+.global-common-a .global-nav-item {
+    float: left;
+    display: inline;
+    margin-left: 32px;
+    position: relative;
+    font-weight: 700;
+}
+
+.global-common-a .global-nav-item .iconfont {
+    color: #e66e1e;
+    font-size: 12px;
+    visibility: hidden;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+}
+
+.global-common-a .global-nav-item a {
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+.global-common-a .global-nav-item a:hover,.global-common-a .global-nav-item-current a {
+    color: #e66e1e;
+}
+
+.global-common-a .global-nav-item-arrow {
+    display: none;
+    position: absolute;
+    bottom: -25px;
+    _bottom: -30px;
+    width: 13px;
+    margin-left: -8px;
+    left: 50%;
+    font-size: 16px;
+    line-height: 20px;
+    color: #d9d9d9;
+}
+
+.global-common-a .global-nav-item-arrow-border {
+    bottom: -26px;
+    _bottom: -31px;
+    color: #e3e3e3;
+}
+
+.global-common-a .global-nav-item-current .global-nav-item-arrow {
+    display: block;
+}
+
+.global-common-a .global-nav-item-current .iconfont {
+    visibility: visible;
+}
+
+.global-common-a .global-nav-nosub {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 15px;
+}
+
+.global-common-a .global-nav-nosub .global-nav-item-arrow {
+    color: #ddd;
+}
+
+.global-common-a .global-nav-nosub .global-nav-item-arrow-border {
+    color: #fff;
+}
+
+.global-common-a .global-subheader {
+    height: 32px;
+    margin-bottom: 15px;
+    background-color: #e3e3e3;
+    line-height: 32px;
+    -webkit-box-shadow: 0 1px 2px #ddd inset,0 1px 0 #eee;
+    box-shadow: 0 1px 2px #ddd inset,0 1px 0 #eee;
+}
+
+.global-common-a .global-subnav {
+    margin: 0 auto;
+    width: 990px;
+    list-style: none;
+    padding: 0;
+    font-size: 12px;
+    position: relative;
+    float: none;
+}
+
+.global-common-a .global-subnav-item {
+    float: left;
+    color: #676d70;
+}
+
+.global-common-a .global-subnav-item a {
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    color: #676d70;
+    display: block;
+    line-height: 16px;
+    line-height: 15px \0;
+    *line-height: 15px;
+    margin-top: 3px;
+    padding: 5px 25px 6px;
+    text-decoration: none;
+}
+
+.global-common-a .global-subnav-item a:hover {
+    color: #e66e1e;
+}
+
+.global-common-a .global-subnav-item-current a {
+    background-color: #f2f2f2;
+}
+
+.global-common-a .global-subnav-line {
+    border-left: 1px solid #676d70;
+    border-right: 1px solid #fff;
+    width: 0;
+    height: 14px;
+    float: left;
+    display: inline;
+    margin: 13px 0;
+    margin-right: 7px;
+    _zoom: 1;
+    _overflow: hidden;
+}
+
+.global-common-a .global-subnav-links {
+    margin: 0;
+    color: #676d70;
+}
+
+.global-common-a .global-subnav-links a {
+    margin-right: 7px;
+    color: #676d70;
+    text-decoration: none;
+    zoom: 1;
+}
+
+.global-common-a .global-subnav-links a:hover {
+    color: #e66e1e;
+}
+
+.global-common-a .global-separator-pd {
+    border-left: 1px solid #676d70;
+    border-right: 1px solid #eff0f1;
+    width: 0;
+    height: 14px;
+    line-height: 14px;
+    zoom: 1;
+    margin-right: 12px;
+}
+
+.global-common-a .global-subnav-input {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    line-height: 1;
+}
+
+.global-common-a .global-subnav-input input {
+    border: 1px solid #e4e7e8;
+    padding: 4px 10px;
+    font-size: 12px;
+    width: 148px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    margin: 0;
+    line-height: 1;
+    height: 14px;
+    outline: 0;
+}
+
+.global-common-a .global-subnav-input-scan {
+    color: #cfcccd;
+    font-size: 14px;
+    line-height: 14px;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+
+.global-common-a .placeholder {
+    color: #ccc;
+}

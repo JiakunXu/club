@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="trade">
+	
+	<typeAlias alias="trade" type="com.wideka.boss.api.trade.bo.Trade" />
+	
+	<select id="getTradeCount" parameterClass="trade" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1)
+		  FROM basis_tb_trade t
+		 WHERE t.STATE = 'U'
+	]]>
+		<dynamic>
+			<isNotEmpty property="search" prepend="and">
+			<![CDATA[
+				  ( t.trade_id like #search,handler=wildcard# escape '\\'
+				 or t.trade_code like #search,handler=wildcard# escape '\\'
+				 or t.trade_no like #search,handler=wildcard# escape '\\' )
+			]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getTradeList" parameterClass="trade" resultClass="trade">
+	<![CDATA[
+		SELECT t.TRADE_ID AS tradeId,
+			   t.TRADE_CODE AS tradeCode,
+			   t.TRADE_NO AS tradeNo,
+			   DATE_FORMAT(t.TRADE_DATE, '%Y-%m-%d') AS tradeDate,
+			   t.LIKE,
+			   DATE_FORMAT(t.LIKE_DATE, '%Y-%m-%d') AS likeDate,
+			   p.ITEM_NAME AS itemName,
+			   q.SELLER_NAME AS sellerName
+		  FROM basis_tb_trade t,
+			   basis_tb_item p,
+			   basis_tb_seller q
+		 WHERE t.ITEM_ID = p.ITEM_ID
+		   AND p.SELLER_ID = q.SELLER_ID
+		   AND t.STATE = 'U'
+	]]>
+		<dynamic>
+			<isNotEmpty property="search" prepend="and">
+			<![CDATA[
+				  ( t.trade_id like #search,handler=wildcard# escape '\\'
+				 or t.trade_code like #search,handler=wildcard# escape '\\'
+				 or t.trade_no like #search,handler=wildcard# escape '\\' )
+			]]>
+			</isNotEmpty>
+			<isEmpty property="sort">
+			<![CDATA[ ORDER BY TRADE_ID asc ]]>
+			</isEmpty>
+			<isNotEmpty property="sort">
+			<![CDATA[ ORDER BY $sort$ $order$, TRADE_ID asc ]]>
+			</isNotEmpty>
+		</dynamic>
+	<![CDATA[
+		LIMIT $limit$ OFFSET $offset$
+	]]>
+	</select>
+	
+	<update id="updateTrade" parameterClass="trade">
+	<![CDATA[
+		UPDATE basis_tb_trade t
+		   SET t.modify_date = NOW(),
+			   t.modify_user = #modifyUser#
+	]]>
+		<dynamic>
+			<isNotNull property="tradeNo" prepend=",">
+			<![CDATA[ t.trade_no = #tradeNo# ]]>
+			</isNotNull>
+			<isNotEmpty property="tradeDate" prepend=",">
+				<isEqual property="tradeDate" compareValue="0000-00-00">
+				<![CDATA[ t.trade_date = null ]]>
+				</isEqual>
+				<isNotEqual property="tradeDate" compareValue="0000-00-00">
+				<![CDATA[ t.trade_date = STR_TO_DATE( #tradeDate#, '%Y-%m-%d') ]]>
+				</isNotEqual>
+			</isNotEmpty>
+			<isNotEmpty property="like">
+			<![CDATA[
+				, t.like = #like# 
+				, t.like_date = NOW()
+			]]>
+			</isNotEmpty>
+		</dynamic>
+	<![CDATA[
+		 WHERE t.STATE = 'U'
+	]]>
+		<dynamic>
+			<isNotEmpty property="tradeId">
+			<![CDATA[ AND t.trade_id = #tradeId# ]]>
+			</isNotEmpty>
+			<isEmpty property="tradeId">
+			<![CDATA[ AND t.trade_code = #tradeCode# ]]>
+			</isEmpty>
+			<isNotEmpty property="like">
+			<![CDATA[ AND t.like is null ]]>
+			</isNotEmpty>
+		</dynamic>
+	</update>
+	
+	<select id="getTrade" parameterClass="trade" resultClass="trade">
+	<![CDATA[
+		SELECT t.TRADE_ID AS tradeId,
+			   t.TRADE_CODE AS tradeCode,
+			   t.TRADE_NO AS tradeNo,
+			   p.ITEM_NAME AS itemName,
+			   q.SELLER_NAME AS sellerName,
+			   t.LIKE
+		  FROM basis_tb_trade t,
+			   basis_tb_item p,
+			   basis_tb_seller q
+		 WHERE t.ITEM_ID = p.ITEM_ID
+		   AND p.SELLER_ID = q.SELLER_ID
+		   AND t.STATE = 'U'
+		   AND t.TRADE_CODE = #tradeCode#
+	]]>
+	</select>
+	
+	<insert id="createTrade" parameterClass="trade">
+	<![CDATA[
+		INSERT
+		INTO basis_tb_trade
+		  (
+			TRADE_CODE,
+			ITEM_ID,
+			TRADE_NO,
+			TRADE_DATE,
+			`LIKE`,
+			LIKE_DATE,
+			STATE,
+			CREATE_DATE,
+			CREATE_USER,
+			MODIFY_DATE,
+			MODIFY_USER
+		  )
+		  VALUES
+		  (
+			#tradeCode#,
+			#itemId#,
+			#tradeNo#,
+			STR_TO_DATE( #tradeDate#, '%Y-%m-%d'),
+			#like#,
+			STR_TO_DATE( #likeDate#, '%Y-%m-%d %T'),
+			'U',
+			NOW(),
+			#modifyUser#,
+			NOW(),
+			#modifyUser#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="tradeId">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+</sqlMap>

@@ -1,0 +1,11 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<include file="struts-default.xml" />
+	<include file="struts/struts-framework.xml" />
+	<include file="struts/struts-error.xml" />
+	<include file="struts/struts-login.xml" />
+	<include file="struts/struts-portal.xml" />
+	<include file="struts/struts-trade.xml" />
+</struts>

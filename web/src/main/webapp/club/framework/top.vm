@@ -1,0 +1,28 @@
+<div class="global-top-a">
+	<div class="global-top">
+		<div class="global-top-container">
+			<ul class="global-top-left">
+				<li class="global-top-item">
+					<a class="glyphicon glyphicon-phone" style="font-size: 18px; margin-top: 3px;" href="$!{env.appUrl}/mobile/index.htm" target="_blank" ></a>
+                </li>
+            </ul>
+			<ul class="global-top-right">
+				#if($!stringUtil.isEmpty($!{user.userId}))
+				<li class="global-top-item">
+					<a href="$!{env.appUrl}" target="_self" class="global-top-link">登录</a>
+                </li>
+				#else
+				<li class="global-top-item">您好,</li>
+                <li class="global-top-item">$!{user.userName}</li>
+				<li class="global-top-item">
+					<a href="$!{env.appUrl}/logout.htm" target="_parent" class="global-top-link">退出</a>
+                </li>
+				#end
+                <em class="global-top-item global-top-seperator">|</em>
+				<li class="global-top-item">
+					<a href="$!{env.appUrl}/help/helpAction!index.htm" target="_blank" class="global-top-link">帮助中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

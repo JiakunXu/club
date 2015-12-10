@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="monitor.log">
+	
+	<typeAlias alias="logMonitor" type="com.wideka.boss.api.monitor.bo.LogMonitor" />
+	
+	<select id="getLogMonitorCount" parameterClass="logMonitor" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1) FROM BASIS_TB_MONITOR_LOG t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getLogMonitorList" parameterClass="logMonitor" resultClass="logMonitor">
+		<include refid="global.paginationStart" />
+	<![CDATA[
+		SELECT t.id,
+		  t.class_name          AS className,
+		  t.method_name         AS methodName,
+		  t.line_number         AS lineNumber,
+		  t.message             AS MESSAGE,
+		  t.e,
+		  TO_CHAR(t.create_date,'yyyy-mm-dd hh24:mi:ss') AS createDate
+		FROM BASIS_TB_MONITOR_LOG t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+		</dynamic>
+		<include refid="global.orderBy" />
+		<include refid="global.paginationEnd" />
+	</select>
+	
+	<insert id="createLogMonitor" parameterClass="logMonitor">
+	<![CDATA[
+		INSERT
+		INTO BASIS_TB_MONITOR_LOG
+		  (
+			CLASS_NAME,
+			METHOD_NAME,
+			LINE_NUMBER,
+			MESSAGE,
+			E,
+			CREATE_DATE
+		  )
+		  VALUES
+		  (
+			#className:VARCHAR#,
+			#methodName:VARCHAR#,
+			#lineNumber:VARCHAR#,
+			#message:VARCHAR#,
+			#e:VARCHAR#,
+			STR_TO_DATE(#createDate#, '%Y-%m-%d %T')
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+	<select id="getLogMonitorList4SendEmail" resultClass="logMonitor">
+	<![CDATA[
+		SELECT *
+		FROM
+		  (SELECT row_.*,
+			rownum rownum_
+		  FROM
+			(SELECT t.id,
+			  t.class_name           AS className,
+			  t.method_name          AS methodName,
+			  t.line_number          AS lineNumber,
+			  t.message              AS MESSAGE,
+			  t.e,
+			  TO_CHAR(t.create_date,'yyyy-mm-dd hh24:mi:ss') AS createDate
+			FROM BASIS_TB_MONITOR_LOG t
+			WHERE t.create_date > sysdate - 0.25
+			ORDER BY t.log_monitor_id DESC
+			) row_
+		  WHERE rownum < 50
+		  )
+		WHERE rownum_ >= 1
+	]]>
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://boss}boss$framework"
+		extends="struts-default" namespace="/framework">
+
+		<result-types>
+			<result-type name="velocity" class="org.apache.struts2.dispatcher.VelocityResult" default="true" />
+			<result-type name="json" class="com.wideka.boss.framework.struts.result.JSONResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="exception" class="com.wideka.boss.framework.struts.interceptor.ExceptionInterceptor">
+				<param name="ignoreExceptions">java.net.SocketException</param>
+				<param name="logEnabled">true</param>
+				<param name="logLevel">error</param>
+			</interceptor>
+
+			<interceptor name="decodeParams" class="com.wideka.boss.framework.struts.interceptor.DecodeParametersInterceptor" />
+
+			<!-- interceptor name="set-app-context" class="com.wideka.boss.framework.struts.interceptor.SetAppContextInterceptor" 
+				/ -->
+
+			<interceptor name="authentication" class="authenticationInterceptor" />
+			<interceptor name="actionMonitor" class="actionMonitorInterceptor" />
+
+			<interceptor-stack name="authenticationStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="decodeParams" />
+				<interceptor-ref name="authentication" />
+				<!-- 操作日志 -->
+				<interceptor-ref name="actionMonitor" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultStack" />
+
+		<global-results>
+			<result name="440">/boss/framework/error/440.vm</result>
+			<result name="exception">/boss/framework/error/error_ok.vm</result>
+			<result name="isNotExsit">/boss/framework/error/isNotExsit.vm</result>
+			<result name="authorization_error">/boss/framework/error/authorization_error.vm</result>
+			<result name="401">/boss/framework/error/401.vm</result>
+			<result name="jsonresult" type="json"></result>
+			<result name="resourceResult">/boss/framework/common/resourceResult.vm</result>
+			<result name="resultMessage">/boss/framework/common/resultMessage.vm</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="exception" />
+		</global-exception-mappings>
+
+	</package>
+</struts>

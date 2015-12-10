@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://code.alibabatech.com/schema/dubbo
+           http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+	<dubbo:application name="client" owner="jiakunxu" />
+ 
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+	<!-- dubbo:registry address="multicast://224.5.6.7:1234" / -->
+	
+	<dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper.address}" client="curator" />
+ 
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" />
+	
+	<!-- 关闭所有服务的启动时检查 -->
+	<dubbo:consumer check="false" />
+	
+	<!-- 通过注册中心发现监控中心服务 -->
+	<dubbo:monitor protocol="registry" />
+ 
+</beans>

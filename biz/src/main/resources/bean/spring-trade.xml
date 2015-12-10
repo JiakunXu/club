@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="tradeAction" class="com.wideka.boss.trade.action.TradeAction" parent="baseAction" scope="request">
+		<property name="tradeService" ref="tradeService" />
+	</bean>
+	
+	<bean id="tradeService" class="com.wideka.boss.trade.service.impl.TradeServiceImpl">
+		<property name="tradeDao" ref="tradeDao" />
+	</bean>
+	
+	<bean id="tradeDao" class="com.wideka.boss.trade.dao.impl.TradeDaoImpl" parent="baseDao" />
+	
+</beans>

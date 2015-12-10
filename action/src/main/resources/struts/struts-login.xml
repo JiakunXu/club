@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://boss}boss$login"
+		extends="{http://boss}boss$framework" namespace="/">
+
+		<!-- 登陆 -->
+		<action name="login" class="loginAction" method="login">
+			<result name="incorrect">/boss/portal/index.vm</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">home</param>
+			</result>
+		</action>
+		
+		<!-- 退出 -->
+		<action name="logout" class="loginAction" method="logout">
+			<result name="logout" type="redirect">
+				/
+			</result>
+		</action>
+		
+	</package>
+</struts>

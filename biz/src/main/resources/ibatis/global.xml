@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="global">
+
+	<sql id="paginationStart">
+	<![CDATA[ select * from (select row_.*, rownum rownum_ from ( ]]>
+	</sql>
+
+	<sql id="paginationEnd">
+	<![CDATA[ ) row_ where rownum < #end#) where rownum_ >= #start# ]]>
+	</sql>
+
+	<sql id="orderBy">
+		<isNotEmpty property="sort">
+		<![CDATA[ ORDER BY $sort$ $dir$ ]]>
+		</isNotEmpty>
+	</sql>
+
+</sqlMap>

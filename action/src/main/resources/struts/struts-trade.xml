@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://boss}boss$trade"
+		extends="{http://boss}boss$framework" namespace="/trade">
+
+		<action name="data" class="tradeAction" method="getTradeJsonList">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+		<action name="tradeNo" class="tradeAction" method="updateTradeNo">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+		<action name="tradeDate" class="tradeAction" method="updateTradeDate">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+		<action name="detail" class="tradeAction" method="detail">
+			<result name="success">/boss/trade/detail.vm</result>
+		</action>
+		
+		<action name="like" class="tradeAction" method="like"></action>
+				
+		<action name="unlike" class="tradeAction" method="unlike"></action>
+		
+		<action name="create" class="tradeAction" method="create">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+	</package>
+</struts>

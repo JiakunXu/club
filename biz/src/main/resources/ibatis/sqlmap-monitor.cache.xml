@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="monitor.cache">
+	
+	<typeAlias alias="cacheStats" type="com.wideka.boss.api.cache.bo.CacheStats" />
+	
+	<select id="getCacheMonitorCount" parameterClass="cacheStats" resultClass="java.lang.Integer">
+	<![CDATA[
+		select count(1) from BASIS_TB_MONITOR_CACHE t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="hostAddress" prepend="and">
+			<![CDATA[ t.host_address = #hostAddress# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="port" prepend="and">
+			<![CDATA[ t.port = #port# ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getCacheMonitorList" parameterClass="cacheStats" resultClass="cacheStats">
+		<include refid="global.paginationStart" />
+	<![CDATA[
+		select t.id,
+			   t.address,
+			   t.host_address          as hostAddress,
+			   t.host_name             as hostName,
+			   t.port,
+			   t.delete_hits           as deleteHits,
+			   t.bytes,
+			   t.total_items           as totalItems,
+			   t.rusage_system         as rusageSystem,
+			   t.touch_misses          as touchMisses,
+			   t.cmd_touch             as cmdTouch,
+			   t.listen_disabled_num   as listenDisabledNum,
+			   t.auth_errors           as authErrors,
+			   t.evictions,
+			   t.version,
+			   t.pointer_size          as pointerSize,
+			   t.time,
+			   t.incr_hits             as incrHits,
+			   t.threads,
+			   t.expired_unfetched     as expiredUnfetched,
+			   t.limit_maxbytes        as limitMaxbytes,
+			   t.hash_is_expanding     as hashIsExpanding,
+			   t.bytes_read            as bytesRead,
+			   t.curr_connections      as currConnections,
+			   t.get_misses            as getMisses,
+			   t.reclaimed,
+			   t.bytes_written         as bytesWritten,
+			   t.hash_power_level      as hashPowerLevel,
+			   t.connection_structures as connectionStructures,
+			   t.cas_hits              as casHits,
+			   t.delete_misses         as deleteMisses,
+			   t.total_connections     as totalConnections,
+			   t.rusage_user           as rusageUser,
+			   t.cmd_flush             as cmdFlush,
+			   t.libevent,
+			   t.uptime,
+			   t.reserved_fds          as reservedFds,
+			   t.touch_hits            as touchHits,
+			   t.cas_badval            as casBadval,
+			   t.pid,
+			   t.get_hits              as getHits,
+			   t.curr_items            as currItems,
+			   t.cas_misses            as casMisses,
+			   t.accepting_conns       as acceptingConns,
+			   t.evicted_unfetched     as evictedUnfetched,
+			   t.cmd_get               as cmdGet,
+			   t.cmd_set               as cmdSet,
+			   t.auth_cmds             as authCmds,
+			   t.incr_misses           as incrMisses,
+			   t.hash_bytes            as hashBytes,
+			   t.decr_misses           as decrMisses,
+			   t.decr_hits             as decrHits,
+			   t.conn_yields           as connYields,
+			   t.create_date           as createDate
+		  from BASIS_TB_MONITOR_CACHE t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="hostAddress" prepend="and">
+			<![CDATA[ t.host_address = #hostAddress# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="port" prepend="and">
+			<![CDATA[ t.port = #port# ]]>
+			</isNotEmpty>
+		</dynamic>
+		<include refid="global.orderBy" />
+		<include refid="global.paginationEnd" />
+	</select>
+	
+	<insert id="createCacheMonitor" parameterClass="cacheStats">
+	<![CDATA[
+		INSERT
+		INTO BASIS_TB_MONITOR_CACHE
+		  (
+			ADDRESS,
+			HOST_ADDRESS,
+			HOST_NAME,
+			PORT,
+			DELETE_HITS,
+			BYTES,
+			TOTAL_ITEMS,
+			RUSAGE_SYSTEM,
+			TOUCH_MISSES,
+			CMD_TOUCH,
+			LISTEN_DISABLED_NUM,
+			AUTH_ERRORS,
+			EVICTIONS,
+			VERSION,
+			POINTER_SIZE,
+			TIME,
+			INCR_HITS,
+			THREADS,
+			EXPIRED_UNFETCHED,
+			LIMIT_MAXBYTES,
+			HASH_IS_EXPANDING,
+			BYTES_READ,
+			CURR_CONNECTIONS,
+			GET_MISSES,
+			RECLAIMED,
+			BYTES_WRITTEN,
+			HASH_POWER_LEVEL,
+			CONNECTION_STRUCTURES,
+			CAS_HITS,
+			DELETE_MISSES,
+			TOTAL_CONNECTIONS,
+			RUSAGE_USER,
+			CMD_FLUSH,
+			LIBEVENT,
+			UPTIME,
+			RESERVED_FDS,
+			CAS_BADVAL,
+			PID,
+			GET_HITS,
+			CURR_ITEMS,
+			CAS_MISSES,
+			ACCEPTING_CONNS,
+			EVICTED_UNFETCHED,
+			CMD_GET,
+			CMD_SET,
+			AUTH_CMDS,
+			INCR_MISSES,
+			HASH_BYTES,
+			DECR_MISSES,
+			DECR_HITS,
+			CONN_YIELDS,
+			TOUCH_HITS,
+			CREATE_DATE
+		  )
+		  VALUES
+		  (
+			#address:VARCHAR#,
+			#hostAddress:VARCHAR#,
+			#hostName:VARCHAR#,
+			#port:VARCHAR#,
+			#deleteHits:VARCHAR#,
+			#bytes:VARCHAR#,
+			#totalItems:VARCHAR#,
+			#rusageSystem:VARCHAR#,
+			#touchMisses:VARCHAR#,
+			#cmdTouch:VARCHAR#,
+			#listenDisabledNum:VARCHAR#,
+			#authErrors:VARCHAR#,
+			#evictions:VARCHAR#,
+			#version:VARCHAR#,
+			#pointerSize:VARCHAR#,
+			#time:VARCHAR#,
+			#incrHits:VARCHAR#,
+			#threads:VARCHAR#,
+			#expiredUnfetched:VARCHAR#,
+			#limitMaxbytes:VARCHAR#,
+			#hashIsExpanding:VARCHAR#,
+			#bytesRead:VARCHAR#,
+			#currConnections:VARCHAR#,
+			#getMisses:VARCHAR#,
+			#reclaimed:VARCHAR#,
+			#bytesWritten:VARCHAR#,
+			#hashPowerLevel:VARCHAR#,
+			#connectionStructures:VARCHAR#,
+			#casHits:VARCHAR#,
+			#deleteMisses:VARCHAR#,
+			#totalConnections:VARCHAR#,
+			#rusageUser:VARCHAR#,
+			#cmdFlush:VARCHAR#,
+			#libevent:VARCHAR#,
+			#uptime:VARCHAR#,
+			#reservedFds:VARCHAR#,
+			#casBadval:VARCHAR#,
+			#pid:VARCHAR#,
+			#getHits:VARCHAR#,
+			#currItems:VARCHAR#,
+			#casMisses:VARCHAR#,
+			#acceptingConns:VARCHAR#,
+			#evictedUnfetched:VARCHAR#,
+			#cmdGet:VARCHAR#,
+			#cmdSet:VARCHAR#,
+			#authCmds:VARCHAR#,
+			#incrMisses:VARCHAR#,
+			#hashBytes:VARCHAR#,
+			#decrMisses:VARCHAR#,
+			#decrHits:VARCHAR#,
+			#connYields:VARCHAR#,
+			#touchHits:VARCHAR#,
+			NOW()
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+</sqlMap>

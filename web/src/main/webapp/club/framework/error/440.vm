@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>出错啦</title>
+		#ICON()
+		#CSSM(["bootstrap"])
+		#UA()
+	</head>
+	<body>
+		<div class="container">
+			<div class="modal-dialog">
+    			<div class="modal-content">
+        			<div class="modal-header">
+        				<h4 class="modal-title">抱歉登录超时</h4>
+        			</div>
+        			<div class="modal-body">
+                        <p>可能因为：</p>
+						<ul>
+							<li>您已退出当前系统</li>
+							<li>当您点击某个连接时，它可能已过期</li>
+                        </ul>
+						<br />
+						<p>您可能需要：<a href="javascript:login()">重新登陆系统</a></p>
+                    </div>
+        			<div class="modal-footer"></div>
+                </div>
+          	</div>
+        </div>
+		#parse("/boss/framework/footer.vm")
+        <script languang="text/javascript">
+        function login() {
+    		var goto = encodeURIComponent("$!{goto}");
+    		if (goto != '') {
+        		top.location = "$!{env.appUrl}?goto=" + goto;
+    		} else {
+    			top.location = "$!{env.appUrl}";
+    		}
+        }
+        </script>
+	</body>
+</html>

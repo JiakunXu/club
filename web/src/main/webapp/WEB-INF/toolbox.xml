@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GB2312"?>
+<toolbox>
+	<tool>
+		<key>esc</key>
+		<scope>application</scope>
+		<class>com.wideka.boss.framework.util.EncodeUtil</class>
+	</tool>
+	<tool>
+		<key>dateUtil</key>
+		<scope>application</scope>
+		<class>com.wideka.boss.framework.util.DateUtil</class>
+	</tool>
+	<tool>
+		<key>stringUtil</key>
+		<scope>application</scope>
+		<class>org.apache.commons.lang.StringUtils</class>
+	</tool>
+	<tool>
+		<key>stringEscUtil</key>
+		<scope>application</scope>
+		<class>org.apache.commons.lang.StringEscapeUtils</class>
+	</tool>
+	<tool>
+		<key>formatUtil</key>
+		<scope>application</scope>
+		<class>com.wideka.boss.framework.util.FormatUtil</class>
+	</tool>
+	<tool>
+		<key>velocityMath</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.MathTool</class>
+	</tool>
+	<tool>
+		<key>date</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.DateTool</class>
+	</tool>
+</toolbox>

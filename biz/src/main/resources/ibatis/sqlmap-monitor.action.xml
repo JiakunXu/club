@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="monitor.action">
+	
+	<typeAlias alias="actionMonitor" type="com.wideka.boss.api.monitor.bo.ActionMonitor" />
+	
+	<insert id="createActionMonitor" parameterClass="actionMonitor">
+	<![CDATA[
+		INSERT
+		INTO BASIS_TB_MONITOR_ACTION
+		  (
+			USER_ID,
+			ACTION_NAME,
+			CREATE_DATE,
+			IP
+		  )
+		  VALUES
+		  (
+			#userId:VARCHAR#,
+			#actionName:VARCHAR#,
+			STR_TO_DATE(#createDate#, '%Y-%m-%d %T'),
+			#ip:VARCHAR#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+	<select id="getActionMonitorCount" parameterClass="actionMonitor" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1)
+		FROM BASIS_TB_MONITOR_ACTION t,
+		  BASIS_tb_user p
+		WHERE t.user_id = p.user_id
+	]]>
+		<dynamic>
+			<isNotEmpty property="passport" prepend="and">
+			<![CDATA[ p.passport like upper(#passport,handler=wildcard#) escape '\' ]]>
+			</isNotEmpty>
+			<isNotEmpty property="userId" prepend="and">
+			<![CDATA[ t.user_id = #userId# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getActionMonitorList" parameterClass="actionMonitor" resultClass="actionMonitor">
+		<include refid="global.paginationStart" />
+	<![CDATA[
+		SELECT t.id,
+		  p.passport,
+		  p.user_name   AS userName,
+		  t.action_name AS actionName,
+		  t.ip,
+		  TO_CHAR(t.create_date,'yyyy-mm-dd hh24:mi:ss') AS createDate
+		FROM BASIS_TB_MONITOR_ACTION t,
+		  BASIS_tb_user p
+		WHERE t.user_id = p.user_id
+	]]>
+		<dynamic>
+			<isNotEmpty property="passport" prepend="and">
+			<![CDATA[ p.passport like upper(#passport,handler=wildcard#) escape '\' ]]>
+			</isNotEmpty>
+			<isNotEmpty property="userId" prepend="and">
+			<![CDATA[ t.user_id = #userId# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+		</dynamic>
+		<include refid="global.orderBy" />
+		<include refid="global.paginationEnd" />
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://boss}boss$portal"
+		extends="{http://boss}boss$framework" namespace="/">
+
+		<!-- 登陆首页 -->
+		<action name="index" class="portalAction" method="index">
+			<result name="success">/boss/portal/index.vm</result>
+		</action>
+		
+		<action name="home" class="portalAction" method="home">
+			<interceptor-ref name="authenticationStack" />
+			<result name="success">/boss/portal/home.vm</result>
+		</action>
+		
+	</package>
+</struts>

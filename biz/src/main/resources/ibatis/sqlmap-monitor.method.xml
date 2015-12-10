@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="monitor.method">
+	
+	<typeAlias alias="methodMonitor" type="com.wideka.boss.api.monitor.bo.MethodMonitor" />
+	
+	<select id="getMethodMonitorCount" parameterClass="methodMonitor" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1) FROM BASIS_TB_MONITOR_METHOD t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+			<isNotEmpty property="className" prepend="and">
+			<![CDATA[ t.class_name like #className,handler=wildcard# escape '\' ]]>
+			</isNotEmpty>
+			<isNotEmpty property="methodName" prepend="and">
+			<![CDATA[ t.method_name like #methodName,handler=wildcard# escape '\' ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getMethodMonitorList" parameterClass="methodMonitor" resultClass="methodMonitor">
+		<include refid="global.paginationStart" />
+	<![CDATA[
+		SELECT t.id,
+		  t.class_name             AS className,
+		  t.method_name            AS methodName,
+		  t.cost,
+		  t.create_date AS createDate
+		FROM BASIS_TB_MONITOR_METHOD t
+	]]>
+		<dynamic prepend="WHERE">
+			<isNotEmpty property="gmtStart" prepend="and">
+			<![CDATA[ t.create_date >= to_date(#gmtStart#, 'yyyy-mm-dd') ]]>
+			</isNotEmpty>
+			<isNotEmpty property="gmtEnd" prepend="and">
+			<![CDATA[ t.create_date < to_date(#gmtEnd#, 'yyyy-mm-dd') + 1 ]]>
+			</isNotEmpty>
+			<isNotEmpty property="className" prepend="and">
+			<![CDATA[ t.class_name like #className,handler=wildcard# escape '\' ]]>
+			</isNotEmpty>
+			<isNotEmpty property="methodName" prepend="and">
+			<![CDATA[ t.method_name like #methodName,handler=wildcard# escape '\' ]]>
+			</isNotEmpty>
+		</dynamic>
+		<include refid="global.orderBy" />
+		<include refid="global.paginationEnd" />
+	</select>
+	
+	<insert id="createMethodMonitor" parameterClass="methodMonitor">
+	<![CDATA[
+		INSERT
+		INTO BASIS_TB_MONITOR_METHOD
+		  (
+			CLASS_NAME,
+			METHOD_NAME,
+			COST,
+			CREATE_DATE
+		  )
+		  VALUES
+		  (
+			#className:VARCHAR#,
+			#methodName:VARCHAR#,
+			#cost:NUMBER#,
+			NOW()
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+
+</sqlMap>
