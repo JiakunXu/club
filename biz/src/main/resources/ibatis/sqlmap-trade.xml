@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="trade">
 	
-	<typeAlias alias="trade" type="com.wideka.boss.api.trade.bo.Trade" />
+	<typeAlias alias="trade" type="com.wideka.club.api.trade.bo.Trade" />
 	
 	<select id="getTradeCount" parameterClass="trade" resultClass="java.lang.Integer">
 	<![CDATA[

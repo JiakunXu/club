@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="monitor.method">
 	
-	<typeAlias alias="methodMonitor" type="com.wideka.boss.api.monitor.bo.MethodMonitor" />
+	<typeAlias alias="methodMonitor" type="com.wideka.club.api.monitor.bo.MethodMonitor" />
 	
 	<select id="getMethodMonitorCount" parameterClass="methodMonitor" resultClass="java.lang.Integer">
 	<![CDATA[

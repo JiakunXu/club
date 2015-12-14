@@ -18,6 +18,11 @@ public class ReceiveServiceImpl implements IReceiveService {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
+		System.out.println("signature: " + signature);
+		System.out.println("nonce: " + nonce);
+		System.out.println("data: " + data);
+
+		result.setResult(true);
 		return result;
 	}
 

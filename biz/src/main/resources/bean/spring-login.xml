@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="loginAction" class="com.wideka.boss.login.action.LoginAction" parent="baseAction" scope="request">
+	<bean id="loginAction" class="com.wideka.club.login.action.LoginAction" parent="baseAction" scope="request">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="caService" ref="caService" />
 	</bean>

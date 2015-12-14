@@ -6,12 +6,12 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- 操作日志 -->
-	<bean id="actionMonitorInterceptor" class="com.wideka.boss.framework.struts.interceptor.ActionMonitorInterceptor">
+	<bean id="actionMonitorInterceptor" class="com.wideka.club.framework.struts.interceptor.ActionMonitorInterceptor">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 	</bean>
 	
 	<!-- 操作权限 -->
-	<bean id="authenticationInterceptor" class="com.wideka.boss.framework.struts.interceptor.AuthenticationInterceptor">
+	<bean id="authenticationInterceptor" class="com.wideka.club.framework.struts.interceptor.AuthenticationInterceptor">
 	</bean>
 	
 </beans>

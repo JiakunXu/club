@@ -8,7 +8,7 @@
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	
-	<bean id="methodProfiler" class="com.wideka.boss.framework.aop.MethodProfiler">
+	<bean id="methodProfiler" class="com.wideka.club.framework.aop.MethodProfiler">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="methodMonitorService" ref="methodMonitorService" />
 	</bean>
@@ -17,7 +17,7 @@
 		<aop:aspect ref="methodProfiler">
 			
 			<aop:pointcut id="theExecutionOfServiceMethod"
-				expression="(execution(* com.papa2.boss.*.task.*.*(..))
+				expression="(execution(* com.wideka.club.*.task.*.*(..))
 				)"/>
 				
 			<aop:around pointcut-ref="theExecutionOfServiceMethod"

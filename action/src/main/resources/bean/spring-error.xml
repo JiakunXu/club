@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="errorAction" class="com.wideka.boss.framework.action.ErrorAction"
+	<bean id="errorAction" class="com.wideka.club.framework.action.ErrorAction"
 		scope="request" parent="baseAction">
 	</bean>
 	

@@ -6,28 +6,28 @@
 	<settings useStatementNamespaces="true" enhancementEnabled="true" />
 
 	<!-- 为传入参数加上%后缀，执行前缀查询 -->
-	<typeAlias alias="prefix" type="com.wideka.boss.framework.ibatis.type.PrefixTypeHanlderCallback" />
+	<typeAlias alias="prefix" type="com.wideka.club.framework.ibatis.type.PrefixTypeHanlderCallback" />
 
 	<!-- 为传入参数加上%前缀，执行后缀查询 -->
-	<typeAlias alias="postfix" type="com.wideka.boss.framework.ibatis.type.PostfixTypeHanlderCallback" />
+	<typeAlias alias="postfix" type="com.wideka.club.framework.ibatis.type.PostfixTypeHanlderCallback" />
 
 	<!-- 为传入参数的前后都加上%，执行模糊查询 -->
-	<typeAlias alias="wildcard" type="com.wideka.boss.framework.ibatis.type.WildcardTypeHanlderCallback" />
+	<typeAlias alias="wildcard" type="com.wideka.club.framework.ibatis.type.WildcardTypeHanlderCallback" />
 
 	<!-- 将java.util.Date类型的传入参数转化成yyyy-mm-dd hh24:mi:ss格式的字符串 -->
-	<typeAlias alias="dateTime" type="com.wideka.boss.framework.ibatis.type.DateTimeTypeHanlderCallback" />
+	<typeAlias alias="dateTime" type="com.wideka.club.framework.ibatis.type.DateTimeTypeHanlderCallback" />
 
 	<!-- 将java.util.Date类型的传入参数转化成yyyy-mm-dd格式的字符串 -->
-	<typeAlias alias="dateOnly" type="com.wideka.boss.framework.ibatis.type.DateOnlyTypeHanlderCallback" />
+	<typeAlias alias="dateOnly" type="com.wideka.club.framework.ibatis.type.DateOnlyTypeHanlderCallback" />
 
 	<!-- 根据传入的java.util.Date类型参数计算出前/后一天，并且转化成yyyy-mm-dd hh24:mi:ss格式的字符串。执行时间区间查询时，构造条件一般为：开始日期 
 		<= DateField < 结束日期的后一天 -->
-	<typeAlias alias="previousDate" type="com.wideka.boss.framework.ibatis.type.PreviousDateTypeHanlderCallback" />
+	<typeAlias alias="previousDate" type="com.wideka.club.framework.ibatis.type.PreviousDateTypeHanlderCallback" />
 
-	<typeAlias alias="nextDate" type="com.wideka.boss.framework.ibatis.type.NextDateTypeHanlderCallback" />
+	<typeAlias alias="nextDate" type="com.wideka.club.framework.ibatis.type.NextDateTypeHanlderCallback" />
 
 	<!-- 当执行in参数查询的时候替换“’”字符为空 -->
-	<typeAlias alias="charaRplace" type="com.wideka.boss.framework.ibatis.type.CharacterReplaceHanlderCallback" />
+	<typeAlias alias="charaRplace" type="com.wideka.club.framework.ibatis.type.CharacterReplaceHanlderCallback" />
 
 	<sqlMap resource="ibatis/global.xml" />
 	<sqlMap resource="ibatis/sqlmap-monitor.action.xml" />

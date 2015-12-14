@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="logMonitorTask" class="com.wideka.boss.monitor.task.LogMonitorTask">
+	<bean id="logMonitorTask" class="com.wideka.club.monitor.task.LogMonitorTask">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="logMonitorService" ref="logMonitorService" />
 	</bean>

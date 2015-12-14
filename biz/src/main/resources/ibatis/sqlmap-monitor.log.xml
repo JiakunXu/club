@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="monitor.log">
 	
-	<typeAlias alias="logMonitor" type="com.wideka.boss.api.monitor.bo.LogMonitor" />
+	<typeAlias alias="logMonitor" type="com.wideka.club.api.monitor.bo.LogMonitor" />
 	
 	<select id="getLogMonitorCount" parameterClass="logMonitor" resultClass="java.lang.Integer">
 	<![CDATA[

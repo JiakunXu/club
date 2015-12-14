@@ -3,12 +3,12 @@
 	<tool>
 		<key>esc</key>
 		<scope>application</scope>
-		<class>com.wideka.boss.framework.util.EncodeUtil</class>
+		<class>com.wideka.club.framework.util.EncodeUtil</class>
 	</tool>
 	<tool>
 		<key>dateUtil</key>
 		<scope>application</scope>
-		<class>com.wideka.boss.framework.util.DateUtil</class>
+		<class>com.wideka.club.framework.util.DateUtil</class>
 	</tool>
 	<tool>
 		<key>stringUtil</key>
@@ -23,7 +23,7 @@
 	<tool>
 		<key>formatUtil</key>
 		<scope>application</scope>
-		<class>com.wideka.boss.framework.util.FormatUtil</class>
+		<class>com.wideka.club.framework.util.FormatUtil</class>
 	</tool>
 	<tool>
 		<key>velocityMath</key>

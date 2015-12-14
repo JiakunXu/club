@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="user">
 	
-	<typeAlias alias="user" type="com.wideka.boss.api.user.bo.User" />
+	<typeAlias alias="user" type="com.wideka.club.api.user.bo.User" />
 	
 	<select id="getUserByPassport" parameterClass="java.lang.String" resultClass="user">
 	<![CDATA[

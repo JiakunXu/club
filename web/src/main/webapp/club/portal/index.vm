@@ -45,7 +45,7 @@
       		</div>
         </div>
 		
-		#parse("/boss/framework/footer.vm")
+		#parse("/club/framework/footer.vm")
 		
 		#JSM(["jquery", "jquery.cookie", "bootstrap"])
 		<script>

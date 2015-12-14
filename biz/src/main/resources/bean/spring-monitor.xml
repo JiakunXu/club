@@ -6,28 +6,28 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- action monitor -->
-	<bean id="actionMonitorService" class="com.wideka.boss.monitor.service.impl.ActionMonitorServiceImpl">
+	<bean id="actionMonitorService" class="com.wideka.club.monitor.service.impl.ActionMonitorServiceImpl">
 		<property name="actionMonitorDao" ref="actionMonitorDao" />
 	</bean>
-	<bean id="actionMonitorDao" class="com.wideka.boss.monitor.dao.impl.ActionMonitorDaoImpl" parent="baseDao" />
+	<bean id="actionMonitorDao" class="com.wideka.club.monitor.dao.impl.ActionMonitorDaoImpl" parent="baseDao" />
 	
 	<!-- cache monitor -->
-	<bean id="cacheMonitorService" class="com.wideka.boss.monitor.service.impl.CacheMonitorServiceImpl">
+	<bean id="cacheMonitorService" class="com.wideka.club.monitor.service.impl.CacheMonitorServiceImpl">
 		<property name="cacheMonitorDao" ref="cacheMonitorDao" />
 	</bean>
-	<bean id="cacheMonitorDao" class="com.wideka.boss.monitor.dao.impl.CacheMonitorDaoImpl" parent="baseDao"></bean>
+	<bean id="cacheMonitorDao" class="com.wideka.club.monitor.dao.impl.CacheMonitorDaoImpl" parent="baseDao"></bean>
 	
 	<!-- log monitor -->
-	<bean id="logMonitorService" class="com.wideka.boss.monitor.service.impl.LogMonitorServiceImpl">
+	<bean id="logMonitorService" class="com.wideka.club.monitor.service.impl.LogMonitorServiceImpl">
 		<property name="logMonitorDao" ref="logMonitorDao" />
 	</bean>
-	<bean id="logMonitorDao" class="com.wideka.boss.monitor.dao.impl.LogMonitorDaoImpl" parent="baseDao">
+	<bean id="logMonitorDao" class="com.wideka.club.monitor.dao.impl.LogMonitorDaoImpl" parent="baseDao">
 	</bean>
 	
 	<!-- method monitor -->
-	<bean id="methodMonitorService" class="com.wideka.boss.monitor.service.impl.MethodMonitorServiceImpl">
+	<bean id="methodMonitorService" class="com.wideka.club.monitor.service.impl.MethodMonitorServiceImpl">
 		<property name="methodMonitorDao" ref="methodMonitorDao" />
 	</bean>
-	<bean id="methodMonitorDao" class="com.wideka.boss.monitor.dao.impl.MethodMonitorDaoImpl" parent="baseDao"></bean>
+	<bean id="methodMonitorDao" class="com.wideka.club.monitor.dao.impl.MethodMonitorDaoImpl" parent="baseDao"></bean>
 	
 </beans>

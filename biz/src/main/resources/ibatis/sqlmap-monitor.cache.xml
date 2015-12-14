@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="monitor.cache">
 	
-	<typeAlias alias="cacheStats" type="com.wideka.boss.api.cache.bo.CacheStats" />
+	<typeAlias alias="cacheStats" type="com.wideka.club.api.cache.bo.CacheStats" />
 	
 	<select id="getCacheMonitorCount" parameterClass="cacheStats" resultClass="java.lang.Integer">
 	<![CDATA[

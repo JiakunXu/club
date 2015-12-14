@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="baseDao" class="com.wideka.boss.framework.dao.impl.BaseDaoImpl" abstract="true">
+	<bean id="baseDao" class="com.wideka.club.framework.dao.impl.BaseDaoImpl" abstract="true">
 		<property name="sqlMapClient" ref="sqlMapClient" />
 	</bean>
 
