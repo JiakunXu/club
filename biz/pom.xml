@@ -17,6 +17,13 @@
 			<artifactId>club-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- module weixin -->
+		<dependency>
+			<groupId>com.wideka</groupId>
+			<artifactId>weixin-biz</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 		<!-- servlet -->
 		<dependency>

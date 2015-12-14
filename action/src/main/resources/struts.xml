@@ -7,5 +7,5 @@
 	<include file="struts/struts-error.xml" />
 	<include file="struts/struts-login.xml" />
 	<include file="struts/struts-portal.xml" />
-	<include file="struts/struts-trade.xml" />
+	<include file="struts/struts-weixin.xml" />
 </struts>

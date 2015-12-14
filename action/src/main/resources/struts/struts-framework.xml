@@ -2,24 +2,24 @@
  "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
  "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<package name="{http://boss}boss$framework"
+	<package name="{http://club}club$framework"
 		extends="struts-default" namespace="/framework">
 
 		<result-types>
 			<result-type name="velocity" class="org.apache.struts2.dispatcher.VelocityResult" default="true" />
-			<result-type name="json" class="com.wideka.boss.framework.struts.result.JSONResult" />
+			<result-type name="json" class="com.wideka.club.framework.struts.result.JSONResult" />
 		</result-types>
 
 		<interceptors>
-			<interceptor name="exception" class="com.wideka.boss.framework.struts.interceptor.ExceptionInterceptor">
+			<interceptor name="exception" class="com.wideka.club.framework.struts.interceptor.ExceptionInterceptor">
 				<param name="ignoreExceptions">java.net.SocketException</param>
 				<param name="logEnabled">true</param>
 				<param name="logLevel">error</param>
 			</interceptor>
 
-			<interceptor name="decodeParams" class="com.wideka.boss.framework.struts.interceptor.DecodeParametersInterceptor" />
+			<interceptor name="decodeParams" class="com.wideka.club.framework.struts.interceptor.DecodeParametersInterceptor" />
 
-			<!-- interceptor name="set-app-context" class="com.wideka.boss.framework.struts.interceptor.SetAppContextInterceptor" 
+			<!-- interceptor name="set-app-context" class="com.wideka.club.framework.struts.interceptor.SetAppContextInterceptor" 
 				/ -->
 
 			<interceptor name="authentication" class="authenticationInterceptor" />
@@ -37,14 +37,14 @@
 		<default-interceptor-ref name="defaultStack" />
 
 		<global-results>
-			<result name="440">/boss/framework/error/440.vm</result>
-			<result name="exception">/boss/framework/error/error_ok.vm</result>
-			<result name="isNotExsit">/boss/framework/error/isNotExsit.vm</result>
-			<result name="authorization_error">/boss/framework/error/authorization_error.vm</result>
-			<result name="401">/boss/framework/error/401.vm</result>
+			<result name="440">/club/framework/error/440.vm</result>
+			<result name="exception">/club/framework/error/error_ok.vm</result>
+			<result name="isNotExsit">/club/framework/error/isNotExsit.vm</result>
+			<result name="authorization_error">/club/framework/error/authorization_error.vm</result>
+			<result name="401">/club/framework/error/401.vm</result>
 			<result name="jsonresult" type="json"></result>
-			<result name="resourceResult">/boss/framework/common/resourceResult.vm</result>
-			<result name="resultMessage">/boss/framework/common/resultMessage.vm</result>
+			<result name="resourceResult">/club/framework/common/resourceResult.vm</result>
+			<result name="resultMessage">/club/framework/common/resultMessage.vm</result>
 		</global-results>
 
 		<global-exception-mappings>

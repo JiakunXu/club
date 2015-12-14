@@ -1,0 +1,12 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://club}club$weixin"
+		extends="{http://club}club$framework" namespace="/weixin">
+
+		<action name="receive" class="weixinAction" method="receive">
+		</action>
+		
+	</package>
+</struts>
