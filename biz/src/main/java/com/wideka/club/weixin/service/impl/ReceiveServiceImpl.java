@@ -2,7 +2,7 @@ package com.wideka.club.weixin.service.impl;
 
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.framework.bo.BooleanResult;
-import com.wideka.weixin.api.suite.ITicketService;
+import com.wideka.weixin.api.suite.ICallbackService;
 
 /**
  * 
@@ -11,20 +11,22 @@ import com.wideka.weixin.api.suite.ITicketService;
  */
 public class ReceiveServiceImpl implements IReceiveService {
 
-	private ITicketService ticketService;
+	private ICallbackService callbackService;
 
 	@Override
 	public BooleanResult receive(String signature, String timestamp, String nonce, String data) {
-		// TODO Auto-generated method stub
-		return null;
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		return result;
 	}
 
-	public ITicketService getTicketService() {
-		return ticketService;
+	public ICallbackService getCallbackService() {
+		return callbackService;
 	}
 
-	public void setTicketService(ITicketService ticketService) {
-		this.ticketService = ticketService;
+	public void setCallbackService(ICallbackService callbackService) {
+		this.callbackService = callbackService;
 	}
 
 }
