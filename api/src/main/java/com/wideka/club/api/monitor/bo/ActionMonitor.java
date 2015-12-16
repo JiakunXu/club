@@ -14,7 +14,7 @@ public class ActionMonitor extends SearchInfo {
 
 	private Long id;
 
-	private Long userId;
+	private String userId;
 
 	private String passport;
 
@@ -34,11 +34,11 @@ public class ActionMonitor extends SearchInfo {
 		this.id = id;
 	}
 
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

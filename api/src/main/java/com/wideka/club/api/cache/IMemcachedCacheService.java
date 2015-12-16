@@ -65,6 +65,13 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 
 	int CACHE_KEY_ACTION_LOG_DEFAULT_EXP = 0;
 
+	// >>>>>>>>>>以下是微信相关<<<<<<<<<<
+
+	/**
+	 * corp.
+	 */
+	String CACHE_KEY_WX_CORP = "key_wx_corp_";
+
 	// >>>>>>>>>>end<<<<<<<<<<
 
 	/**

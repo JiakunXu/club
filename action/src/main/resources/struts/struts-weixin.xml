@@ -5,8 +5,9 @@
 	<package name="{http://club}club$weixin"
 		extends="{http://club}club$framework" namespace="/weixin">
 
-		<action name="receive" class="weixinAction" method="receive">
-		</action>
+		<action name="receive" class="weixinAction" method="receive"></action>
+		
+		<action name="authorize" class="weixinAction" method="authorize"></action>
 		
 	</package>
 </struts>

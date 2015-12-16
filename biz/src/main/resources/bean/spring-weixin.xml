@@ -7,13 +7,29 @@
 	
 	<bean id="weixinAction" class="com.wideka.club.weixin.action.WeixinAction" parent="baseAction" scope="request">
 		<property name="receiveService" ref="receiveService" />
+		<property name="authorizeService" ref="authorizeService" />
 	</bean>
 	<bean id="receiveService" class="com.wideka.club.weixin.service.impl.ReceiveServiceImpl">
 		<property name="callbackService" ref="callbackService" />
 	</bean>
+	<bean id="tokenService" class="com.wideka.club.weixin.service.impl.TokenServiceImpl">
+		<property name="memcachedCacheService" ref="memcachedCacheService" />
+		<property name="accessTokenService" ref="accessTokenService" />
+	</bean>
+	<bean id="authorizeService" class="com.wideka.club.weixin.service.impl.AuthorizeServiceImpl">
+		<property name="tokenService" ref="tokenService" />
+		<property name="userInfoService" ref="userInfoService" />
+		<property name="corpId">
+			<value>${weixin.corp.id}</value>
+		</property>
+		<property name="corpSecret">
+			<value>${weixin.corp.secret}</value>
+		</property>
+	</bean>
 	
 	<!-- weixin -->
-	<bean id="callbackService" class="com.wideka.weixin.suite.service.impl.CallbackServiceImpl">
-	</bean>
+	<bean id="callbackService" class="com.wideka.weixin.suite.service.impl.CallbackServiceImpl"></bean>
+	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
+	<bean id="userInfoService" class="com.wideka.weixin.user.service.impl.UserInfoServiceImpl"></bean>
 	
 </beans>

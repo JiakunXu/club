@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.wideka.club.api.weixin.IAuthorizeService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
@@ -23,11 +24,18 @@ public class WeixinAction extends BaseAction {
 
 	private IReceiveService receiveService;
 
+	private IAuthorizeService authorizeService;
+
 	private String msg_signature;
 
 	private String timestamp;
 
 	private String nonce;
+
+	/**
+	 * 通过成员授权获取到的code，每次成员授权带上的code将不一样，code只能使用一次，5分钟未被使用自动过期.
+	 */
+	private String code;
 
 	public String receive() {
 		StringBuilder data = new StringBuilder();
@@ -70,12 +78,25 @@ public class WeixinAction extends BaseAction {
 
 	}
 
+	public String authorize() {
+		this.setResourceResult(authorizeService.authorize(code));
+		return RESOURCE_RESULT;
+	}
+
 	public IReceiveService getReceiveService() {
 		return receiveService;
 	}
 
 	public void setReceiveService(IReceiveService receiveService) {
 		this.receiveService = receiveService;
+	}
+
+	public IAuthorizeService getAuthorizeService() {
+		return authorizeService;
+	}
+
+	public void setAuthorizeService(IAuthorizeService authorizeService) {
+		this.authorizeService = authorizeService;
 	}
 
 	public String getMsg_signature() {
@@ -100,6 +121,14 @@ public class WeixinAction extends BaseAction {
 
 	public void setNonce(String nonce) {
 		this.nonce = nonce;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }
