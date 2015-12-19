@@ -11,6 +11,15 @@
 	</bean>
 	<bean id="receiveService" class="com.wideka.club.weixin.service.impl.ReceiveServiceImpl">
 		<property name="callbackService" ref="callbackService" />
+		<property name="token">
+			<value>${weixin.token}</value>
+		</property>
+		<property name="encodingAesKey">
+			<value>${weixin.encodingAesKey}</value>
+		</property>
+		<property name="corpId">
+			<value>${weixin.corp.id}</value>
+		</property>
 	</bean>
 	<bean id="tokenService" class="com.wideka.club.weixin.service.impl.TokenServiceImpl">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
@@ -19,6 +28,7 @@
 	<bean id="authorizeService" class="com.wideka.club.weixin.service.impl.AuthorizeServiceImpl">
 		<property name="tokenService" ref="tokenService" />
 		<property name="userInfoService" ref="userInfoService" />
+		<property name="messageService" ref="messageService" />
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
 		</property>
@@ -31,5 +41,6 @@
 	<bean id="callbackService" class="com.wideka.weixin.suite.service.impl.CallbackServiceImpl"></bean>
 	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
 	<bean id="userInfoService" class="com.wideka.weixin.user.service.impl.UserInfoServiceImpl"></bean>
+	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
 	
 </beans>

@@ -9,5 +9,9 @@
 		
 		<action name="authorize" class="weixinAction" method="authorize"></action>
 		
+		<action name="upload" class="weixinAction" method="upload">
+			<result name="success">/club/weixin/upload.vm</result>
+		</action>
+		
 	</package>
 </struts>

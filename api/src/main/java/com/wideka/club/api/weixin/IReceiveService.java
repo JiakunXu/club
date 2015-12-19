@@ -14,9 +14,10 @@ public interface IReceiveService {
 	 * @param signature
 	 * @param timestamp
 	 * @param nonce
+	 * @param echostr
 	 * @param data
 	 * @return
 	 */
-	BooleanResult receive(String signature, String timestamp, String nonce, String data);
+	BooleanResult receive(String signature, String timestamp, String nonce, String echostr, String data);
 
 }
