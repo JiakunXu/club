@@ -1,7 +1,5 @@
 package com.wideka.club.weixin.service.impl;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.suite.ICallbackService;
@@ -22,28 +20,43 @@ public class ReceiveServiceImpl implements IReceiveService {
 	private String corpId;
 
 	@Override
-	public BooleanResult receive(String signature, String timestamp, String nonce, String echostr, String data) {
+	public BooleanResult verify(String signature, String timestamp, String nonce, String echostr) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
+		try {
+			result.setCode(callbackService.verify(token, encodingAesKey, corpId, signature, timestamp, nonce, echostr));
+			result.setResult(true);
+		} catch (RuntimeException e) {
+			result.setCode(e.getMessage());
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult callback(String signature, String timestamp, String nonce, String data) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		System.out.println("token:" + token);
+		System.out.println("encodingAesKey:" + encodingAesKey);
+		System.out.println("corpId:" + corpId);
 		System.out.println("signature:" + signature);
 		System.out.println("timestamp:" + timestamp);
 		System.out.println("nonce:" + nonce);
-		System.out.println("echostr:" + echostr);
 		System.out.println("data:" + data);
 
-		if (StringUtils.isNotBlank(echostr)) {
-			try {
-				result.setCode(callbackService.verify(token, encodingAesKey, corpId, signature, timestamp, nonce,
-					echostr));
-				result.setResult(true);
-			} catch (RuntimeException e) {
-				result.setCode(e.getMessage());
-				return result;
-			}
+		try {
+			System.out.println("========================================");
+			System.out.println(callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce,
+				data));
+			System.out.println("========================================");
+			result.setResult(true);
+		} catch (RuntimeException e) {
+			result.setCode(e.getMessage());
 		}
 
-		result.setResult(true);
 		return result;
 	}
 

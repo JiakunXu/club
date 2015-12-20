@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.wideka.club.api.weixin.IAuthorizeService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.framework.action.BaseAction;
@@ -45,39 +47,51 @@ public class WeixinAction extends BaseAction {
 	private String code;
 
 	public String receive() {
-		StringBuilder data = new StringBuilder();
+		BooleanResult result = null;
 
-		InputStreamReader in = null;
-		BufferedReader reader = null;
-		try {
-			in = new InputStreamReader(this.getServletRequest().getInputStream(), "UTF-8");
-			reader = new BufferedReader(in);
+		if (StringUtils.isNotBlank(echostr)) {
+			result = receiveService.verify(msg_signature, timestamp, nonce, echostr);
+		} else {
+			StringBuilder data = new StringBuilder();
 
-			String temp = reader.readLine();
-			while (temp != null) {
-				data.append(temp);
-				temp = reader.readLine();
-			}
-		} catch (Exception e) {
-			logger.error(e);
-		} finally {
-			if (in != null) {
-				try {
-					in.close();
-				} catch (IOException e) {
-					logger.error(e);
+			InputStreamReader in = null;
+			BufferedReader reader = null;
+			try {
+				in = new InputStreamReader(this.getServletRequest().getInputStream(), "UTF-8");
+				reader = new BufferedReader(in);
+
+				String temp = reader.readLine();
+				while (temp != null) {
+					data.append(temp);
+					temp = reader.readLine();
+				}
+			} catch (Exception e) {
+				logger.error(e);
+			} finally {
+				if (in != null) {
+					try {
+						in.close();
+					} catch (IOException e) {
+						logger.error(e);
+					}
+				}
+				if (reader != null) {
+					try {
+						reader.close();
+					} catch (IOException e) {
+						logger.error(e);
+					}
 				}
 			}
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					logger.error(e);
-				}
-			}
+
+			result = receiveService.callback(msg_signature, timestamp, nonce, data.toString());
 		}
 
-		BooleanResult result = receiveService.receive(msg_signature, timestamp, nonce, echostr, data.toString());
+		if (result.getResult()) {
+			this.getServletResponse().setStatus(200);
+		} else {
+			this.getServletResponse().setStatus(500);
+		}
 
 		this.setResourceResult(result.getCode());
 
