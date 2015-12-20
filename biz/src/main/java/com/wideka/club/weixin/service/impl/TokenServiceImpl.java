@@ -58,7 +58,7 @@ public class TokenServiceImpl implements ITokenService {
 
 		try {
 			accessToken = accessTokenService.getToken(corpId, corpSecret);
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			logger.error(e);
 
 			result.setCode(e.getMessage());

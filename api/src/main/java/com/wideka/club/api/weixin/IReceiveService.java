@@ -29,4 +29,9 @@ public interface IReceiveService {
 	 */
 	BooleanResult callback(String signature, String timestamp, String nonce, String data);
 
+	/**
+	 * 
+	 */
+	void getCallbackIP();
+
 }

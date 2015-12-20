@@ -11,6 +11,7 @@
 	</bean>
 	<bean id="receiveService" class="com.wideka.club.weixin.service.impl.ReceiveServiceImpl">
 		<property name="callbackService" ref="callbackService" />
+		<property name="tokenService" ref="tokenService" />
 		<property name="token">
 			<value>${weixin.token}</value>
 		</property>
@@ -19,6 +20,9 @@
 		</property>
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
+		</property>
+		<property name="corpSecret">
+			<value>${weixin.corp.secret}</value>
 		</property>
 	</bean>
 	<bean id="tokenService" class="com.wideka.club.weixin.service.impl.TokenServiceImpl">
