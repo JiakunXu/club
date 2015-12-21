@@ -4,7 +4,7 @@ import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.util.LogUtil;
-import com.wideka.weixin.api.suite.ICallbackService;
+import com.wideka.weixin.api.callback.ICallbackService;
 
 /**
  * 
@@ -55,8 +55,8 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 		try {
 			System.out.println("========================================");
-			System.out.println(callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce,
-				data));
+			System.out.println(LogUtil.parserBean(callbackService.callback(token, encodingAesKey, corpId, signature,
+				timestamp, nonce, data)));
 			System.out.println("========================================");
 			result.setResult(true);
 		} catch (RuntimeException e) {

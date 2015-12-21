@@ -42,7 +42,7 @@
 	</bean>
 	
 	<!-- weixin -->
-	<bean id="callbackService" class="com.wideka.weixin.suite.service.impl.CallbackServiceImpl"></bean>
+	<bean id="callbackService" class="com.wideka.weixin.callback.service.impl.CallbackServiceImpl"></bean>
 	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
 	<bean id="userInfoService" class="com.wideka.weixin.user.service.impl.UserInfoServiceImpl"></bean>
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
