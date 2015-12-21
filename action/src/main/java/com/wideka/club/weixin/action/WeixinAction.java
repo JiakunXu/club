@@ -46,7 +46,7 @@ public class WeixinAction extends BaseAction {
 	 */
 	private String code;
 
-	public String receive() {
+	public String callback() {
 		BooleanResult result = null;
 
 		if (StringUtils.isNotBlank(echostr)) {
