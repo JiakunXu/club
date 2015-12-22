@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="weixin.event.enter.agent">
+	
+	<typeAlias alias="content" type="com.wideka.weixin.api.callback.bo.Content" />
+	
+	<insert id="createEventEnterAgent" parameterClass="content">
+	<![CDATA[
+		INSERT
+		INTO weixin_tb_event_enter_agent
+		  (
+			TO_USER_NAME,
+			FROM_USER_NAME,
+			CREATE_TIME,
+			MSG_TYPE,
+			EVENT,
+			EVENT_KEY
+		  )
+		  VALUES
+		  (
+			#toUserName:VARCHAR#,
+			#fromUserName:VARCHAR#,
+			#createTime:NUMBER#,
+			#msgType:VARCHAR#,
+			#event:VARCHAR#,
+			#eventKey:VARCHAR#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+</sqlMap>

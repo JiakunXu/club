@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="weixin.event.batch.job">
+	
+	<typeAlias alias="content" type="com.wideka.weixin.api.callback.bo.Content" />
+	
+	<insert id="createEventBatchJob" parameterClass="content">
+	<![CDATA[
+		INSERT
+		INTO weixin_tb_event_batch_job
+		  (
+			TO_USER_NAME,
+			FROM_USER_NAME,
+			MSG_TYPE,
+			CREATE_TIME,
+			EVENT,
+			JOB_ID,
+			JOB_TYPE,
+			ERR_CODE,
+			ERR_MSG
+		  )
+		  VALUES
+		  (
+			#toUserName:VARCHAR#,
+			#fromUserName:VARCHAR#,
+			#msgType:VARCHAR#,
+			#createTime:NUMBER#,
+			#event:VARCHAR#,
+			#jobId:VARCHAR#,
+			#jobType:VARCHAR#,
+			#errCode:VARCHAR#,
+			#errMsg:VARCHAR#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="id">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+</sqlMap>
