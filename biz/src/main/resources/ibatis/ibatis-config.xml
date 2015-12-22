@@ -36,5 +36,10 @@
 	<sqlMap resource="ibatis/sqlmap-monitor.method.xml" />
 	<sqlMap resource="ibatis/sqlmap-trade.xml" />
 	<sqlMap resource="ibatis/sqlmap-user.xml" />
+	<sqlMap resource="ibatis/sqlmap-weixin.msg.image.xml" />
+	<sqlMap resource="ibatis/sqlmap-weixin.msg.location.xml" />
+	<sqlMap resource="ibatis/sqlmap-weixin.msg.text.xml" />
+	<sqlMap resource="ibatis/sqlmap-weixin.msg.video.xml" />
+	<sqlMap resource="ibatis/sqlmap-weixin.msg.voice.xml" />
     
 </sqlMapConfig>

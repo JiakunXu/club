@@ -1,10 +1,16 @@
 package com.wideka.club.weixin.service.impl;
 
+import com.wideka.club.api.weixin.IMsgImageService;
+import com.wideka.club.api.weixin.IMsgLocationService;
+import com.wideka.club.api.weixin.IMsgTextService;
+import com.wideka.club.api.weixin.IMsgVideoService;
+import com.wideka.club.api.weixin.IMsgVoiceService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.util.LogUtil;
 import com.wideka.weixin.api.callback.ICallbackService;
+import com.wideka.weixin.api.callback.bo.Content;
 
 /**
  * 
@@ -14,6 +20,16 @@ import com.wideka.weixin.api.callback.ICallbackService;
 public class ReceiveServiceImpl implements IReceiveService {
 
 	private ICallbackService callbackService;
+
+	private IMsgTextService msgTextService;
+
+	private IMsgImageService msgImageService;
+
+	private IMsgVoiceService msgVoiceService;
+
+	private IMsgVideoService msgVideoService;
+
+	private IMsgLocationService msgLocationService;
 
 	private ITokenService tokenService;
 
@@ -54,11 +70,24 @@ public class ReceiveServiceImpl implements IReceiveService {
 		System.out.println("data:" + data);
 
 		try {
-			System.out.println("========================================");
-			System.out.println(LogUtil.parserBean(callbackService.callback(token, encodingAesKey, corpId, signature,
-				timestamp, nonce, data)));
-			System.out.println("========================================");
-			result.setResult(true);
+			Content content =
+				callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce, data);
+
+			String msgType = content.getMsgType();
+
+			if ("text".equals(msgType)) {
+				result = msgTextService.createMsgText(content);
+			} else if ("image".equals(msgType)) {
+				result = msgImageService.createMsgImage(content);
+			} else if ("voice".equals(msgType)) {
+				result = msgVoiceService.createMsgVoice(content);
+			} else if ("video".equals(msgType)) {
+				result = msgVideoService.createMsgVideo(content);
+			} else if ("shortvideo".equals(msgType)) {
+				result = msgVideoService.createMsgVideo(content);
+			} else if ("location".equals(msgType)) {
+				result = msgLocationService.createMsgLocation(content);
+			}
 		} catch (RuntimeException e) {
 			result.setCode(e.getMessage());
 		}
@@ -84,6 +113,46 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 	public void setCallbackService(ICallbackService callbackService) {
 		this.callbackService = callbackService;
+	}
+
+	public IMsgTextService getMsgTextService() {
+		return msgTextService;
+	}
+
+	public void setMsgTextService(IMsgTextService msgTextService) {
+		this.msgTextService = msgTextService;
+	}
+
+	public IMsgImageService getMsgImageService() {
+		return msgImageService;
+	}
+
+	public void setMsgImageService(IMsgImageService msgImageService) {
+		this.msgImageService = msgImageService;
+	}
+
+	public IMsgVoiceService getMsgVoiceService() {
+		return msgVoiceService;
+	}
+
+	public void setMsgVoiceService(IMsgVoiceService msgVoiceService) {
+		this.msgVoiceService = msgVoiceService;
+	}
+
+	public IMsgVideoService getMsgVideoService() {
+		return msgVideoService;
+	}
+
+	public void setMsgVideoService(IMsgVideoService msgVideoService) {
+		this.msgVideoService = msgVideoService;
+	}
+
+	public IMsgLocationService getMsgLocationService() {
+		return msgLocationService;
+	}
+
+	public void setMsgLocationService(IMsgLocationService msgLocationService) {
+		this.msgLocationService = msgLocationService;
 	}
 
 	public ITokenService getTokenService() {
