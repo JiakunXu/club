@@ -125,9 +125,9 @@ public class ReceiveServiceImpl implements IReceiveService {
 				result = eventSubscribeService.createEventSubscribe(content);
 			} else if ("LOCATION".equals(event)) {
 				result = eventLocationService.createEventLocation(content);
-			} else if ("CLICK".equals(event)) {
+			} else if ("click".equals(event)) {
 				result = eventClickService.createEventClick(content);
-			} else if ("VIEW".equals(event)) {
+			} else if ("view".equals(event)) {
 				result = eventViewService.createEventView(content);
 			} else if ("scancode_push".equals(event)) {
 				result = eventScanCodeService.createEventScanCode(content);
