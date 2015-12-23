@@ -88,60 +88,62 @@ public class ReceiveServiceImpl implements IReceiveService {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
+		Content content = null;
 		try {
-			Content content =
-				callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce, data);
-
-			System.out.println("==============================");
-			System.out.println(LogUtil.parserBean(content));
-			System.out.println("==============================");
-
-			String msgType = content.getMsgType();
-
-			if ("text".equals(msgType)) {
-				result = msgTextService.createMsgText(content);
-			} else if ("image".equals(msgType)) {
-				result = msgImageService.createMsgImage(content);
-			} else if ("voice".equals(msgType)) {
-				result = msgVoiceService.createMsgVoice(content);
-			} else if ("video".equals(msgType)) {
-				result = msgVideoService.createMsgVideo(content);
-			} else if ("shortvideo".equals(msgType)) {
-				result = msgVideoService.createMsgVideo(content);
-			} else if ("location".equals(msgType)) {
-				result = msgLocationService.createMsgLocation(content);
-			} else if ("event".equals(msgType)) {
-
-				String event = content.getEvent();
-
-				if ("subscribe".equals(event)) {
-					result = eventSubscribeService.createEventSubscribe(content);
-				} else if ("LOCATION".equals(event)) {
-					result = eventLocationService.createEventLocation(content);
-				} else if ("CLICK".equals(event)) {
-					result = eventClickService.createEventClick(content);
-				} else if ("VIEW".equals(event)) {
-					result = eventViewService.createEventView(content);
-				} else if ("scancode_push".equals(event)) {
-					result = eventScanCodeService.createEventScanCode(content);
-				} else if ("scancode_waitmsg".equals(event)) {
-					result = eventScanCodeService.createEventScanCode(content);
-				} else if ("pic_sysphoto".equals(event)) {
-					result = eventPicService.createEventPic(content);
-				} else if ("pic_photo_or_album".equals(event)) {
-					result = eventPicService.createEventPic(content);
-				} else if ("pic_weixin".equals(event)) {
-					result = eventPicService.createEventPic(content);
-				} else if ("location_select".equals(event)) {
-					result = eventLocationSelectService.createEventLocationSelect(content);
-				} else if ("enter_agent".equals(event)) {
-					result = eventEnterAgentService.createEventEnterAgent(content);
-				} else if ("batch_job_result".equals(event)) {
-					result = eventBatchJobService.createEventBatchJob(content);
-				}
-			}
+			content = callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce, data);
 		} catch (RuntimeException e) {
 			result.setCode(e.getMessage());
+
+			return result;
+		}
+
+		System.out.println("==============================");
+		System.out.println(LogUtil.parserBean(content));
+		System.out.println("==============================");
+
+		String msgType = content.getMsgType();
+
+		if ("text".equals(msgType)) {
+			result = msgTextService.createMsgText(content);
+		} else if ("image".equals(msgType)) {
+			result = msgImageService.createMsgImage(content);
+		} else if ("voice".equals(msgType)) {
+			result = msgVoiceService.createMsgVoice(content);
+		} else if ("video".equals(msgType)) {
+			result = msgVideoService.createMsgVideo(content);
+		} else if ("shortvideo".equals(msgType)) {
+			result = msgVideoService.createMsgVideo(content);
+		} else if ("location".equals(msgType)) {
+			result = msgLocationService.createMsgLocation(content);
+		} else if ("event".equals(msgType)) {
+
+			String event = content.getEvent();
+
+			if ("subscribe".equals(event)) {
+				result = eventSubscribeService.createEventSubscribe(content);
+			} else if ("LOCATION".equals(event)) {
+				result = eventLocationService.createEventLocation(content);
+			} else if ("CLICK".equals(event)) {
+				result = eventClickService.createEventClick(content);
+			} else if ("VIEW".equals(event)) {
+				result = eventViewService.createEventView(content);
+			} else if ("scancode_push".equals(event)) {
+				result = eventScanCodeService.createEventScanCode(content);
+			} else if ("scancode_waitmsg".equals(event)) {
+				result = eventScanCodeService.createEventScanCode(content);
+			} else if ("pic_sysphoto".equals(event)) {
+				result = eventPicService.createEventPic(content);
+			} else if ("pic_photo_or_album".equals(event)) {
+				result = eventPicService.createEventPic(content);
+			} else if ("pic_weixin".equals(event)) {
+				result = eventPicService.createEventPic(content);
+			} else if ("location_select".equals(event)) {
+				result = eventLocationSelectService.createEventLocationSelect(content);
+			} else if ("enter_agent".equals(event)) {
+				result = eventEnterAgentService.createEventEnterAgent(content);
+			} else if ("batch_job_result".equals(event)) {
+				result = eventBatchJobService.createEventBatchJob(content);
+			}
 		}
 
 		return result;
