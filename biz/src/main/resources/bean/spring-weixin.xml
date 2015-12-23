@@ -16,6 +16,15 @@
 		<property name="msgVoiceService" ref="msgVoiceService" />
 		<property name="msgVideoService" ref="msgVideoService" />
 		<property name="msgLocationService" ref="msgLocationService" />
+		<property name="eventSubscribeService" ref="eventSubscribeService" />
+		<property name="eventLocationService" ref="eventLocationService" />
+		<property name="eventClickService" ref="eventClickService" />
+		<property name="eventViewService" ref="eventViewService" />
+		<property name="eventScanCodeService" ref="eventScanCodeService" />
+		<property name="eventPicService" ref="eventPicService" />
+		<property name="eventLocationSelectService" ref="eventLocationSelectService" />
+		<property name="eventEnterAgentService" ref="eventEnterAgentService" />
+		<property name="eventBatchJobService" ref="eventBatchJobService" />
 		<property name="tokenService" ref="tokenService" />
 		<property name="token">
 			<value>${weixin.token}</value>
