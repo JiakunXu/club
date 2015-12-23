@@ -1,5 +1,7 @@
 package com.wideka.club.weixin.service.impl;
 
+import java.util.Date;
+
 import com.wideka.club.api.weixin.IEventBatchJobService;
 import com.wideka.club.api.weixin.IEventClickService;
 import com.wideka.club.api.weixin.IEventEnterAgentService;
@@ -143,6 +145,19 @@ public class ReceiveServiceImpl implements IReceiveService {
 				result = eventEnterAgentService.createEventEnterAgent(content);
 			} else if ("batch_job_result".equals(event)) {
 				result = eventBatchJobService.createEventBatchJob(content);
+			}
+		}
+
+		if (result.getResult()) {
+			data =
+				"<xml><ToUserName><![CDATA[" + content.getFromUserName() + "]]></ToUserName><FromUserName><![CDATA["
+					+ content.getToUserName() + "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
+					+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + msgType + "/"
+					+ content.getEvent() + "]]></Content></xml>";
+			try {
+				result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
+			} catch (RuntimeException e) {
+				result.setCode(null);
 			}
 		}
 
