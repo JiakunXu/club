@@ -150,8 +150,8 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 		if (result.getResult()) {
 			data =
-				"<xml><ToUserName><![CDATA[" + content.getFromUserName() + "]]></ToUserName><CreateTime>"
-					+ (new Date().getTime() / 1000)
+				"<xml><ToUserName><![CDATA[" + content.getFromUserName() + "]]></ToUserName><FromUserName><![CDATA["
+					+ content.getToUserName() + "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
 					+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + msgType + "/"
 					+ content.getEvent() + "]]></Content></xml>";
 			try {
