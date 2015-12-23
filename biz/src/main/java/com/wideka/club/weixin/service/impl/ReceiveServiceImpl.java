@@ -88,17 +88,13 @@ public class ReceiveServiceImpl implements IReceiveService {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
-		System.out.println("token:" + token);
-		System.out.println("encodingAesKey:" + encodingAesKey);
-		System.out.println("corpId:" + corpId);
-		System.out.println("signature:" + signature);
-		System.out.println("timestamp:" + timestamp);
-		System.out.println("nonce:" + nonce);
-		System.out.println("data:" + data);
-
 		try {
 			Content content =
 				callbackService.callback(token, encodingAesKey, corpId, signature, timestamp, nonce, data);
+
+			System.out.println("==============================");
+			System.out.println(LogUtil.parserBean(content));
+			System.out.println("==============================");
 
 			String msgType = content.getMsgType();
 
@@ -115,6 +111,7 @@ public class ReceiveServiceImpl implements IReceiveService {
 			} else if ("location".equals(msgType)) {
 				result = msgLocationService.createMsgLocation(content);
 			} else if ("event".equals(msgType)) {
+
 				String event = content.getEvent();
 
 				if ("subscribe".equals(event)) {
