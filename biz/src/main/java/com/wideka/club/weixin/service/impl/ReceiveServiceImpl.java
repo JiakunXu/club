@@ -20,6 +20,8 @@ import com.wideka.club.api.weixin.IMsgVoiceService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.weixin.api.agent.IAgentService;
+import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.callback.ICallbackService;
 import com.wideka.weixin.api.callback.bo.Content;
 import com.wideka.weixin.api.material.IMaterialService;
@@ -69,6 +71,8 @@ public class ReceiveServiceImpl implements IReceiveService {
 	private IMaterialService materialService;
 
 	private IMenuService menuService;
+
+	private IAgentService agentService;
 
 	private String token;
 
@@ -173,17 +177,7 @@ public class ReceiveServiceImpl implements IReceiveService {
 					text = res.getCode();
 				}
 
-				data =
-					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
-						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
-						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
-						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + text
-						+ "]]></Content></xml>";
-				try {
-					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
-				} catch (RuntimeException e) {
-					result.setCode(null);
-				}
+				result.setCode(callback(content, text, timestamp, nonce));
 			} else if ("text".equals(msgType) && "menu".equals(content.getContent())) {
 				String text;
 				BooleanResult res = tokenService.getToken(corpId, corpSecret);
@@ -199,33 +193,50 @@ public class ReceiveServiceImpl implements IReceiveService {
 					text = res.getCode();
 				}
 
-				data =
-					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
-						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
-						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
-						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + text
-						+ "]]></Content></xml>";
-				try {
-					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
-				} catch (RuntimeException e) {
-					result.setCode(null);
+				result.setCode(callback(content, text, timestamp, nonce));
+			} else if ("text".equals(msgType) && "agent".equals(content.getContent())) {
+				String text;
+				BooleanResult res = tokenService.getToken(corpId, corpSecret);
+				if (res.getResult()) {
+					try {
+						Agent agent = agentService.getAgent(res.getCode(), String.valueOf(content.getAgentId()));
+
+						text = JSON.toJSONString(agent);
+					} catch (RuntimeException e) {
+						text = e.getMessage();
+					}
+				} else {
+					text = res.getCode();
 				}
+
+				result.setCode(callback(content, text, timestamp, nonce));
 			} else {
-				data =
-					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
-						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
-						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
-						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + msgType + "/"
-						+ content.getEvent() + "]]></Content></xml>";
-				try {
-					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
-				} catch (RuntimeException e) {
-					result.setCode(null);
-				}
+				result.setCode(callback(content, msgType + "/" + content.getEvent(), timestamp, nonce));
 			}
 		}
 
 		return result;
+	}
+
+	/**
+	 * 
+	 * @param content
+	 * @param text
+	 * @param timestamp
+	 * @param nonce
+	 * @return
+	 */
+	private String callback(Content content, String text, String timestamp, String nonce) {
+		String data =
+			"<xml><ToUserName><![CDATA[" + content.getFromUserName() + "]]></ToUserName><FromUserName><![CDATA["
+				+ content.getToUserName() + "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
+				+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + text + "]]></Content></xml>";
+
+		try {
+			return callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce);
+		} catch (RuntimeException e) {
+			return null;
+		}
 	}
 
 	@Override
@@ -382,6 +393,14 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 	public void setMenuService(IMenuService menuService) {
 		this.menuService = menuService;
+	}
+
+	public IAgentService getAgentService() {
+		return agentService;
+	}
+
+	public void setAgentService(IAgentService agentService) {
+		this.agentService = agentService;
 	}
 
 	public String getToken() {

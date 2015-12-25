@@ -28,6 +28,7 @@
 		<property name="tokenService" ref="tokenService" />
 		<property name="materialService" ref="materialService" />
 		<property name="menuService" ref="menuService" />
+		<property name="agentService" ref="agentService" />
 		<property name="token">
 			<value>${weixin.token}</value>
 		</property>
@@ -64,5 +65,6 @@
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
 	<bean id="materialService" class="com.wideka.weixin.material.service.impl.MaterialServiceImpl"></bean>
 	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
+	<bean id="agentService" class="com.wideka.weixin.agent.service.impl.AgentServiceImpl"></bean>
 	
 </beans>
