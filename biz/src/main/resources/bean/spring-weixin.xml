@@ -26,6 +26,8 @@
 		<property name="eventEnterAgentService" ref="eventEnterAgentService" />
 		<property name="eventBatchJobService" ref="eventBatchJobService" />
 		<property name="tokenService" ref="tokenService" />
+		<property name="materialService" ref="materialService" />
+		<property name="menuService" ref="menuService" />
 		<property name="token">
 			<value>${weixin.token}</value>
 		</property>
@@ -60,5 +62,7 @@
 	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
 	<bean id="userInfoService" class="com.wideka.weixin.user.service.impl.UserInfoServiceImpl"></bean>
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
+	<bean id="materialService" class="com.wideka.weixin.material.service.impl.MaterialServiceImpl"></bean>
+	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
 	
 </beans>

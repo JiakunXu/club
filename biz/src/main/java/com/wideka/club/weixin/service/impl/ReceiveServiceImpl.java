@@ -2,6 +2,7 @@ package com.wideka.club.weixin.service.impl;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IEventBatchJobService;
 import com.wideka.club.api.weixin.IEventClickService;
 import com.wideka.club.api.weixin.IEventEnterAgentService;
@@ -19,9 +20,12 @@ import com.wideka.club.api.weixin.IMsgVoiceService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
-import com.wideka.club.framework.util.LogUtil;
 import com.wideka.weixin.api.callback.ICallbackService;
 import com.wideka.weixin.api.callback.bo.Content;
+import com.wideka.weixin.api.material.IMaterialService;
+import com.wideka.weixin.api.material.bo.MaterialCount;
+import com.wideka.weixin.api.menu.IMenuService;
+import com.wideka.weixin.api.menu.bo.Menu;
 
 /**
  * 
@@ -62,6 +66,10 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 	private ITokenService tokenService;
 
+	private IMaterialService materialService;
+
+	private IMenuService menuService;
+
 	private String token;
 
 	private String encodingAesKey;
@@ -100,7 +108,7 @@ public class ReceiveServiceImpl implements IReceiveService {
 		}
 
 		System.out.println("==============================");
-		System.out.println(LogUtil.parserBean(content));
+		System.out.println(JSON.toJSONString(content));
 		System.out.println("==============================");
 
 		String msgType = content.getMsgType();
@@ -149,15 +157,71 @@ public class ReceiveServiceImpl implements IReceiveService {
 		}
 
 		if (result.getResult()) {
-			data =
-				"<xml><ToUserName><![CDATA[" + content.getFromUserName() + "]]></ToUserName><FromUserName><![CDATA["
-					+ content.getToUserName() + "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
-					+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + msgType + "/"
-					+ content.getEvent() + "]]></Content></xml>";
-			try {
-				result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
-			} catch (RuntimeException e) {
-				result.setCode(null);
+			if ("text".equals(msgType) && "mat".equals(content.getContent())) {
+				String text;
+				BooleanResult res = tokenService.getToken(corpId, corpSecret);
+				if (res.getResult()) {
+					try {
+						MaterialCount materialCount =
+							materialService.getCount(res.getCode(), String.valueOf(content.getAgentId()));
+
+						text = JSON.toJSONString(materialCount);
+					} catch (RuntimeException e) {
+						text = e.getMessage();
+					}
+				} else {
+					text = res.getCode();
+				}
+
+				data =
+					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
+						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
+						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
+						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + text
+						+ "]]></Content></xml>";
+				try {
+					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
+				} catch (RuntimeException e) {
+					result.setCode(null);
+				}
+			} else if ("text".equals(msgType) && "menu".equals(content.getContent())) {
+				String text;
+				BooleanResult res = tokenService.getToken(corpId, corpSecret);
+				if (res.getResult()) {
+					try {
+						Menu menu = menuService.getMenu(res.getCode(), String.valueOf(content.getAgentId()));
+
+						text = JSON.toJSONString(menu);
+					} catch (RuntimeException e) {
+						text = e.getMessage();
+					}
+				} else {
+					text = res.getCode();
+				}
+
+				data =
+					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
+						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
+						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
+						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + text
+						+ "]]></Content></xml>";
+				try {
+					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
+				} catch (RuntimeException e) {
+					result.setCode(null);
+				}
+			} else {
+				data =
+					"<xml><ToUserName><![CDATA[" + content.getFromUserName()
+						+ "]]></ToUserName><FromUserName><![CDATA[" + content.getToUserName()
+						+ "]]></FromUserName><CreateTime>" + (new Date().getTime() / 1000)
+						+ "</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[" + msgType + "/"
+						+ content.getEvent() + "]]></Content></xml>";
+				try {
+					result.setCode(callbackService.callback(token, encodingAesKey, corpId, data, timestamp, nonce));
+				} catch (RuntimeException e) {
+					result.setCode(null);
+				}
 			}
 		}
 
@@ -169,7 +233,7 @@ public class ReceiveServiceImpl implements IReceiveService {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (result.getResult()) {
 			try {
-				System.out.println(LogUtil.parserBean(callbackService.getCallbackIP(result.getCode())));
+				System.out.println(JSON.toJSONString(callbackService.getCallbackIP(result.getCode())));
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}
@@ -302,6 +366,22 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 	public void setTokenService(ITokenService tokenService) {
 		this.tokenService = tokenService;
+	}
+
+	public IMaterialService getMaterialService() {
+		return materialService;
+	}
+
+	public void setMaterialService(IMaterialService materialService) {
+		this.materialService = materialService;
+	}
+
+	public IMenuService getMenuService() {
+		return menuService;
+	}
+
+	public void setMenuService(IMenuService menuService) {
+		this.menuService = menuService;
 	}
 
 	public String getToken() {
