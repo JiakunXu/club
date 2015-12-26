@@ -1,6 +1,7 @@
 package com.wideka.club.weixin.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IEventBatchJobService;
@@ -202,6 +203,22 @@ public class ReceiveServiceImpl implements IReceiveService {
 						Agent agent = agentService.getAgent(res.getCode(), String.valueOf(content.getAgentId()));
 
 						text = JSON.toJSONString(agent);
+					} catch (RuntimeException e) {
+						text = e.getMessage();
+					}
+				} else {
+					text = res.getCode();
+				}
+
+				result.setCode(callback(content, text, timestamp, nonce));
+			} else if ("text".equals(msgType) && "agents".equals(content.getContent())) {
+				String text;
+				BooleanResult res = tokenService.getToken(corpId, corpSecret);
+				if (res.getResult()) {
+					try {
+						List<Agent> agentList = agentService.getAgentList(res.getCode());
+
+						text = JSON.toJSONString(agentList);
 					} catch (RuntimeException e) {
 						text = e.getMessage();
 					}
