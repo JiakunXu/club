@@ -6,10 +6,10 @@ import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IAuthorizeService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.club.framework.exception.ServiceException;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.message.IMessageService;
-import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.user.IUserInfoService;
 import com.wideka.weixin.api.user.bo.User;
@@ -34,43 +34,68 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 	private String corpSecret;
 
 	@Override
-	public String authorize(String code) {
+	public User getUserInfo(String code) throws ServiceException {
 		if (StringUtils.isBlank(code)) {
-			return null;
+			throw new ServiceException("code cannot be null.");
 		}
 
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 
 		if (!result.getResult()) {
-			return result.getCode();
+			throw new ServiceException(result.getCode());
 		}
 
 		try {
-			User user = userInfoService.getUserInfo(result.getCode(), code.trim());
-
-			return JSON.toJSONString(user);
+			return userInfoService.getUserInfo(result.getCode(), code.trim());
 		} catch (RuntimeException e) {
 			logger.error(e);
 
 			try {
 				Text text = new Text();
 				text.setContent(e.getMessage());
-				// messageService.send(result.getCode(), "Jiakun.Xu", null, null, 19, text,
-				// "1");
+				messageService.send(result.getCode(), "Jiakun.Xu", null, null, 19, text, "1");
 			} catch (RuntimeException re) {
 				logger.error(re);
 			}
 
-			try {
-				Image file = new Image();
-				file.setMediaId("1_4QdjNOxBUhYefcQXEMkql6Y0oj0tGCS_JukaziakGDOdLE4pwojcE5QdbOJSos5kDZ-tjQN-MfgZaMzjiMOpA");
-				messageService.send(result.getCode(), "Jiakun.Xu", null, null, 19, file, "1");
-			} catch (RuntimeException re) {
-				logger.error(re);
-			}
-
-			return e.getMessage();
+			throw new ServiceException(e.getMessage());
 		}
+	}
+
+	@Override
+	public BooleanResult authSucc(String code) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		User user = null;
+		try {
+			user = getUserInfo(code);
+		} catch (ServiceException e) {
+			result.setCode(e.getMessage());
+			return result;
+		}
+
+		if (user == null) {
+			result.setCode("user is null.");
+			return result;
+		}
+
+		BooleanResult res = tokenService.getToken(corpId, corpSecret);
+
+		if (!res.getResult()) {
+			throw new ServiceException(result.getCode());
+		}
+
+		try {
+			userInfoService.authSucc(res.getCode(), user.getUserId());
+		} catch (RuntimeException e) {
+			result.setCode(e.getMessage());
+			return result;
+		}
+
+		result.setCode(JSON.toJSONString(user));
+		result.setResult(true);
+		return result;
 	}
 
 	public ITokenService getTokenService() {

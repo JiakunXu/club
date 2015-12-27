@@ -7,7 +7,11 @@
 
 		<action name="callback" class="weixinAction" method="callback"></action>
 		
-		<action name="authorize" class="weixinAction" method="authorize"></action>
+		<action name="authorize" class="weixinAction" method="authorize">
+			<result name="success">/club/weixin/authorize.vm</result>
+		</action>
+		
+		<action name="authSucc" class="weixinAction" method="authSucc"></action>
 		
 		<action name="upload" class="weixinAction" method="upload">
 			<result name="success">/club/weixin/upload.vm</result>

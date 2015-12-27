@@ -100,7 +100,11 @@ public class WeixinAction extends BaseAction {
 	}
 
 	public String authorize() {
-		this.setResourceResult(authorizeService.authorize(code));
+		return SUCCESS;
+	}
+
+	public String authSucc() {
+		this.setResourceResult(authorizeService.authSucc(code).getCode());
 		return RESOURCE_RESULT;
 	}
 
