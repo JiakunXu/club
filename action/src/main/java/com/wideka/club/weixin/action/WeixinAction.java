@@ -108,6 +108,20 @@ public class WeixinAction extends BaseAction {
 		return RESOURCE_RESULT;
 	}
 
+	/**
+	 * 微信管理首页(移动端).
+	 * 
+	 * @return
+	 */
+	public String index() {
+		return SUCCESS;
+	}
+
+	/**
+	 * 测试上传.
+	 * 
+	 * @return
+	 */
 	public String upload() {
 		this.setActionName(IMediaService.HTTPS_UPLOAD_URL.replace("$ACCESS_TOKEN$",
 			"ryfEpSgNvOs-ASsUw-iWf3rly5_NLMgv4n8bHEv4jKmVJdpWaIYYo2uSXav0Ve6ipFpu3iZK_mhaRgipTityZg").replace("$TYPE$",

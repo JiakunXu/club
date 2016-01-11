@@ -13,6 +13,10 @@
 		
 		<action name="authSucc" class="weixinAction" method="authSucc"></action>
 		
+		<action name="index" class="weixinAction" method="index">
+			<result name="success">/club/weixin/index.vm</result>
+		</action>
+		
 		<action name="upload" class="weixinAction" method="upload">
 			<result name="success">/club/weixin/upload.vm</result>
 		</action>
