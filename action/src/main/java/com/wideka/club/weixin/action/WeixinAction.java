@@ -109,8 +109,8 @@ public class WeixinAction extends BaseAction {
 	}
 
 	public String upload() {
-		this.setActionName(IMediaService.HTTPS_UPLOAD_URL.replace("$accessToken$",
-			"ryfEpSgNvOs-ASsUw-iWf3rly5_NLMgv4n8bHEv4jKmVJdpWaIYYo2uSXav0Ve6ipFpu3iZK_mhaRgipTityZg").replace("$type$",
+		this.setActionName(IMediaService.HTTPS_UPLOAD_URL.replace("$ACCESS_TOKEN$",
+			"ryfEpSgNvOs-ASsUw-iWf3rly5_NLMgv4n8bHEv4jKmVJdpWaIYYo2uSXav0Ve6ipFpu3iZK_mhaRgipTityZg").replace("$TYPE$",
 			"image"));
 		return SUCCESS;
 	}
