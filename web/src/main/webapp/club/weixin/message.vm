@@ -10,13 +10,9 @@
 		#UA()
 	</head>
 	<body>
-		<div class="container">
-			<div class="page">
-                <div class="weui_cells_title">发送消息</div>
-                <div class="weui_cells weui_cells_access">
-					
-                </div>
-            </div>
+		<div class="weui_cells_title">发送消息</div>
+        <div class="weui_cells weui_cells_access">
+			
         </div>
 		
 		#JS_ENV_VAL()
