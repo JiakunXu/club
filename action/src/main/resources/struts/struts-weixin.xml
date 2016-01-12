@@ -30,5 +30,15 @@
 			<result name="list">/club/weixin/department.list.vm</result>
 		</action>
 		
+		<action name="user" class="userAction" method="user">
+			<result name="success">/club/weixin/user.vm</result>
+			<result name="list">/club/weixin/user.list.vm</result>
+		</action>
+		
+		<action name="tag" class="tagAction" method="tag">
+			<result name="success">/club/weixin/tag.vm</result>
+			<result name="list">/club/weixin/tag.list.vm</result>
+		</action>
+		
 	</package>
 </struts>
