@@ -1,7 +1,10 @@
 package com.wideka.club.weixin.action;
 
+import java.util.List;
+
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
+import com.wideka.weixin.api.user.bo.User;
 
 /**
  * 
@@ -19,8 +22,11 @@ public class UserAction extends BaseAction {
 	 */
 	private String op;
 
+	private List<User> userList;
+
 	public String user() {
 		if ("list".equals(op)) {
+			userList = weixinService.getSimpleUserList("1", "1", "0");
 			return "list";
 		}
 
@@ -41,6 +47,14 @@ public class UserAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
 
 }

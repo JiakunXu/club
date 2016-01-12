@@ -65,6 +65,7 @@
 	<bean id="weixinService" class="com.wideka.club.weixin.service.impl.WeixinServiceImpl">
 		<property name="tokenService" ref="tokenService" />
 		<property name="departmentService" ref="departmentService" />
+		<property name="userService" ref="userService" />
 		<property name="tagService" ref="tagService" />
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>

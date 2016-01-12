@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.tag.bo.Tag;
+import com.wideka.weixin.api.user.bo.User;
 
 /**
  * demo 测试.
@@ -13,7 +14,7 @@ import com.wideka.weixin.api.tag.bo.Tag;
  */
 public interface IWeixinService {
 
-	// >>>>>>>>>>以下是<<<<<<<<<<
+	// >>>>>>>>>>以下是 Department<<<<<<<<<<
 
 	/**
 	 * 
@@ -22,9 +23,18 @@ public interface IWeixinService {
 	 */
 	List<Department> getDepartmentList(String id);
 
-	// >>>>>>>>>>以下是<<<<<<<<<<
+	// >>>>>>>>>>以下是 User<<<<<<<<<<
 
-	// >>>>>>>>>>以下是<<<<<<<<<<
+	/**
+	 * 
+	 * @param departmentId
+	 * @param fetchChild
+	 * @param status
+	 * @return
+	 */
+	List<User> getSimpleUserList(String departmentId, String fetchChild, String status);
+
+	// >>>>>>>>>>以下是 Tag<<<<<<<<<<
 
 	/**
 	 * 

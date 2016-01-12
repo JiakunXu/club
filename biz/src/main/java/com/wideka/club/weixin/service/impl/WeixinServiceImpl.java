@@ -11,6 +11,8 @@ import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
+import com.wideka.weixin.api.user.IUserService;
+import com.wideka.weixin.api.user.bo.User;
 
 /**
  * 
@@ -25,6 +27,8 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	private IDepartmentService departmentService;
 
+	private IUserService userService;
+
 	private ITagService tagService;
 
 	private String corpId;
@@ -34,7 +38,6 @@ public class WeixinServiceImpl implements IWeixinService {
 	@Override
 	public List<Department> getDepartmentList(String id) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
-
 		if (!result.getResult()) {
 			return null;
 		}
@@ -49,9 +52,24 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public List<User> getSimpleUserList(String departmentId, String fetchChild, String status) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return userService.getSimpleUserList(result.getCode(), departmentId, fetchChild, status).getUserList();
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
 	public List<Tag> getTagList() {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
-
 		if (!result.getResult()) {
 			return null;
 		}
@@ -79,6 +97,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setDepartmentService(IDepartmentService departmentService) {
 		this.departmentService = departmentService;
+	}
+
+	public IUserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 
 	public ITagService getTagService() {
