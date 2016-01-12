@@ -15,10 +15,19 @@
 		
 		<action name="index" class="weixinAction" method="index">
 			<result name="success">/club/weixin/index.vm</result>
+			<result name="contacts">/club/weixin/contacts.vm</result>
+			<result name="media">/club/weixin/media.vm</result>
+			<result name="agent">/club/weixin/agent.vm</result>
+			<result name="message">/club/weixin/message.vm</result>
+			<result name="menu">/club/weixin/menu.vm</result>
+			<result name="department">/club/weixin/department.vm</result>
+			<result name="user">/club/weixin/user.vm</result>
+			<result name="tag">/club/weixin/tag.vm</result>
 		</action>
 		
-		<action name="upload" class="weixinAction" method="upload">
-			<result name="success">/club/weixin/upload.vm</result>
+		<action name="department" class="departmentAction" method="department">
+			<result name="success">/club/weixin/department.vm</result>
+			<result name="list">/club/weixin/department.list.vm</result>
 		</action>
 		
 	</package>

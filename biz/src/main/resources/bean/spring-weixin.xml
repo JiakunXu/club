@@ -9,6 +9,7 @@
 		<property name="receiveService" ref="receiveService" />
 		<property name="authorizeService" ref="authorizeService" />
 	</bean>
+	
 	<bean id="receiveService" class="com.wideka.club.weixin.service.impl.ReceiveServiceImpl">
 		<property name="callbackService" ref="callbackService" />
 		<property name="msgTextService" ref="msgTextService" />
@@ -42,13 +43,15 @@
 			<value>${weixin.corp.secret}</value>
 		</property>
 	</bean>
+	
 	<bean id="tokenService" class="com.wideka.club.weixin.service.impl.TokenServiceImpl">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="accessTokenService" ref="accessTokenService" />
 	</bean>
+	
 	<bean id="authorizeService" class="com.wideka.club.weixin.service.impl.AuthorizeServiceImpl">
 		<property name="tokenService" ref="tokenService" />
-		<property name="userInfoService" ref="userInfoService" />
+		<property name="userService" ref="userService" />
 		<property name="messageService" ref="messageService" />
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
@@ -58,13 +61,31 @@
 		</property>
 	</bean>
 	
+	<!-- demo -->
+	<bean id="weixinService" class="com.wideka.club.weixin.service.impl.WeixinServiceImpl">
+		<property name="tokenService" ref="tokenService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="corpId">
+			<value>${weixin.corp.id}</value>
+		</property>
+		<property name="corpSecret">
+			<value>${weixin.corp.secret}</value>
+		</property>
+	</bean>
+	
+	<bean id="departmentAction" class="com.wideka.club.weixin.action.DepartmentAction" parent="baseAction" scope="request">
+		<property name="weixinService" ref="weixinService" />
+	</bean>
+	
+	
 	<!-- weixin -->
-	<bean id="callbackService" class="com.wideka.weixin.callback.service.impl.CallbackServiceImpl"></bean>
 	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
-	<bean id="userInfoService" class="com.wideka.weixin.user.service.impl.UserInfoServiceImpl"></bean>
-	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
+	<bean id="agentService" class="com.wideka.weixin.agent.service.impl.AgentServiceImpl"></bean>
+	<bean id="callbackService" class="com.wideka.weixin.callback.service.impl.CallbackServiceImpl"></bean>
+	<bean id="departmentService" class="com.wideka.weixin.department.service.impl.DepartmentServiceImpl"></bean>
 	<bean id="materialService" class="com.wideka.weixin.material.service.impl.MaterialServiceImpl"></bean>
 	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
-	<bean id="agentService" class="com.wideka.weixin.agent.service.impl.AgentServiceImpl"></bean>
+	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
+	<bean id="userService" class="com.wideka.weixin.user.service.impl.UserServiceImpl"></bean>
 	
 </beans>

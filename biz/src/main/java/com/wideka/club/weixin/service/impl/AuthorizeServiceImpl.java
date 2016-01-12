@@ -11,7 +11,7 @@ import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.message.IMessageService;
 import com.wideka.weixin.api.message.bo.Text;
-import com.wideka.weixin.api.user.IUserInfoService;
+import com.wideka.weixin.api.user.IUserService;
 import com.wideka.weixin.api.user.bo.User;
 
 /**
@@ -25,7 +25,7 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 
 	private ITokenService tokenService;
 
-	private IUserInfoService userInfoService;
+	private IUserService userService;
 
 	private IMessageService messageService;
 
@@ -46,7 +46,7 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 		}
 
 		try {
-			return userInfoService.getUserInfo(result.getCode(), code.trim());
+			return userService.getUserInfo(result.getCode(), code.trim());
 		} catch (RuntimeException e) {
 			logger.error(e);
 
@@ -87,7 +87,7 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 		}
 
 		try {
-			userInfoService.authSucc(res.getCode(), user.getUserId());
+			userService.authSucc(res.getCode(), user.getUserId());
 		} catch (RuntimeException e) {
 			result.setCode(e.getMessage());
 			return result;
@@ -106,12 +106,12 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 		this.tokenService = tokenService;
 	}
 
-	public IUserInfoService getUserInfoService() {
-		return userInfoService;
+	public IUserService getUserService() {
+		return userService;
 	}
 
-	public void setUserInfoService(IUserInfoService userInfoService) {
-		this.userInfoService = userInfoService;
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
 	}
 
 	public IMessageService getMessageService() {

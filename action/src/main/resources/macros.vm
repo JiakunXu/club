@@ -93,6 +93,8 @@
 			<link rel="stylesheet" href="$!{env.imgUrl}/iosbadge/iosbadge.css" />
 		#elseif($key == 'nav')
 			<link rel="stylesheet" href="$!{env.imgUrl}/css/nav/nav-global.css" />
+		#elseif($key == 'weui')
+			<link rel="stylesheet" href="$!{env.imgUrl}/weui/weui.min.css" />
 		#end
 	#end
 #end
