@@ -9,6 +9,8 @@ import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.message.IMessageService;
+import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.user.IUserService;
@@ -30,6 +32,8 @@ public class WeixinServiceImpl implements IWeixinService {
 	private IUserService userService;
 
 	private ITagService tagService;
+
+	private IMessageService messageService;
 
 	private String corpId;
 
@@ -83,6 +87,29 @@ public class WeixinServiceImpl implements IWeixinService {
 		return null;
 	}
 
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, String agentId, String content, String safe) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		Text text = new Text();
+		text.setContent(content);
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
 	public ITokenService getTokenService() {
 		return tokenService;
 	}
@@ -113,6 +140,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setTagService(ITagService tagService) {
 		this.tagService = tagService;
+	}
+
+	public IMessageService getMessageService() {
+		return messageService;
+	}
+
+	public void setMessageService(IMessageService messageService) {
+		this.messageService = messageService;
 	}
 
 	public String getCorpId() {

@@ -65,6 +65,8 @@
 			<script src="$!{env.imgUrl}/jquery.lazyload/jquery.lazyload.min.js"></script>
 		#elseif($key == 'spin')
 			<script src="$!{env.imgUrl}/spin/spin.min.js"></script>
+		#elseif($key == 'zeptojs')
+			<script src="$!{env.imgUrl}/zeptojs/zepto.min.js"></script>
 		#end
 	#end
 #end

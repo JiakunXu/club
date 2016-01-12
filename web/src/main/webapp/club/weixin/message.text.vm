@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>发送消息</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+		<div class="weui_cells_title">发送消息</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">用户</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" name="toParty" placeholder="请输入发送部门"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">标签</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" name="toTag" placeholder="请输入发送标签"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">应用</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" name="agentId" value="19" placeholder="请输入发送应用"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" name="content" placeholder="请输入消息内容"/>
+                    </div>
+                </div>
+    			<div class="weui_cell weui_cell_switch">
+                    <div class="weui_cell_hd weui_cell_primary">是否保密</div>
+                    <div class="weui_cell_ft">
+                        <input class="weui_switch" type="checkbox" name="safe" value="1"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		 <div class="weui_btn_area">
+            <a class="weui_btn weui_btn_primary" href="javascript:send();" id="showTooltips">发送</a>
+        </div>
+		
+        <div id="toast" style="display: none;">
+            <div class="weui_mask_transparent"></div>
+            <div class="weui_toast">
+                <i class="weui_icon_toast"></i>
+                <p class="weui_toast_content">已完成</p>
+            </div>
+        </div>
+
+		<div id="loadingToast" class="weui_loading_toast" style="display:none;">
+            <div class="weui_mask_transparent"></div>
+            <div class="weui_toast">
+                <div class="weui_loading">
+                    <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                    <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+                </div>
+                <p class="weui_toast_content">数据加载中</p>
+            </div>
+        </div>
+		
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs"])
+		#JS_ENV_VAL()
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.js"></script>
+    </body>
+</html>
