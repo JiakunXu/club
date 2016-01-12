@@ -67,6 +67,7 @@
 		<property name="departmentService" ref="departmentService" />
 		<property name="userService" ref="userService" />
 		<property name="tagService" ref="tagService" />
+		<property name="agentService" ref="agentService" />
 		<property name="messageService" ref="messageService" />
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
@@ -83,6 +84,9 @@
 		<property name="weixinService" ref="weixinService" />
 	</bean>
 	<bean id="tagAction" class="com.wideka.club.weixin.action.TagAction" parent="baseAction" scope="request">
+		<property name="weixinService" ref="weixinService" />
+	</bean>
+	<bean id="agentAction" class="com.wideka.club.weixin.action.AgentAction" parent="baseAction" scope="request">
 		<property name="weixinService" ref="weixinService" />
 	</bean>
 	<bean id="messageAction" class="com.wideka.club.weixin.action.MessageAction" parent="baseAction" scope="request">

@@ -7,6 +7,8 @@ import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
+import com.wideka.weixin.api.agent.IAgentService;
+import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.message.IMessageService;
@@ -32,6 +34,8 @@ public class WeixinServiceImpl implements IWeixinService {
 	private IUserService userService;
 
 	private ITagService tagService;
+
+	private IAgentService agentService;
 
 	private IMessageService messageService;
 
@@ -63,7 +67,7 @@ public class WeixinServiceImpl implements IWeixinService {
 		}
 
 		try {
-			return userService.getSimpleUserList(result.getCode(), departmentId, fetchChild, status).getUserList();
+			return userService.getSimpleUserList(result.getCode(), departmentId, fetchChild, status);
 		} catch (RuntimeException e) {
 			logger.error(e);
 		}
@@ -79,7 +83,23 @@ public class WeixinServiceImpl implements IWeixinService {
 		}
 
 		try {
-			return tagService.getTagList(result.getCode()).getTagList();
+			return tagService.getTagList(result.getCode());
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<Agent> getAgentList() {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return agentService.getAgentList(result.getCode());
 		} catch (RuntimeException e) {
 			logger.error(e);
 		}
@@ -140,6 +160,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setTagService(ITagService tagService) {
 		this.tagService = tagService;
+	}
+
+	public IAgentService getAgentService() {
+		return agentService;
+	}
+
+	public void setAgentService(IAgentService agentService) {
+		this.agentService = agentService;
 	}
 
 	public IMessageService getMessageService() {
