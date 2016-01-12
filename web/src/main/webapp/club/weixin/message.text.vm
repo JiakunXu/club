@@ -16,31 +16,31 @@
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">用户</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户"/>
+                        <input class="weui_input" type="text" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户"/>
                     </div>
                 </div>
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" name="toParty" placeholder="请输入发送部门"/>
+                        <input class="weui_input" type="text" name="toParty" placeholder="请输入发送部门"/>
                     </div>
                 </div>
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">标签</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" name="toTag" placeholder="请输入发送标签"/>
+                        <input class="weui_input" type="text" name="toTag" placeholder="请输入发送标签"/>
                     </div>
                 </div>
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">应用</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" name="agentId" value="19" placeholder="请输入发送应用"/>
+                        <input class="weui_input" type="number" name="agentId" value="19" placeholder="请输入发送应用"/>
                     </div>
                 </div>
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="tel" name="content" placeholder="请输入消息内容"/>
+                        <input class="weui_input" type="text" name="content" placeholder="请输入消息内容"/>
                     </div>
                 </div>
     			<div class="weui_cell weui_cell_switch">
@@ -87,6 +87,6 @@
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
 		#JSM(["zeptojs"])
 		#JS_ENV_VAL()
-		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.js"></script>
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.text.js"></script>
     </body>
 </html>
