@@ -5,6 +5,7 @@ import java.util.List;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.user.bo.User;
 
@@ -65,5 +66,13 @@ public interface IWeixinService {
 	 * @return
 	 */
 	BooleanResult send(String toUser, String toParty, String toTag, String agentId, String content, String safe);
+
+	// >>>>>>>>>>以下是Menu<<<<<<<<<<
+
+	/**
+	 * 
+	 * @return
+	 */
+	Menu getMenu(String agentId);
 
 }

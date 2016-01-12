@@ -50,5 +50,10 @@
 			<result name="text">/club/weixin/message.text.vm</result>
 		</action>
 		
+		<action name="menu" class="menuAction" method="menu">
+			<result name="success">/club/weixin/menu.vm</result>
+			<result name="get">/club/weixin/menu.get.vm</result>
+		</action>
+		
 	</package>
 </struts>

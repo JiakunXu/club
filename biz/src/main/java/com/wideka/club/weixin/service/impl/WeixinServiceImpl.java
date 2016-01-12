@@ -11,6 +11,8 @@ import com.wideka.weixin.api.agent.IAgentService;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.menu.IMenuService;
+import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.ITagService;
@@ -38,6 +40,8 @@ public class WeixinServiceImpl implements IWeixinService {
 	private IAgentService agentService;
 
 	private IMessageService messageService;
+
+	private IMenuService menuService;
 
 	private String corpId;
 
@@ -130,6 +134,22 @@ public class WeixinServiceImpl implements IWeixinService {
 		return result;
 	}
 
+	@Override
+	public Menu getMenu(String agentId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return menuService.getMenu(result.getCode(), agentId);
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
 	public ITokenService getTokenService() {
 		return tokenService;
 	}
@@ -176,6 +196,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setMessageService(IMessageService messageService) {
 		this.messageService = messageService;
+	}
+
+	public IMenuService getMenuService() {
+		return menuService;
+	}
+
+	public void setMenuService(IMenuService menuService) {
+		this.menuService = menuService;
 	}
 
 	public String getCorpId() {
