@@ -1,7 +1,6 @@
 package com.wideka.club.weixin.service.impl;
 
 import java.util.Date;
-import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IEventBatchJobService;
@@ -21,14 +20,8 @@ import com.wideka.club.api.weixin.IMsgVoiceService;
 import com.wideka.club.api.weixin.IReceiveService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.framework.bo.BooleanResult;
-import com.wideka.weixin.api.agent.IAgentService;
-import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.callback.ICallbackService;
 import com.wideka.weixin.api.callback.bo.Content;
-import com.wideka.weixin.api.material.IMaterialService;
-import com.wideka.weixin.api.material.bo.MaterialCount;
-import com.wideka.weixin.api.menu.IMenuService;
-import com.wideka.weixin.api.menu.bo.Menu;
 
 /**
  * 
@@ -68,12 +61,6 @@ public class ReceiveServiceImpl implements IReceiveService {
 	private IEventBatchJobService eventBatchJobService;
 
 	private ITokenService tokenService;
-
-	private IMaterialService materialService;
-
-	private IMenuService menuService;
-
-	private IAgentService agentService;
 
 	private String token;
 
@@ -162,74 +149,7 @@ public class ReceiveServiceImpl implements IReceiveService {
 		}
 
 		if (result.getResult()) {
-			if ("text".equals(msgType) && "mat".equals(content.getContent())) {
-				String text;
-				BooleanResult res = tokenService.getToken(corpId, corpSecret);
-				if (res.getResult()) {
-					try {
-						MaterialCount materialCount =
-							materialService.getCount(res.getCode(), String.valueOf(content.getAgentId()));
-
-						text = JSON.toJSONString(materialCount);
-					} catch (RuntimeException e) {
-						text = e.getMessage();
-					}
-				} else {
-					text = res.getCode();
-				}
-
-				result.setCode(callback(content, text, timestamp, nonce));
-			} else if ("text".equals(msgType) && "menu".equals(content.getContent())) {
-				String text;
-				BooleanResult res = tokenService.getToken(corpId, corpSecret);
-				if (res.getResult()) {
-					try {
-						Menu menu = menuService.getMenu(res.getCode(), String.valueOf(content.getAgentId()));
-
-						text = JSON.toJSONString(menu);
-					} catch (RuntimeException e) {
-						text = e.getMessage();
-					}
-				} else {
-					text = res.getCode();
-				}
-
-				result.setCode(callback(content, text, timestamp, nonce));
-			} else if ("text".equals(msgType) && "agent".equals(content.getContent())) {
-				String text;
-				BooleanResult res = tokenService.getToken(corpId, corpSecret);
-				if (res.getResult()) {
-					try {
-						Agent agent = agentService.getAgent(res.getCode(), String.valueOf(content.getAgentId()));
-
-						text = JSON.toJSONString(agent);
-					} catch (RuntimeException e) {
-						text = e.getMessage();
-					}
-				} else {
-					text = res.getCode();
-				}
-
-				result.setCode(callback(content, text, timestamp, nonce));
-			} else if ("text".equals(msgType) && "agents".equals(content.getContent())) {
-				String text;
-				BooleanResult res = tokenService.getToken(corpId, corpSecret);
-				if (res.getResult()) {
-					try {
-						List<Agent> agentList = agentService.getAgentList(res.getCode());
-
-						text = JSON.toJSONString(agentList);
-					} catch (RuntimeException e) {
-						text = e.getMessage();
-					}
-				} else {
-					text = res.getCode();
-				}
-
-				result.setCode(callback(content, text, timestamp, nonce));
-			} else {
-				result.setCode(callback(content, msgType + "/" + content.getEvent(), timestamp, nonce));
-			}
+			result.setCode(callback(content, msgType + "/" + content.getEvent(), timestamp, nonce));
 		}
 
 		return result;
@@ -394,30 +314,6 @@ public class ReceiveServiceImpl implements IReceiveService {
 
 	public void setTokenService(ITokenService tokenService) {
 		this.tokenService = tokenService;
-	}
-
-	public IMaterialService getMaterialService() {
-		return materialService;
-	}
-
-	public void setMaterialService(IMaterialService materialService) {
-		this.materialService = materialService;
-	}
-
-	public IMenuService getMenuService() {
-		return menuService;
-	}
-
-	public void setMenuService(IMenuService menuService) {
-		this.menuService = menuService;
-	}
-
-	public IAgentService getAgentService() {
-		return agentService;
-	}
-
-	public void setAgentService(IAgentService agentService) {
-		this.agentService = agentService;
 	}
 
 	public String getToken() {

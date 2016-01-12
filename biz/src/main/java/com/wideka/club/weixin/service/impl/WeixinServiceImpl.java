@@ -11,6 +11,8 @@ import com.wideka.weixin.api.agent.IAgentService;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.material.IMaterialService;
+import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.IMenuService;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
@@ -36,6 +38,8 @@ public class WeixinServiceImpl implements IWeixinService {
 	private IUserService userService;
 
 	private ITagService tagService;
+
+	private IMaterialService materialService;
 
 	private IAgentService agentService;
 
@@ -96,6 +100,22 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public MaterialList batchGet(String type, int agentId, int offset, int count) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return materialService.batchGet(result.getCode(), type, agentId, offset, count);
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
 	public List<Agent> getAgentList() {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {
@@ -112,7 +132,7 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
-	public BooleanResult send(String toUser, String toParty, String toTag, String agentId, String content, String safe) {
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, String content, String safe) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {
 			return null;
@@ -122,7 +142,7 @@ public class WeixinServiceImpl implements IWeixinService {
 		text.setContent(content);
 
 		try {
-			messageService.send(result.getCode(), toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, text, safe);
 			result.setResult(true);
 		} catch (Exception e) {
 			logger.error(e);
@@ -180,6 +200,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setTagService(ITagService tagService) {
 		this.tagService = tagService;
+	}
+
+	public IMaterialService getMaterialService() {
+		return materialService;
+	}
+
+	public void setMaterialService(IMaterialService materialService) {
+		this.materialService = materialService;
 	}
 
 	public IAgentService getAgentService() {

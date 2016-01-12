@@ -5,6 +5,7 @@ import java.util.List;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.user.bo.User;
@@ -45,6 +46,18 @@ public interface IWeixinService {
 	 */
 	List<Tag> getTagList();
 
+	// >>>>>>>>>>以下是Media<<<<<<<<<<
+
+	/**
+	 * 
+	 * @param type
+	 * @param agentId
+	 * @param offset
+	 * @param count
+	 * @return
+	 */
+	MaterialList batchGet(String type, int agentId, int offset, int count);
+
 	// >>>>>>>>>>以下是Agent<<<<<<<<<<
 
 	/**
@@ -65,7 +78,7 @@ public interface IWeixinService {
 	 * @param safe
 	 * @return
 	 */
-	BooleanResult send(String toUser, String toParty, String toTag, String agentId, String content, String safe);
+	BooleanResult send(String toUser, String toParty, String toTag, int agentId, String content, String safe);
 
 	// >>>>>>>>>>以下是Menu<<<<<<<<<<
 

@@ -40,6 +40,11 @@
 			<result name="list">/club/weixin/tag.list.vm</result>
 		</action>
 		
+		<action name="media" class="mediaAction" method="media">
+			<result name="success">/club/weixin/media.vm</result>
+			<result name="material/batchget">/club/weixin/material.batchget.vm</result>
+		</action>
+		
 		<action name="agent" class="agentAction" method="agent">
 			<result name="success">/club/weixin/agent.vm</result>
 			<result name="list">/club/weixin/agent.list.vm</result>

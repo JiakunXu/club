@@ -27,9 +27,6 @@
 		<property name="eventEnterAgentService" ref="eventEnterAgentService" />
 		<property name="eventBatchJobService" ref="eventBatchJobService" />
 		<property name="tokenService" ref="tokenService" />
-		<property name="materialService" ref="materialService" />
-		<property name="menuService" ref="menuService" />
-		<property name="agentService" ref="agentService" />
 		<property name="token">
 			<value>${weixin.token}</value>
 		</property>
@@ -67,6 +64,7 @@
 		<property name="departmentService" ref="departmentService" />
 		<property name="userService" ref="userService" />
 		<property name="tagService" ref="tagService" />
+		<property name="materialService" ref="materialService" />
 		<property name="agentService" ref="agentService" />
 		<property name="messageService" ref="messageService" />
 		<property name="menuService" ref="menuService" />
@@ -85,6 +83,9 @@
 		<property name="weixinService" ref="weixinService" />
 	</bean>
 	<bean id="tagAction" class="com.wideka.club.weixin.action.TagAction" parent="baseAction" scope="request">
+		<property name="weixinService" ref="weixinService" />
+	</bean>
+	<bean id="mediaAction" class="com.wideka.club.weixin.action.MediaAction" parent="baseAction" scope="request">
 		<property name="weixinService" ref="weixinService" />
 	</bean>
 	<bean id="agentAction" class="com.wideka.club.weixin.action.AgentAction" parent="baseAction" scope="request">

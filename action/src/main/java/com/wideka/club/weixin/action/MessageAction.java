@@ -36,7 +36,7 @@ public class MessageAction extends BaseAction {
 
 	public String message() {
 		if ("send.text".equals(op)) {
-			BooleanResult result = weixinService.send(toUser, toParty, toTag, agentId, content, safe);
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), content, safe);
 
 			if (result.getResult()) {
 				this.setSuccessMessage("成功！");
