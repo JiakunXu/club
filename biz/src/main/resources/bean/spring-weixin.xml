@@ -49,7 +49,6 @@
 	<bean id="authorizeService" class="com.wideka.club.weixin.service.impl.AuthorizeServiceImpl">
 		<property name="tokenService" ref="tokenService" />
 		<property name="userService" ref="userService" />
-		<property name="messageService" ref="messageService" />
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
 		</property>

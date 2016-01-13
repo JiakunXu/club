@@ -2,7 +2,7 @@ package com.wideka.club.api.weixin;
 
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.exception.ServiceException;
-import com.wideka.weixin.api.user.bo.User;
+import com.wideka.weixin.api.user.bo.UserInfo;
 
 /**
  * 
@@ -18,7 +18,7 @@ public interface IAuthorizeService {
 	 * @return
 	 * @throws ServiceException
 	 */
-	User getUserInfo(String code) throws ServiceException;
+	UserInfo getUserInfo(String code) throws ServiceException;
 
 	/**
 	 * 

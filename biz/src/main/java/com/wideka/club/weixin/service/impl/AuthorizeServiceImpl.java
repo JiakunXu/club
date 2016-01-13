@@ -9,10 +9,8 @@ import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.exception.ServiceException;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
-import com.wideka.weixin.api.message.IMessageService;
-import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.user.IUserService;
-import com.wideka.weixin.api.user.bo.User;
+import com.wideka.weixin.api.user.bo.UserInfo;
 
 /**
  * 
@@ -27,14 +25,12 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 
 	private IUserService userService;
 
-	private IMessageService messageService;
-
 	private String corpId;
 
 	private String corpSecret;
 
 	@Override
-	public User getUserInfo(String code) throws ServiceException {
+	public UserInfo getUserInfo(String code) throws ServiceException {
 		if (StringUtils.isBlank(code)) {
 			throw new ServiceException("code cannot be null.");
 		}
@@ -50,14 +46,6 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 		} catch (RuntimeException e) {
 			logger.error(e);
 
-			try {
-				Text text = new Text();
-				text.setContent(e.getMessage());
-				messageService.send(result.getCode(), "Jiakun.Xu", null, null, 19, text, "1");
-			} catch (RuntimeException re) {
-				logger.error(re);
-			}
-
 			throw new ServiceException(e.getMessage());
 		}
 	}
@@ -67,7 +55,7 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
-		User user = null;
+		UserInfo user = null;
 		try {
 			user = getUserInfo(code);
 		} catch (ServiceException e) {
@@ -112,14 +100,6 @@ public class AuthorizeServiceImpl implements IAuthorizeService {
 
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
-	}
-
-	public IMessageService getMessageService() {
-		return messageService;
-	}
-
-	public void setMessageService(IMessageService messageService) {
-		this.messageService = messageService;
 	}
 
 	public String getCorpId() {
