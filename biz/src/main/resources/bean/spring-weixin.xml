@@ -96,6 +96,9 @@
 	<bean id="menuAction" class="com.wideka.club.weixin.action.MenuAction" parent="baseAction" scope="request">
 		<property name="weixinService" ref="weixinService" />
 	</bean>
+	<bean id="authAction" class="com.wideka.club.weixin.action.AuthAction" parent="baseAction" scope="request">
+		<property name="weixinService" ref="weixinService" />
+	</bean>
 	
 	
 	<!-- weixin -->

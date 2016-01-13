@@ -48,6 +48,13 @@
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
+			<a class="weui_cell" href="javascript:goto('auth');" >
+                <span class="weui_cell_hd"><img src="$!{env.imgUrl}/image/weixin/icon_nav_button.png" class="icon_nav" alt=""></span>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>身份验证接口</p>
+                </div>
+                <div class="weui_cell_ft"></div>
+            </a>
         </div>
 		
 		#JS_ENV_VAL()

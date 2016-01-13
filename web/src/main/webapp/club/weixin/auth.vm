@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>身份验证接口</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+        <div class="weui_cells_title">身份验证接口</div>
+        <div class="weui_cells weui_cells_access">
+            <a class="weui_cell" href="javascript:goto('oauth2');" >
+                <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>OAuth验证接口</p>
+                </div>
+                <div class="weui_cell_ft"></div>
+            </a>
+            <a class="weui_cell" href="javascript:goto('convert');" >
+                <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>Userid与openid互换接口</p>
+                </div>
+                <div class="weui_cell_ft"></div>
+            </a>
+        </div>
+		
+		#JS_ENV_VAL()
+		<script type="text/javascript">
+		function goto(op) {
+			top.location.href = appUrl + "/weixin/auth.htm?op=" + op;
+		}
+		</script>
+    </body>
+</html>

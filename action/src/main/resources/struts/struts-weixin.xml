@@ -20,6 +20,7 @@
 			<result name="agent">/club/weixin/agent.vm</result>
 			<result name="message">/club/weixin/message.vm</result>
 			<result name="menu">/club/weixin/menu.vm</result>
+			<result name="auth">/club/weixin/auth.vm</result>
 			<result name="department">/club/weixin/department.vm</result>
 			<result name="user">/club/weixin/user.vm</result>
 			<result name="tag">/club/weixin/tag.vm</result>
@@ -63,6 +64,12 @@
 		<action name="menu" class="menuAction" method="menu">
 			<result name="success">/club/weixin/menu.vm</result>
 			<result name="get">/club/weixin/menu.get.vm</result>
+		</action>
+		
+		<action name="auth" class="authAction" method="auth">
+			<result name="success">/club/weixin/auth.vm</result>
+			<result name="oauth2">/club/weixin/auth.oauth2.vm</result>
+			<result name="convert">/club/weixin/auth.convert.vm</result>
 		</action>
 		
 	</package>
