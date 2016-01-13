@@ -2,11 +2,11 @@ $(document).ready(function() {
 			$('#hideFrame').on('load', promgtMsg);
 		})
 
-function send() {
+function save() {
 	showLoadingToast();
 
 	var form = window.document.forms[0];
-	form.action = appUrl + "/weixin/message.htm?op=send/text";
+	form.action = appUrl + "/weixin/department.htm?op=department/create";
 	form.target = "hideFrame";
 	form.submit();
 }

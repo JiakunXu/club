@@ -61,6 +61,6 @@
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
 		#JSM(["zeptojs"])
 		#JS_ENV_VAL()
-		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.text.js"></script>
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.text.js?t=20160113"></script>
     </body>
 </html>

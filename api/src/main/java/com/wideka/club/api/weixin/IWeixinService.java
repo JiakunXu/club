@@ -22,6 +22,13 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param department
+	 * @return
+	 */
+	BooleanResult createDepartment(Department department);
+
+	/**
+	 * 
 	 * @param id
 	 * @return
 	 */
