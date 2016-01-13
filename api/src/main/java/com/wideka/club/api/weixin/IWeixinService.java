@@ -79,6 +79,13 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param tagId
+	 * @return
+	 */
+	BooleanResult deleteTag(String tagId);
+
+	/**
+	 * 
 	 * @return
 	 */
 	List<Tag> getTagList();

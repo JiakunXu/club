@@ -3,10 +3,29 @@ $(document).ready(function() {
 		})
 
 function save(op) {
+	if (op == "delete") {
+		$('#dialogConfirm').show();
+		return;
+	}
+
 	showLoadingToast();
 
 	var form = window.document.forms[0];
 	form.action = appUrl + "/weixin/tag.htm?op=tag/" + op;
+	form.target = "hideFrame";
+	form.submit();
+}
+
+function hideDialogConfirm() {
+	$('#dialogConfirm').hide();
+}
+
+function deleteTag() {
+	hideDialogConfirm();
+	showLoadingToast();
+
+	var form = window.document.forms[1];
+	form.action = appUrl + "/weixin/tag.htm?op=tag/delete";
 	form.target = "hideFrame";
 	form.submit();
 }

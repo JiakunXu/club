@@ -186,6 +186,26 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public BooleanResult deleteTag(String tagId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			tagService.deleteTag(result.getCode(), tagId);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
 	public List<Tag> getTagList() {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {

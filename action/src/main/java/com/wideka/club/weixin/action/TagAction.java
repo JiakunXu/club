@@ -71,6 +71,18 @@ public class TagAction extends BaseAction {
 			return RESULT_MESSAGE;
 		}
 
+		if ("tag/delete".equals(op)) {
+			BooleanResult result = weixinService.deleteTag(tagId);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
 		if ("list".equals(op)) {
 			tagList = weixinService.getTagList();
 			return "list";

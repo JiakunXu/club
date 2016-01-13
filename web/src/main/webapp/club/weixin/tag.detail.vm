@@ -32,6 +32,17 @@
 				<input type="hidden" name="tagId" value="$!{tagId}"/>
             </form>
         </div>
+		<div class="weui_dialog_confirm" id="dialogConfirm" style="display: none;">
+            <div class="weui_mask"></div>
+            <div class="weui_dialog">
+                <div class="weui_dialog_hd"><strong class="weui_dialog_title">提示</strong></div>
+                <div class="weui_dialog_bd">确定删除标签？</div>
+                <div class="weui_dialog_ft">
+                    <a href="javascript:hideDialogConfirm();" class="weui_btn_dialog default">取消</a>
+                    <a href="javascript:deleteTag();" class="weui_btn_dialog primary">确定</a>
+                </div>
+            </div>
+        </div>
 		<div class="weui_btn_area">
             <a class="weui_btn weui_btn_primary" href="javascript:save('delete');" id="showTooltips">删除</a>
         </div>
