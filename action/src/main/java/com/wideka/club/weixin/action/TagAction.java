@@ -1,10 +1,15 @@
 package com.wideka.club.weixin.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.club.framework.log.Logger4jCollection;
+import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.tag.bo.Tag;
 
 /**
@@ -16,6 +21,12 @@ public class TagAction extends BaseAction {
 
 	private static final long serialVersionUID = 1175178780054186617L;
 
+	private static final String CHARSET_UTF8 = "UTF-8";
+
+	private static final String CHARSET_ISO8859 = "ISO8859-1";
+
+	private Logger4jExtend logger = Logger4jCollection.getLogger(TagAction.class);
+
 	private IWeixinService weixinService;
 
 	/**
@@ -26,6 +37,10 @@ public class TagAction extends BaseAction {
 	private Tag tag;
 
 	private List<Tag> tagList;
+
+	private String tagId;
+
+	private String tagName;
 
 	public String tag() {
 		if ("create".equals(op)) {
@@ -43,9 +58,22 @@ public class TagAction extends BaseAction {
 
 			return RESULT_MESSAGE;
 		}
+
 		if ("list".equals(op)) {
 			tagList = weixinService.getTagList();
 			return "list";
+		}
+
+		if ("detail".equals(op)) {
+			if (StringUtils.isNotBlank(tagName)) {
+				try {
+					tagName = new String(tagName.trim().getBytes(CHARSET_ISO8859), CHARSET_UTF8);
+				} catch (UnsupportedEncodingException e) {
+					logger.error(tagName, e);
+				}
+			}
+
+			return "detail";
 		}
 
 		return SUCCESS;
@@ -81,6 +109,22 @@ public class TagAction extends BaseAction {
 
 	public void setTagList(List<Tag> tagList) {
 		this.tagList = tagList;
+	}
+
+	public String getTagId() {
+		return tagId;
+	}
+
+	public void setTagId(String tagId) {
+		this.tagId = tagId;
+	}
+
+	public String getTagName() {
+		return tagName;
+	}
+
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
 	}
 
 }
