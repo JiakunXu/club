@@ -59,6 +59,18 @@ public class TagAction extends BaseAction {
 			return RESULT_MESSAGE;
 		}
 
+		if ("tag/update".equals(op)) {
+			BooleanResult result = weixinService.updateTag(tag);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
 		if ("list".equals(op)) {
 			tagList = weixinService.getTagList();
 			return "list";

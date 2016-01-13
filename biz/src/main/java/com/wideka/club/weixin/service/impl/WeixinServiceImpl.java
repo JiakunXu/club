@@ -166,6 +166,26 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public BooleanResult updateTag(Tag tag) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			tagService.updateTag(result.getCode(), tag);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
 	public List<Tag> getTagList() {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {

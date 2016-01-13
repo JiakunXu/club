@@ -23,17 +23,17 @@
             </form>
         </div>
 		<div class="weui_btn_area">
-            <a class="weui_btn weui_btn_primary" href="javascript:save();" id="showTooltips">更新</a>
+            <a class="weui_btn weui_btn_primary" href="javascript:save('update');" id="showTooltips">更新</a>
         </div>
 		
 		<div class="weui_cells_title">删除标签</div>
 		<div class="weui_cells weui_cells_form">
 			<form method="post">
-				<input type="hidden" name="tag.tagId" value="$!{tagId}"/>
+				<input type="hidden" name="tagId" value="$!{tagId}"/>
             </form>
         </div>
 		<div class="weui_btn_area">
-            <a class="weui_btn weui_btn_primary" href="javascript:save();" id="showTooltips">删除</a>
+            <a class="weui_btn weui_btn_primary" href="javascript:save('delete');" id="showTooltips">删除</a>
         </div>
 		
         <div class="weui_cells weui_cells_access">
@@ -59,6 +59,9 @@
                 <div class="weui_cell_ft"></div>
             </a>
         </div>
+		
+		#parse("/club/framework/common/loadingToast.vm")
+		#parse("/club/framework/common/toast.vm")
 		
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
 		#JSM(["zeptojs"])
