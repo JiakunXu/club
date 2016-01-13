@@ -25,6 +25,10 @@ public class DepartmentAction extends BaseAction {
 	private List<Department> departmentList;
 
 	public String department() {
+		if ("create".equals(op)) {
+			return "create";
+		}
+
 		if ("list".equals(op)) {
 			departmentList = weixinService.getDepartmentList("1");
 			return "list";
