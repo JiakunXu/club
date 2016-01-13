@@ -130,4 +130,21 @@ public interface IWeixinService {
 	 */
 	Menu getMenu(String agentId);
 
+	// >>>>>>>>>>以下是Auth<<<<<<<<<<
+
+	/**
+	 * 
+	 * @param userId
+	 * @param agentId
+	 * @return
+	 */
+	BooleanResult convertToOpenId(String userId, Integer agentId);
+
+	/**
+	 * 
+	 * @param openId
+	 * @return
+	 */
+	BooleanResult convertToUserId(String openId);
+
 }

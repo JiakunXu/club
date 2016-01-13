@@ -269,6 +269,46 @@ public class WeixinServiceImpl implements IWeixinService {
 		return null;
 	}
 
+	@Override
+	public BooleanResult convertToOpenId(String userId, Integer agentId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			User user = userService.convertToOpenId(result.getCode(), userId, agentId);
+			result.setCode(user.getOpenId() + "|" + user.getAppId());
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult convertToUserId(String openId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			User user = userService.convertToUserId(result.getCode(), openId);
+			result.setCode(user.getUserId());
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
 	public ITokenService getTokenService() {
 		return tokenService;
 	}

@@ -1,7 +1,10 @@
 package com.wideka.club.weixin.action;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
+import com.wideka.club.framework.bo.BooleanResult;
 
 /**
  * 
@@ -19,13 +22,45 @@ public class AuthAction extends BaseAction {
 	 */
 	private String op;
 
-	public String agent() {
+	private String userId;
+
+	private String agentId;
+
+	private String openId;
+
+	public String auth() {
 		if ("oauth2".equals(op)) {
 			return "oauth2";
 		}
 
 		if ("convert".equals(op)) {
 			return "convert";
+		}
+
+		if ("auth/convertToOpenId".equals(op)) {
+			BooleanResult result =
+				weixinService
+					.convertToOpenId(userId, StringUtils.isNotBlank(agentId) ? Integer.valueOf(agentId) : null);
+
+			if (result.getResult()) {
+				this.setSuccessMessage(result.getCode());
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("auth/convertToUserId".equals(op)) {
+			BooleanResult result = weixinService.convertToUserId(openId);
+
+			if (result.getResult()) {
+				this.setSuccessMessage(result.getCode());
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
 		}
 
 		return SUCCESS;
@@ -45,6 +80,30 @@ public class AuthAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getAgentId() {
+		return agentId;
+	}
+
+	public void setAgentId(String agentId) {
+		this.agentId = agentId;
+	}
+
+	public String getOpenId() {
+		return openId;
+	}
+
+	public void setOpenId(String openId) {
+		this.openId = openId;
 	}
 
 }

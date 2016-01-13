@@ -21,7 +21,7 @@
                 </div>
             </form>
         </div>
-		 <div class="weui_btn_area">
+		<div class="weui_btn_area">
             <a class="weui_btn weui_btn_primary" href="javascript:save();" id="showTooltips">确认</a>
         </div>
 		

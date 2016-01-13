@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>Userid与openid互换接口</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+		<div class="weui_cells_title">userid转换成openid接口</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">UserID</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="userId" value="Jiakun.Xu" placeholder="请输入企业号内的成员id"/>
+                    </div>
+                </div>
+				<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">AgentId</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="number" name="agentId" placeholder="请输入需要发送红包的应用ID"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_primary" href="javascript:save('convertToOpenId');" id="showTooltips">确认</a>
+        </div>
+		
+		<div class="weui_cells_title">openid转换成userid接口</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">OpenID</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="openId" value="o1n7js7VTXqh8BRM8IMSJljpGLUg" placeholder="请输入在使用微信支付、微信红包和企业转账之后，返回结果的openid"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_primary" href="javascript:save('convertToUserId');" id="showTooltips">确认</a>
+        </div>
+		
+		#parse("/club/framework/common/loadingToast.vm")
+		#parse("/club/framework/common/toast.vm")
+
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs"])
+		#JS_ENV_VAL()
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/auth.convert.js"></script>
+    </body>
+</html>
