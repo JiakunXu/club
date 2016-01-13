@@ -21,10 +21,19 @@ function promgtMsg() {
 	hideLoadingToast();
 
 	if (failResult != undefined && failResult != "") {
-		alert(failResult);
+		dialogAlert(failResult);
 	} else if (successResult != undefined) {
-		alert(successResult);
+		dialogAlert(successResult);
 	}
+}
+
+function dialogAlert(content) {
+	$('#content').html(content);
+	$('#dialogAlert').show();
+}
+
+function hideDialogAlert() {
+	$('#dialogAlert').hide();
 }
 
 function showToast() {

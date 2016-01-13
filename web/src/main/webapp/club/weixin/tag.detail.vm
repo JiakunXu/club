@@ -82,6 +82,6 @@
 			top.location.href = appUrl + "/weixin/tag.htm?op=" + op;
 		}
 		</script>
-		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/tag.detail.js"></script>
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/tag.detail.js?t=20160113"></script>
     </body>
 </html>
