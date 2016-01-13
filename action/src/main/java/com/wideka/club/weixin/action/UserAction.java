@@ -27,12 +27,15 @@ public class UserAction extends BaseAction {
 
 	private List<User> userList;
 
+	private String userId;
+
 	public String user() {
 		if ("create".equals(op)) {
 			return "create";
 		}
-
 		if ("user/create".equals(op)) {
+			int[] department = { 2 };
+			user.setDepartment(department);
 			BooleanResult result = weixinService.createUser(user);
 
 			if (result.getResult()) {
@@ -47,6 +50,21 @@ public class UserAction extends BaseAction {
 		if ("list".equals(op)) {
 			userList = weixinService.getSimpleUserList("1", "1", "0");
 			return "list";
+		}
+
+		if ("invite".equals(op)) {
+			return "invite";
+		}
+		if ("user/invite".equals(op)) {
+			BooleanResult result = weixinService.inviteUser(userId);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
 		}
 
 		return SUCCESS;
@@ -82,6 +100,14 @@ public class UserAction extends BaseAction {
 
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

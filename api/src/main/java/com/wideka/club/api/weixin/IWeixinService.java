@@ -52,6 +52,13 @@ public interface IWeixinService {
 	 */
 	List<User> getSimpleUserList(String departmentId, String fetchChild, String status);
 
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	BooleanResult inviteUser(String userId);
+
 	// >>>>>>>>>>以下是Tag<<<<<<<<<<
 
 	/**

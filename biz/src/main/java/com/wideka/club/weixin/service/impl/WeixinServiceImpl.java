@@ -21,6 +21,7 @@ import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.user.IUserService;
 import com.wideka.weixin.api.user.bo.User;
+import com.wideka.weixin.api.user.bo.UserResult;
 
 /**
  * 
@@ -121,6 +122,26 @@ public class WeixinServiceImpl implements IWeixinService {
 		}
 
 		return null;
+	}
+
+	@Override
+	public BooleanResult inviteUser(String userId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			UserResult res = userService.inviteUser(result.getCode(), userId);
+			result.setCode(res.getType());
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
 	}
 
 	@Override
