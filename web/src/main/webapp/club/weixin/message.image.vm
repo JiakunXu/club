@@ -10,7 +10,7 @@
 		#UA()
 	</head>
 	<body>
-		<div class="weui_cells_title">发送text消息</div>
+		<div class="weui_cells_title">发送image消息</div>
 		<div class="weui_cells weui_cells_form">
 			<form method="post">
     			<div class="weui_cell">
@@ -40,7 +40,7 @@
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" name="text.content" placeholder="请输入消息内容"/>
+                        <input class="weui_input" type="text" name="image.mediaId" value="2_atsbLx7wBI_m4q3wOCZEl-bfA45ujR-aUBjYYAjLRjuIKgM5lcG9moxpIVNPxKvDU1LeH00GAKxhOCjaXq3IQ" placeholder="请输入消息内容"/>
                     </div>
                 </div>
     			<div class="weui_cell weui_cell_switch">
@@ -61,6 +61,6 @@
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
 		#JSM(["zeptojs"])
 		#JS_ENV_VAL()
-		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.text.js?t=20160113"></script>
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.image.js?t=20160113"></script>
     </body>
 </html>

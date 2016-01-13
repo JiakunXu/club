@@ -5,6 +5,8 @@ import org.apache.commons.lang3.StringUtils;
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.weixin.api.message.bo.Image;
+import com.wideka.weixin.api.message.bo.Text;
 
 /**
  * 
@@ -30,13 +32,27 @@ public class MessageAction extends BaseAction {
 
 	private String agentId;
 
-	private String content;
-
 	private String safe;
+
+	private Text text;
+
+	private Image image;
 
 	public String message() {
 		if ("send/text".equals(op)) {
-			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), content, safe);
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("send/image".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), image, safe);
 
 			if (result.getResult()) {
 				this.setSuccessMessage("成功！");
@@ -102,20 +118,28 @@ public class MessageAction extends BaseAction {
 		this.agentId = agentId;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getSafe() {
 		return safe;
 	}
 
 	public void setSafe(String safe) {
 		this.safe = safe;
+	}
+
+	public Text getText() {
+		return text;
+	}
+
+	public void setText(Text text) {
+		this.text = text;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
 	}
 
 }

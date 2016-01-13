@@ -7,6 +7,8 @@ import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.bo.Menu;
+import com.wideka.weixin.api.message.bo.Image;
+import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.user.bo.User;
 
@@ -102,11 +104,23 @@ public interface IWeixinService {
 	 * @param toParty
 	 * @param toTag
 	 * @param agentId
-	 * @param content
+	 * @param text
 	 * @param safe
 	 * @return
 	 */
-	BooleanResult send(String toUser, String toParty, String toTag, int agentId, String content, String safe);
+	BooleanResult send(String toUser, String toParty, String toTag, int agentId, Text text, String safe);
+
+	/**
+	 * 
+	 * @param toUser
+	 * @param toParty
+	 * @param toTag
+	 * @param agentId
+	 * @param image
+	 * @param safe
+	 * @return
+	 */
+	BooleanResult send(String toUser, String toParty, String toTag, int agentId, Image image, String safe);
 
 	// >>>>>>>>>>以下是Menu<<<<<<<<<<
 

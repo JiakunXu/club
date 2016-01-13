@@ -16,6 +16,7 @@ import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.IMenuService;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
+import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
@@ -213,17 +214,34 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
-	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, String content, String safe) {
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, Text text, String safe) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {
 			return null;
 		}
 
-		Text text = new Text();
-		text.setContent(content);
-
 		try {
 			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, text, safe);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, Image image, String safe) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, image, safe);
 			result.setResult(true);
 		} catch (Exception e) {
 			logger.error(e);

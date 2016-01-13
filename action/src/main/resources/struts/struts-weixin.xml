@@ -57,6 +57,7 @@
 		<action name="message" class="messageAction" method="message">
 			<result name="success">/club/weixin/message.vm</result>
 			<result name="text">/club/weixin/message.text.vm</result>
+			<result name="image">/club/weixin/message.image.vm</result>
 		</action>
 		
 		<action name="menu" class="menuAction" method="menu">
