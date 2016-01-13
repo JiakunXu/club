@@ -38,6 +38,13 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param user
+	 * @return
+	 */
+	BooleanResult createUser(User user);
+
+	/**
+	 * 
 	 * @param departmentId
 	 * @param fetchChild
 	 * @param status

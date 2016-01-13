@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>创建成员</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+		<div class="weui_cells_title">创建成员</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="department.name" placeholder="请输入部门名称"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">父部门</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="department.parentId" value="1" placeholder="请输入父亲部门id"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		 <div class="weui_btn_area">
+            <a class="weui_btn weui_btn_primary" href="javascript:save();" id="showTooltips">确认</a>
+        </div>
+		
+		#parse("/club/framework/common/loadingToast.vm")
+		#parse("/club/framework/common/toast.vm")
+
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs"])
+		#JS_ENV_VAL()
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/department.create.js"></script>
+    </body>
+</html>

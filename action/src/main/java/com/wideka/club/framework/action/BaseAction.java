@@ -11,7 +11,6 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.wideka.club.api.user.bo.User;
 import com.wideka.club.framework.annotation.Decode;
 import com.wideka.club.framework.bo.SearchInfo;
 
@@ -115,15 +114,6 @@ public class BaseAction extends ActionSupport {
 
 	public SearchInfo getSearchInfo() {
 		return this.getSearchInfo(new SearchInfo());
-	}
-
-	/**
-	 * getUser.
-	 * 
-	 * @return
-	 */
-	public User getUser() {
-		return (User) getSession().getAttribute("ACEGI_SECURITY_LAST_LOGINUSER");
 	}
 
 	public String getGmtStart() {

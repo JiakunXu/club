@@ -15,7 +15,7 @@
 			#foreach($department in $!{departmentList})
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <p>$!{department.id} | $!{department.name}</p>
+                    <p>$!{department.id} | $!{department.parentId} | $!{department.name} | $!{department.order}</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </div>

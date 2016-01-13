@@ -33,6 +33,7 @@
 		
 		<action name="user" class="userAction" method="user">
 			<result name="success">/club/weixin/user.vm</result>
+			<result name="create">/club/weixin/user.create.vm</result>
 			<result name="list">/club/weixin/user.list.vm</result>
 		</action>
 		
