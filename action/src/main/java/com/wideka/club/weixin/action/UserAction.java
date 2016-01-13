@@ -32,7 +32,7 @@ public class UserAction extends BaseAction {
 			return "create";
 		}
 
-		if ("department/create".equals(op)) {
+		if ("user/create".equals(op)) {
 			BooleanResult result = weixinService.createUser(user);
 
 			if (result.getResult()) {
