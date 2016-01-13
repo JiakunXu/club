@@ -63,6 +63,13 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param tag
+	 * @return
+	 */
+	BooleanResult createTag(Tag tag);
+
+	/**
+	 * 
 	 * @return
 	 */
 	List<Tag> getTagList();

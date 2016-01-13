@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
+import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.tag.bo.Tag;
 
 /**
@@ -22,9 +23,26 @@ public class TagAction extends BaseAction {
 	 */
 	private String op;
 
+	private Tag tag;
+
 	private List<Tag> tagList;
 
 	public String tag() {
+		if ("create".equals(op)) {
+			return "create";
+		}
+
+		if ("tag/create".equals(op)) {
+			BooleanResult result = weixinService.createTag(tag);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
 		if ("list".equals(op)) {
 			tagList = weixinService.getTagList();
 			return "list";
@@ -47,6 +65,14 @@ public class TagAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public Tag getTag() {
+		return tag;
+	}
+
+	public void setTag(Tag tag) {
+		this.tag = tag;
 	}
 
 	public List<Tag> getTagList() {

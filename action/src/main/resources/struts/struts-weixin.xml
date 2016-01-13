@@ -40,6 +40,7 @@
 		
 		<action name="tag" class="tagAction" method="tag">
 			<result name="success">/club/weixin/tag.vm</result>
+			<result name="create">/club/weixin/tag.create.vm</result>
 			<result name="list">/club/weixin/tag.list.vm</result>
 		</action>
 		

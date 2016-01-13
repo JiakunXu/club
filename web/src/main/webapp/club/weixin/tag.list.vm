@@ -12,10 +12,10 @@
 	<body>
         <div class="weui_cells_title">获取标签列表</div>
         <div class="weui_cells">
-			#foreach($department in $!{departmentList})
+			#foreach($tag in $!{tagList})
             <div class="weui_cell">
                 <div class="weui_cell_bd weui_cell_primary">
-                    <p>$!{department.id} | $!{department.name}</p>
+                    <p>$!{tag.tagId} | $!{tag.tagName}</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </div>
