@@ -1,10 +1,15 @@
 package com.wideka.club.weixin.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.club.framework.log.Logger4jCollection;
+import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.user.bo.User;
 
@@ -17,6 +22,12 @@ public class UserAction extends BaseAction {
 
 	private static final long serialVersionUID = 6328740646132798068L;
 
+	private static final String CHARSET_UTF8 = "UTF-8";
+
+	private static final String CHARSET_ISO8859 = "ISO8859-1";
+
+	private Logger4jExtend logger = Logger4jCollection.getLogger(UserAction.class);
+
 	private IWeixinService weixinService;
 
 	/**
@@ -28,9 +39,11 @@ public class UserAction extends BaseAction {
 
 	private User user;
 
+	private String userId;
+
 	private List<User> userList;
 
-	private String userId;
+	private String name;
 
 	public String user() {
 		if ("create".equals(op)) {
@@ -39,6 +52,30 @@ public class UserAction extends BaseAction {
 		}
 		if ("user/create".equals(op)) {
 			BooleanResult result = weixinService.createUser(user);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("user/update".equals(op)) {
+			BooleanResult result = weixinService.updateUser(user);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("user/delete".equals(op)) {
+			BooleanResult result = weixinService.deleteUser(userId);
 
 			if (result.getResult()) {
 				this.setSuccessMessage("成功！");
@@ -72,6 +109,18 @@ public class UserAction extends BaseAction {
 			}
 
 			return RESULT_MESSAGE;
+		}
+
+		if ("detail".equals(op)) {
+			if (StringUtils.isNotBlank(name)) {
+				try {
+					name = new String(name.trim().getBytes(CHARSET_ISO8859), CHARSET_UTF8);
+				} catch (UnsupportedEncodingException e) {
+					logger.error(name, e);
+				}
+			}
+
+			return "detail";
 		}
 
 		return SUCCESS;
@@ -109,6 +158,14 @@ public class UserAction extends BaseAction {
 		this.user = user;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public List<User> getUserList() {
 		return userList;
 	}
@@ -117,12 +174,12 @@ public class UserAction extends BaseAction {
 		this.userList = userList;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

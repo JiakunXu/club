@@ -62,6 +62,20 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param user
+	 * @return
+	 */
+	BooleanResult updateUser(User user);
+
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	BooleanResult deleteUser(String userId);
+
+	/**
+	 * 
 	 * @param departmentId
 	 * @param fetchChild
 	 * @param status

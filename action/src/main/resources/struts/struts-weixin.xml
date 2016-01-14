@@ -39,6 +39,7 @@
 			<result name="simpleList">/club/weixin/user.simple.list.vm</result>
 			<result name="list">/club/weixin/user.list.vm</result>
 			<result name="invite">/club/weixin/user.invite.vm</result>
+			<result name="detail">/club/weixin/user.detail.vm</result>
 		</action>
 		
 		<action name="tag" class="tagAction" method="tag">

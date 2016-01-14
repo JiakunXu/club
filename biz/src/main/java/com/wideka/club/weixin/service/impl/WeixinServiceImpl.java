@@ -151,6 +151,46 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public BooleanResult updateUser(User user) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			userService.updateUser(result.getCode(), user);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult deleteUser(String userId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			userService.deleteUser(result.getCode(), userId);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
 	public List<User> getSimpleUserList(String departmentId, String fetchChild, String status) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {

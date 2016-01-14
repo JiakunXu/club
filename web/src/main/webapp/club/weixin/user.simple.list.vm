@@ -11,15 +11,22 @@
 	</head>
 	<body>
         <div class="weui_cells_title">获取部门成员</div>
-        <div class="weui_cells">
+        <div class="weui_cells weui_cells_access">
 			#foreach($user in $!{userList})
-            <div class="weui_cell">
+            <a class="weui_cell" href="javascript:goto('detail', '$!{user.userId}', '$!{user.name}');" >
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>$!{user.userId} | $!{user.name}</p>
                 </div>
                 <div class="weui_cell_ft"></div>
-            </div>
+            </a>
             #end
         </div>
+		
+		#JS_ENV_VAL()
+		<script type="text/javascript">
+		function goto(op, userId, name) {
+			top.location.href = appUrl + "/weixin/user.htm?op=" + op + "&userId=" + userId + "&name=" + encodeURIComponent(name);
+		}
+		</script>
     </body>
 </html>

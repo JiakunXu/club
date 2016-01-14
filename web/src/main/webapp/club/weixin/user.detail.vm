@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>成员</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+		<div class="weui_cells_title">更新成员</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+				<input type="hidden" name="user.userId" value="$!{userId}"/>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">名称</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="user.name" value="$!{name}" placeholder="请输入成员名称"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_plain_primary" href="javascript:save('update');" id="showTooltips">更新</a>
+        </div>
+		
+		<div class="weui_cells_title">删除成员</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+				<input type="hidden" name="userId" value="$!{userId}"/>
+            </form>
+        </div>
+		<div class="weui_dialog_confirm" id="dialogConfirm" style="display: none;">
+            <div class="weui_mask"></div>
+            <div class="weui_dialog">
+                <div class="weui_dialog_hd"><strong class="weui_dialog_title">提示</strong></div>
+                <div class="weui_dialog_bd">确定删除成员？</div>
+                <div class="weui_dialog_ft">
+                    <a href="javascript:hideDialogConfirm();" class="weui_btn_dialog default">取消</a>
+                    <a href="javascript:deleteUser();" class="weui_btn_dialog primary">确定</a>
+                </div>
+            </div>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_warn" href="javascript:save('delete');" id="showTooltips">删除</a>
+        </div>
+		
+		#parse("/club/framework/common/loadingToast.vm")
+		#parse("/club/framework/common/toast.vm")
+
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs"])
+		#JS_ENV_VAL()
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/user.detail.js"></script>
+    </body>
+</html>
