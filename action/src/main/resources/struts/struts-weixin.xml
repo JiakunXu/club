@@ -52,7 +52,8 @@
 		
 		<action name="media" class="mediaAction" method="media">
 			<result name="success">/club/weixin/media.vm</result>
-			<result name="material/batchget">/club/weixin/material.batchget.vm</result>
+			<result name="material/getCount">/club/weixin/material.get.count.vm</result>
+			<result name="material/batchGet">/club/weixin/material.batch.get.vm</result>
 		</action>
 		
 		<action name="agent" class="agentAction" method="agent">

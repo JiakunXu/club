@@ -12,6 +12,7 @@ import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.IDepartmentService;
 import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.material.IMaterialService;
+import com.wideka.weixin.api.material.bo.MaterialCount;
 import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.IMenuService;
 import com.wideka.weixin.api.menu.bo.Menu;
@@ -327,6 +328,22 @@ public class WeixinServiceImpl implements IWeixinService {
 
 		try {
 			return tagService.getTagList(result.getCode());
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
+	public MaterialCount getCount(String agentId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return materialService.getCount(result.getCode(), agentId);
 		} catch (RuntimeException e) {
 			logger.error(e);
 		}

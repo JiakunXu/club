@@ -4,19 +4,19 @@
         <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<title>获取菜单列表</title>
+		<title>获取素材总数</title>
 		#ICON()
         #CSSM(["weui"])
 		#UA()
 	</head>
 	<body>
 		<article class="weui_article">
-            <h1>获取菜单列表</h1>
+            <h1>获取素材总数</h1>
             <section>
                 <h2 class="title"></h2>
                 <section>
                     <h3></h3>
-                    <p>$!{menu}</p>
+                    <p>$!{materialCount}</p>
                 </section>
             </section>
         </article>

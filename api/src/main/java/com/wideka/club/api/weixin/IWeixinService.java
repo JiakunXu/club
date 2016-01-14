@@ -5,6 +5,7 @@ import java.util.List;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.bo.Department;
+import com.wideka.weixin.api.material.bo.MaterialCount;
 import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.bo.Image;
@@ -136,6 +137,13 @@ public interface IWeixinService {
 	List<Tag> getTagList();
 
 	// >>>>>>>>>>以下是Media<<<<<<<<<<
+
+	/**
+	 * 
+	 * @param agentId
+	 * @return
+	 */
+	MaterialCount getCount(String agentId);
 
 	/**
 	 * 

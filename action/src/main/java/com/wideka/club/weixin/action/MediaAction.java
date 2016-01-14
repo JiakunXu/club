@@ -1,5 +1,6 @@
 package com.wideka.club.weixin.action;
 
+import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.weixin.api.material.bo.MaterialList;
@@ -20,12 +21,19 @@ public class MediaAction extends BaseAction {
 	 */
 	private String op;
 
+	private String materialCount;
+
 	private MaterialList materialList;
 
 	public String media() {
+		if ("material/get_count".equals(op)) {
+			materialCount = JSON.toJSONString(weixinService.getCount("19"));
+			return "material/getCount";
+		}
+
 		if ("material/batchget".equals(op)) {
 			materialList = weixinService.batchGet("image", 19, 0, 50);
-			return "material/batchget";
+			return "material/batchGet";
 		}
 
 		return SUCCESS;
@@ -45,6 +53,14 @@ public class MediaAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public String getMaterialCount() {
+		return materialCount;
+	}
+
+	public void setMaterialCount(String materialCount) {
+		this.materialCount = materialCount;
 	}
 
 	public MaterialList getMaterialList() {
