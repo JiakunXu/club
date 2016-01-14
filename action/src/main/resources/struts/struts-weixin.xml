@@ -58,6 +58,7 @@
 		
 		<action name="agent" class="agentAction" method="agent">
 			<result name="success">/club/weixin/agent.vm</result>
+			<result name="get">/club/weixin/agent.get.vm</result>
 			<result name="list">/club/weixin/agent.list.vm</result>
 		</action>
 		

@@ -2,6 +2,7 @@ package com.wideka.club.weixin.action;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.weixin.api.agent.bo.Agent;
@@ -22,9 +23,16 @@ public class AgentAction extends BaseAction {
 	 */
 	private String op;
 
+	private String agent;
+
 	private List<Agent> agentList;
 
 	public String agent() {
+		if ("get".equals(op)) {
+			agent = JSON.toJSONString(weixinService.getAgent("19"));
+			return "get";
+		}
+
 		if ("list".equals(op)) {
 			agentList = weixinService.getAgentList();
 			return "list";
@@ -47,6 +55,14 @@ public class AgentAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public String getAgent() {
+		return agent;
+	}
+
+	public void setAgent(String agent) {
+		this.agent = agent;
 	}
 
 	public List<Agent> getAgentList() {

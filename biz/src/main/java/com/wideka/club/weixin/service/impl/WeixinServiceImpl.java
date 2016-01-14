@@ -368,6 +368,22 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public Agent getAgent(String agentId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return agentService.getAgent(result.getCode(), agentId);
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
 	public List<Agent> getAgentList() {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {

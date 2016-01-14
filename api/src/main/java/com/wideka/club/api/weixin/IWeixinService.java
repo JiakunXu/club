@@ -159,6 +159,13 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param agentId
+	 * @return
+	 */
+	Agent getAgent(String agentId);
+
+	/**
+	 * 
 	 * @return
 	 */
 	List<Agent> getAgentList();
