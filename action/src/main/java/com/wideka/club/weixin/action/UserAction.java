@@ -5,6 +5,7 @@ import java.util.List;
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.user.bo.User;
 
 /**
@@ -23,6 +24,8 @@ public class UserAction extends BaseAction {
 	 */
 	private String op;
 
+	private List<Department> departmentList;
+
 	private User user;
 
 	private List<User> userList;
@@ -31,6 +34,7 @@ public class UserAction extends BaseAction {
 
 	public String user() {
 		if ("create".equals(op)) {
+			departmentList = weixinService.getDepartmentList("1");
 			return "create";
 		}
 		if ("user/create".equals(op)) {
@@ -87,6 +91,14 @@ public class UserAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public List<Department> getDepartmentList() {
+		return departmentList;
+	}
+
+	public void setDepartmentList(List<Department> departmentList) {
+		this.departmentList = departmentList;
 	}
 
 	public User getUser() {
