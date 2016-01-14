@@ -26,6 +26,12 @@
                     </div>
                 </div>
 				<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="user.department" placeholder="请输入成员所属部门"/>
+                    </div>
+                </div>
+				<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">手机</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
                         <input class="weui_input" type="text" name="user.mobile" placeholder="请输入手机号码"/>
