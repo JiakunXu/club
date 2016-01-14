@@ -20,6 +20,7 @@ import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
+import com.wideka.weixin.api.tag.bo.TagResult;
 import com.wideka.weixin.api.user.IUserService;
 import com.wideka.weixin.api.user.bo.User;
 import com.wideka.weixin.api.user.bo.UserResult;
@@ -203,6 +204,22 @@ public class WeixinServiceImpl implements IWeixinService {
 		}
 
 		return result;
+	}
+
+	@Override
+	public TagResult getTag(String tagId) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return tagService.getTag(result.getCode(), tagId);
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
 	}
 
 	@Override

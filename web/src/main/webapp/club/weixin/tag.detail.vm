@@ -23,7 +23,7 @@
             </form>
         </div>
 		<div class="weui_btn_area">
-            <a class="weui_btn weui_btn_primary" href="javascript:save('update');" id="showTooltips">更新</a>
+            <a class="weui_btn weui_btn_plain_primary" href="javascript:save('update');" id="showTooltips">更新</a>
         </div>
 		
 		<div class="weui_cells_title">删除标签</div>
@@ -44,11 +44,11 @@
             </div>
         </div>
 		<div class="weui_btn_area">
-            <a class="weui_btn weui_btn_primary" href="javascript:save('delete');" id="showTooltips">删除</a>
+            <a class="weui_btn weui_btn_warn" href="javascript:save('delete');" id="showTooltips">删除</a>
         </div>
 		
         <div class="weui_cells weui_cells_access">
-			<a class="weui_cell" href="#" >
+			<a class="weui_cell" href="javascript:goto('get');" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>获取标签成员</p>
@@ -79,7 +79,7 @@
 		#JS_ENV_VAL()
 		<script type="text/javascript">
 		function goto(op) {
-			top.location.href = appUrl + "/weixin/tag.htm?op=" + op;
+			top.location.href = appUrl + "/weixin/tag.htm?op=" + op + "&tagId=" + $!{tagId};
 		}
 		</script>
 		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/tag.detail.js?t=20160113"></script>

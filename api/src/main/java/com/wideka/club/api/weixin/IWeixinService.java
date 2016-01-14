@@ -10,6 +10,7 @@ import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.tag.bo.Tag;
+import com.wideka.weixin.api.tag.bo.TagResult;
 import com.wideka.weixin.api.user.bo.User;
 
 /**
@@ -83,6 +84,13 @@ public interface IWeixinService {
 	 * @return
 	 */
 	BooleanResult deleteTag(String tagId);
+
+	/**
+	 * 
+	 * @param tagId
+	 * @return
+	 */
+	TagResult getTag(String tagId);
 
 	/**
 	 * 

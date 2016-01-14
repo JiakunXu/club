@@ -11,6 +11,7 @@ import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.weixin.api.tag.bo.Tag;
+import com.wideka.weixin.api.tag.bo.TagResult;
 
 /**
  * 
@@ -36,9 +37,11 @@ public class TagAction extends BaseAction {
 
 	private Tag tag;
 
-	private List<Tag> tagList;
-
 	private String tagId;
+
+	private TagResult tagResult;
+
+	private List<Tag> tagList;
 
 	private String tagName;
 
@@ -81,6 +84,11 @@ public class TagAction extends BaseAction {
 			}
 
 			return RESULT_MESSAGE;
+		}
+
+		if ("get".equals(op)) {
+			tagResult = weixinService.getTag(tagId);
+			return "get";
 		}
 
 		if ("list".equals(op)) {
@@ -127,20 +135,28 @@ public class TagAction extends BaseAction {
 		this.tag = tag;
 	}
 
-	public List<Tag> getTagList() {
-		return tagList;
-	}
-
-	public void setTagList(List<Tag> tagList) {
-		this.tagList = tagList;
-	}
-
 	public String getTagId() {
 		return tagId;
 	}
 
 	public void setTagId(String tagId) {
 		this.tagId = tagId;
+	}
+
+	public TagResult getTagResult() {
+		return tagResult;
+	}
+
+	public void setTagResult(TagResult tagResult) {
+		this.tagResult = tagResult;
+	}
+
+	public List<Tag> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
 	}
 
 	public String getTagName() {
