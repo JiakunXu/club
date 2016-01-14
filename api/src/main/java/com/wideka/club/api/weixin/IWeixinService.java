@@ -32,6 +32,20 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param department
+	 * @return
+	 */
+	BooleanResult updateDepartment(Department department);
+
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	BooleanResult deleteDepartment(String id);
+
+	/**
+	 * 
 	 * @param id
 	 * @return
 	 */

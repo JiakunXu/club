@@ -30,6 +30,7 @@
 			<result name="success">/club/weixin/department.vm</result>
 			<result name="create">/club/weixin/department.create.vm</result>
 			<result name="list">/club/weixin/department.list.vm</result>
+			<result name="detail">/club/weixin/department.detail.vm</result>
 		</action>
 		
 		<action name="user" class="userAction" method="user">

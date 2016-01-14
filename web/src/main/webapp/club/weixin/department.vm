@@ -19,14 +19,14 @@
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-            <a class="weui_cell" href="javascript:goto('update');" >
+            <a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>更新部门</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-            <a class="weui_cell" href="javascript:goto('delete');" >
+            <a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>删除部门</p>

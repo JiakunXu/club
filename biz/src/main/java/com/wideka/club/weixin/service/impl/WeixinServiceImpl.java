@@ -75,6 +75,46 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public BooleanResult updateDepartment(Department department) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			departmentService.updateDepartment(result.getCode(), department);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult deleteDepartment(String id) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return result;
+		}
+
+		try {
+			departmentService.deleteDepartment(result.getCode(), id);
+			result.setCode(null);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
 	public List<Department> getDepartmentList(String id) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {
