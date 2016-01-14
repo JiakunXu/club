@@ -47,8 +47,13 @@ public class UserAction extends BaseAction {
 			return RESULT_MESSAGE;
 		}
 
-		if ("list".equals(op)) {
+		if ("simplelist".equals(op)) {
 			userList = weixinService.getSimpleUserList("1", "1", "0");
+			return "simpleList";
+		}
+
+		if ("list".equals(op)) {
+			userList = weixinService.getUserList("1", "1", "0");
 			return "list";
 		}
 

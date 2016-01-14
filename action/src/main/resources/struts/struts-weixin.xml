@@ -35,6 +35,7 @@
 		<action name="user" class="userAction" method="user">
 			<result name="success">/club/weixin/user.vm</result>
 			<result name="create">/club/weixin/user.create.vm</result>
+			<result name="simpleList">/club/weixin/user.simple.list.vm</result>
 			<result name="list">/club/weixin/user.list.vm</result>
 			<result name="invite">/club/weixin/user.invite.vm</result>
 		</action>

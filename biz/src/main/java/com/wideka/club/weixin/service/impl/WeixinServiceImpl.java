@@ -127,6 +127,22 @@ public class WeixinServiceImpl implements IWeixinService {
 	}
 
 	@Override
+	public List<User> getUserList(String departmentId, String fetchChild, String status) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			return userService.getUserList(result.getCode(), departmentId, fetchChild, status);
+		} catch (RuntimeException e) {
+			logger.error(e);
+		}
+
+		return null;
+	}
+
+	@Override
 	public BooleanResult inviteUser(String userId) {
 		BooleanResult result = tokenService.getToken(corpId, corpSecret);
 		if (!result.getResult()) {

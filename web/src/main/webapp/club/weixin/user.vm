@@ -19,35 +19,35 @@
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-            <a class="weui_cell" href="javascript:goto('update');" >
+            <a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>更新成员</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-            <a class="weui_cell" href="javascript:goto('delete');" >
+            <a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>删除成员</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-			<a class="weui_cell" href="javascript:goto('list');" >
+			<a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>批量删除成员</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-			<a class="weui_cell" href="javascript:goto('list');" >
+			<a class="weui_cell" href="#" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>获取成员</p>
                 </div>
                 <div class="weui_cell_ft"></div>
             </a>
-			<a class="weui_cell" href="javascript:goto('list');" >
+			<a class="weui_cell" href="javascript:goto('simplelist');" >
                 <span class="weui_cell_hd"><img src="" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>获取部门成员</p>

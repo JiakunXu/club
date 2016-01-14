@@ -57,6 +57,15 @@ public interface IWeixinService {
 
 	/**
 	 * 
+	 * @param departmentId
+	 * @param fetchChild
+	 * @param status
+	 * @return
+	 */
+	List<User> getUserList(String departmentId, String fetchChild, String status);
+
+	/**
+	 * 
 	 * @param userId
 	 * @return
 	 */
