@@ -10,6 +10,7 @@ import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
+import com.wideka.weixin.api.message.bo.Video;
 import com.wideka.weixin.api.message.bo.Voice;
 
 /**
@@ -46,6 +47,8 @@ public class MessageAction extends BaseAction {
 
 	private Voice voice;
 
+	private Video video;
+
 	public String message() {
 		if ("send/text".equals(op)) {
 			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
@@ -73,6 +76,18 @@ public class MessageAction extends BaseAction {
 
 		if ("send/voice".equals(op)) {
 			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), voice, safe);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("send/video".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), video, safe);
 
 			if (result.getResult()) {
 				this.setSuccessMessage("成功！");
@@ -177,6 +192,14 @@ public class MessageAction extends BaseAction {
 
 	public void setVoice(Voice voice) {
 		this.voice = voice;
+	}
+
+	public Video getVideo() {
+		return video;
+	}
+
+	public void setVideo(Video video) {
+		this.video = video;
 	}
 
 }

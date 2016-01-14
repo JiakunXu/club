@@ -10,6 +10,7 @@ import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
+import com.wideka.weixin.api.message.bo.Video;
 import com.wideka.weixin.api.message.bo.Voice;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.tag.bo.TagResult;
@@ -208,6 +209,18 @@ public interface IWeixinService {
 	 * @return
 	 */
 	BooleanResult send(String toUser, String toParty, String toTag, int agentId, Voice voice, String safe);
+
+	/**
+	 * 
+	 * @param toUser
+	 * @param toParty
+	 * @param toTag
+	 * @param agentId
+	 * @param video
+	 * @param safe
+	 * @return
+	 */
+	BooleanResult send(String toUser, String toParty, String toTag, int agentId, Video video, String safe);
 
 	// >>>>>>>>>>以下是Menu<<<<<<<<<<
 

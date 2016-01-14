@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>发送消息</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+		<div class="weui_cells_title">发送video消息</div>
+		<div class="weui_cells weui_cells_form">
+			<form method="post">
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">用户</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="toParty" placeholder="请输入发送部门"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">标签</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="toTag" placeholder="请输入发送标签"/>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">应用</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+						<select class="weui_input" name="agentId">
+							#foreach($agent in $!{agentList})
+							<option value="$!{agent.agentId}">$!{agent.name}</option>
+							#end
+                        </select>
+                    </div>
+                </div>
+    			<div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="text" name="video.mediaId" value="2mCv65w8p2zST1oVrsZjjJtbT9SVFlmtNYyWsUyJ5cOW9SiuAsqJ78qD6VhW6UQ7ZhQLOrXTl_DCUGZVgt_FSpQ" placeholder="请输入消息内容"/>
+                    </div>
+                </div>
+    			<div class="weui_cell weui_cell_switch">
+                    <div class="weui_cell_hd weui_cell_primary">是否保密</div>
+                    <div class="weui_cell_ft">
+                        <input class="weui_switch" type="checkbox" name="safe" value="1"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_primary" href="javascript:send();" id="showTooltips">发送</a>
+        </div>
+		
+		#parse("/club/framework/common/loadingToast.vm")
+		#parse("/club/framework/common/toast.vm")
+
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs"])
+		#JS_ENV_VAL()
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.video.js"></script>
+    </body>
+</html>
