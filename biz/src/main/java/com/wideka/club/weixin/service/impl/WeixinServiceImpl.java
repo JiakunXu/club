@@ -19,6 +19,7 @@ import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
+import com.wideka.weixin.api.message.bo.Voice;
 import com.wideka.weixin.api.tag.ITagService;
 import com.wideka.weixin.api.tag.bo.Tag;
 import com.wideka.weixin.api.tag.bo.TagResult;
@@ -428,6 +429,26 @@ public class WeixinServiceImpl implements IWeixinService {
 
 		try {
 			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, image, safe);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, Voice voice, String safe) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, voice, safe);
 			result.setResult(true);
 		} catch (Exception e) {
 			logger.error(e);

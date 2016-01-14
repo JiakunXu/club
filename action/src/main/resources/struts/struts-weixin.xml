@@ -66,6 +66,11 @@
 			<result name="success">/club/weixin/message.vm</result>
 			<result name="text">/club/weixin/message.text.vm</result>
 			<result name="image">/club/weixin/message.image.vm</result>
+			<result name="voice">/club/weixin/message.voice.vm</result>
+			<result name="video">/club/weixin/message.video.vm</result>
+			<result name="file">/club/weixin/message.file.vm</result>
+			<result name="news">/club/weixin/message.news.vm</result>
+			<result name="mpnews">/club/weixin/message.mpnews.vm</result>
 		</action>
 		
 		<action name="menu" class="menuAction" method="menu">
