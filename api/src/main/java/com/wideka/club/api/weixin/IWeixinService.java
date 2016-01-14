@@ -8,6 +8,7 @@ import com.wideka.weixin.api.department.bo.Department;
 import com.wideka.weixin.api.material.bo.MaterialCount;
 import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.bo.Menu;
+import com.wideka.weixin.api.message.bo.File;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.message.bo.Video;
@@ -221,6 +222,18 @@ public interface IWeixinService {
 	 * @return
 	 */
 	BooleanResult send(String toUser, String toParty, String toTag, int agentId, Video video, String safe);
+
+	/**
+	 * 
+	 * @param toUser
+	 * @param toParty
+	 * @param toTag
+	 * @param agentId
+	 * @param file
+	 * @param safe
+	 * @return
+	 */
+	BooleanResult send(String toUser, String toParty, String toTag, int agentId, File file, String safe);
 
 	// >>>>>>>>>>以下是Menu<<<<<<<<<<
 

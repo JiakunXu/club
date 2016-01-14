@@ -8,6 +8,7 @@ import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
+import com.wideka.weixin.api.message.bo.File;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.message.bo.Video;
@@ -49,6 +50,8 @@ public class MessageAction extends BaseAction {
 
 	private Video video;
 
+	private File file;
+
 	public String message() {
 		if ("send/text".equals(op)) {
 			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
@@ -88,6 +91,18 @@ public class MessageAction extends BaseAction {
 
 		if ("send/video".equals(op)) {
 			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), video, safe);
+
+			if (result.getResult()) {
+				this.setSuccessMessage("成功！");
+			} else {
+				this.setFailMessage(result.getCode());
+			}
+
+			return RESULT_MESSAGE;
+		}
+
+		if ("send/file".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), file, safe);
 
 			if (result.getResult()) {
 				this.setSuccessMessage("成功！");
@@ -200,6 +215,14 @@ public class MessageAction extends BaseAction {
 
 	public void setVideo(Video video) {
 		this.video = video;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
 	}
 
 }

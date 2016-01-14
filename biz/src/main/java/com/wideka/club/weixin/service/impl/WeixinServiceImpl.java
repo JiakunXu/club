@@ -17,6 +17,7 @@ import com.wideka.weixin.api.material.bo.MaterialList;
 import com.wideka.weixin.api.menu.IMenuService;
 import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
+import com.wideka.weixin.api.message.bo.File;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.message.bo.Video;
@@ -470,6 +471,26 @@ public class WeixinServiceImpl implements IWeixinService {
 
 		try {
 			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, video, safe);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, File file, String safe) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, file, safe);
 			result.setResult(true);
 		} catch (Exception e) {
 			logger.error(e);
