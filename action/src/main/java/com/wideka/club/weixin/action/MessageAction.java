@@ -1,10 +1,13 @@
 package com.wideka.club.weixin.action;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.message.bo.Image;
 import com.wideka.weixin.api.message.bo.Text;
 
@@ -23,6 +26,8 @@ public class MessageAction extends BaseAction {
 	 * 操作.
 	 */
 	private String op;
+
+	private List<Agent> agentList;
 
 	private String toUser;
 
@@ -64,6 +69,7 @@ public class MessageAction extends BaseAction {
 		}
 
 		if (StringUtils.isNotBlank(op)) {
+			agentList = weixinService.getAgentList();
 			return op.trim();
 		}
 
@@ -84,6 +90,14 @@ public class MessageAction extends BaseAction {
 
 	public void setOp(String op) {
 		this.op = op;
+	}
+
+	public List<Agent> getAgentList() {
+		return agentList;
+	}
+
+	public void setAgentList(List<Agent> agentList) {
+		this.agentList = agentList;
 	}
 
 	public String getToUser() {
