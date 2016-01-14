@@ -19,6 +19,8 @@ import com.wideka.weixin.api.menu.bo.Menu;
 import com.wideka.weixin.api.message.IMessageService;
 import com.wideka.weixin.api.message.bo.File;
 import com.wideka.weixin.api.message.bo.Image;
+import com.wideka.weixin.api.message.bo.MPNews;
+import com.wideka.weixin.api.message.bo.News;
 import com.wideka.weixin.api.message.bo.Text;
 import com.wideka.weixin.api.message.bo.Video;
 import com.wideka.weixin.api.message.bo.Voice;
@@ -491,6 +493,46 @@ public class WeixinServiceImpl implements IWeixinService {
 
 		try {
 			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, file, safe);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, News news) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, news);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			result.setResult(false);
+		}
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult send(String toUser, String toParty, String toTag, int agentId, MPNews mpNews, String safe) {
+		BooleanResult result = tokenService.getToken(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		try {
+			messageService.send(result.getCode(), toUser, toParty, toTag, agentId, mpNews, safe);
 			result.setResult(true);
 		} catch (Exception e) {
 			logger.error(e);
