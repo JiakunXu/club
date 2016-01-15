@@ -43,9 +43,9 @@ public class TokenServiceImpl implements ITokenService {
 		String key = corpId.trim() + "&" + corpSecret.trim();
 
 		try {
-			token = (String) memcachedCacheService.get(IMemcachedCacheService.CACHE_KEY_WX_CORP + key);
+			token = (String) memcachedCacheService.get(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key);
 		} catch (ServiceException e) {
-			logger.error(IMemcachedCacheService.CACHE_KEY_WX_CORP + key, e);
+			logger.error(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, e);
 		}
 
 		if (StringUtils.isNotBlank(token)) {
@@ -68,10 +68,10 @@ public class TokenServiceImpl implements ITokenService {
 		token = accessToken.getAccessToken();
 
 		try {
-			memcachedCacheService
-				.set(IMemcachedCacheService.CACHE_KEY_WX_CORP + key, token, accessToken.getExpiresIn());
+			memcachedCacheService.set(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, token,
+				accessToken.getExpiresIn());
 		} catch (ServiceException e) {
-			logger.error(IMemcachedCacheService.CACHE_KEY_WX_CORP + key, e);
+			logger.error(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, e);
 		}
 
 		result.setCode(token);

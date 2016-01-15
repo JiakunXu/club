@@ -2,6 +2,7 @@ package com.wideka.club.api.weixin;
 
 import java.util.List;
 
+import com.wideka.club.api.weixin.bo.Ticket;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.bo.Department;
@@ -26,6 +27,13 @@ import com.wideka.weixin.api.user.bo.User;
  * 
  */
 public interface IWeixinService {
+
+	/**
+	 * 
+	 * @param url
+	 * @return
+	 */
+	Ticket getTicket(String url);
 
 	// >>>>>>>>>>以下是Department<<<<<<<<<<
 

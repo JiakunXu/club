@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
+import com.wideka.club.api.weixin.bo.Ticket;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.weixin.api.agent.bo.Agent;
@@ -31,6 +32,8 @@ public class MessageAction extends BaseAction {
 	private String op;
 
 	private List<Agent> agentList;
+
+	private Ticket ticket;
 
 	private String toUser;
 
@@ -115,6 +118,9 @@ public class MessageAction extends BaseAction {
 
 		if (StringUtils.isNotBlank(op)) {
 			agentList = weixinService.getAgentList();
+
+			ticket = weixinService.getTicket(env.getProperty("appUrl") + "/weixin/message.htm");
+
 			return op.trim();
 		}
 
@@ -143,6 +149,14 @@ public class MessageAction extends BaseAction {
 
 	public void setAgentList(List<Agent> agentList) {
 		this.agentList = agentList;
+	}
+
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
 	public String getToUser() {

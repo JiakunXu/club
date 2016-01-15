@@ -46,6 +46,12 @@
 		<property name="accessTokenService" ref="accessTokenService" />
 	</bean>
 	
+	<bean id="ticketService" class="com.wideka.club.weixin.service.impl.TicketServiceImpl">
+		<property name="memcachedCacheService" ref="memcachedCacheService" />
+		<property name="tokenService" ref="tokenService" />
+		<property name="jsapiTicketService" ref="jsapiTicketService" />
+	</bean>
+	
 	<bean id="authorizeService" class="com.wideka.club.weixin.service.impl.AuthorizeServiceImpl">
 		<property name="tokenService" ref="tokenService" />
 		<property name="userService" ref="userService" />
@@ -60,6 +66,7 @@
 	<!-- demo -->
 	<bean id="weixinService" class="com.wideka.club.weixin.service.impl.WeixinServiceImpl">
 		<property name="tokenService" ref="tokenService" />
+		<property name="ticketService" ref="ticketService" />
 		<property name="departmentService" ref="departmentService" />
 		<property name="userService" ref="userService" />
 		<property name="tagService" ref="tagService" />
@@ -106,6 +113,7 @@
 	<bean id="agentService" class="com.wideka.weixin.agent.service.impl.AgentServiceImpl"></bean>
 	<bean id="callbackService" class="com.wideka.weixin.callback.service.impl.CallbackServiceImpl"></bean>
 	<bean id="departmentService" class="com.wideka.weixin.department.service.impl.DepartmentServiceImpl"></bean>
+	<bean id="jsapiTicketService" class="com.wideka.weixin.auth.service.impl.JSAPITicketServiceImpl"></bean>
 	<bean id="materialService" class="com.wideka.weixin.material.service.impl.MaterialServiceImpl"></bean>
 	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>

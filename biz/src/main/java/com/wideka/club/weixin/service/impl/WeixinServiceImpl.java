@@ -1,12 +1,19 @@
 package com.wideka.club.weixin.service.impl;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.wideka.club.api.weixin.ITicketService;
 import com.wideka.club.api.weixin.ITokenService;
 import com.wideka.club.api.weixin.IWeixinService;
+import com.wideka.club.api.weixin.bo.Ticket;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
+import com.wideka.club.framework.util.EncryptUtil;
+import com.wideka.club.framework.util.UUIDUtil;
 import com.wideka.weixin.api.agent.IAgentService;
 import com.wideka.weixin.api.agent.bo.Agent;
 import com.wideka.weixin.api.department.IDepartmentService;
@@ -42,6 +49,8 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	private ITokenService tokenService;
 
+	private ITicketService ticketService;
+
 	private IDepartmentService departmentService;
 
 	private IUserService userService;
@@ -59,6 +68,44 @@ public class WeixinServiceImpl implements IWeixinService {
 	private String corpId;
 
 	private String corpSecret;
+
+	@Override
+	public Ticket getTicket(String url) {
+		if (StringUtils.isBlank(url)) {
+			return null;
+		}
+
+		BooleanResult result = ticketService.getTicket(corpId, corpSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		String appId = corpId;
+		String t = result.getCode();
+		String nonceStr = UUIDUtil.generate();
+		String timestamp = Long.toString(System.currentTimeMillis() / 1000);
+		String signature;
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("jsapi_ticket=").append(t).append("&noncestr=").append(nonceStr).append("&timestamp=")
+			.append(timestamp).append("&url=").append(url.trim());
+
+		try {
+			signature = EncryptUtil.encryptSHA(sb.toString());
+		} catch (IOException e) {
+			logger.error(e);
+			return null;
+		}
+
+		Ticket ticket = new Ticket();
+		ticket.setAppId(appId);
+		ticket.setTicket(t);
+		ticket.setNonceStr(nonceStr);
+		ticket.setTimestamp(timestamp);
+		ticket.setSignature(signature);
+
+		return ticket;
+	}
 
 	@Override
 	public BooleanResult createDepartment(Department department) {
@@ -606,6 +653,14 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setTokenService(ITokenService tokenService) {
 		this.tokenService = tokenService;
+	}
+
+	public ITicketService getTicketService() {
+		return ticketService;
+	}
+
+	public void setTicketService(ITicketService ticketService) {
+		this.ticketService = ticketService;
 	}
 
 	public IDepartmentService getDepartmentService() {

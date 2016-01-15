@@ -68,9 +68,11 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	// >>>>>>>>>>以下是微信相关<<<<<<<<<<
 
 	/**
-	 * corp.
+	 * token.
 	 */
-	String CACHE_KEY_WX_CORP = "key_wx_corp_";
+	String CACHE_KEY_WX_TOKEN = "key_wx_token_";
+
+	String CACHE_KEY_WX_TICKET = "key_wx_ticket_";
 
 	// >>>>>>>>>>end<<<<<<<<<<
 
