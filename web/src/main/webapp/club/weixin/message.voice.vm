@@ -44,7 +44,7 @@
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" name="voice.mediaId" value="29Xl4mB-Ry6pUefqrQz4c1hXKaKmK92eQizbNkD3Q4-AjUeQQ43Wyxb6JaqoLWEO5d436GzI4sEpgkqnDFYy67g" placeholder="请输入消息内容"/>
+                        <input class="weui_input" type="text" name="voice.mediaId" value="" placeholder="请输入消息内容"/>
                     </div>
                 </div>
     			<div class="weui_cell weui_cell_switch">
@@ -59,12 +59,38 @@
             <a class="weui_btn weui_btn_primary" href="javascript:send();" id="showTooltips">发送</a>
         </div>
 		
+		<div id="actionSheet_wrap">
+            <div class="weui_mask_transition" id="mask"></div>
+            <div class="weui_actionsheet" id="weui_actionsheet">
+                <div class="weui_actionsheet_menu">
+                    <div class="weui_actionsheet_cell" id="onVoiceRecordEnd">监听录音自动停止</div>
+                    <div class="weui_actionsheet_cell" id="uploadVoice">上传语音</div>
+                </div>
+                <div class="weui_actionsheet_action">
+                    <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+                </div>
+            </div>
+        </div>
+		<div class="weui_btn_area">
+            <a class="weui_btn weui_btn_default" href="javascript:showActionSheet();" >添加文件</a>
+        </div>
+		
 		#parse("/club/framework/common/loadingToast.vm")
 		#parse("/club/framework/common/toast.vm")
 
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
-		#JSM(["zeptojs"])
+		#JSM(["zeptojs", "weixin"])
 		#JS_ENV_VAL()
+		<script>
+        wx.config({
+            debug: false,
+            appId: '$!{ticket.appId}',
+            timestamp: '$!{ticket.timestamp}',
+            nonceStr: '$!{ticket.nonceStr}',
+            signature: '$!{ticket.signature}',
+            jsApiList: ['onVoiceRecordEnd', 'uploadVoice']
+        });
+        </script>
 		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.voice.js"></script>
     </body>
 </html>

@@ -1,4 +1,24 @@
 $(document).ready(function() {
+			$('#onVoiceRecordEnd').click(function() {
+						wx.onVoiceRecordEnd({
+									// 录音时间超过一分钟没有停止的时候会执行 complete 回调
+									complete : function(res) {
+										localId = res.localId;
+									}
+								});
+					});
+
+			$('#uploadVoice').click(function() {
+						wx.uploadVoice({
+									localId : localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+									isShowProgressTips : 1,// 默认为1，显示进度提示
+									success : function(res) {
+										var serverId = res.serverId; // 返回音频的服务器端ID
+										$("#mediaId").val(serverId);
+									}
+								});
+					});
+
 			$('#hideFrame').on('load', promgtMsg);
 		})
 
@@ -22,6 +42,29 @@ function promgtMsg() {
 		alert(failResult);
 	} else if (successResult != undefined) {
 		showToast();
+	}
+}
+
+function showActionSheet() {
+	var mask = $('#mask');
+	var weuiActionsheet = $('#weui_actionsheet');
+	weuiActionsheet.addClass('weui_actionsheet_toggle');
+	mask.show().addClass('weui_fade_toggle').click(function() {
+				hideActionSheet(weuiActionsheet, mask);
+			});
+	$('#actionsheet_cancel').click(function() {
+				hideActionSheet(weuiActionsheet, mask);
+			});
+	weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
+
+	function hideActionSheet(weuiActionsheet, mask) {
+		weuiActionsheet.removeClass('weui_actionsheet_toggle');
+		mask.removeClass('weui_fade_toggle');
+		weuiActionsheet.on('transitionend', function() {
+					mask.hide();
+				}).on('webkitTransitionEnd', function() {
+					mask.hide();
+				})
 	}
 }
 
