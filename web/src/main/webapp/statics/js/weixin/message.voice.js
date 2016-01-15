@@ -1,5 +1,6 @@
 $(document).ready(function() {
 			$('#onVoiceRecordEnd').click(function() {
+						wx.startRecord();
 						wx.onVoiceRecordEnd({
 									// 录音时间超过一分钟没有停止的时候会执行 complete 回调
 									complete : function(res) {
