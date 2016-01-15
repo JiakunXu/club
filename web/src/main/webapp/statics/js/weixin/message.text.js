@@ -1,9 +1,11 @@
 $(document).ready(function() {
-	$('#translateVoice').click(function() {
+	$('#startRecord').click(function() {
 				wx.startRecord();
-				wx.onVoiceRecordEnd({
-							// 录音时间超过一分钟没有停止的时候会执行 complete 回调
-							complete : function(res) {
+			});
+
+	$('#translateVoice').click(function() {
+				wx.stopRecord({
+							success : function(res) {
 								var localId = res.localId;
 
 								wx.translateVoice({

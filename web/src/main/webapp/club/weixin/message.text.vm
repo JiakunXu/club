@@ -62,6 +62,9 @@
 		<div id="actionSheet_wrap">
             <div class="weui_mask_transition" id="mask"></div>
             <div class="weui_actionsheet" id="weui_actionsheet">
+				<div class="weui_actionsheet_menu">
+                    <div class="weui_actionsheet_cell" id="startRecord">开始录音</div>
+                </div>
                 <div class="weui_actionsheet_menu">
                     <div class="weui_actionsheet_cell" id="translateVoice">识别音频并返回识别结果</div>
                 </div>
@@ -87,7 +90,7 @@
             timestamp: '$!{ticket.timestamp}',
             nonceStr: '$!{ticket.nonceStr}',
             signature: '$!{ticket.signature}',
-            jsApiList: ['startRecord', 'onVoiceRecordEnd', 'translateVoice']
+            jsApiList: ['startRecord', 'stopRecord', 'translateVoice']
         });
         </script>
 		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.text.js?t=20160113"></script>

@@ -44,7 +44,7 @@
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">内容</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" name="voice.mediaId" value="" placeholder="请输入消息内容"/>
+                        <input class="weui_input" type="text" id="mediaId" name="voice.mediaId" value="" placeholder="请输入消息内容"/>
                     </div>
                 </div>
     			<div class="weui_cell weui_cell_switch">
@@ -62,8 +62,11 @@
 		<div id="actionSheet_wrap">
             <div class="weui_mask_transition" id="mask"></div>
             <div class="weui_actionsheet" id="weui_actionsheet">
+				<div class="weui_actionsheet_menu">
+                    <div class="weui_actionsheet_cell" id="startRecord">开始录音</div>
+                </div>
                 <div class="weui_actionsheet_menu">
-                    <div class="weui_actionsheet_cell" id="onVoiceRecordEnd">监听录音自动停止</div>
+                    <div class="weui_actionsheet_cell" id="uploadVoice">监听录音自动停止</div>
                 </div>
                 <div class="weui_actionsheet_action">
                     <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
@@ -87,7 +90,7 @@
             timestamp: '$!{ticket.timestamp}',
             nonceStr: '$!{ticket.nonceStr}',
             signature: '$!{ticket.signature}',
-            jsApiList: ['startRecord', 'onVoiceRecordEnd', 'uploadVoice']
+            jsApiList: ['startRecord', 'stopRecord', 'uploadVoice']
         });
         </script>
 		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.voice.js?t=20150115"></script>
