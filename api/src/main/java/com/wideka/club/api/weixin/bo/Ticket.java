@@ -9,8 +9,6 @@ public class Ticket {
 
 	private String appId;
 
-	private String ticket;
-
 	private String nonceStr;
 
 	private String timestamp;
@@ -23,14 +21,6 @@ public class Ticket {
 
 	public void setAppId(String appId) {
 		this.appId = appId;
-	}
-
-	public String getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(String ticket) {
-		this.ticket = ticket;
 	}
 
 	public String getNonceStr() {

@@ -99,7 +99,6 @@ public class WeixinServiceImpl implements IWeixinService {
 
 		Ticket ticket = new Ticket();
 		ticket.setAppId(appId);
-		ticket.setTicket(t);
 		ticket.setNonceStr(nonceStr);
 		ticket.setTimestamp(timestamp);
 		ticket.setSignature(signature);
