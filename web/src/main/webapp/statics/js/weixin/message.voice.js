@@ -4,18 +4,17 @@ $(document).ready(function() {
 						wx.onVoiceRecordEnd({
 									// 录音时间超过一分钟没有停止的时候会执行 complete 回调
 									complete : function(res) {
-										localId = res.localId;
-									}
-								});
-					});
+										var localId = res.localId;
 
-			$('#uploadVoice').click(function() {
-						wx.uploadVoice({
-									localId : localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-									isShowProgressTips : 1,// 默认为1，显示进度提示
-									success : function(res) {
-										var serverId = res.serverId; // 返回音频的服务器端ID
-										$("#mediaId").val(serverId);
+										wx.uploadVoice({
+													localId : localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+													isShowProgressTips : 1,// 默认为1，显示进度提示
+													success : function(res) {
+														var serverId = res.serverId; // 返回音频的服务器端ID
+														$("#mediaId")
+																.val(serverId);
+													}
+												});
 									}
 								});
 					});

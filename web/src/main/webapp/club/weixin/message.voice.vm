@@ -64,7 +64,6 @@
             <div class="weui_actionsheet" id="weui_actionsheet">
                 <div class="weui_actionsheet_menu">
                     <div class="weui_actionsheet_cell" id="onVoiceRecordEnd">监听录音自动停止</div>
-                    <div class="weui_actionsheet_cell" id="uploadVoice">上传语音</div>
                 </div>
                 <div class="weui_actionsheet_action">
                     <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
@@ -91,6 +90,6 @@
             jsApiList: ['onVoiceRecordEnd', 'uploadVoice']
         });
         </script>
-		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.voice.js"></script>
+		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.voice.js?t=20150115"></script>
     </body>
 </html>
