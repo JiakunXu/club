@@ -87,7 +87,7 @@
             timestamp: '$!{ticket.timestamp}',
             nonceStr: '$!{ticket.nonceStr}',
             signature: '$!{ticket.signature}',
-            jsApiList: ['onVoiceRecordEnd', 'uploadVoice']
+            jsApiList: ['startRecord', 'onVoiceRecordEnd', 'uploadVoice']
         });
         </script>
 		<script type="text/javascript" src="$!{env.imgUrl}/js/weixin/message.voice.js?t=20150115"></script>
