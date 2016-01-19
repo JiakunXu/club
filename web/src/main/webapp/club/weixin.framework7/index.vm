@@ -9,6 +9,9 @@
 		<title></title>
 		#ICON()
 		#CSSM(["framework7"])
+		<style>
+		.icon_nav{width:28px;height:28px;display:block;}
+        </style>
 		#UA()
 	</head>
 	<body>
@@ -52,7 +55,7 @@
 								<ul>
 									<li>
 										<a href="$!{env.appUrl}/weixin/home.htm?title=A" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_article.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理通讯录</div>
     											<div class="item-after"></div>
@@ -61,7 +64,7 @@
 									</li>
 									<li>
 										<a href="#" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_cell.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理素材文件</div>
     											<div class="item-after"></div>
@@ -70,7 +73,7 @@
 									</li>
 									<li>
 										<a href="#" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_toast.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理企业号应用</div>
     											<div class="item-after"></div>
@@ -79,7 +82,7 @@
 									</li>
 									<li>
 										<a href="#" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_dialog.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">发送消息</div>
     											<div class="item-after"></div>
@@ -88,7 +91,7 @@
 									</li>
 									<li>
 										<a href="#" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_actionSheet.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">自定义菜单</div>
     											<div class="item-after"></div>
@@ -97,7 +100,7 @@
 									</li>
 									<li>
 										<a href="#" class="item-link item-content">
-    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_button.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">身份验证接口</div>
     											<div class="item-after"></div>
