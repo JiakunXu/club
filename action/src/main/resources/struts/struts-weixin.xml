@@ -28,7 +28,7 @@
 		
 		<action name="home" class="weixinAction" method="home">
 			<result name="success">/club/weixin.framework7/index.vm</result>
-			<result name="contacts">/club/weixin/contacts.vm</result>
+			<result name="A">/club/weixin.framework7/contacts.vm</result>
 			<result name="media">/club/weixin/media.vm</result>
 			<result name="agent">/club/weixin/agent.vm</result>
 			<result name="message">/club/weixin/message.vm</result>

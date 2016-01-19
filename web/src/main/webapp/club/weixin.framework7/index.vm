@@ -47,9 +47,66 @@
 					<div data-page="index" class="page">
 						<!-- Scrollable page content -->
 						<div class="page-content">
-							<p>Page content goes here</p>
-							<!-- Link to another page -->
-							<a href="http://wx.wideka.com:8080/club/club/weixin.framework7/about.html">About app</a>
+							<div class="content-block-title">微信企业号接口</div>
+							<div class="list-block">
+								<ul>
+									<li>
+										<a href="$!{env.appUrl}/weixin/home.htm?title=A" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">管理通讯录</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">管理素材文件</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">管理企业号应用</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">发送消息</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">自定义菜单</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+									<li>
+										<a href="#" class="item-link item-content">
+    										<div class="item-media"><i class="icon icon-f7"></i></div>
+    										<div class="item-inner">
+    											<div class="item-title">身份验证接口</div>
+    											<div class="item-after"></div>
+    										</div>
+                                        </a>
+									</li>
+								</ul>
+								<div class="list-block-label"></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -57,6 +114,7 @@
 		</div>
 		
 		#JSM(["framework7"])
+		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/weixin.framework7/index.js"></script>
 	</body>
 </html>  
