@@ -51,6 +51,9 @@
 		#elseif($key == 'flexpaper')
 			<script src="$!{env.imgUrl}/flexpaper/js/flexpaper.js"></script>
 			<script src="$!{env.imgUrl}/flexpaper/js/flexpaper_handlers.js"></script>
+		#elseif($key == 'framework7')
+			<script src="$!{env.imgUrl}/framework7/js/framework7.min.js"></script>
+			<script src="$!{env.imgUrl}/framework7/js/my-app.js"></script>
 		#elseif($key == 'hammer')
 			<script src="$!{env.imgUrl}/hammer/hammer.min.js"></script>
 		#elseif($key == 'iosbadge')
@@ -93,6 +96,10 @@
 			<link rel="stylesheet" href="$!{env.imgUrl}/flexpaper/css/flexpaper.css" />
 		#elseif($key == 'font-awesome')
 			<link rel="stylesheet" href="$!{env.imgUrl}/font-awesome/css/font-awesome.min.css" />
+		#elseif($key == 'framework7')
+			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/framework7.ios.min.css" />
+			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/framework7.ios.colors.min.css" />
+			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/my-app.css" />
 		#elseif($key == 'iosbadge')
 			<link rel="stylesheet" href="$!{env.imgUrl}/iosbadge/iosbadge.css" />
 		#elseif($key == 'nav')
