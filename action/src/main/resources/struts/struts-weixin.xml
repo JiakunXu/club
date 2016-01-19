@@ -26,6 +26,19 @@
 			<result name="tag">/club/weixin/tag.vm</result>
 		</action>
 		
+		<action name="home" class="weixinAction" method="home">
+			<result name="success">/club/weixin.framework7/index.vm</result>
+			<result name="contacts">/club/weixin/contacts.vm</result>
+			<result name="media">/club/weixin/media.vm</result>
+			<result name="agent">/club/weixin/agent.vm</result>
+			<result name="message">/club/weixin/message.vm</result>
+			<result name="menu">/club/weixin/menu.vm</result>
+			<result name="auth">/club/weixin/auth.vm</result>
+			<result name="department">/club/weixin/department.vm</result>
+			<result name="user">/club/weixin/user.vm</result>
+			<result name="tag">/club/weixin/tag.vm</result>
+		</action>
+		
 		<action name="department" class="departmentAction" method="department">
 			<result name="success">/club/weixin/department.vm</result>
 			<result name="create">/club/weixin/department.create.vm</result>
