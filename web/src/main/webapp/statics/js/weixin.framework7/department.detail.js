@@ -8,7 +8,7 @@ function department_detail_update() {
 }
 
 function department_detail_delete() {
-	myApp.confirm('确定删除部门？', '', function() {
+	myApp.confirm('确定删除部门？', '部门管理', function() {
 				myApp.showIndicator();
 
 				var form = window.document.forms['department/detail/delete'];
