@@ -5,7 +5,8 @@
 		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
 		<div class="center sliding">管理部门</div>
 		<div class="right">
-			<!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
 		</div>
 	</div>
 </div>
@@ -17,7 +18,7 @@
 			<div class="list-block">
 				<ul>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/weixin/department.framework7.htm?op=create" class="item-link item-content">
 							<div class="item-inner">
 								<div class="item-title">创建部门</div>
 								<div class="item-after"></div>
@@ -41,7 +42,7 @@
                         </a>
 					</li>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/weixin/department.framework7.htm?op=list" class="item-link item-content">
 							<div class="item-inner">
 								<div class="item-title">获取部门列表</div>
 								<div class="item-after"></div>

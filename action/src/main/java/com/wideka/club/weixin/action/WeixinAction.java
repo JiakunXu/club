@@ -125,19 +125,6 @@ public class WeixinAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	/**
-	 * 微信管理首页(移动端).
-	 * 
-	 * @return
-	 */
-	public String home() {
-		if (StringUtils.isNotBlank(title)) {
-			return title.trim();
-		}
-
-		return SUCCESS;
-	}
-
 	public IReceiveService getReceiveService() {
 		return receiveService;
 	}

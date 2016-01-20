@@ -26,7 +26,7 @@
 			<result name="tag">/club/weixin/tag.vm</result>
 		</action>
 		
-		<action name="home" class="weixinAction" method="home">
+		<action name="index.framework7" class="weixinAction" method="index">
 			<result name="success">/club/weixin.framework7/index.vm</result>
 			<result name="contacts">/club/weixin.framework7/contacts.vm</result>
 			<result name="media">/club/weixin.framework7/media.vm</result>
@@ -44,6 +44,13 @@
 			<result name="create">/club/weixin/department.create.vm</result>
 			<result name="list">/club/weixin/department.list.vm</result>
 			<result name="detail">/club/weixin/department.detail.vm</result>
+		</action>
+		
+		<action name="department.framework7" class="departmentAction" method="department">
+			<result name="success">/club/weixin.framework7/department.vm</result>
+			<result name="create">/club/weixin.framework7/department.create.vm</result>
+			<result name="list">/club/weixin.framework7/department.list.vm</result>
+			<result name="detail">/club/weixin.framework7/department.detail.vm</result>
 		</action>
 		
 		<action name="user" class="userAction" method="user">

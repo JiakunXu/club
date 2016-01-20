@@ -3,7 +3,7 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-		<div class="center sliding">管理通讯录</div>
+		<div class="center sliding">获取部门列表</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
@@ -17,33 +17,19 @@
 		<div class="page-content">
 			<div class="list-block">
 				<ul>
+					#foreach($department in $!{departmentList})
 					<li>
-						<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=department" class="item-link item-content">
+						<a href="javascript:department_list_goto('detail', '$!{department.id}', '$!{department.name}');" class="item-link item-content">
 							<div class="item-inner">
-								<div class="item-title">管理部门</div>
+								<div class="item-title">$!{department.id} | $!{department.parentId} | $!{department.name} | $!{department.order}</div>
 								<div class="item-after"></div>
 							</div>
                         </a>
 					</li>
-					<li>
-						<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=user" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">管理成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
-					</li>
-					<li>
-						<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=tag" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">管理标签</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
-					</li>
+					#end
 				</ul>
 				<div class="list-block-label"></div>
 			</div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>

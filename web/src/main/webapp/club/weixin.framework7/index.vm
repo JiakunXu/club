@@ -54,7 +54,7 @@
 							<div class="list-block">
 								<ul>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=contacts" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=contacts" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_article.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理通讯录</div>
@@ -63,7 +63,7 @@
                                         </a>
 									</li>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=media" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=media" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_cell.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理素材文件</div>
@@ -72,7 +72,7 @@
                                         </a>
 									</li>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=agent" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=agent" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_toast.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">管理企业号应用</div>
@@ -81,7 +81,7 @@
                                         </a>
 									</li>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=message" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=message" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_dialog.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">发送消息</div>
@@ -90,7 +90,7 @@
                                         </a>
 									</li>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=menu" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=menu" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_actionSheet.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">自定义菜单</div>
@@ -99,7 +99,7 @@
                                         </a>
 									</li>
 									<li>
-										<a href="$!{env.appUrl}/weixin/home.htm?title=auth" class="item-link item-content">
+										<a href="$!{env.appUrl}/weixin/index.framework7.htm?title=auth" class="item-link item-content">
     										<div class="item-media"><img src="$!{env.imgUrl}/image/weixin/icon_nav_button.png" class="icon_nav" alt=""></div>
     										<div class="item-inner">
     											<div class="item-title">身份验证接口</div>
@@ -116,8 +116,11 @@
 			</div>
 		</div>
 		
-		#JSM(["framework7"])
+		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
+		#JSM(["zeptojs", "framework7"])
 		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/weixin.framework7/index.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/department.list.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/department.detail.js"></script>
 	</body>
 </html>  

@@ -1,0 +1,63 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">部门</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="contacts" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block-title">更新部门</div>
+			<form id="department/detail/update" class="list-block" method="post">
+				<input type="hidden" name="op" value="department/update"/>
+				<input type="hidden" name="department.id" value="$!{id}"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									<input type="text" name="department.name" value="$!{name}" placeholder="请输入部门名称" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="content-block">
+				<a href="javascript:department_detail_update();" class="button form-to-json">更新</a>
+			</div>
+			
+			<div class="content-block-title">删除部门</div>
+			<form id="department/detail/delete" class="list-block" method="post">
+				<input type="hidden" name="op" value="department/delete"/>
+				<input type="hidden" name="id" value="$!{id}"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									$!{name}
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="content-block">
+				<a href="javascript:department_detail_delete();" class="button form-to-json">删除</a>
+			</div>
+        </div>
+    </div>
+</div>
