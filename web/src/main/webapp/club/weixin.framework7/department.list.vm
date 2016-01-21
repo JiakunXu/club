@@ -18,18 +18,25 @@
 			<div class="list-block">
 				<ul>
 					#foreach($department in $!{departmentList})
-					<li>
-						<a href="javascript:department_list_goto('detail', '$!{department.id}', '$!{department.name}');" class="item-link item-content">
+					<li class="swipeout">
+						<a href="javascript:department_list_goto('detail', '$!{department.id}', '$!{department.name}');" class="item-link swipeout-content item-content">
 							<div class="item-inner">
 								<div class="item-title">$!{department.id} | $!{department.parentId} | $!{department.name} | $!{department.order}</div>
 								<div class="item-after"></div>
 							</div>
                         </a>
+						<div class="swipeout-actions-right">
+							<a href="javascript:department_list_delete($!{department.id});" class="swipeout-delete">Delete</a>
+						</div>
 					</li>
 					#end
 				</ul>
 				<div class="list-block-label"></div>
 			</div>
-        </div>
+		</div>
+		<form id="department/list/delete" action="$!{env.appUrl}/weixin/department.framework7.htm" method="post" class="ajax-submit">
+        	<input type="hidden" name="op" value="department/delete"/>
+        	<input type="hidden" name="id" id="department_list_id"/>
+        </form>
     </div>
 </div>
