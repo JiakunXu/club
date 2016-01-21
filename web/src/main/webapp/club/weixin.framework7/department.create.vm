@@ -1,0 +1,50 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">创建部门</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="department.create" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="department/create" action="$!{env.appUrl}/weixin/department.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="department/create"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									<input type="text" name="department.name" placeholder="请输入部门名称" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">父部门</div>
+								<div class="item-input">
+									<input type="text" name="department.parentId" value="1" placeholder="请输入父亲部门id" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:department_create();" class="button">确认</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>
