@@ -13,20 +13,18 @@ function department_detail_delete() {
 }
 
 myApp.onPageInit('department.detail', function(page) {
-			$$('form.ajax-submit').on('submitted', function(e) {
-						myApp.hideIndicator();
-
-						var xhr = e.detail.xhr;
-						var data = e.detail.data;
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 
-			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
-						var data = e.detail.data;
+						myApp.alert(xhr.responseText, '部门管理');
 					});
 
 			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
-						var data = e.detail.data;
+						myApp.alert(xhr.responseText, '错误');
 					});
 		});

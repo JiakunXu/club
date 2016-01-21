@@ -46,7 +46,7 @@
 			<result name="detail">/club/weixin/department.detail.vm</result>
 		</action>
 		
-		<action name="department.framework7" class="departmentAction" method="department">
+		<action name="department.framework7" class="departmentAction" method="department4Framework7">
 			<result name="success">/club/weixin.framework7/department.vm</result>
 			<result name="create">/club/weixin.framework7/department.create.vm</result>
 			<result name="list">/club/weixin.framework7/department.list.vm</result>

@@ -103,6 +103,70 @@ public class DepartmentAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String department4Framework7() {
+		if ("create".equals(op)) {
+			return "create";
+		}
+
+		if ("department/create".equals(op)) {
+			BooleanResult result = weixinService.createDepartment(department);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("department/update".equals(op)) {
+			BooleanResult result = weixinService.updateDepartment(department);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("department/delete".equals(op)) {
+			BooleanResult result = weixinService.deleteDepartment(id);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("list".equals(op)) {
+			departmentList = weixinService.getDepartmentList("1");
+			return "list";
+		}
+
+		if ("detail".equals(op)) {
+			if (StringUtils.isNotBlank(name)) {
+				try {
+					name = new String(name.trim().getBytes(CHARSET_ISO8859), CHARSET_UTF8);
+				} catch (UnsupportedEncodingException e) {
+					logger.error(name, e);
+				}
+			}
+
+			return "detail";
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}
