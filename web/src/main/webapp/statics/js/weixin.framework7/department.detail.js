@@ -30,3 +30,7 @@ myApp.onPageInit('department.detail', function(page) {
 						myApp.alert(xhr.responseText, '错误');
 					});
 		});
+
+myApp.onPageAfterBack('department.detail', function(page) {
+			// mainView.router.refreshPreviousPage();
+		});
