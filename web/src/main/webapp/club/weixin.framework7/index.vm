@@ -116,8 +116,7 @@
 			</div>
 		</div>
 		
-		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
-		#JSM(["zeptojs", "framework7"])
+		#JSM(["framework7"])
 		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/weixin.framework7/index.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/department.list.js"></script>

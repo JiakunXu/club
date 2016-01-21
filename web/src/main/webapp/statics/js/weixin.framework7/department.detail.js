@@ -1,19 +1,32 @@
 function department_detail_update() {
 	myApp.showIndicator();
 
-	var form = window.document.forms['department/detail/update'];
-	form.action = appUrl + "/weixin/department.framework7.htm";
-	form.target = "hideFrame";
-	form.submit();
+	$$('#department/detail/update').trigger("submit");
 }
 
 function department_detail_delete() {
 	myApp.confirm('确定删除部门？', '部门管理', function() {
 				myApp.showIndicator();
 
-				var form = window.document.forms['department/detail/delete'];
-				form.action = appUrl + "/weixin/department.framework7.htm";
-				form.target = "hideFrame";
-				form.submit();
+				$$('#department/detail/delete').trigger("submit");
 			});
 }
+
+myApp.onPageInit('department.detail', function(page) {
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
+
+						var xhr = e.detail.xhr;
+						var data = e.detail.data;
+					});
+
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+						var xhr = e.detail.xhr;
+						var data = e.detail.data;
+					});
+
+			$$('form.ajax-submit').on('submitError', function(e) {
+						var xhr = e.detail.xhr;
+						var data = e.detail.data;
+					});
+		});
