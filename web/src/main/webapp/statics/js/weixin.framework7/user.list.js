@@ -1,19 +1,19 @@
-// user.simple.list.vm
-function user_simple_list_goto(op, userId, name) {
+// user.list.vm
+function user_list_goto(op, userId, name) {
 	mainView.router.loadPage(appUrl + "/weixin/user.framework7.htm?op=" + op
 			+ "&userId=" + userId + "&name=" + encodeURIComponent(name));
 }
 
-function user_simple_list_delete(userId) {
+function user_list_delete(userId) {
 	myApp.confirm('确定删除成员？', '成员管理', function() {
 				myApp.showIndicator();
 
-				$$('#user_simple_list_userId').val(userId);
-				$$('#user/simple/list/delete').trigger("submit");
+				$$('#user_list_id').val(userId);
+				$$('#user/list/delete').trigger("submit");
 			});
 }
 
-myApp.onPageInit('user.simple.list', function(page) {
+myApp.onPageInit('user.list', function(page) {
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 

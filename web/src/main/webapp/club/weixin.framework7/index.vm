@@ -126,6 +126,7 @@
 		
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.create.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.simple.list.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/user.list.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.detail.js"></script>
 	</body>
 </html>  
