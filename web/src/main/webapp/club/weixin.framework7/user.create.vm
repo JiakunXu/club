@@ -1,0 +1,98 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">创建成员</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="user.create" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="user/create" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="user/create"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">UserID</div>
+								<div class="item-input">
+									<input type="text" name="user.userId" placeholder="请输入成员UserID" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">名称</div>
+								<div class="item-input">
+									<input type="text" name="user.name" placeholder="请输入成员名称" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									<select name="user.department">
+            							#foreach($department in $!{departmentList})
+            							<option value="$!{department.id}">$!{department.name}</option>
+            							#end
+                                    </select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">手机</div>
+								<div class="item-input">
+									<input type="text" name="user.mobile" placeholder="请输入手机号码" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">邮箱</div>
+								<div class="item-input">
+									<input type="text" name="user.email" placeholder="请输入邮箱" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">微信号</div>
+								<div class="item-input">
+									<input type="text" name="user.weixinId" placeholder="请输入微信号，不是微信的名字" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:user_create();" class="button button-big">确认</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>
