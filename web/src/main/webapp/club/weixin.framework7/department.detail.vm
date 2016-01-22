@@ -33,7 +33,7 @@
 					</li>
 				</ul>
 				<div class="content-block">
-    				<a href="javascript:department_detail_update();" class="button">更新</a>
+    				<a href="javascript:department_detail_update();" class="button button-big">更新</a>
     			</div>
 			</form>
 			
@@ -55,7 +55,7 @@
 					</li>
 				</ul>
 				<div class="content-block">
-					<a href="javascript:department_detail_delete();" class="button">删除</a>
+					<a href="javascript:department_detail_delete();" class="button button-big">删除</a>
     			</div>
 			</form>
         </div>

@@ -13,24 +13,25 @@ function department_detail_delete() {
 }
 
 myApp.onPageInit('department.detail', function(page) {
-			$$('form.ajax-submit').on('beforeSubmit', function(e) {
-					});
+	$$('form.ajax-submit').on('beforeSubmit', function(e) {
+			});
 
-			$$('form.ajax-submit').on('submitted', function(e) {
-						myApp.hideIndicator();
-						var xhr = e.detail.xhr;
-						myApp.alert(xhr.responseText, '信息', function() {
-									mainView.router.back();
-								});
-					});
+	$$('form.ajax-submit').on('submitted', function(e) {
+		myApp.hideIndicator();
+		var xhr = e.detail.xhr;
+		myApp.alert(xhr.responseText, '信息', function() {
+					mainView.router.back({
+								url : appUrl
+										+ '/weixin/department.framework7.htm?op=list',
+								force : true,
+								ignoreCache : true
+							})
+				});
+	});
 
-			$$('form.ajax-submit').on('submitError', function(e) {
-						myApp.hideIndicator();
-						var xhr = e.detail.xhr;
-						myApp.alert(xhr.responseText, '错误');
-					});
-		});
-
-myApp.onPageAfterBack('department.detail', function(page) {
-			// mainView.router.refreshPreviousPage();
-		});
+	$$('form.ajax-submit').on('submitError', function(e) {
+				myApp.hideIndicator();
+				var xhr = e.detail.xhr;
+				myApp.alert(xhr.responseText, '错误');
+			});
+});
