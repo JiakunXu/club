@@ -123,5 +123,8 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/department.create.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/department.list.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/department.detail.js"></script>
+		
+		<script src="$!{env.imgUrl}/js/weixin.framework7/user.simple.list.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/user.detail.js"></script>
 	</body>
 </html>  

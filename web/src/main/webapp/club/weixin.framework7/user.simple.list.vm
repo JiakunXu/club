@@ -1,0 +1,42 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">获取部门成员</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="user.simple.list" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					#foreach($user in $!{userList})
+					<li class="swipeout">
+						<a href="javascript:user_simple_list_goto('detail', '$!{user.userId}', '$!{user.name}');" class="item-link swipeout-content item-content">
+							<div class="item-inner">
+								<div class="item-title">$!{user.userId} | $!{user.name}</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+						<div class="swipeout-actions-right">
+							<a href="javascript:user_simple_list_delete($!{user.userId});" class="swipeout-delete">Delete</a>
+						</div>
+					</li>
+					#end
+				</ul>
+				<div class="list-block-label"></div>
+			</div>
+		</div>
+		<form id="user/simple/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="ajax-submit">
+        	<input type="hidden" name="op" value="user/delete"/>
+        	<input type="hidden" name="userId" id="user_simple_list_userId"/>
+        </form>
+    </div>
+</div>

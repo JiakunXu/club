@@ -62,6 +62,15 @@
 			<result name="detail">/club/weixin/user.detail.vm</result>
 		</action>
 		
+		<action name="user.framework7" class="userAction" method="user4Framework7">
+			<result name="success">/club/weixin.framework7/user.vm</result>
+			<result name="create">/club/weixin.framework7/user.create.vm</result>
+			<result name="simpleList">/club/weixin.framework7/user.simple.list.vm</result>
+			<result name="list">/club/weixin.framework7/user.list.vm</result>
+			<result name="invite">/club/weixin.framework7/user.invite.vm</result>
+			<result name="detail">/club/weixin.framework7/user.detail.vm</result>
+		</action>
+		
 		<action name="tag" class="tagAction" method="tag">
 			<result name="success">/club/weixin/tag.vm</result>
 			<result name="create">/club/weixin/tag.create.vm</result>

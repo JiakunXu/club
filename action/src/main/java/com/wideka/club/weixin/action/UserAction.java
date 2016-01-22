@@ -126,6 +126,91 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String user4Framework7() {
+		if ("create".equals(op)) {
+			departmentList = weixinService.getDepartmentList("1");
+			return "create";
+		}
+		if ("user/create".equals(op)) {
+			BooleanResult result = weixinService.createUser(user);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("user/update".equals(op)) {
+			BooleanResult result = weixinService.updateUser(user);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("user/delete".equals(op)) {
+			BooleanResult result = weixinService.deleteUser(userId);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("simplelist".equals(op)) {
+			userList = weixinService.getSimpleUserList("1", "1", "0");
+			return "simpleList";
+		}
+
+		if ("list".equals(op)) {
+			userList = weixinService.getUserList("1", "1", "0");
+			return "list";
+		}
+
+		if ("invite".equals(op)) {
+			return "invite";
+		}
+		if ("user/invite".equals(op)) {
+			BooleanResult result = weixinService.inviteUser(userId);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("detail".equals(op)) {
+			if (StringUtils.isNotBlank(name)) {
+				try {
+					name = new String(name.trim().getBytes(CHARSET_ISO8859), CHARSET_UTF8);
+				} catch (UnsupportedEncodingException e) {
+					logger.error(name, e);
+				}
+			}
+
+			return "detail";
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}
