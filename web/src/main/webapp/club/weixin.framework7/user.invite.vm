@@ -1,0 +1,39 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">邀请成员关注</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="user.invite" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="user/invite" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="user/invite"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">UserID</div>
+								<div class="item-input">
+									<input type="text" name="userId" placeholder="请输入成员UserID" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:user_invite();" class="button button-big">确认</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>
