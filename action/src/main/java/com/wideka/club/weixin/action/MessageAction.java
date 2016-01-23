@@ -196,8 +196,7 @@ public class MessageAction extends BaseAction {
 		if (StringUtils.isNotBlank(op)) {
 			agentList = weixinService.getAgentList();
 
-			ticket =
-				weixinService.getTicket(env.getProperty("appUrl") + "/weixin/message.framework7.htm?op=" + op.trim());
+			ticket = weixinService.getTicket(env.getProperty("appUrl") + "/weixin/index.framework7.htm");
 
 			return op.trim();
 		}
