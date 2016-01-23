@@ -1,0 +1,109 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">发送text消息</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="message.text" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="message/text" action="$!{env.appUrl}/weixin/message.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="send/text"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">用户</div>
+								<div class="item-input">
+									<input type="text" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									<input type="text" name="toParty" placeholder="请输入发送部门" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-settings"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">标签</div>
+								<div class="item-input">
+									<input type="text" name="toTag" placeholder="请输入发送标签" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">应用</div>
+								<div class="item-input">
+									<select name="agentId">
+            							#foreach($agent in $!{agentList})
+            							<option value="$!{agent.agentId}">$!{agent.name}</option>
+            							#end
+                                    </select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-comment"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">内容</div>
+								<div class="item-input">
+									<input type="text" id="message/text/content" name="text.content" placeholder="请输入消息内容" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-toggle"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">是否保密</div>
+								<div class="item-input">
+									<label class="label-switch">
+										<input type="hidden" id="message/text/safe" name="safe" value="0" />
+										<input type="checkbox" id="message/text/checkbox" />
+										<div class="checkbox"></div>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:message_text();" class="button button-big">发送</a>
+    			</div>
+				<div class="content-block">
+    				<a href="javascript:message_text_showActionSheet();" class="button button-big">智能</a>
+    			</div>
+			</form>
+			<input type="hidden" id="message/text/appId" value="$!{ticket.appId}"/>
+			<input type="hidden" id="message/text/timestamp" value="$!{ticket.timestamp}"/>
+			<input type="hidden" id="message/text/nonceStr" value="$!{ticket.nonceStr}"/>
+			<input type="hidden" id="message/text/signature" value="$!{ticket.signature}"/>
+        </div>
+    </div>
+</div>

@@ -116,7 +116,7 @@
 			</div>
 		</div>
 		
-		#JSM(["framework7"])
+		#JSM(["framework7", "weixin"])
 		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/weixin.framework7/index.js"></script>
 		
@@ -129,5 +129,7 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.list.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.detail.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/user.invite.js"></script>
+		
+		<script src="$!{env.imgUrl}/js/weixin.framework7/message.text.js"></script>
 	</body>
 </html>  

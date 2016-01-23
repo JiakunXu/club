@@ -127,6 +127,83 @@ public class MessageAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String message4Framework7() {
+		if ("send/text".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), text, safe);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("send/image".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), image, safe);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("send/voice".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), voice, safe);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("send/video".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), video, safe);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("send/file".equals(op)) {
+			BooleanResult result = weixinService.send(toUser, toParty, toTag, Integer.parseInt(agentId), file, safe);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if (StringUtils.isNotBlank(op)) {
+			agentList = weixinService.getAgentList();
+
+			ticket = weixinService.getTicket(env.getProperty("appUrl") + "/weixin/message.htm?op=" + op.trim());
+
+			return op.trim();
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}

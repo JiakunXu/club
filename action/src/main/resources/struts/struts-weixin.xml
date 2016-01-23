@@ -102,6 +102,17 @@
 			<result name="mpnews">/club/weixin/message.mpnews.vm</result>
 		</action>
 		
+		<action name="message.framework7" class="messageAction" method="message4Framework7">
+			<result name="success">/club/weixin.framework7/message.vm</result>
+			<result name="text">/club/weixin.framework7/message.text.vm</result>
+			<result name="image">/club/weixin.framework7/message.image.vm</result>
+			<result name="voice">/club/weixin.framework7/message.voice.vm</result>
+			<result name="video">/club/weixin.framework7/message.video.vm</result>
+			<result name="file">/club/weixin.framework7/message.file.vm</result>
+			<result name="news">/club/weixin.framework7/message.news.vm</result>
+			<result name="mpnews">/club/weixin.framework7/message.mpnews.vm</result>
+		</action>
+		
 		<action name="menu" class="menuAction" method="menu">
 			<result name="success">/club/weixin/menu.vm</result>
 			<result name="get">/club/weixin/menu.get.vm</result>
