@@ -18,3 +18,9 @@ var mainView = myApp.addView('.view-main', {
 			// Because we use fixed-through navbar we can enable dynamic navbar
 			dynamicNavbar : true
 		});
+
+myApp.addNotification({
+			title : 'Device',
+			message : myApp.device.os + " " + myApp.device.osVersion,
+			media : '<i class="icon icon-f7"></i>'
+		});
