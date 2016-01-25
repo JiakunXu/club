@@ -1,0 +1,102 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">发送file消息</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="message.file" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="message/file" action="$!{env.appUrl}/weixin/message.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="send/file"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">用户</div>
+								<div class="item-input">
+									<input type="text" name="toUser" value="Jiakun.Xu" placeholder="请输入发送用户" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">部门</div>
+								<div class="item-input">
+									<input type="text" name="toParty" placeholder="请输入发送部门" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-settings"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">标签</div>
+								<div class="item-input">
+									<input type="text" name="toTag" placeholder="请输入发送标签" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">应用</div>
+								<div class="item-input">
+									<select name="agentId">
+            							#foreach($agent in $!{agentList})
+            							<option value="$!{agent.agentId}">$!{agent.name}</option>
+            							#end
+                                    </select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-comment"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">内容</div>
+								<div class="item-input">
+									<input type="text" id="message/file/mediaId" name="file.mediaId" value="2_FuLind-PsRQfugj_ZO2b0zAu4G_cjMdmhIFXU5o88Zi7cLbXjCcfzgZYD5u4JeCwnk72cVbbSPpiTyGD7u54Q" placeholder="请输入消息内容" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-toggle"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">是否保密</div>
+								<div class="item-input">
+									<label class="label-switch">
+										<input type="hidden" id="message/file/safe" name="safe" value="0" />
+										<input type="checkbox" id="message/file/checkbox" />
+										<div class="checkbox"></div>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:message_file();" class="button button-big">发送</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>

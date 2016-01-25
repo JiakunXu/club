@@ -133,5 +133,7 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.text.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.image.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.voice.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/message.video.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/message.file.js"></script>
 	</body>
 </html>  
