@@ -132,5 +132,6 @@
 		
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.text.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.image.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/message.voice.js"></script>
 	</body>
 </html>  
