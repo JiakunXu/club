@@ -41,6 +41,20 @@ public class AgentAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String agent4Framework7() {
+		if ("get".equals(op)) {
+			agent = JSON.toJSONString(weixinService.getAgent("19"));
+			return "get";
+		}
+
+		if ("list".equals(op)) {
+			agentList = weixinService.getAgentList();
+			return "list";
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}

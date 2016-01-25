@@ -91,6 +91,12 @@
 			<result name="list">/club/weixin/agent.list.vm</result>
 		</action>
 		
+		<action name="agent.framework7" class="agentAction" method="agent4Framework7">
+			<result name="success">/club/weixin.framework7/agent.vm</result>
+			<result name="get">/club/weixin.framework7/agent.get.vm</result>
+			<result name="list">/club/weixin.framework7/agent.list.vm</result>
+		</action>
+		
 		<action name="message" class="messageAction" method="message">
 			<result name="success">/club/weixin/message.vm</result>
 			<result name="text">/club/weixin/message.text.vm</result>

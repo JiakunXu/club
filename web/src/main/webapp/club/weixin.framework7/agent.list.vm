@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>获取应用概况列表</title>
+		#ICON()
+        #CSSM(["weui"])
+		#UA()
+	</head>
+	<body>
+        <div class="weui_cells_title">获取应用概况列表</div>
+        <div class="weui_cells">
+			#foreach($agent in $!{agentList})
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>$!{agent.agentId} | $!{agent.name}</p>
+                </div>
+                <div class="weui_cell_ft"></div>
+            </div>
+            #end
+        </div>
+    </body>
+</html>

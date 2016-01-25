@@ -118,6 +118,7 @@
 		
 		#JSM(["framework7", "weixin"])
 		#JS_ENV_VAL()
+		<!--
 		<script src="$!{env.imgUrl}/js/weixin.framework7/index.js"></script>
 		
 		<script src="$!{env.imgUrl}/js/weixin.framework7/department.create.js"></script>
@@ -135,5 +136,8 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.voice.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.video.js"></script>
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.file.js"></script>
+		-->
+		
+		<script src="$!{env.imgUrl}/js/weixin.framework7/weixin.framework7.js"></script>
 	</body>
 </html>  

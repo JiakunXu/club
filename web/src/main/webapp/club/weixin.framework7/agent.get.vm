@@ -1,0 +1,35 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">获取企业号应用</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="department.detail" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-comment"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">应用</div>
+								<div class="item-input">
+									<textarea>$!{agent}</textarea>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+        </div>
+    </div>
+</div>
