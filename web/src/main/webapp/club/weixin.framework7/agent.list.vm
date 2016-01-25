@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<title>获取应用概况列表</title>
-		#ICON()
-        #CSSM(["weui"])
-		#UA()
-	</head>
-	<body>
-        <div class="weui_cells_title">获取应用概况列表</div>
-        <div class="weui_cells">
-			#foreach($agent in $!{agentList})
-            <div class="weui_cell">
-                <div class="weui_cell_bd weui_cell_primary">
-                    <p>$!{agent.agentId} | $!{agent.name}</p>
-                </div>
-                <div class="weui_cell_ft"></div>
-            </div>
-            #end
-        </div>
-    </body>
-</html>
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">获取应用概况列表</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="agent.list" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					#foreach($agent in $!{agentList})
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">$!{agent.agentId} | $!{agent.name}</div>
+							<div class="item-after"></div>
+						</div>
+					</li>
+					#end
+				</ul>
+				<div class="list-block-label"></div>
+			</div>
+		</div>
+    </div>
+</div>
