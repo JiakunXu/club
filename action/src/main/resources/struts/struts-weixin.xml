@@ -130,5 +130,11 @@
 			<result name="convert">/club/weixin/auth.convert.vm</result>
 		</action>
 		
+		<action name="auth.framework7" class="authAction" method="auth4Framework7">
+			<result name="success">/club/weixin.framework7/auth.vm</result>
+			<result name="oauth2">/club/weixin.framework7/auth.oauth2.vm</result>
+			<result name="convert">/club/weixin.framework7/auth.convert.vm</result>
+		</action>
+		
 	</package>
 </struts>

@@ -1,0 +1,74 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">Userid与openid互换接口</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="auth.convert" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block-title">userid转换成openid接口</div>
+			<form id="auth/convert/convertToOpenId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="auth/convertToOpenId"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">UserID</div>
+								<div class="item-input">
+									<input type="text" name="userId" value="Jiakun.Xu" placeholder="请输入企业号内的成员id" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">AgentId</div>
+								<div class="item-input">
+									<input type="number" name="agentId" placeholder="请输入需要发送红包的应用ID" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:auth_convert_convertToOpenId();" class="button button-big">确认</a>
+    			</div>
+			</form>
+			
+			<div class="content-block-title">openid转换成userid接口</div>
+			<form id="auth/convert/convertToUserId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="auth/convertToUserId"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">OpenID</div>
+								<div class="item-input">
+									<input type="text" name="openId" value="o1n7js7VTXqh8BRM8IMSJljpGLUg" placeholder="请输入在使用微信支付、微信红包和企业转账之后，返回结果的openid" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+					<a href="javascript:auth_convert_convertToUserId();" class="button button-big">确认</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>

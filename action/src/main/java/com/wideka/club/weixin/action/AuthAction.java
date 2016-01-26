@@ -66,6 +66,44 @@ public class AuthAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String auth4Framework7() {
+		if ("oauth2".equals(op)) {
+			return "oauth2";
+		}
+
+		if ("convert".equals(op)) {
+			return "convert";
+		}
+
+		if ("auth/convertToOpenId".equals(op)) {
+			BooleanResult result =
+				weixinService
+					.convertToOpenId(userId, StringUtils.isNotBlank(agentId) ? Integer.valueOf(agentId) : null);
+
+			if (!result.getResult()) {
+				this.getServletResponse().setStatus(500);
+			}
+
+			this.setResourceResult(result.getCode());
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("auth/convertToUserId".equals(op)) {
+			BooleanResult result = weixinService.convertToUserId(openId);
+
+			if (!result.getResult()) {
+				this.getServletResponse().setStatus(500);
+			}
+
+			this.setResourceResult(result.getCode());
+
+			return RESOURCE_RESULT;
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}

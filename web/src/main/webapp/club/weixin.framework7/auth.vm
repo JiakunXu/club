@@ -1,0 +1,41 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">身份验证接口</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="agent" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					<li>
+						<a href="$!{env.appUrl}/weixin/auth.framework7.htm?op=oauth2" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">OAuth验证接口</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+					</li>
+					<li>
+						<a href="$!{env.appUrl}/weixin/auth.framework7.htm?op=convert" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">Userid与openid互换接口</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+					</li>
+				</ul>
+				<div class="list-block-label"></div>
+			</div>
+		</div>
+	</div>
+</div>
