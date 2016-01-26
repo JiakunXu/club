@@ -39,6 +39,20 @@ public class MediaAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String media4Framework7() {
+		if ("material/get_count".equals(op)) {
+			materialCount = JSON.toJSONString(weixinService.getCount("19"));
+			return "material/getCount";
+		}
+
+		if ("material/batchget".equals(op)) {
+			materialList = weixinService.batchGet("image", 19, 0, 50);
+			return "material/batchGet";
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}
