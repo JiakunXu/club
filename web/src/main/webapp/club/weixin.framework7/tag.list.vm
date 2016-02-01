@@ -1,0 +1,42 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">获取标签列表</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="tag.list" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					#foreach($tag in $!{tagList})
+					<li class="swipeout">
+						<a href="javascript:tag_list_goto('detail', '$!{tag.tagId}', '$!{tag.tagName}');" class="item-link swipeout-content item-content">
+							<div class="item-inner">
+								<div class="item-title">$!{tag.tagId} | $!{tag.tagName}</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+						<div class="swipeout-actions-right">
+							<a href="javascript:tag_list_delete($!{tag.tagId});" class="swipeout-delete">Delete</a>
+						</div>
+					</li>
+					#end
+				</ul>
+				<div class="list-block-label"></div>
+			</div>
+		</div>
+		<form id="tag/list/delete" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="ajax-submit">
+        	<input type="hidden" name="op" value="tag/delete"/>
+        	<input type="hidden" name="tagId" id="tag_list_tagId"/>
+        </form>
+    </div>
+</div>

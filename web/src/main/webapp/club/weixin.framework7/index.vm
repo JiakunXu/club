@@ -138,8 +138,12 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/message.file.js"></script>
 		
 		<script src="$!{env.imgUrl}/js/weixin.framework7/auth.convert.js"></script>
+		
+		<script src="$!{env.imgUrl}/js/weixin.framework7/tag.create.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/tag.list.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/tag.detail.js"></script>
 		-->
 		
-		<script src="$!{env.imgUrl}/js/weixin.framework7/weixin.framework7.js"></script>
+		<script src="$!{env.imgUrl}/js/weixin.framework7/weixin.framework7.js"></script>		
 	</body>
 </html>  

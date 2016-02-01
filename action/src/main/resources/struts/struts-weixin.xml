@@ -79,6 +79,14 @@
 			<result name="detail">/club/weixin/tag.detail.vm</result>
 		</action>
 		
+		<action name="tag.framework7" class="tagAction" method="tag4Framework7">
+			<result name="success">/club/weixin.framework7/tag.vm</result>
+			<result name="create">/club/weixin.framework7/tag.create.vm</result>
+			<result name="get">/club/weixin.framework7/tag.get.vm</result>
+			<result name="list">/club/weixin.framework7/tag.list.vm</result>
+			<result name="detail">/club/weixin.framework7/tag.detail.vm</result>
+		</action>
+		
 		<action name="media" class="mediaAction" method="media">
 			<result name="success">/club/weixin/media.vm</result>
 			<result name="material/getCount">/club/weixin/material.get.count.vm</result>

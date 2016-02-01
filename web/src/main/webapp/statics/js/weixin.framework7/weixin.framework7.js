@@ -576,3 +576,113 @@ myApp.onPageInit('auth.convert', function(page) {
 						myApp.alert(xhr.responseText, '错误');
 					});
 		});
+
+function tag_create() {
+	myApp.showIndicator();
+
+	$$('#tag/create').trigger("submit");
+}
+
+myApp.onPageInit('tag.create', function(page) {
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+					});
+
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '信息', function() {
+									mainView.router.back();
+								});
+					});
+
+			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '错误');
+					});
+		});
+
+// trg.list.vm
+function tag_list_goto(op, tagId, tagName) {
+	mainView.router.loadPage(appUrl + "/weixin/tag.framework7.htm?op=" + op
+			+ "&tagId=" + tagId + "&tagName=" + encodeURIComponent(tagName));
+}
+
+function tag_list_delete(tagId) {
+	myApp.confirm('确定删除标签？', '标签管理', function() {
+				myApp.showIndicator();
+
+				$$('#tag_list_tagId').val(tagId);
+				$$('#tag/list/delete').trigger("submit");
+			});
+}
+
+myApp.onPageInit('tag.list', function(page) {
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+					});
+
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '信息', function() {
+									mainView.router.refreshPage();
+								});
+					});
+
+			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '错误');
+					});
+		});
+
+function tag_detail_update() {
+	myApp.showIndicator();
+
+	$$('#tag/detail/update').trigger("submit");
+}
+
+function tag_detail_delete() {
+	var buttons1 = [{
+				text : '确定删除标签？',
+				label : true
+			}, {
+				text : '确定',
+				onClick : function() {
+					myApp.showIndicator();
+
+					$$('#tag/detail/delete').trigger("submit");
+
+				}
+			}];
+	var buttons2 = [{
+				text : 'Cancel',
+				color : 'red'
+			}];
+	var groups = [buttons1, buttons2];
+	myApp.actions(groups);
+}
+
+myApp.onPageInit('tag.detail', function(page) {
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+					});
+
+			$$('form.ajax-submit').on('submitted', function(e) {
+				myApp.hideIndicator();
+				var xhr = e.detail.xhr;
+				myApp.alert(xhr.responseText, '信息', function() {
+							mainView.router.back({
+										url : appUrl
+												+ '/weixin/tag.framework7.htm?op=list',
+										force : true,
+										ignoreCache : true
+									})
+						});
+			});
+
+			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '错误');
+					});
+		});

@@ -1,0 +1,92 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">标签</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+			<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="tag.detail" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block-title">更新标签名字</div>
+			<form id="tag/detail/update" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="tag/update"/>
+				<input type="hidden" name="tag.tagId" value="$!{tagId}"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">名称</div>
+								<div class="item-input">
+									<input type="text" name="tag.tagName" value="$!{tagName}" placeholder="请输入标签名称" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:tag_detail_update();" class="button button-big">更新</a>
+    			</div>
+			</form>
+			
+			<div class="content-block-title">删除标签</div>
+			<form id="tag/detail/delete" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="list-block ajax-submit">
+				<input type="hidden" name="op" value="tag/delete"/>
+				<input type="hidden" name="tagId" value="$!{tagId}"/>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">名称</div>
+								<div class="item-input">
+									$!{tagName}
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+					<a href="javascript:tag_detail_delete();" class="button button-big">删除</a>
+    			</div>
+			</form>
+			
+			<div class="list-block">
+				<ul>
+					<li>
+						<a href="$!{env.appUrl}/weixin/tag.framework7.htm?op=get&tagId=$!{tagId}" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">获取标签成员</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">增加标签成员</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-inner">
+								<div class="item-title">删除标签成员</div>
+								<div class="item-after"></div>
+							</div>
+                        </a>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

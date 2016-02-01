@@ -111,6 +111,75 @@ public class TagAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String tag4Framework7() {
+		if ("create".equals(op)) {
+			return "create";
+		}
+
+		if ("tag/create".equals(op)) {
+			BooleanResult result = weixinService.createTag(tag);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("tag/update".equals(op)) {
+			BooleanResult result = weixinService.updateTag(tag);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("tag/delete".equals(op)) {
+			BooleanResult result = weixinService.deleteTag(tagId);
+
+			if (result.getResult()) {
+				this.setResourceResult("成功！");
+			} else {
+				this.getServletResponse().setStatus(500);
+				this.setResourceResult(result.getCode());
+			}
+
+			return RESOURCE_RESULT;
+		}
+
+		if ("get".equals(op)) {
+			tagResult = weixinService.getTag(tagId);
+			return "get";
+		}
+
+		if ("list".equals(op)) {
+			tagList = weixinService.getTagList();
+			return "list";
+		}
+
+		if ("detail".equals(op)) {
+			if (StringUtils.isNotBlank(tagName)) {
+				try {
+					tagName = new String(tagName.trim().getBytes(CHARSET_ISO8859), CHARSET_UTF8);
+				} catch (UnsupportedEncodingException e) {
+					logger.error(tagName, e);
+				}
+			}
+
+			return "detail";
+		}
+
+		return SUCCESS;
+	}
+
 	public IWeixinService getWeixinService() {
 		return weixinService;
 	}
