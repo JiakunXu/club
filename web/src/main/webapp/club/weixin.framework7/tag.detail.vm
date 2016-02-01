@@ -62,7 +62,7 @@
 			<div class="list-block">
 				<ul>
 					<li>
-						<a href="$!{env.appUrl}/weixin/tag.framework7.htm?op=get&tagId=$!{tagId}" class="item-link item-content">
+						<a href="$!{env.appUrl}/weixin/tag.framework7.htm?op=get&tagId=$!{tagId}" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-inner">
 								<div class="item-title">获取标签成员</div>
 								<div class="item-after"></div>
