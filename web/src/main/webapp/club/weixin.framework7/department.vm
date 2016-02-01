@@ -25,22 +25,18 @@
 							</div>
                         </a>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">更新部门</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
-					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">删除部门</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
-					</li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">更新部门</div>
+							<div class="item-after"></div>
+						</div>
+                    </li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">删除部门</div>
+							<div class="item-after"></div>
+						</div>
+                    </li>
 					<li>
 						<a href="$!{env.appUrl}/weixin/department.framework7.htm?op=list" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-inner">

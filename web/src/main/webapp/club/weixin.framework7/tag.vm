@@ -25,45 +25,35 @@
 							</div>
                         </a>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">更新标签名字</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">更新标签名字</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">删除标签</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">删除标签</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">获取标签成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">获取标签成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">增加标签成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">增加标签成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-inner">
-								<div class="item-title">删除标签成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">删除标签成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
 					<li>
 						<a href="$!{env.appUrl}/weixin/tag.framework7.htm?op=list" class="item-link item-content" data-ignore-cache="true">

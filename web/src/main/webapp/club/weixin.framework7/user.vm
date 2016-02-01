@@ -25,37 +25,29 @@
 							</div>
                         </a>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">更新成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">更新成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">删除成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">删除成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">批量删除成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">批量删除成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
-					<li>
-						<a href="#" class="item-link item-content">
-							<div class="item-inner">
-								<div class="item-title">获取成员</div>
-								<div class="item-after"></div>
-							</div>
-                        </a>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">获取成员</div>
+							<div class="item-after"></div>
+						</div>
 					</li>
 					<li>
 						<a href="$!{env.appUrl}/weixin/user.framework7.htm?op=simplelist" class="item-link item-content" data-ignore-cache="true">
