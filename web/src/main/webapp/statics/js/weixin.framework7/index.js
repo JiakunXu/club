@@ -19,6 +19,10 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 
+$$('.panel-close').on('click', function(e) {
+			myApp.closePanel();
+		});
+
 myApp.addNotification({
 			title : 'Device',
 			message : myApp.device.os + " " + myApp.device.osVersion,

@@ -10,7 +10,7 @@
 		#ICON()
 		#CSSM(["framework7"])
 		<style>
-		.icon_nav{width:28px;height:28px;display:block;}
+		.icon_nav { width:28px; height:28px; display:block; }
         </style>
 		#UA()
 	</head>
@@ -23,6 +23,7 @@
 		<div class="panel panel-left panel-reveal">
 			<div class="content-block">
 				<p>Left panel content goes here</p>
+				<p><a href="#" class="panel-close">Close me</a></p>
 			</div>
 		</div>
 		
@@ -144,6 +145,6 @@
 		<script src="$!{env.imgUrl}/js/weixin.framework7/tag.detail.js"></script>
 		-->
 		
-		<script src="$!{env.imgUrl}/js/weixin.framework7/weixin.framework7.js"></script>		
+		<script src="$!{env.imgUrl}/js/weixin.framework7/weixin.framework7.js?t=20160202"></script>		
 	</body>
 </html>  
