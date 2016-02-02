@@ -201,6 +201,24 @@ function user_list_delete(userId) {
 }
 
 myApp.onPageInit('user.list', function(page) {
+			// Pull to refresh content
+			var ptrContent = $$('.pull-to-refresh-content');
+
+			// Add 'refresh' listener on it
+			ptrContent.on('refresh', function(e) {
+						setTimeout(function() {
+									// List item html
+									var itemHTML = '<li class="item-content">'
+											+ '<div class="item-inner">'
+											+ '<div class="item-title">我测试啊我测试</div>'
+											+ '</div>' + '</div>' + '</li>';
+									// Prepend new list element
+									ptrContent.find('ul').prepend(itemHTML);
+									// When loading done, we need to reset it
+									myApp.pullToRefreshDone();
+								}, 1000);
+					});
+
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 
