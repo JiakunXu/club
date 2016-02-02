@@ -11,6 +11,7 @@
 		#CSSM(["framework7"])
 		<style>
 		.icon_nav { width:28px; height:28px; display:block; }
+		.infinite-scroll-preloader { margin-top:-20px; margin-bottom: 10px; text-align: center; }
         </style>
 		#UA()
 	</head>

@@ -219,6 +219,38 @@ myApp.onPageInit('user.list', function(page) {
 								}, 1000);
 					});
 
+			// Loading flag
+			var loading = false;
+
+			// Attach 'infinite' event handler
+			$$('.infinite-scroll').on('infinite', function() {
+
+				// Exit, if loading in progress
+				if (loading)
+					return;
+
+				// Set loading flag
+				loading = true;
+
+				// Emulate 1s loading
+				setTimeout(function() {
+							// Reset loading flag
+							loading = false;
+
+							// Generate new items HTML
+							var html = '<li class="item-content">'
+									+ '<div class="item-inner">'
+									+ '<div class="item-title">我测试啊我测试</div>'
+									+ '</div>' + '</div>' + '</li>';
+
+							// Append new items
+							$$('.list-block ul').append(html);
+
+							// Update last loaded index
+							lastIndex = $$('.list-block li').length;
+						}, 1000);
+			});
+
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 

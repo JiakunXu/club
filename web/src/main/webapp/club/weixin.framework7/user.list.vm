@@ -14,7 +14,7 @@
 	<!-- Page, data-page contains page name-->
 	<div data-page="user.list" class="page">
 		<!-- Scrollable page content-->
-		<div class="page-content pull-to-refresh-content">
+		<div class="page-content pull-to-refresh-content infinite-scroll">
 			<div class="pull-to-refresh-layer">
 				<div class="preloader"></div>
 				<div class="pull-to-refresh-arrow"></div>
@@ -36,6 +36,10 @@
 					#end
 				</ul>
 				<div class="list-block-label"></div>
+			</div>
+			<!-- Preloader -->
+			<div class="infinite-scroll-preloader">
+				<div class="preloader"></div>
 			</div>
 		</div>
 		<form id="user/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="ajax-submit">
