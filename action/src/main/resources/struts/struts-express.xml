@@ -1,0 +1,25 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://club}club$express"
+		extends="{http://club}club$framework" namespace="/express">
+
+		<action name="index" class="expressAction" method="index">
+			<result name="success">/club/express/index.vm</result>
+		</action>
+		
+		<action name="ship" class="expressAction" method="ship">
+			<result name="success">/club/express/ship.vm</result>
+		</action>
+		
+		<action name="waybill" class="expressAction" method="waybill">
+			<result name="success">/club/express/waybill.vm</result>
+		</action>
+		
+		<action name="store" class="expressAction" method="store">
+			<result name="success">/club/express/store.vm</result>
+		</action>
+		
+	</package>
+</struts>

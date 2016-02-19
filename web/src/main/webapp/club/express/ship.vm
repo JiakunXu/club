@@ -1,0 +1,109 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">寄件</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="ship" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="ship" action="#" method="post" class="list-block ajax-submit">
+				<div class="content-block-title">寄件人信息</div>
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-name"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">姓名</div>
+								<div class="item-input">
+									<input type="text" name="ship.name" placeholder="请填写寄件人姓名" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-tel"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">手机</div>
+								<div class="item-input">
+									<input type="text" name="ship.phone" placeholder="请填写手机号" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-url"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">所在地区</div>
+								<div class="item-input">
+									<input type="text" name="ship" placeholder="请选择取件地区" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+                            <div class="item-media" style="margin-left: 29px;"></div>
+							<div class="item-inner">
+								<div class="item-title label">详细地址</div>
+								<div class="item-input">
+									<input type="text" name="ship" placeholder="请填写详细地址" />
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-settings"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">重量</div>
+								<div class="item-input">
+									 <select>
+										<option>0-5kg</option>
+										<option>6-10kg</option>
+										<option>11-20kg</option>
+										<option>20kg以上</option>
+									 </select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-comment"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">备注</div>
+								<div class="item-input">
+									<input type="text" name="ship" placeholder="请填写备注信息，限20个字符" />
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="item-divider"></li>
+					
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">上门时间</div>
+								<div class="item-input">
+									 <input type="date" value="2016-02-18">
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="javascript:department_create();" class="button button-big">预约</a>
+    			</div>
+			</form>
+        </div>
+    </div>
+</div>

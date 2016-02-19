@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title></title>
+		#ICON()
+		#CSSM(["weui", "framework7"])
+		<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+		<style>
+		.page_title { text-align: center; font-size: 34px; color: #3cc51f; font-weight: 400; margin: 30px 15%; }
+		.icon_nav { width:28px; height:28px; display:block; }
+		.infinite-scroll-preloader { margin-top:-20px; margin-bottom: 10px; text-align: center; }
+		 #allmap {width: 100%; height: 100%; overflow: hidden; margin:0; }
+        </style>
+		#UA()
+	</head>
+	<body>
+		<div class="statusbar-overlay"></div>
+		<div class="panel-overlay"></div>
+		
+		<!-- Views -->
+		<div class="views">
+			<!-- Your main view, should have "view-main" class -->
+			<div class="view view-main">
+				<!-- Top Navbar-->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+						<div class="center sliding">好社惠</div>
+					</div>
+				</div>
+				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+				<div class="pages navbar-through toolbar-through">
+					<!-- Page, "data-page" contains page name -->
+					<div data-page="index" class="page">
+						<!-- Scrollable page content -->
+						<div class="page-content">
+                            <h1 class="page_title">快递收发查询</h1>
+                            <div class="weui_grids">
+								<a href="$!{env.appUrl}/express/ship.htm" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_button.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        寄件
+                                    </p>
+                                </a>
+                                <a href="$!{env.appUrl}/express/waybill.htm" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_article.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        运单查询
+                                    </p>
+                                </a>
+                                <a href="#" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_toast.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        运费查询
+                                    </p>
+                                </a>
+                                <a href="#" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_icons.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        时效查询
+                                    </p>
+                                </a>
+                                <a href="$!{env.appUrl}/express/store.htm" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_actionSheet.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        服务网点
+                                    </p>
+                                </a>
+                                <a href="#" class="weui_grid item-link item-content">
+                                    <div class="weui_grid_icon">
+                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_dialog.png" alt="" />
+                                    </div>
+                                    <p class="weui_grid_label">
+                                        收送范围
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		#JSM(["framework7", "weixin"])
+		#JS_ENV_VAL()
+		
+		<script src="$!{env.imgUrl}/js/express/index.js"></script>		
+	</body>
+</html>  
