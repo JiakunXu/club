@@ -32,9 +32,13 @@ function init() {
 	script.src = "http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js";
 	document.body.appendChild(script);
 
+	var data_info = JSON
+			.parse('[{"lon":121.48,"lat":31.22},{"lon":121.485,"lat":31.226},{"lon":121.482,"lat":31.229},{"lon":121.482,"lat":31.223},{"lon":121.488,"lat":31.223}]');
+
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");
-	map.centerAndZoom('上海', 11);
+
+	map.centerAndZoom(new BMap.Point(data_info[0].lon, data_info[0].lat), 15);
 
 	// 添加带有定位的导航控件
 	var navigationControl = new BMap.NavigationControl({
@@ -54,4 +58,30 @@ function init() {
 				alert(e.message);
 			});
 	map.addControl(geolocationControl);
+
+	for (var i = 0; i < data_info.length; i++) {
+		var marker = new BMap.Marker(new BMap.Point(data_info[i].lon,
+				data_info[i].lat)); // 创建标注
+		var content = "<div><strong>好社惠便民亭子[淡水小区店]</strong><div style='margin: 3px 0 3px 0;'>地址：淡水路100号</div><div>联系电话：13333333333</div></div>";
+		map.addOverlay(marker); // 将标注添加到地图中
+		addClickHandler(data_info[i].parkName, content, marker);
+	}
+
+	function addClickHandler(title, content, marker) {
+		marker.addEventListener("click", function(e) {
+					openInfo(title, content, marker, e)
+				});
+	}
+
+	function openInfo(title, content, marker, e) {
+		// 创建检索信息窗口对象
+		var searchInfoWindow = null;
+		searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+					title : title, // 标题
+					enableAutoPan : true, // 自动平移
+					searchTypes : []
+				});
+
+		searchInfoWindow.open(marker);
+	}
 }
