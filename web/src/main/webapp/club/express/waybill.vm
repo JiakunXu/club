@@ -9,13 +9,50 @@
 <div class="pages">
 	<!-- Page, data-page contains page name-->
 	<div data-page="waybill" class="page">
-		<!-- Scrollable page content-->
+		<!-- Search bar -->
+		<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+			<div class="searchbar-input">
+				<input type="search" placeholder="Search" /><a href="#" class="searchbar-clear"></a>
+			</div><a href="#" class="searchbar-cancel">Cancel</a>
+		</form>
+		
+		<!-- Search bar overlay -->
+		<div class="searchbar-overlay"></div>
+		
 		<div class="page-content">
-			<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
-				<div class="searchbar-input">
-                    <input type="search" placeholder="Search"></input><a href="#" class="searchbar-clear"></a>
-				</div><a href="#" class="searchbar-cancel">Cancel</a>
-			</form>
-        </div>
-    </div>
+			<!-- This block will be displayed if nothing found -->
+			<div class="content-block searchbar-not-found"></div>
+			
+			<!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+			<div class="list-block list-block-search searchbar-found">
+				<ul>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">1234567890</div>
+						</div>
+					</li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">2345678901</div>
+						</div>
+					</li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">3456789012</div>
+						</div>
+					</li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">4567890123</div>
+						</div>
+					</li>
+					<li class="item-content">
+						<div class="item-inner">
+							<div class="item-title">5678901234</div>
+						</div>
+					</li>
+                </ul>
+			</div>
+		</div>
+	</div>
 </div>
