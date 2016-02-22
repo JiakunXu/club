@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>好社惠</title>
+		#ICON()
+		#CSSM(["framework7"])
+		<style>
+		.swiper-container { height: 100%; }
+		.swiper-slide { background: #ff5500; }
+		.swiper-slide span { text-align: center; display: block; margin: 20px; font-size: 21px; color: white; }
+        </style>
+		#UA()
+	</head>
+	<body>
+		<!-- Views -->
+		<div class="views">
+			<!-- Your main view, should have "view-main" class -->
+			<div class="view view-main">
+				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+				<div class="pages">
+					<!-- Page, "data-page" contains page name -->
+					<div data-page="index" class="page">
+						<!-- Scrollable page content -->
+						<div class="page-content">
+                            <!-- Slider -->
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+                                        <img data-src="$!{env.imgUrl}/image/ad/1.png" width="100%" class="lazy lazy-fadein"></img>
+                                        <span>好社惠便利亭百万家庭精准扶贫项目研讨会</span>
+										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
+									</div>
+									<div class="swiper-slide">
+                                        <img data-src="$!{env.imgUrl}/image/ad/1.png" width="100%" class="lazy lazy-fadein"></img>
+										<span>上海联央电子商务有限公司诚挚邀请您参加好社惠便利亭百万家庭精准扶贫项目研讨会</span>
+										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		#JSM(["framework7"])
+		
+		<script src="$!{env.imgUrl}/js/ad/index.js"></script>		
+	</body>
+</html>  
