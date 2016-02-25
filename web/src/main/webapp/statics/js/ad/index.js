@@ -10,9 +10,6 @@ var swiper_0 = myApp.swiper('.swiper-0', {
 		});
 
 var swiper_1 = myApp.swiper('.swiper-1', {
-			lazyLoading : true,
 			pagination : '.swiper-1 .swiper-pagination',
 			direction : 'vertical'
 		});
-
-$$('img.lazy').trigger('lazy');

@@ -30,24 +30,24 @@
 							<div class="swiper-container swiper-0">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
-                                        <img data-src="$!{env.imgUrl}/image/ad/1.png" width="100%" class="lazy lazy-fadein"></img>
+                                        <img src="$!{env.imgUrl}/image/ad/1.png" width="100%"></img>
                                         <span>好社惠便利亭百万家庭精准扶贫项目研讨会</span>
-										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
+										<img src="$!{env.imgUrl}/image/ad/2.png" width="100%"></img>
 									</div>
 									<div class="swiper-slide">
 										<div class="swiper-container swiper-1" style="height: 250px;">
 											<div class="swiper-wrapper">
 												<div class="swiper-slide">
-													<img data-src="$!{env.imgUrl}/image/ad/LCF_2475.jpg" width="100%" class="swiper-lazy"></img>
+													<img src="$!{env.imgUrl}/image/ad/LCF_2475.jpg" width="100%"></img>
 												</div>
 												<div class="swiper-slide">
-													<img data-src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%" class="swiper-lazy"></img>
+													<img src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%"></img>
 												</div>
 											</div>
 											<div class="swiper-pagination"></div>
                                         </div>
 										<span>上海联央电子商务有限公司诚挚邀请您参加好社惠便利亭百万家庭精准扶贫项目研讨会</span>
-										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
+										<img src="$!{env.imgUrl}/image/ad/2.png" width="100%"></img>
 									</div>
 								</div>
 								<div class="swiper-pagination"></div>
