@@ -27,7 +27,7 @@
 						<!-- Scrollable page content -->
 						<div class="page-content">
                             <!-- Slider -->
-							<div class="swiper-container">
+							<div class="swiper-container swiper-0">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
                                         <img data-src="$!{env.imgUrl}/image/ad/1.png" width="100%" class="lazy lazy-fadein"></img>
@@ -35,7 +35,17 @@
 										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
 									</div>
 									<div class="swiper-slide">
-                                        <img data-src="$!{env.imgUrl}/image/ad/1.png" width="100%" class="lazy lazy-fadein"></img>
+										<div class="swiper-container swiper-1" style="height: 250px;">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<img data-src="$!{env.imgUrl}/image/ad/LCF_2475.jpg" width="100%" class="swiper-lazy"></img>
+												</div>
+												<div class="swiper-slide">
+													<img data-src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%" class="swiper-lazy"></img>
+												</div>
+											</div>
+											<div class="swiper-pagination"></div>
+                                        </div>
 										<span>上海联央电子商务有限公司诚挚邀请您参加好社惠便利亭百万家庭精准扶贫项目研讨会</span>
 										<img data-src="$!{env.imgUrl}/image/ad/2.png" width="100%" class="lazy lazy-fadein"></img>
 									</div>
@@ -50,6 +60,6 @@
 		
 		#JSM(["framework7"])
 		
-		<script src="$!{env.imgUrl}/js/ad/index.js"></script>		
+		<script src="$!{env.imgUrl}/js/ad/index.js?t=20160225"></script>		
 	</body>
 </html>  
