@@ -96,6 +96,6 @@
 		#JSM(["framework7", "jquery", "jquery.citytools"])
 		#JS_ENV_VAL()
 		
-		<script src="$!{env.imgUrl}/js/express/index.js"></script>		
+		<script src="$!{env.imgUrl}/js/express/index.js?t=20160226"></script>		
 	</body>
 </html>  
