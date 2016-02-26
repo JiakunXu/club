@@ -19,6 +19,16 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 
+myApp.onPageInit('ship', function(page) {
+			var e = {
+				provinceId : "province",
+				cityId : "city",
+				countyId : "area",
+				dfCode : '310'
+			};
+			$.fn.cityTools(e);
+		});
+
 myApp.onPageInit('store', function(page) {
 	var script = document.createElement("script");
 	script.type = "text/javascript";

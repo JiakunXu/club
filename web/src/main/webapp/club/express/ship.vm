@@ -42,7 +42,11 @@
 							<div class="item-inner">
 								<div class="item-title label">所在地区</div>
 								<div class="item-input">
-									<input type="text" name="ship" placeholder="请选择取件地区" />
+									<div class="row no-gutter">
+    									<div class="col-33"><select id="province" ></select></div>
+                    					<div class="col-33"><select id="city" ></select></div>
+                    					<div class="col-33"><select id="area" ></select></div>
+                                    </div>
 								</div>
 							</div>
 						</div>
