@@ -1,0 +1,74 @@
+.demo-card-header-pic .card-header {
+	height: 40vw;
+	background-size: cover;
+	background-position: center;
+}
+
+.tuan_g_core {
+	color: #fff;
+	display: block;
+	height: 34px;
+	line-height: 34px;
+	margin-bottom: 5px;
+	position: relative;
+	width: 290px;
+}
+
+.tuan_g_btn:after, .tuan_g_core:before {
+	background-image: url(../../image/item/0.png);
+	background-repeat: no-repeat;
+	background-size: 365px 490px;
+}
+
+.tuan_g_core:before {
+	background-position: -118px 0;
+	content: " ";
+	height: 44px;
+	left: -5px;
+	position: absolute;
+	top: -5px;
+	width: 44px;
+}
+
+.tuan_g_price {
+	background-color: #3e3e3e;
+	float: left;
+	height: 34px;
+	margin-left: 10px;
+	overflow: hidden;
+	padding-left: 35px;
+	width: 145px;
+}
+
+.tuan_g_price span {
+	vertical-align: 1px;
+}
+
+.tuan_g_price b {
+	font-size: 18px;
+	font-weight: 400;
+	margin-left: 5px;
+	margin-right: 2px;
+}
+
+.tuan_g_btn {
+	background-color: #df2127;
+	border-bottom-right-radius: 17px;
+	border-top-right-radius: 17px;
+	float: left;
+	height: 34px;
+	line-height: 34px;
+	padding-left: 10px;
+	padding-right: 30px;
+	position: relative;
+}
+
+.tuan_g_btn:after {
+	background-position: -209px -59px;
+	content: " ";
+	height: 11px;
+	position: absolute;
+	right: 12px;
+	top: 11px;
+	width: 7px;
+}

@@ -9,9 +9,7 @@
 		<title></title>
 		#ICON()
 		#CSSM(["framework7"])
-		<style>
-		.demo-card-header-pic .card-header { height: 40vw; background-size: cover; background-position: center; }
-        </style>
+		<link rel="stylesheet" href="$!{env.imgUrl}/css/item/index.css" />
 		#UA()
 	</head>
 	<body>
@@ -27,12 +25,12 @@
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-				<div class="pages navbar-through toolbar-through">
+				<div class="pages navbar-through">
 					<!-- Page, "data-page" contains page name -->
 					<div data-page="index" class="page">
 						<!-- Scrollable page content -->
 						<div class="page-content">
-							<div class="list-block cards-list">
+							<div class="list-block cards-list" style="margin-top: 0;">
 								<ul>
         							<li class="card demo-card-header-pic">
         								<div style="background-image:url($!{env.imgUrl}/image/item/1.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
@@ -43,8 +41,15 @@
         									</div>
         								</div>
         								<div class="card-footer">
-        									<a href="#" class="link">Like</a>
-        									<a href="#" class="link">3人团 29.90 去开团</a>
+        									<a href="#" class="">
+												<div class="tuan_g_core">
+													<div class="tuan_g_price">
+														<span>3人团</span>
+														<b>29.90</b>
+													</div>
+													<div class="tuan_g_btn">去开团</div>
+												</div>
+											</a>
         								</div>
         							</li>
 									<li class="card demo-card-header-pic">
