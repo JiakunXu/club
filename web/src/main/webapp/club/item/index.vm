@@ -8,7 +8,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<title></title>
 		#ICON()
-		#CSSM(["framework7"])
+		#CSSM(["framework7", "font-awesome"])
 		<link rel="stylesheet" href="$!{env.imgUrl}/css/item/index.css" />
 		#UA()
 	</head>
@@ -25,15 +25,15 @@
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-				<div class="pages navbar-through">
+				<div class="pages navbar-through toolbar-through">
 					<!-- Page, "data-page" contains page name -->
-					<div data-page="index" class="page">
+					<div data-page="item.index" class="page">
 						<!-- Scrollable page content -->
 						<div class="page-content">
 							<div class="list-block cards-list" style="margin-top: 0;">
 								<ul>
         							<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/1.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+        								<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
         								<div class="card-content">
         									<div class="card-content-inner">
         										<p class="color-gray">【浆果皇后】智利进口蓝莓2盒29.9元</p>
@@ -41,7 +41,7 @@
         									</div>
         								</div>
         								<div class="card-footer">
-        									<a href="#" class="">
+        									<a href="javascript:index_goto('');" class="">
 												<div class="tuan_g_core">
 													<div class="tuan_g_price">
 														<span>3人团</span>
@@ -53,7 +53,7 @@
         								</div>
         							</li>
 									<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/2.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+        								<div style="background-image:url($!{env.imgUrl}/image/item/index-2.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
         								<div class="card-content">
         									<div class="card-content-inner">
         										<p class="color-gray">【爆款推荐，直降3元】小台农芒果3斤25.9元</p>
@@ -61,7 +61,7 @@
         									</div>
         								</div>
         								<div class="card-footer">
-        									<a href="#" class="">
+        									<a href="javascript:index_goto('');" class="">
 												<div class="tuan_g_core">
 													<div class="tuan_g_price">
 														<span>3人团</span>
@@ -75,6 +75,23 @@
 								</ul>
 							</div>
                         </div>
+                    </div>
+                </div>
+				
+				<div class="toolbar tabbar">
+					<div class="toolbar-inner">
+						<a href="#tab1" class="tab-link active">
+							<i class="fa fa-home" style="font-size: 23px;"></i>
+                        </a>
+                        <a href="#tab2" class="tab-link">
+                            <i class="fa fa-users" style="font-size: 23px;"></i>
+                        </a>
+                        <a href="#tab3" class="tab-link">
+                            <i class="fa fa-list-alt" style="font-size: 23px;"></i>
+                        </a>
+						<a href="#tab4" class="tab-link">
+                            <i class="fa fa-user" style="font-size: 23px;"></i>
+                        </a>
                     </div>
                 </div>
             </div>

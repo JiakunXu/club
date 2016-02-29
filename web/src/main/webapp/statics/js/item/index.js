@@ -19,6 +19,10 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 
+function index_goto(itemId) {
+	mainView.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
+}
+
 myApp.onPageInit('ship', function(page) {
 			var e = {
 				provinceId : "province",

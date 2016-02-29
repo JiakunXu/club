@@ -8,6 +8,10 @@
 		<action name="index" class="itemAction" method="index">
 			<result name="success">/club/item/index.vm</result>
 		</action>
+		
+		<action name="detail" class="itemAction" method="detail">
+			<result name="success">/club/item/detail.vm</result>
+		</action>
 				
 	</package>
 </struts>

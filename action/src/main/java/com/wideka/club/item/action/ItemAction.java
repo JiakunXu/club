@@ -19,4 +19,12 @@ public class ItemAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public String detail() {
+		return SUCCESS;
+	}
+
 }

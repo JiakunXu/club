@@ -1,0 +1,51 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">商品</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="item.detail" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="card" style="margin: 0;">
+				<div valign="bottom" class="color-white no-border">
+					<!-- Slider -->
+					<div class="swiper-container swiper-init" data-pagination=".swiper-pagination-h">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+                                <img src="$!{env.imgUrl}/image/item/detail-1.jpg" width="100%"></img>
+							</div>
+							<div class="swiper-slide">
+								<img src="$!{env.imgUrl}/image/item/detail-2.jpg" width="100%"></img>
+							</div>
+						</div>
+						<div class="swiper-pagination swiper-pagination-h"></div>
+					</div>
+				</div>
+				<div class="card-content">
+					<div class="card-content-inner">
+						<p class="color-gray">【浆果皇后】智利进口蓝莓2盒29.9元</p>
+						<p>【鲜果上市，直降10元】听说小资派都是蓝莓派？蓝莓是浆果之首，含有丰富的VC，对皮肤具有抗氧化的作用，绝对是维持高颜值的密码，更能保护眼睛，绝对是超值的精品。DIY达人们可以在家制作新鲜的蓝莓果酱、蓝莓糕点，让生活更滋润！★仅限江浙沪皖部分区域顾客购买★</p>
+					</div>
+				</div>
+				<div class="card-footer">
+					<a class="kt_item" href="#">
+						<div class="kt_price"><b>29.90</b><i> / </i>件</div>
+						<div class="kt_btn"><b>3人团</b></div>
+					</a>
+					<a class="kt_item kt_item_buy" href="#">
+						<div class="kt_price"><b>34.90</b><i> / </i>件</div>
+						<div class="kt_btn">单独购买</div>
+					</a>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

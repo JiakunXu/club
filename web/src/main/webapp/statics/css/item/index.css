@@ -72,3 +72,71 @@
 	top: 11px;
 	width: 7px;
 }
+
+.kt_item_buy {
+    background-color: #e49047 !important;
+}
+
+.kt_item {
+    background-color: #f0373d;
+    color: #fff;
+    float: right;
+    height: 60px;
+    margin-right: 2%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 49%;
+}
+
+.kt_price {
+    padding-bottom: 15px;
+    padding-top: 5px;
+    color: #fff;
+}
+
+.kt_price b {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.kt_price i {
+    font-size: 12px;
+}
+
+.kt_btn, .kt_btn:before {
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.kt_btn {
+    background-color: #404040;
+    bottom: 0;
+    height: 23px;
+    line-height: 23px;
+    margin-top: 2px;
+    color: #fff;
+}
+
+.kt_btn, .kt_btn:before {
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.kt_btn:after {
+    background-position: -314px -85px;
+    content: "";
+    display: inline-block;
+    height: 9px;
+    margin-left: 5px;
+    vertical-align: 0;
+    width: 5px;
+}
+
+.kt_btn:after {
+    background-image: url(../../image/item/0.png);
+    background-repeat: no-repeat;
+    background-size: 365px 490px;
+}
