@@ -61,8 +61,15 @@
         									</div>
         								</div>
         								<div class="card-footer">
-        									<a href="#" class="link">Like</a>
-        									<a href="#" class="link">3人团 25.90 去开团</a>
+        									<a href="#" class="">
+												<div class="tuan_g_core">
+													<div class="tuan_g_price">
+														<span>3人团</span>
+														<b>25.90</b>
+													</div>
+													<div class="tuan_g_btn">去开团</div>
+												</div>
+											</a>
         								</div>
         							</li>
 								</ul>
