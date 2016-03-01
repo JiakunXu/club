@@ -97,7 +97,7 @@
             </div>
         </div>
 		
-		#JSM(["framework7", "jquery", "jquery.citytools"])
+		#JSM(["framework7"])
 		#JS_ENV_VAL()
 		
 		<script src="$!{env.imgUrl}/js/item/index.js"></script>		
