@@ -14,48 +14,104 @@
 	<div data-page="pay.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><i class="fa fa-map-marker" style="font-size: 25px;"></i></div>
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">
+									收货人：张三<span style="float: right;">13333333333</span><br />
+									收货地址：中国上海市松江区新飞路1500号
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">店铺：好社惠</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">【浆果皇后】智利进口蓝莓2盒29.9元</div>
+								<div class="item-after">￥29.9</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">运费</div>
+								<div class="item-after">￥10</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">合计</div>
+								<div class="item-after" style="font-size: 16px; color: #ff5500;">￥39.90</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">优惠</div>
+								<div class="item-after">使用优惠</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="font-size: 13px;">
+								<div class="item-title">接收订单通知短信</div>
+								<div class="item-after">
+									<label class="label-switch">
+                                        <input type="checkbox"></input>
+										<div class="checkbox"></div>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title" style="width: 100%; text-align: center; font-size: 15px;">
+                                    <span>￥29.90 + ￥10.00 运费</span><br />
+									<span style="font-size: 16px; color: #ff5500;">需付：￥39.90</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			<div class="content-block">
+				<p><a href="javascript:pay();" class="button button-big button-fill color-green" style="background: #44b549;">微信安全支付</a></p>
+            </div>
+			
 			<form id="pay/wxpay" action="$!{env.appUrl}/wxpay/pay.htm" method="post" class="ajax-submit">
-    			<div class="card">
-    				<div class="card-header">订单号: $!{tradeNo}</div>
-    				<div class="card-content">
-						<div class="list-block">
-							<ul>
-            					<li>
-            						<div class="item-content">
-            							<div class="item-inner">
-            								<div class="item-title label">商品</div>
-            								<div class="item-input">【浆果皇后】智利进口蓝莓2盒</div>
-            							</div>
-            						</div>
-            					</li>
-            				</ul>
-							<ul>
-            					<li>
-            						<div class="item-content">
-            							<div class="item-inner">
-            								<div class="item-title label">商品总价</div>
-            								<div class="item-input">￥ 1.00</div>
-            							</div>
-            						</div>
-            					</li>
-            				</ul>
-							<ul>
-            					<li>
-            						<div class="item-content">
-            							<div class="item-inner">
-            								<div class="item-title label">联系方式</div>
-            								<div class="item-input">张三 13333333333 上海 中国上海市松江区新飞路1500号</div>
-            							</div>
-            						</div>
-            					</li>
-            				</ul>
-                        </div>
-    				</div>
-    				<div class="card-footer">
-						<a href="javascript:pay();" class="button button-big" style="width: 100%;">微信支付</a>
-    				</div>
-    			</div>
-				
 				<input type="hidden" name="openId" value="$!{openId}"></input>
 				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
             </form>
