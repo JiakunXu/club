@@ -2,7 +2,7 @@ package com.wideka.club.weixin.action;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.api.weixin.bo.Ticket;

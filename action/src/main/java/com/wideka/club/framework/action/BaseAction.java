@@ -116,6 +116,15 @@ public class BaseAction extends ActionSupport {
 		return this.getSearchInfo(new SearchInfo());
 	}
 
+	/**
+	 * getOpenId.
+	 * 
+	 * @return
+	 */
+	public String getOpenId() {
+		return (String) getSession().getAttribute("ACEGI_SECURITY_LAST_OPEN_ID");
+	}
+
 	public String getGmtStart() {
 		return gmtStart;
 	}

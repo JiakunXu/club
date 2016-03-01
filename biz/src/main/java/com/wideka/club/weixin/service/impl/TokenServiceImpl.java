@@ -1,6 +1,6 @@
 package com.wideka.club.weixin.service.impl;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.cache.IMemcachedCacheService;
 import com.wideka.club.api.weixin.ITokenService;

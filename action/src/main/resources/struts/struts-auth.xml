@@ -1,0 +1,17 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://club}club$auth"
+		extends="{http://club}club$framework" namespace="/auth">
+		
+		<action name="authorize" class="oauth2Action" method="authorize">
+			<result name="success" type="redirect">${redirectUrl}</result>
+		</action>
+
+		<action name="redirect" class="oauth2Action" method="redirect">
+			<result name="success" type="redirect">${env.appUrl}/item/index.htm</result>
+		</action>
+		
+	</package>
+</struts>

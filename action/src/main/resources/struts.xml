@@ -5,12 +5,14 @@
 	<include file="struts-default.xml" />
 	<include file="struts/struts-framework.xml" />
 	<include file="struts/struts-ad.xml" />
+	<include file="struts/struts-auth.xml" />
 	<include file="struts/struts-error.xml" />
 	<include file="struts/struts-express.xml" />
 	<include file="struts/struts-item.xml" />
 	<include file="struts/struts-login.xml" />
 	<include file="struts/struts-pay.xml" />
 	<include file="struts/struts-portal.xml" />
+	<include file="struts/struts-shop.xml" />
 	<include file="struts/struts-trade.xml" />
 	<include file="struts/struts-weixin.xml" />
 </struts>

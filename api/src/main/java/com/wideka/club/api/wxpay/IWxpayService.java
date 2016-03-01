@@ -20,24 +20,6 @@ public interface IWxpayService {
 
 	/**
 	 * 
-	 * @param redirectUrl
-	 * @param scope
-	 * @param state
-	 * @return
-	 * @throws ServiceException
-	 */
-	String authorize(String redirectUrl, String scope, String state) throws ServiceException;
-
-	/**
-	 * 
-	 * @param code
-	 * @return
-	 * @throws ServiceException
-	 */
-	String getOpenId(String code) throws ServiceException;
-
-	/**
-	 * 
 	 * @param tradeNo
 	 * @param body
 	 * @param detail

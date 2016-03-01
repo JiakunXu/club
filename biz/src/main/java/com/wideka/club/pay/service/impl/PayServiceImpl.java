@@ -3,7 +3,7 @@ package com.wideka.club.pay.service.impl;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.cache.IMemcachedCacheService;
 import com.wideka.club.api.pay.IPayService;
@@ -26,43 +26,6 @@ public class PayServiceImpl implements IPayService {
 	private IMemcachedCacheService memcachedCacheService;
 
 	private IWxpayService wxpayService;
-
-	@Override
-	public BooleanResult authorize(String redirectUrl, String state) {
-		BooleanResult result = new BooleanResult();
-		result.setResult(false);
-
-		if (StringUtils.isBlank(redirectUrl)) {
-			result.setCode("redirectUrl 不能为空.");
-			return result;
-		}
-
-		try {
-			result.setCode(wxpayService.authorize(redirectUrl, "snsapi_base", state));
-			result.setResult(true);
-		} catch (ServiceException e) {
-			logger.error(e);
-
-			result.setCode(e.getMessage());
-		}
-
-		return result;
-	}
-
-	@Override
-	public String getOpenId(String code) {
-		if (StringUtils.isBlank(code)) {
-			return null;
-		}
-
-		try {
-			return wxpayService.getOpenId(code);
-		} catch (ServiceException e) {
-			logger.error(e);
-		}
-
-		return null;
-	}
 
 	@Override
 	public BooleanResult pay(Long userId, String openId, String tradeNo, String payType, String ip) {

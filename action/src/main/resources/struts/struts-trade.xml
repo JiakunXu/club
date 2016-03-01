@@ -6,7 +6,7 @@
 		extends="{http://club}club$framework" namespace="/trade">
 
 		<action name="create" class="tradeAction" method="create">
-			<result name="success" type="redirect">${env.appUrl}/pay/authorize.htm?tradeNo=${tradeNo}</result>
+			<result name="success" type="redirect">${env.appUrl}/pay/index.htm?tradeNo=${tradeNo}</result>
 		</action>
 		
 	</package>

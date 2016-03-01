@@ -2,7 +2,7 @@ package com.wideka.club.wxpay.service.impl;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.wxpay.IWxpayService;
@@ -13,8 +13,6 @@ import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.club.framework.util.EncryptUtil;
 import com.wideka.club.framework.util.UUIDUtil;
-import com.wideka.weixin.api.auth.IOAuth2Service;
-import com.wideka.weixin.api.auth.bo.AccessToken;
 import com.wideka.weixin.api.pay.IUnifiedOrderService;
 import com.wideka.weixin.api.pay.bo.UnifiedOrder;
 import com.wideka.weixin.api.pay.bo.WxNotify;
@@ -28,8 +26,6 @@ public class WxpayServiceImpl implements IWxpayService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(WxpayServiceImpl.class);
 
-	private IOAuth2Service oauth2Service;
-
 	private IUnifiedOrderService unifiedOrderService;
 
 	private String appId;
@@ -41,22 +37,6 @@ public class WxpayServiceImpl implements IWxpayService {
 	private String notifyUrl;
 
 	private String key;
-
-	@Override
-	public String authorize(String redirectUrl, String scope, String state) throws ServiceException {
-		return oauth2Service.authorize(appId, redirectUrl, scope, state);
-	}
-
-	@Override
-	public String getOpenId(String code) throws ServiceException {
-		AccessToken accessToken = oauth2Service.accessToken(appId, appSecret, code);
-
-		if (accessToken == null) {
-			return null;
-		}
-
-		return accessToken.getOpenId();
-	}
 
 	@Override
 	public String getBrandWCPayRequest(String tradeNo, String body, String detail, String attach, int totalFee,
@@ -254,14 +234,6 @@ public class WxpayServiceImpl implements IWxpayService {
 		}
 
 		return false;
-	}
-
-	public IOAuth2Service getOauth2Service() {
-		return oauth2Service;
-	}
-
-	public void setOauth2Service(IOAuth2Service oauth2Service) {
-		this.oauth2Service = oauth2Service;
 	}
 
 	public IUnifiedOrderService getUnifiedOrderService() {

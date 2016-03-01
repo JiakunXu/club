@@ -14,21 +14,6 @@ public interface IPayService {
 	String PAY_TYPE_WXPAY = "wxpay";
 
 	/**
-	 * 
-	 * @param redirectUrl
-	 * @param state
-	 * @return
-	 */
-	BooleanResult authorize(String redirectUrl, String state);
-
-	/**
-	 * 
-	 * @param code
-	 * @return
-	 */
-	String getOpenId(String code);
-
-	/**
 	 * 支付.
 	 * 
 	 * @param userId

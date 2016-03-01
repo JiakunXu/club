@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.IAuthorizeService;
 import com.wideka.club.api.weixin.IReceiveService;

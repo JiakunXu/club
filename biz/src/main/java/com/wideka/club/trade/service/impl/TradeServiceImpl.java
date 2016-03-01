@@ -2,7 +2,7 @@ package com.wideka.club.trade.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.trade.ITradeService;
 import com.wideka.club.api.trade.bo.Trade;

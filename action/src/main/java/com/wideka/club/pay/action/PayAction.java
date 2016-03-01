@@ -3,9 +3,6 @@ package com.wideka.club.pay.action;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URLEncoder;
-
-import org.apache.commons.lang3.StringUtils;
 
 import com.wideka.club.api.pay.IPayService;
 import com.wideka.club.framework.action.BaseAction;
@@ -32,52 +29,12 @@ public class PayAction extends BaseAction {
 	 */
 	private String tradeNo;
 
-	private String redirectUrl;
-
-	/**
-	 * 用户唯一标识.
-	 */
-	private String openId;
-
-	/**
-	 * 微信支付.
-	 * 
-	 * @return
-	 */
-	public String authorize() {
-		BooleanResult result = null;
-
-		try {
-			result =
-				payService.authorize(
-					URLEncoder.encode(env.getProperty("appUrl") + "/pay/index.htm?tradeNo=" + tradeNo, "UTF-8"),
-					tradeNo);
-		} catch (Exception e) {
-			logger.error(e);
-			return ERROR;
-		}
-
-		if (result.getResult()) {
-			redirectUrl = result.getCode();
-
-			return SUCCESS;
-		} else {
-			return ERROR;
-		}
-	}
-
 	/**
 	 * 首页.
 	 * 
 	 * @return
 	 */
 	public String index() {
-		openId = payService.getOpenId(this.getCode());
-
-		if (StringUtils.isEmpty(openId)) {
-			return ERROR;
-		}
-
 		return SUCCESS;
 	}
 
@@ -88,7 +45,7 @@ public class PayAction extends BaseAction {
 	 */
 	public String pay() {
 		BooleanResult result =
-			payService.pay(0l, openId, tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()));
+			payService.pay(0l, this.getOpenId(), tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()));
 
 		if (result.getResult()) {
 			this.setSuccessMessage(result.getCode());
@@ -158,22 +115,6 @@ public class PayAction extends BaseAction {
 
 	public void setTradeNo(String tradeNo) {
 		this.tradeNo = tradeNo;
-	}
-
-	public String getRedirectUrl() {
-		return redirectUrl;
-	}
-
-	public void setRedirectUrl(String redirectUrl) {
-		this.redirectUrl = redirectUrl;
-	}
-
-	public String getOpenId() {
-		return openId;
-	}
-
-	public void setOpenId(String openId) {
-		this.openId = openId;
 	}
 
 }

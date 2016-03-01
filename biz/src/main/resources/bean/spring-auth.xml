@@ -5,22 +5,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="wxpayService" class="com.wideka.club.wxpay.service.impl.WxpayServiceImpl">
-		<property name="unifiedOrderService" ref="unifiedOrderService" />
+	<bean id="oauth2Action" class="com.wideka.club.auth.action.OAuth2Action" parent="baseAction" scope="request">
+		<property name="authService" ref="authService" />
+	</bean>
+	
+	<bean id="authService" class="com.wideka.club.auth.service.impl.AuthServiceImpl">
+		<property name="oauth2Service" ref="oauth2Service" />
 		<property name="appId">
 			<value>${wxpay.app.id}</value>
 		</property>
 		<property name="appSecret">
 			<value>${wxpay.app.secret}</value>
-		</property>
-		<property name="mchId">
-			<value>${wxpay.mch.id}</value>
-		</property>
-		<property name="notifyUrl">
-			<value>${wxpay.notify.url}</value>
-		</property>
-		<property name="key">
-			<value>${wxpay.key}</value>
 		</property>
 	</bean>
 	

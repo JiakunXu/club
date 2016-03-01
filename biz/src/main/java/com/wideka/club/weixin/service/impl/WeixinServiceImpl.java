@@ -3,7 +3,7 @@ package com.wideka.club.weixin.service.impl;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.ITicketService;
 import com.wideka.club.api.weixin.ITokenService;

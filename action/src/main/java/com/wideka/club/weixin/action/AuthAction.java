@@ -1,6 +1,6 @@
 package com.wideka.club.weixin.action;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.framework.action.BaseAction;
