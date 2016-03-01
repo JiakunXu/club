@@ -108,6 +108,7 @@
 	</bean>
 	
 	
+	
 	<!-- weixin -->
 	<bean id="accessTokenService" class="com.wideka.weixin.auth.service.impl.AccessTokenServiceImpl"></bean>
 	<bean id="agentService" class="com.wideka.weixin.agent.service.impl.AgentServiceImpl"></bean>
@@ -117,7 +118,9 @@
 	<bean id="materialService" class="com.wideka.weixin.material.service.impl.MaterialServiceImpl"></bean>
 	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
+	<bean id="oauth2Service" class="com.wideka.weixin.auth.service.impl.OAuth2ServiceImpl"></bean>
 	<bean id="tagService" class="com.wideka.weixin.tag.service.impl.TagServiceImpl"></bean>
+	<bean id="unifiedOrderService" class="com.wideka.weixin.pay.service.impl.UnifiedOrderServiceImpl"></bean>
 	<bean id="userService" class="com.wideka.weixin.user.service.impl.UserServiceImpl"></bean>
 	
 </beans>

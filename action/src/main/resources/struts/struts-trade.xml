@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://club}club$trade"
+		extends="{http://club}club$framework" namespace="/trade">
+
+		<action name="create" class="tradeAction" method="create">
+			<result name="success" type="redirect">${env.appUrl}/pay/authorize.htm?tradeNo=${tradeNo}</result>
+		</action>
+		
+	</package>
+</struts>

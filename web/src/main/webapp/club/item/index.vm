@@ -33,7 +33,7 @@
 							<div class="list-block cards-list" style="margin-top: 0;">
 								<ul>
         							<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+        								<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>
         								<div class="card-content">
         									<div class="card-content-inner">
         										<p class="color-gray">【浆果皇后】智利进口蓝莓2盒29.9元</p>
@@ -53,7 +53,7 @@
         								</div>
         							</li>
 									<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/index-2.jpg)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
+        								<div style="background-image:url($!{env.imgUrl}/image/item/index-2.jpg)" valign="bottom" class="card-header color-white no-border"></div>
         								<div class="card-content">
         									<div class="card-content-inner">
         										<p class="color-gray">【爆款推荐，直降3元】小台农芒果3斤25.9元</p>
@@ -81,7 +81,7 @@
 				<div class="toolbar tabbar">
 					<div class="toolbar-inner">
 						<a href="#tab1" class="tab-link active">
-							<i class="fa fa-home" style="font-size: 23px;"></i>
+							<i class="fa fa-home" style="font-size: 26px;"></i>
                         </a>
                         <a href="#tab2" class="tab-link">
                             <i class="fa fa-users" style="font-size: 23px;"></i>

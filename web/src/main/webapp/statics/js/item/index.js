@@ -23,6 +23,10 @@ function index_goto(itemId) {
 	mainView.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
 }
 
+function detail_goto(type) {
+	mainView.router.loadPage(appUrl + "/trade/create.htm?type=" + type);
+}
+
 myApp.onPageInit('ship', function(page) {
 			var e = {
 				provinceId : "province",
