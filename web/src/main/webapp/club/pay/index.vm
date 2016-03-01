@@ -18,10 +18,41 @@
     			<div class="card">
     				<div class="card-header">订单号: $!{tradeNo}</div>
     				<div class="card-content">
-    					<div class="card-content-inner">.</div>
+						<div class="list-block">
+							<ul>
+            					<li>
+            						<div class="item-content">
+            							<div class="item-inner">
+            								<div class="item-title label">商品</div>
+            								<div class="item-input">【浆果皇后】智利进口蓝莓2盒</div>
+            							</div>
+            						</div>
+            					</li>
+            				</ul>
+							<ul>
+            					<li>
+            						<div class="item-content">
+            							<div class="item-inner">
+            								<div class="item-title label">商品总价</div>
+            								<div class="item-input">￥ 1.00</div>
+            							</div>
+            						</div>
+            					</li>
+            				</ul>
+							<ul>
+            					<li>
+            						<div class="item-content">
+            							<div class="item-inner">
+            								<div class="item-title label">联系方式</div>
+            								<div class="item-input">张三 13333333333 上海 中国上海市松江区新飞路1500号</div>
+            							</div>
+            						</div>
+            					</li>
+            				</ul>
+                        </div>
     				</div>
     				<div class="card-footer">
-						<a href="javascript:pay();" class="button button-big">微信支付</a>
+						<a href="javascript:pay();" class="button button-big" style="width: 100%;">微信支付</a>
     				</div>
     			</div>
 				
