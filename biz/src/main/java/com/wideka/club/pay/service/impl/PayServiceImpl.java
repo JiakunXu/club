@@ -59,7 +59,8 @@ public class PayServiceImpl implements IPayService {
 		}
 
 		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
-			BigDecimal price = BigDecimal.ONE.multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
+			BigDecimal price =
+				new BigDecimal("0.01").multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
 			String timeStart = DateUtil.getNowDateminStr();
 			String timeExpire =
 				DateUtil.datetime(DateUtil.addMinutes(new Date(), 15), DateUtil.DEFAULT_DATEFULLTIME_FORMAT);
