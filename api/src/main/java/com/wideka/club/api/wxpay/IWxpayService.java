@@ -1,8 +1,8 @@
 package com.wideka.club.api.wxpay;
 
-import com.wideka.club.api.wxpay.bo.WxNotify;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.exception.ServiceException;
+import com.wideka.weixin.api.pay.bo.WxNotify;
 
 /**
  * 微信支付.

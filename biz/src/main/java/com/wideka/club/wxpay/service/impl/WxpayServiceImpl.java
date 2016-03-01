@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.wideka.club.api.wxpay.IWxpayService;
-import com.wideka.club.api.wxpay.bo.WxNotify;
 import com.wideka.club.api.wxpay.bo.Wxpay;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.exception.ServiceException;
@@ -18,6 +17,7 @@ import com.wideka.weixin.api.auth.IOAuth2Service;
 import com.wideka.weixin.api.auth.bo.AccessToken;
 import com.wideka.weixin.api.pay.IUnifiedOrderService;
 import com.wideka.weixin.api.pay.bo.UnifiedOrder;
+import com.wideka.weixin.api.pay.bo.WxNotify;
 
 /**
  * 
