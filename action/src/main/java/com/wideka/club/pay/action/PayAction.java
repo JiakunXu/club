@@ -48,12 +48,13 @@ public class PayAction extends BaseAction {
 			payService.pay(0l, this.getOpenId(), tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()));
 
 		if (result.getResult()) {
-			this.setSuccessMessage(result.getCode());
+			this.setResourceResult(result.getCode());
 		} else {
-			this.setFailMessage(result.getCode());
+			this.getServletResponse().setStatus(500);
+			this.setResourceResult(result.getCode());
 		}
 
-		return RESULT_MESSAGE;
+		return RESOURCE_RESULT;
 	}
 
 	/**

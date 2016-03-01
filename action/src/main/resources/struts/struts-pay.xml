@@ -2,6 +2,16 @@
  "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
  "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<package name="{http://club}club$pay"
+		extends="{http://club}club$framework" namespace="/pay">
+		
+		<!-- 支付首页 -->
+		<action name="index" class="payAction" method="index">
+			<result name="success">/club/pay/index.vm</result>
+		</action>
+		
+	</package>
+	
 	<!-- alipay 支付 -->
 	<package name="{http://club}club$alipay"
 		extends="{http://club}club$framework" namespace="/alipay">

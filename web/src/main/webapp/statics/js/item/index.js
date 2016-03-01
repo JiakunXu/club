@@ -34,9 +34,7 @@ myApp.onPageInit('pay.index', function(page) {
 			$$('form.ajax-submit').on('submitted', function(e) {
 						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
-						myApp.alert(xhr.responseText, '信息', function() {
-									mainView.router.back();
-								});
+						getBrandWCPayRequest(xhr.responseText);
 					});
 
 			$$('form.ajax-submit').on('submitError', function(e) {
@@ -50,4 +48,30 @@ function pay() {
 	myApp.showIndicator();
 
 	$$('#pay/wxpay').trigger("submit");
+}
+
+function getBrandWCPayRequest(data) {
+	data = data.replace(/&quot;/g, "\"");
+	var obj = JSON.parse(data);
+
+	try {
+		WeixinJSBridge.invoke('getBrandWCPayRequest', {
+					"appId" : obj.appId,
+					"timeStamp" : obj.timeStamp,
+					"nonceStr" : obj.nonceStr,
+					"package" : obj.packageValue,
+					"signType" : obj.signType,
+					"paySign" : obj.paySign
+				}, function(res) {
+					WeixinJSBridge.log(res.err_msg);
+
+					if (res.err_msg == 'get_brand_wcpay_request:ok') {
+						top.location.href = appUrl;
+					} else if (res.err_msg == 'get_brand_wcpay_request:fail') {
+						alert(res.err_code + res.err_desc + res.err_msg);
+					}
+				});
+	} catch (e) {
+		alert(e);
+	}
 }
