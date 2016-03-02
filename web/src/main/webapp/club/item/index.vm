@@ -14,9 +14,9 @@
 	</head>
 	<body>
 		<!-- Views -->
-		<div class="views">
+		<div class="views tabs toolbar-through">
 			<!-- Your main view, should have "view-main" class -->
-			<div class="view view-main">
+			<div id="view-1" class="view view-main tab active" data-page="index-1">
 				<!-- Top Navbar-->
 				<div class="navbar">
 					<div class="navbar-inner">
@@ -27,7 +27,7 @@
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
 				<div class="pages navbar-through toolbar-through">
 					<!-- Page, "data-page" contains page name -->
-					<div data-page="item.index" class="page">
+					<div data-page="index-1" class="page">
 						<!-- Scrollable page content -->
 						<div class="page-content">
 							<div class="list-block cards-list" style="margin-top: 0;">
@@ -57,29 +57,120 @@
                         </div>
                     </div>
                 </div>
-				
-				<div class="toolbar tabbar">
-					<div class="toolbar-inner">
-						<a href="#tab1" class="tab-link active">
-							<i class="fa fa-home" style="font-size: 26px;"></i>
-                        </a>
-                        <a href="#tab2" class="tab-link">
-                            <i class="fa fa-users" style="font-size: 23px;"></i>
-                        </a>
-                        <a href="#tab3" class="tab-link">
-                            <i class="fa fa-list-alt" style="font-size: 23px;"></i>
-                        </a>
-						<a href="#tab4" class="tab-link">
-                            <i class="fa fa-user" style="font-size: 23px;"></i>
-                        </a>
+            </div>
+			
+			<div id="view-2" class="view tab" data-page="index-2">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">我的购物车</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="index-2" class="page">
+						<div class="page-content">
+                        </div>
                     </div>
+                </div>
+            </div>
+			
+			<div id="view-3" class="view tab" data-page="index-3">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">会员中心</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="index-3" class="page">
+						<div class="page-content">
+							<div class="list-block" style="margin: 10px 0;">
+                				<ul>
+                					<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                							<div class="item-media"><i class="fa fa-file-text-o"></i></div>
+                							<div class="item-inner">
+                								<div class="item-title">全部订单</div>
+                							</div>
+                						</a>
+                					</li>
+									<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+											<div class="item-media" style="margin-left: 12px;"></div>
+                							<div class="item-inner">
+                								<div class="item-title">待付款的订单</div>
+												<div class="item-after">1</div>
+                							</div>
+                						</a>
+                					</li>
+									<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+											<div class="item-media" style="margin-left: 12px;"></div>
+                							<div class="item-inner">
+                								<div class="item-title">已付款的订单</div>
+												<div class="item-after">2</div>
+                							</div>
+                						</a>
+                					</li>
+									<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+											<div class="item-media" style="margin-left: 12px;"></div>
+                							<div class="item-inner">
+                								<div class="item-title">已发货的订单</div>
+												<div class="item-after">3</div>
+                							</div>
+                						</a>
+                					</li>
+                				</ul>
+                            </div>
+							<div class="list-block" style="margin: 10px 0;">
+                				<ul>
+                					<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                							<div class="item-media"><i class="fa fa-gift"></i></div>
+                							<div class="item-inner">
+                								<div class="item-title">我收到的礼物</div>
+                							</div>
+                						</a>
+                					</li>
+									<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                							<div class="item-media"><i class="fa fa-money"></i></div>
+                							<div class="item-inner">
+                								<div class="item-title">我的优惠券</div>
+                							</div>
+                						</a>
+                					</li>
+									<li>
+                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                							<div class="item-media"><i class="fa fa-list-alt"></i></div>
+                							<div class="item-inner">
+                								<div class="item-title">我的优惠码</div>
+                							</div>
+                						</a>
+                					</li>
+                				</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="toolbar tabbar">
+				<div class="toolbar-inner">
+					<a href="#view-1" class="tab-link active">
+						<i class="fa fa-home" style="font-size: 26px;"></i>
+                    </a>
+                    <a href="#view-2" class="tab-link">
+                        <i class="fa fa-shopping-cart" style="font-size: 23px;"></i>
+                    </a>
+					<a href="#view-3" class="tab-link">
+                        <i class="fa fa-user" style="font-size: 23px;"></i>
+                    </a>
                 </div>
             </div>
         </div>
 		
 		#JSM(["framework7"])
 		#JS_ENV_VAL()
-		
 		<script src="$!{env.imgUrl}/js/item/index.js?t=20160302"></script>		
 	</body>
 </html>  

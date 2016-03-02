@@ -1,5 +1,6 @@
 // Initialize your app
 var myApp = new Framework7({
+	 pushState: true,
 			swipePanel : 'left',
 			// Hide and show indicator during ajax requests
 			onAjaxStart : function(xhr) {
@@ -18,6 +19,9 @@ var mainView = myApp.addView('.view-main', {
 			// Because we use fixed-through navbar we can enable dynamic navbar
 			dynamicNavbar : true
 		});
+
+var view2 = myApp.addView('#view-2');
+var view3 = myApp.addView('#view-3');
 
 function index_goto(itemId) {
 	mainView.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
