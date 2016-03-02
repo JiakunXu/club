@@ -85,15 +85,15 @@
 							<div class="list-block" style="margin: 10px 0;">
                 				<ul>
                 					<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
-                							<div class="item-media"><i class="fa fa-file-text-o" style="font-size: 16px;"></i></div>
+                						<a href="#" class="item-link item-content">
+                							<div class="item-media"><i class="fa fa-file-text-o"></i></div>
                 							<div class="item-inner">
                 								<div class="item-title">全部订单</div>
                 							</div>
                 						</a>
                 					</li>
 									<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                						<a href="#" class="item-link item-content">
 											<div class="item-media" style="margin-left: 12px;"></div>
                 							<div class="item-inner">
                 								<div class="item-title">待付款的订单</div>
@@ -102,7 +102,7 @@
                 						</a>
                 					</li>
 									<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                						<a href="#" class="item-link item-content">
 											<div class="item-media" style="margin-left: 12px;"></div>
                 							<div class="item-inner">
                 								<div class="item-title">已付款的订单</div>
@@ -111,7 +111,7 @@
                 						</a>
                 					</li>
 									<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
+                						<a href="#" class="item-link item-content">
 											<div class="item-media" style="margin-left: 12px;"></div>
                 							<div class="item-inner">
                 								<div class="item-title">已发货的订单</div>
@@ -124,24 +124,24 @@
 							<div class="list-block" style="margin: 10px 0;">
                 				<ul>
                 					<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
-                							<div class="item-media"><i class="fa fa-gift" style="font-size: 16px;"></i></div>
+                						<a href="#" class="item-link item-content">
+                							<div class="item-media"><i class="fa fa-gift"></i></div>
                 							<div class="item-inner">
                 								<div class="item-title">我收到的礼物</div>
                 							</div>
                 						</a>
                 					</li>
 									<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
-                							<div class="item-media"><i class="fa fa-money" style="font-size: 16px;"></i></div>
+                						<a href="#" class="item-link item-content">
+                							<div class="item-media"><i class="fa fa-money"></i></div>
                 							<div class="item-inner">
                 								<div class="item-title">我的优惠券</div>
                 							</div>
                 						</a>
                 					</li>
 									<li>
-                						<a href="#" class="item-link item-content" style="font-size: 15px;">
-                							<div class="item-media"><i class="fa fa-list-alt" style="font-size: 16px;"></i></div>
+                						<a href="#" class="item-link item-content">
+                							<div class="item-media"><i class="fa fa-list-alt"></i></div>
                 							<div class="item-inner">
                 								<div class="item-title">我的优惠码</div>
                 							</div>
