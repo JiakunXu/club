@@ -20,8 +20,13 @@ public class TradeAction extends BaseAction {
 	 */
 	private String tradeNo;
 
+	/**
+	 * 创建临时订单.
+	 * 
+	 * @return
+	 */
 	public String create() {
-		BooleanResult result = tradeService.createTrade(this.getOpenId(), 0l, "1");
+		BooleanResult result = tradeService.createTrade(this.getOpenId(), 0L, "1");
 
 		if (result.getResult()) {
 			tradeNo = result.getCode();
