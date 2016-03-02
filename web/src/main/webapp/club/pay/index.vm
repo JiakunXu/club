@@ -19,7 +19,7 @@
 					<li>
 						<a href="#" class="item-link item-content">
 							<div class="item-media"><i class="fa fa-map-marker" style="font-size: 25px;"></i></div>
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner" style="font-size: 14px;">
 								<div class="item-title">
 									收货人：张三<span style="float: right;">13333333333</span><br />
 									收货地址：中国上海市松江区新飞路1500号
@@ -33,14 +33,14 @@
 				<ul>
 					<li>
 						<div class="item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">店铺：好社惠</div>
 							</div>
 						</div>
 					</li>
 					<li>
 						<div class="item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">特仑苏纯牛奶利乐苗条装250ml×8盒×3提 共24盒</div>
 								<div class="item-after">￥79.9</div>
 							</div>
@@ -48,7 +48,7 @@
 					</li>
 					<li>
 						<div class="item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">运费</div>
 								<div class="item-after">￥10.00</div>
 							</div>
@@ -56,9 +56,9 @@
 					</li>
 					<li>
 						<div class="item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">合计</div>
-								<div class="item-after" style="font-size: 16px; color: #ff5500;">￥89.90</div>
+								<div class="item-after" style="color: #ff5500;">￥89.90</div>
 							</div>
 						</div>
 					</li>
@@ -68,7 +68,7 @@
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">优惠</div>
 								<div class="item-after">使用优惠</div>
 							</div>
@@ -80,7 +80,7 @@
 				<ul>
 					<li>
 						<div class="item-content">
-							<div class="item-inner" style="font-size: 13px;">
+							<div class="item-inner">
 								<div class="item-title">接收订单通知短信</div>
 								<div class="item-after">
 									<label class="label-switch">
@@ -98,9 +98,9 @@
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
-								<div class="item-title" style="width: 100%; text-align: center; font-size: 15px;">
-                                    <span>￥79.90 + ￥10.00 运费</span><br />
-									<span style="font-size: 16px; color: #ff5500;">需付：￥89.90</span>
+								<div class="item-title" style="width: 100%; text-align: center;">
+                                    <span style="font-size: 15px;">￥79.90 + ￥10.00 运费</span><br />
+									<span style="color: #ff5500;">需付：￥89.90</span>
 								</div>
 							</div>
 						</div>
