@@ -22,7 +22,7 @@ public interface IOrderService {
 	 * @param itemId
 	 * @return
 	 */
-	BooleanResult createOrder(Long userId, Long shopId, Long tradeId, String itemId);
+	BooleanResult createOrder(String userId, Long shopId, Long tradeId, String itemId);
 
 	/**
 	 * 根据购物车批量创建订单明细信息.
@@ -33,7 +33,7 @@ public interface IOrderService {
 	 * @param cartId
 	 * @return
 	 */
-	BooleanResult createOrder(Long userId, Long shopId, Long tradeId, String[] cartId);
+	BooleanResult createOrder(String userId, Long shopId, Long tradeId, String[] cartId);
 
 	/**
 	 * 买家查询(首先调用 ITradeService.getTrade).
@@ -43,6 +43,6 @@ public interface IOrderService {
 	 * @param tradeId
 	 * @return
 	 */
-	List<Order> getOrderList(Long userId, Long shopId, String tradeId);
+	List<Order> getOrderList(String userId, Long shopId, String tradeId);
 
 }

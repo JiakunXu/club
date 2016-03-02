@@ -27,7 +27,10 @@ function index_goto(itemId) {
 }
 
 function detail_goto(type) {
-	mainView.router.loadPage(appUrl + "/trade/create.htm?type=" + type);
+	mainView.router.loadPage({
+				url : appUrl + "/trade/create.htm?type=" + type,
+				ignoreCache : true
+			});
 }
 
 myApp.onPageInit('pay.index', function(page) {

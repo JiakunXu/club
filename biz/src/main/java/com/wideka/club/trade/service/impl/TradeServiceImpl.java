@@ -35,7 +35,7 @@ public class TradeServiceImpl implements ITradeService {
 	private ITradeDao tradeDao;
 
 	@Override
-	public BooleanResult createTrade(final Long userId, final Long shopId, final String itemId) {
+	public BooleanResult createTrade(final String userId, final Long shopId, final String itemId) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
@@ -116,33 +116,57 @@ public class TradeServiceImpl implements ITradeService {
 	}
 
 	@Override
-	public BooleanResult createTrade(Long userId, Long shopId, String[] cartId) {
+	public BooleanResult createTrade(String userId, Long shopId, String[] cartId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int getTradeCount(Long userId, Long shopId, String[] type) {
+	public int getTradeCount(String userId, Long shopId, String[] type) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<Trade> getTradeList(Long userId, Long shopId, String[] type) {
+	public List<Trade> getTradeList(String userId, Long shopId, String[] type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Trade getTrade(Long userId, Long shopId, String tradeNo) {
+	public Trade getTrade(String userId, Long shopId, String tradeNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BooleanResult cancelTrade(Long userId, Long shopId, String tradeId) {
+	public BooleanResult cancelTrade(String userId, Long shopId, String tradeId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public TransactionTemplate getTransactionTemplate() {
+		return transactionTemplate;
+	}
+
+	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+		this.transactionTemplate = transactionTemplate;
+	}
+
+	public IOrderService getOrderService() {
+		return orderService;
+	}
+
+	public void setOrderService(IOrderService orderService) {
+		this.orderService = orderService;
+	}
+
+	public ITradeDao getTradeDao() {
+		return tradeDao;
+	}
+
+	public void setTradeDao(ITradeDao tradeDao) {
+		this.tradeDao = tradeDao;
 	}
 
 }

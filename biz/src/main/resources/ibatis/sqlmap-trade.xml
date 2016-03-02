@@ -12,15 +12,6 @@
 		  FROM basis_tb_trade t
 		 WHERE t.STATE = 'U'
 	]]>
-		<dynamic>
-			<isNotEmpty property="search" prepend="and">
-			<![CDATA[
-				  ( t.trade_id like #search,handler=wildcard# escape '\\'
-				 or t.trade_code like #search,handler=wildcard# escape '\\'
-				 or t.trade_no like #search,handler=wildcard# escape '\\' )
-			]]>
-			</isNotEmpty>
-		</dynamic>
 	</select>
 	
 	<select id="getTradeList" parameterClass="trade" resultClass="trade">
@@ -41,13 +32,6 @@
 		   AND t.STATE = 'U'
 	]]>
 		<dynamic>
-			<isNotEmpty property="search" prepend="and">
-			<![CDATA[
-				  ( t.trade_id like #search,handler=wildcard# escape '\\'
-				 or t.trade_code like #search,handler=wildcard# escape '\\'
-				 or t.trade_no like #search,handler=wildcard# escape '\\' )
-			]]>
-			</isNotEmpty>
 			<isEmpty property="sort">
 			<![CDATA[ ORDER BY TRADE_ID asc ]]>
 			</isEmpty>
@@ -66,39 +50,9 @@
 		   SET t.modify_date = NOW(),
 			   t.modify_user = #modifyUser#
 	]]>
-		<dynamic>
-			<isNotNull property="tradeNo" prepend=",">
-			<![CDATA[ t.trade_no = #tradeNo# ]]>
-			</isNotNull>
-			<isNotEmpty property="tradeDate" prepend=",">
-				<isEqual property="tradeDate" compareValue="0000-00-00">
-				<![CDATA[ t.trade_date = null ]]>
-				</isEqual>
-				<isNotEqual property="tradeDate" compareValue="0000-00-00">
-				<![CDATA[ t.trade_date = STR_TO_DATE( #tradeDate#, '%Y-%m-%d') ]]>
-				</isNotEqual>
-			</isNotEmpty>
-			<isNotEmpty property="like">
-			<![CDATA[
-				, t.like = #like# 
-				, t.like_date = NOW()
-			]]>
-			</isNotEmpty>
-		</dynamic>
 	<![CDATA[
 		 WHERE t.STATE = 'U'
 	]]>
-		<dynamic>
-			<isNotEmpty property="tradeId">
-			<![CDATA[ AND t.trade_id = #tradeId# ]]>
-			</isNotEmpty>
-			<isEmpty property="tradeId">
-			<![CDATA[ AND t.trade_code = #tradeCode# ]]>
-			</isEmpty>
-			<isNotEmpty property="like">
-			<![CDATA[ AND t.like is null ]]>
-			</isNotEmpty>
-		</dynamic>
 	</update>
 	
 	<select id="getTrade" parameterClass="trade" resultClass="trade">
@@ -115,7 +69,6 @@
 		 WHERE t.ITEM_ID = p.ITEM_ID
 		   AND p.SELLER_ID = q.SELLER_ID
 		   AND t.STATE = 'U'
-		   AND t.TRADE_CODE = #tradeCode#
 	]]>
 	</select>
 	
@@ -124,31 +77,57 @@
 		INSERT
 		INTO basis_tb_trade
 		  (
-			TRADE_CODE,
-			ITEM_ID,
+			TRADE_ID,
 			TRADE_NO,
-			TRADE_DATE,
-			`LIKE`,
-			LIKE_DATE,
-			STATE,
+			USER_ID,
+			SHOP_ID,
+			TYPE,
+			TRADE_PRICE,
+			COUPON_PRICE,
+			POSTAGE,
+			`CHANGE`,
+			TRADE_POINTS,
+			SHIPMENT,
+			RECEIVER_NAME,
+			RECEIVER_PROVINCE,
+			RECEIVER_CITY,
+			RECEIVER_AREA,
+			RECEIVER_BACK_CODE,
+			RECEIVER_ADDRESS,
+			RECEIVER_ZIP,
+			RECEIVER_TEL,
 			CREATE_DATE,
+			STATE,
 			CREATE_USER,
 			MODIFY_DATE,
 			MODIFY_USER
 		  )
 		  VALUES
 		  (
-			#tradeCode#,
-			#itemId#,
+			#tradeId#,
 			#tradeNo#,
-			STR_TO_DATE( #tradeDate#, '%Y-%m-%d'),
-			#like#,
-			STR_TO_DATE( #likeDate#, '%Y-%m-%d %T'),
+			#userId#,
+			#shopId#,
+			#type#,
+			#tradePrice#,
+			#couponPrice#,
+			#postage#,
+			#change#,
+			#tradePoints#,
+			#shipment#,
+			#receiverName#,
+			#receiverProvince#,
+			#receiverCity#,
+			#receiverArea#,
+			#receiverBackCode#,
+			#receiverAddress#,
+			#receiverZip#,
+			#receiverTel#,
+			NOW(),
 			'U',
+			#userId#,
 			NOW(),
-			#modifyUser#,
-			NOW(),
-			#modifyUser#
+			#userId#
 		  )
 	]]>
 		<selectKey resultClass="java.lang.Long" keyProperty="tradeId">

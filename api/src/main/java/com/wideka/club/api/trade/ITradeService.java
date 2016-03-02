@@ -44,7 +44,7 @@ public interface ITradeService {
 	 *            商品id.
 	 * @return
 	 */
-	BooleanResult createTrade(Long userId, Long shopId, String itemId);
+	BooleanResult createTrade(String userId, Long shopId, String itemId);
 
 	/**
 	 * 买家下单交易.
@@ -57,7 +57,7 @@ public interface ITradeService {
 	 *            购物车id.
 	 * @return
 	 */
-	BooleanResult createTrade(Long userId, Long shopId, String[] cartId);
+	BooleanResult createTrade(String userId, Long shopId, String[] cartId);
 
 	/**
 	 * 买家查询某店铺交易.
@@ -69,7 +69,7 @@ public interface ITradeService {
 	 * @param type
 	 * @return
 	 */
-	int getTradeCount(Long userId, Long shopId, String[] type);
+	int getTradeCount(String userId, Long shopId, String[] type);
 
 	/**
 	 * 买家查询某店铺交易.
@@ -81,7 +81,7 @@ public interface ITradeService {
 	 * @param type
 	 * @return
 	 */
-	List<Trade> getTradeList(Long userId, Long shopId, String[] type);
+	List<Trade> getTradeList(String userId, Long shopId, String[] type);
 
 	/**
 	 * 买家查看订单.
@@ -91,7 +91,7 @@ public interface ITradeService {
 	 * @param tradeNo
 	 * @return
 	 */
-	Trade getTrade(Long userId, Long shopId, String tradeNo);
+	Trade getTrade(String userId, Long shopId, String tradeNo);
 
 	/**
 	 * 取消订单.
@@ -101,6 +101,6 @@ public interface ITradeService {
 	 * @param tradeId
 	 * @return
 	 */
-	BooleanResult cancelTrade(Long userId, Long shopId, String tradeId);
+	BooleanResult cancelTrade(String userId, Long shopId, String tradeId);
 
 }
