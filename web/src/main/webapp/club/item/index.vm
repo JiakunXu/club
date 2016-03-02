@@ -21,7 +21,7 @@
 				<div class="navbar">
 					<div class="navbar-inner">
 						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-						<div class="center sliding">好社惠</div>
+						<div class="center sliding">好社惠－你身边的微小店</div>
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
@@ -36,8 +36,8 @@
         								<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>
         								<div class="card-content">
         									<div class="card-content-inner">
-        										<p class="color-gray">【浆果皇后】智利进口蓝莓2盒29.9元</p>
-        										<p>【鲜果上市，直降10元】听说小资派都是蓝莓派？蓝莓是浆果之首，含有丰富的VC，对皮肤具有抗氧化的作用，绝对是维持高颜值的密码，更能保护眼睛，绝对是超值的精品。DIY达人们可以在家制作新鲜的蓝莓果酱、蓝莓糕点，让生活更滋润！★仅限江浙沪皖部分区域顾客购买★</p>
+        										<p class="color-gray">特仑苏纯牛奶利乐苗条装250ml×8盒×3提 共24盒</p>
+        										<p>特仑苏纯牛奶来自黄金奶源纬度带，特仑苏专属牧场，海拔、纬度、阳光、水土，精选多国优质牧草品种，汇集各国良种乳牛，造就出天然优质乳蛋白，每100毫升牛奶中蛋白质含量>3.3克，比国家标准高出13.8%，比欧盟标准高出10%。牛奶中的新贵族。</p>
         									</div>
         								</div>
         								<div class="card-footer">
@@ -45,27 +45,7 @@
 												<div class="tuan_g_core">
 													<div class="tuan_g_price">
 														<span>3人团</span>
-														<b>29.90</b>
-													</div>
-													<div class="tuan_g_btn">去开团</div>
-												</div>
-											</a>
-        								</div>
-        							</li>
-									<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/index-2.jpg)" valign="bottom" class="card-header color-white no-border"></div>
-        								<div class="card-content">
-        									<div class="card-content-inner">
-        										<p class="color-gray">【爆款推荐，直降3元】小台农芒果3斤25.9元</p>
-        										<p>【清香好滋味】“芒芒”人海，一眼相中你的可爱甜蜜，Q滑细嫩的果肉，让每一口都溢出来浓浓的满足感。【温馨提示：饱饭后不可食用芒果】★仅限江浙沪皖部分区域顾客购买★</p>
-        									</div>
-        								</div>
-        								<div class="card-footer">
-        									<a href="javascript:index_goto('');" class="">
-												<div class="tuan_g_core">
-													<div class="tuan_g_price">
-														<span>3人团</span>
-														<b>25.90</b>
+														<b>79.90</b>
 													</div>
 													<div class="tuan_g_btn">去开团</div>
 												</div>
