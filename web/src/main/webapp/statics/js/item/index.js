@@ -1,6 +1,5 @@
 // Initialize your app
 var myApp = new Framework7({
-	 pushState: true,
 			swipePanel : 'left',
 			// Hide and show indicator during ajax requests
 			onAjaxStart : function(xhr) {
