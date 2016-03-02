@@ -97,7 +97,7 @@
 											<div class="item-media" style="margin-left: 12px;"></div>
                 							<div class="item-inner">
                 								<div class="item-title">待付款的订单</div>
-												<div class="item-after">1</div>
+												<div class="item-after"></div>
                 							</div>
                 						</a>
                 					</li>
@@ -115,7 +115,7 @@
 											<div class="item-media" style="margin-left: 12px;"></div>
                 							<div class="item-inner">
                 								<div class="item-title">已发货的订单</div>
-												<div class="item-after">3</div>
+												<div class="item-after"></div>
                 							</div>
                 						</a>
                 					</li>

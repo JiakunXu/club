@@ -6,73 +6,101 @@ import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.framework.bo.BooleanResult;
 
 /**
+ * 交易接口.
  * 
  * @author JiakunXu
  * 
  */
 public interface ITradeService {
 
-	/**
-	 * 
-	 * @param trade
-	 * @return
-	 */
-	int getTradeCount(Trade trade);
+	String CREATE = "create";
+
+	String CHECK = "check";
+
+	String TO_PAY = "topay";
+
+	String PAY = "pay";
+
+	String TO_SEND = "tosend";
+
+	String SEND = "send";
+
+	String SIGN = "sign";
+
+	String FEEDBACK = "feedback";
+
+	String FEEDBACKED = "feedbacked";
+
+	String CANCEL = "cancel";
 
 	/**
+	 * 买家下单交易.
 	 * 
-	 * @param trade
+	 * @param userId
+	 *            必填.
+	 * @param shopId
+	 *            必填.
+	 * @param itemId
+	 *            商品id.
 	 * @return
 	 */
-	List<Trade> getTradeList(Trade trade);
+	BooleanResult createTrade(Long userId, Long shopId, String itemId);
 
 	/**
+	 * 买家下单交易.
 	 * 
-	 * @param tradeId
+	 * @param userId
+	 *            必填.
+	 * @param shopId
+	 *            必填.
+	 * @param cartId
+	 *            购物车id.
+	 * @return
+	 */
+	BooleanResult createTrade(Long userId, Long shopId, String[] cartId);
+
+	/**
+	 * 买家查询某店铺交易.
+	 * 
+	 * @param userId
+	 *            必填.
+	 * @param shopId
+	 *            必填.
+	 * @param type
+	 * @return
+	 */
+	int getTradeCount(Long userId, Long shopId, String[] type);
+
+	/**
+	 * 买家查询某店铺交易.
+	 * 
+	 * @param userId
+	 *            必填.
+	 * @param shopId
+	 *            必填.
+	 * @param type
+	 * @return
+	 */
+	List<Trade> getTradeList(Long userId, Long shopId, String[] type);
+
+	/**
+	 * 买家查看订单.
+	 * 
+	 * @param userId
+	 * @param shopId
 	 * @param tradeNo
-	 * @param modifyUser
 	 * @return
 	 */
-	BooleanResult updateTradeNo(String tradeId, String tradeNo, String modifyUser);
+	Trade getTrade(Long userId, Long shopId, String tradeNo);
 
 	/**
+	 * 取消订单.
 	 * 
+	 * @param userId
+	 * @param shopId
 	 * @param tradeId
-	 * @param tradeDate
-	 * @param modifyUser
 	 * @return
 	 */
-	BooleanResult updateTradeDate(String tradeId, String tradeDate, String modifyUser);
-
-	/**
-	 * 
-	 * @param tradeCode
-	 * @return
-	 */
-	Trade getTrade(String tradeCode);
-
-	/**
-	 * 
-	 * @param tradeCode
-	 * @param modifyUser
-	 * @return
-	 */
-	BooleanResult like(String tradeCode, String modifyUser);
-
-	/**
-	 * 
-	 * @param tradeCode
-	 * @param modifyUser
-	 * @return
-	 */
-	BooleanResult unlike(String tradeCode, String modifyUser);
-
-	/**
-	 * 
-	 * @param trade
-	 * @param modifyUser
-	 * @return
-	 */
-	BooleanResult createTrade(Trade trade, String modifyUser);
+	BooleanResult cancelTrade(Long userId, Long shopId, String tradeId);
 
 }
