@@ -16,6 +16,13 @@ public interface ITradeDao {
 	 * @param trade
 	 * @return
 	 */
+	Long createTrade(Trade trade);
+
+	/**
+	 * 
+	 * @param trade
+	 * @return
+	 */
 	int getTradeCount(Trade trade);
 
 	/**
@@ -30,13 +37,6 @@ public interface ITradeDao {
 	 * @param trade
 	 * @return
 	 */
-	int updateTrade(Trade trade);
-
-	/**
-	 * 
-	 * @param trade
-	 * @return
-	 */
 	Trade getTrade(Trade trade);
 
 	/**
@@ -44,6 +44,6 @@ public interface ITradeDao {
 	 * @param trade
 	 * @return
 	 */
-	Long createTrade(Trade trade);
+	int updateTrade(Trade trade);
 
 }

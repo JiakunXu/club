@@ -7,6 +7,17 @@
 	
 	<!-- 账单 -->
 	<bean id="tradeAction" class="com.wideka.club.trade.action.TradeAction" parent="baseAction" scope="request">
+		<property name="tradeService" ref="tradeService" />
+	</bean>
+	<bean id="tradeService" class="com.wideka.club.trade.service.impl.TradeServiceImpl">
+		<property name="transactionTemplate" ref="transactionTemplate" />
+		<property name="orderService" ref="orderService" />
+		<property name="tradeDao" ref="tradeDao" />
+	</bean>
+	<bean id="tradeDao" class="com.wideka.club.trade.dao.impl.TradeDaoImpl" parent="baseDao" />
+	
+	<!-- 订单信息 -->
+	<bean id="orderService" class="com.wideka.club.trade.service.impl.OrderServiceImpl">
 	</bean>
 	
 </beans>

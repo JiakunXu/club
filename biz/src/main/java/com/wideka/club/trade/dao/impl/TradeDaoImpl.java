@@ -14,6 +14,11 @@ import com.wideka.club.trade.dao.ITradeDao;
 public class TradeDaoImpl extends BaseDaoImpl implements ITradeDao {
 
 	@Override
+	public Long createTrade(Trade trade) {
+		return (Long) getSqlMapClientTemplate().insert("trade.createTrade", trade);
+	}
+
+	@Override
 	public int getTradeCount(Trade trade) {
 		return (Integer) getSqlMapClientTemplate().queryForObject("trade.getTradeCount", trade);
 	}
@@ -25,18 +30,13 @@ public class TradeDaoImpl extends BaseDaoImpl implements ITradeDao {
 	}
 
 	@Override
-	public int updateTrade(Trade trade) {
-		return getSqlMapClientTemplate().update("trade.updateTrade", trade);
-	}
-
-	@Override
 	public Trade getTrade(Trade trade) {
 		return (Trade) getSqlMapClientTemplate().queryForObject("trade.getTrade", trade);
 	}
 
 	@Override
-	public Long createTrade(Trade trade) {
-		return (Long) getSqlMapClientTemplate().insert("trade.createTrade", trade);
+	public int updateTrade(Trade trade) {
+		return getSqlMapClientTemplate().update("trade.updateTrade", trade);
 	}
 
 }
