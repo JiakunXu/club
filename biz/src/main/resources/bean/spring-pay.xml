@@ -11,8 +11,10 @@
 	</bean>
 	
 	<bean id="payService" class="com.wideka.club.pay.service.impl.PayServiceImpl">
+		<property name="transactionTemplate" ref="transactionTemplate" />
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="wxpayService" ref="wxpayService" />
+		<property name="tradeService" ref="tradeService" />
 	</bean>
 
 </beans>

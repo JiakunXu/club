@@ -6,86 +6,6 @@
 	
 	<typeAlias alias="trade" type="com.wideka.club.api.trade.bo.Trade" />
 	
-	<select id="getTradeCount" parameterClass="trade" resultClass="java.lang.Integer">
-	<![CDATA[
-		SELECT COUNT(1)
-		  FROM basis_tb_trade t
-		 WHERE t.STATE = 'U'
-	]]>
-	</select>
-	
-	<select id="getTradeList" parameterClass="trade" resultClass="trade">
-	<![CDATA[
-		SELECT t.trade_id AS tradeId,
-			   t.trade_no AS tradeNo,
-			   t.trade_price AS tradePrice,
-			   t.coupon_price AS couponPrice,
-			   t.postage,
-			   t.change,
-			   t.receiver_name AS receiverName,
-			   t.receiver_tel AS receiverTel,
-			   DATE_FORMAT(t.create_date, '%Y-%m-%d %T') AS createDate,
-			   DATE_FORMAT(t.modify_date, '%Y-%m-%d %T') AS modifyDate,
-			   DATE_FORMAT(t.pay_date, '%Y-%m-%d %T') AS payDate,
-			   DATE_FORMAT(t.send_date, '%Y-%m-%d %T') AS sendDate,
-			   DATE_FORMAT(t.sign_date, '%Y-%m-%d %T') AS signDate,
-			   DATE_FORMAT(t.feedback_date, '%Y-%m-%d %T') AS feedbackDate,
-			   DATE_FORMAT(t.feedbacked_date, '%Y-%m-%d %T') AS feedbackedDate,
-			   t.type,
-			   IFNULL(t.score, 0),
-			   t.trade_points AS tradePoints,
-			   t.shipment,
-			   t.feedback_type AS feedbackType
-		  FROM basis_tb_trade t
-		 WHERE t.state = 'U'
-		   AND t.shop_id = #shopId#
-		   AND t.user_id = #userId#
-	]]>
-		<dynamic>
-			<isNotEmpty property="codes" prepend="and">
-			<![CDATA[ t.type IN ]]>
-				<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
-			</isNotEmpty>
-			<isEmpty property="sort">
-			<![CDATA[ ORDER BY TRADE_ID DESC ]]>
-			</isEmpty>
-			<isNotEmpty property="sort">
-			<![CDATA[ ORDER BY $sort$ $order$, TRADE_ID DESC ]]>
-			</isNotEmpty>
-		</dynamic>
-	<![CDATA[
-		LIMIT $limit$ OFFSET $offset$
-	]]>
-	</select>
-	
-	<update id="updateTrade" parameterClass="trade">
-	<![CDATA[
-		UPDATE basis_tb_trade t
-		   SET t.modify_date = NOW(),
-			   t.modify_user = #modifyUser#
-	]]>
-	<![CDATA[
-		 WHERE t.STATE = 'U'
-	]]>
-	</update>
-	
-	<select id="getTrade" parameterClass="trade" resultClass="trade">
-	<![CDATA[
-		SELECT t.TRADE_ID AS tradeId,
-			   t.TRADE_CODE AS tradeCode,
-			   t.TRADE_NO AS tradeNo,
-			   p.ITEM_NAME AS itemName,
-			   q.SELLER_NAME AS sellerName,
-			   t.LIKE
-		  FROM basis_tb_trade t,
-			   basis_tb_item p,
-			   basis_tb_seller q
-		 WHERE t.ITEM_ID = p.ITEM_ID
-		   AND p.SELLER_ID = q.SELLER_ID
-		   AND t.STATE = 'U'
-	]]>
-	</select>
-	
 	<insert id="createTrade" parameterClass="trade">
 	<![CDATA[
 		INSERT
@@ -150,5 +70,155 @@
 		]]>
 		</selectKey>
 	</insert>
+
+	<select id="getTradeCount" parameterClass="trade" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1)
+		  FROM basis_tb_trade t
+		 WHERE t.STATE = 'U'
+	]]>
+	</select>
 	
+	<select id="getTradeList" parameterClass="trade" resultClass="trade">
+	<![CDATA[
+		SELECT t.trade_id AS tradeId,
+			   t.trade_no AS tradeNo,
+			   t.trade_price AS tradePrice,
+			   t.coupon_price AS couponPrice,
+			   t.postage,
+			   t.change,
+			   t.receiver_name AS receiverName,
+			   t.receiver_tel AS receiverTel,
+			   DATE_FORMAT(t.create_date, '%Y-%m-%d %T') AS createDate,
+			   DATE_FORMAT(t.modify_date, '%Y-%m-%d %T') AS modifyDate,
+			   DATE_FORMAT(t.pay_date, '%Y-%m-%d %T') AS payDate,
+			   DATE_FORMAT(t.send_date, '%Y-%m-%d %T') AS sendDate,
+			   DATE_FORMAT(t.sign_date, '%Y-%m-%d %T') AS signDate,
+			   DATE_FORMAT(t.feedback_date, '%Y-%m-%d %T') AS feedbackDate,
+			   DATE_FORMAT(t.feedbacked_date, '%Y-%m-%d %T') AS feedbackedDate,
+			   t.type,
+			   IFNULL(t.score, 0),
+			   t.trade_points AS tradePoints,
+			   t.shipment,
+			   t.feedback_type AS feedbackType
+		  FROM basis_tb_trade t
+		 WHERE t.state = 'U'
+		   AND t.shop_id = #shopId#
+		   AND t.user_id = #userId#
+	]]>
+		<dynamic>
+			<isNotEmpty property="codes" prepend="and">
+			<![CDATA[ t.type IN ]]>
+				<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
+			</isNotEmpty>
+			<isEmpty property="sort">
+			<![CDATA[ ORDER BY TRADE_ID DESC ]]>
+			</isEmpty>
+			<isNotEmpty property="sort">
+			<![CDATA[ ORDER BY $sort$ $order$, TRADE_ID DESC ]]>
+			</isNotEmpty>
+		</dynamic>
+	<![CDATA[
+		LIMIT $limit$ OFFSET $offset$
+	]]>
+	</select>
+	
+	<select id="getTrade" parameterClass="trade" resultClass="trade">
+	<![CDATA[
+		SELECT t.trade_id AS tradeId,
+			   t.trade_no AS tradeNo,
+			   t.type
+		  FROM basis_tb_trade t
+		 WHERE t.trade_no = #tradeNo#
+	]]>
+		<dynamic>
+			<isNotEmpty property="userId" prepend="and">
+			<![CDATA[ t.user_id = #userId# ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<update id="updateTrade" parameterClass="trade">
+	<![CDATA[
+		UPDATE basis_tb_trade t
+		SET t.modify_date = NOW(),
+		  t.modify_user   = #modifyUser#
+	]]>
+		<dynamic>
+			<isNotEmpty property="type" prepend=",">
+			<![CDATA[ t.type          = #type# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="type">
+				<isEqual property="type" compareValue="tosend" prepend=",">
+				<![CDATA[ t.PAY_DATE = STR_TO_DATE( #payDate#, '%Y%m%d%H%i%s') ]]>
+				</isEqual>
+				<isEqual property="type" compareValue="send" prepend=",">
+				<![CDATA[ t.SEND_DATE = NOW() ]]>
+				</isEqual>
+				<isEqual property="type" compareValue="sign" prepend=",">
+				<![CDATA[ t.SIGN_DATE = NOW() ]]>
+				</isEqual>
+				<isEqual property="type" compareValue="feedback" prepend=",">
+				<![CDATA[ t.FEEDBACK_DATE = NOW() ]]>
+				</isEqual>
+				<isEqual property="type" compareValue="feedbacked" prepend=",">
+				<![CDATA[ t.FEEDBACKED_DATE = NOW() ]]>
+				</isEqual>
+			</isNotEmpty>
+			<isNotEmpty property="receiverName" prepend=",">
+			<![CDATA[ t.receiver_name = #receiverName# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverProvince" prepend=",">
+			<![CDATA[ t.receiver_province = #receiverProvince# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverCity" prepend=",">
+			<![CDATA[ t.receiver_city = #receiverCity# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverArea" prepend=",">
+			<![CDATA[ t.receiver_area = #receiverArea# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverBackCode" prepend=",">
+			<![CDATA[ t.receiver_back_code = #receiverBackCode# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverAddress" prepend=",">
+			<![CDATA[ t.receiver_address = #receiverAddress# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverZip" prepend=",">
+			<![CDATA[ t.receiver_zip = #receiverZip# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="receiverTel" prepend=",">
+			<![CDATA[ t.receiver_tel = #receiverTel# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="shipment" prepend=",">
+			<![CDATA[ t.shipment = #shipment# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="payType" prepend=",">
+			<![CDATA[ t.pay_type = #payType# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="feedbackType" prepend=",">
+			<![CDATA[ t.feedback_type = #feedbackType# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="score" prepend=",">
+			<![CDATA[ t.score         = #score# ]]>
+			</isNotEmpty>
+		</dynamic>
+	<![CDATA[
+		WHERE t.state       = 'U'
+	]]>
+		<dynamic>
+			<isNotEmpty property="tradeId" prepend="and">
+			<![CDATA[ t.trade_id = #tradeId# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="tradeNo" prepend="and">
+			<![CDATA[ t.trade_no = #tradeNo# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="userId" prepend="and">
+			<![CDATA[ t.user_id = #userId# ]]>
+			</isNotEmpty>
+			<isNotEmpty property="type" prepend="and">
+			<![CDATA[ t.type <> #type# ]]>
+			</isNotEmpty>
+		</dynamic>
+	</update>
+		
 </sqlMap>

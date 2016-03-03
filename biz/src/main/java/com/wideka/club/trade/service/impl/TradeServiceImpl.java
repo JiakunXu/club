@@ -174,6 +174,75 @@ public class TradeServiceImpl implements ITradeService {
 		return null;
 	}
 
+	@Override
+	public Trade getTrade(String tradeNo) {
+		if (StringUtils.isBlank(tradeNo)) {
+			return null;
+		}
+
+		Trade trade = new Trade();
+		trade.setTradeNo(tradeNo.trim());
+
+		return getTrade(trade);
+	}
+
+	@Override
+	public BooleanResult payTrade(String tradeNo, String payType, String payDate) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		Trade trade = new Trade();
+		// 待发货
+		trade.setType(ITradeService.TO_SEND);
+
+		if (StringUtils.isBlank(tradeNo)) {
+			result.setCode("交易订单不能为空。");
+			return result;
+		}
+		trade.setTradeNo(tradeNo.trim());
+
+		if (StringUtils.isBlank(payType)) {
+			result.setCode("支付类型不能为空。");
+			return result;
+		}
+		trade.setPayType(payType.trim());
+
+		if (StringUtils.isBlank(payDate)) {
+			result.setCode("支付时间不能为空。");
+			return result;
+		}
+		trade.setPayDate(payDate);
+
+		trade.setModifyUser(payType);
+
+		try {
+			int c = tradeDao.updateTrade(trade);
+			if (c == 1) {
+				result.setResult(true);
+			}
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+			result.setCode("更新交易表失败！");
+		}
+
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param trade
+	 * @return
+	 */
+	private Trade getTrade(Trade trade) {
+		try {
+			return tradeDao.getTrade(trade);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+		}
+
+		return null;
+	}
+
 	public TransactionTemplate getTransactionTemplate() {
 		return transactionTemplate;
 	}

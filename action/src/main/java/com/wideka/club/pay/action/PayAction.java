@@ -96,7 +96,6 @@ public class PayAction extends BaseAction {
 		}
 
 		BooleanResult result = payService.notify(fileContent.toString());
-
 		this.setResourceResult(result.getCode());
 
 		return RESOURCE_RESULT;
