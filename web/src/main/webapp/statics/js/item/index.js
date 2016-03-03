@@ -19,8 +19,18 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 
-var view2 = myApp.addView('#view-2');
-var view3 = myApp.addView('#view-3');
+var view2 = myApp.addView('#view-2', {
+			dynamicNavbar : true
+		});
+
+$$('#href-2').on('click', function() {
+			view2.router
+					.loadPage("http://wx.wideka.com:8080/club/item/detail.htm");
+		});
+
+var view3 = myApp.addView('#view-3', {
+			dynamicNavbar : true
+		});
 
 function index_goto(itemId) {
 	mainView.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);

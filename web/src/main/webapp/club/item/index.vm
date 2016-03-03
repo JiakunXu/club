@@ -59,18 +59,11 @@
                 </div>
             </div>
 			
-			<div id="view-2" class="view tab" data-page="index-2">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<div class="center sliding">我的购物车</div>
-					</div>
-				</div>
+			<div id="view-2" class="view tab">
+				<div class="navbar"></div>
 				<div class="pages navbar-through toolbar-through">
-					<div data-page="index-2" class="page">
-						<div class="page-content">
-                        </div>
-                    </div>
-                </div>
+                    <div class="page"></div>
+				</div>
             </div>
 			
 			<div id="view-3" class="view tab" data-page="index-3">
@@ -156,13 +149,13 @@
 			
 			<div class="toolbar tabbar">
 				<div class="toolbar-inner">
-					<a href="#view-1" class="tab-link active">
+					<a id="href-1" href="#view-1" class="tab-link active">
 						<i class="fa fa-home" style="font-size: 26px;"></i>
                     </a>
-                    <a href="#view-2" class="tab-link">
+                    <a id="href-2" href="#view-2" class="tab-link">
                         <i class="fa fa-shopping-cart" style="font-size: 23px;"></i>
                     </a>
-					<a href="#view-3" class="tab-link">
+					<a id="href-3" href="#view-3" class="tab-link">
                         <i class="fa fa-user" style="font-size: 23px;"></i>
                     </a>
                 </div>
