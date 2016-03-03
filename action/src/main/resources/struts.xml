@@ -11,6 +11,7 @@
 	<include file="struts/struts-express.xml" />
 	<include file="struts/struts-item.xml" />
 	<include file="struts/struts-login.xml" />
+	<include file="struts/struts-member.xml" />
 	<include file="struts/struts-pay.xml" />
 	<include file="struts/struts-portal.xml" />
 	<include file="struts/struts-shop.xml" />

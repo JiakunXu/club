@@ -22,7 +22,6 @@ var mainView = myApp.addView('.view-main', {
 var view2 = myApp.addView('#view-2', {
 			dynamicNavbar : true
 		});
-
 $$('#href-2').on('click', function() {
 			view2.router.load({
 						url : appUrl + "/cart/index.htm",
@@ -33,6 +32,12 @@ $$('#href-2').on('click', function() {
 
 var view3 = myApp.addView('#view-3', {
 			dynamicNavbar : true
+		});
+$$('#href-3').on('click', function() {
+			view3.router.load({
+						url : appUrl + "/member/index.htm",
+						reload : true
+					});
 		});
 
 function index_goto(itemId) {
