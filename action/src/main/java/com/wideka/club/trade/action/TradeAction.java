@@ -58,7 +58,7 @@ public class TradeAction extends BaseAction {
 
 		// 待付款
 		if ("pay".equals(type)) {
-			tradeList = tradeService.getTradeList("oTT3bsrzIeC8zTk7m9LJpnEFqzl0", shopId, new String[] { "check", "topay" });
+			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "check", "topay" });
 		} else if ("tosend".equals(type)) {
 			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "tosend" });
 		} else if ("send".equals(type)) {
