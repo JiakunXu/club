@@ -40,10 +40,12 @@
 		 WHERE t.state = 'U'
 		   AND t.shop_id = #shopId#
 		   AND t.user_id = #userId#
-		   AND t.type IN
 	]]>
-		<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
 		<dynamic>
+			<isNotEmpty property="codes" prepend="and">
+			<![CDATA[ t.type IN ]]>
+				<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
+			</isNotEmpty>
 			<isEmpty property="sort">
 			<![CDATA[ ORDER BY TRADE_ID DESC ]]>
 			</isEmpty>
