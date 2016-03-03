@@ -57,6 +57,26 @@
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
+							<div class="item-media"><i class="fa fa-clock-o"></i></div>
+							<div class="item-inner">
+								<div class="item-title">我的购物记录</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><i class="fa fa-jpy"></i></div>
+							<div class="item-inner">
+								<div class="item-title">我的返现</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="margin: 10px 0;">
+				<ul>
+					<li>
+						<a href="#" class="item-link item-content">
 							<div class="item-media"><i class="fa fa-gift"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我收到的礼物</div>
@@ -76,6 +96,14 @@
 							<div class="item-media"><i class="fa fa-list-alt"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的优惠码</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><i class="fa fa-shopping-bag"></i></div>
+							<div class="item-inner">
+								<div class="item-title">我的赠品</div>
 							</div>
 						</a>
 					</li>
