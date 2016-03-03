@@ -8,7 +8,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<title></title>
 		#ICON()
-		#CSSM(["framework7", "font-awesome", "iconfont"])
+		#CSSM(["framework7", "iconfont"])
 		<link rel="stylesheet" href="$!{env.imgUrl}/css/portal/homepage.css" />
 		#UA()
 	</head>

@@ -18,7 +18,7 @@
 				<ul>
 					<li>
 						<a href="$!{env.appUrl}/trade/list.htm" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media"><i class="fa fa-file-text-o"></i></div>
+							<div class="item-media"><i class="iconfont icon-text"></i></div>
 							<div class="item-inner">
 								<div class="item-title">全部订单</div>
 							</div>
@@ -57,7 +57,7 @@
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-clock-o"></i></div>
+							<div class="item-media"><i class="iconfont icon-time"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的购物记录</div>
 							</div>
@@ -65,7 +65,7 @@
 					</li>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-jpy"></i></div>
+							<div class="item-media"><i class="iconfont icon-sponsor"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的返现</div>
 							</div>
@@ -77,7 +77,7 @@
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-gift"></i></div>
+							<div class="item-media"><i class="iconfont icon-present"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我收到的礼物</div>
 							</div>
@@ -85,7 +85,7 @@
 					</li>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-money"></i></div>
+							<div class="item-media"><i class="iconfont icon-ticket"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的优惠券</div>
 							</div>
@@ -93,7 +93,7 @@
 					</li>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-list-alt"></i></div>
+							<div class="item-media"><i class="iconfont icon-vipcard"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的优惠码</div>
 							</div>
@@ -101,7 +101,7 @@
 					</li>
 					<li>
 						<a href="#" class="item-link item-content">
-							<div class="item-media"><i class="fa fa-shopping-bag"></i></div>
+							<div class="item-media"><i class="iconfont icon-goods"></i></div>
 							<div class="item-inner">
 								<div class="item-title">我的赠品</div>
 							</div>

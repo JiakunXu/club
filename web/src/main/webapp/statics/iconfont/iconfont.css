@@ -15,7 +15,6 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-record:before { content: "\e790"; }
 .icon-text:before { content: "\e791"; }
 .icon-videofill:before { content: "\e792"; }
 .icon-video:before { content: "\e793"; }
@@ -134,7 +133,6 @@
 .icon-list:before { content: "\e682"; }
 .icon-discover:before { content: "\e67e"; }
 .icon-cascades:before { content: "\e67c"; }
-.icon-back:before { content: "\e679"; }
 .icon-samefill:before { content: "\e66d"; }
 .icon-same:before { content: "\e66e"; }
 .icon-deliver:before { content: "\e671"; }
@@ -195,7 +193,6 @@
 .icon-mobilefill:before { content: "\e705"; }
 .icon-copy:before { content: "\e706"; }
 .icon-countdownfill:before { content: "\e707"; }
-.icon-countdown:before { content: "\e708"; }
 .icon-notice:before { content: "\e70a"; }
 .icon-noticefill:before { content: "\e709"; }
 .icon-sort:before { content: "\e700"; }
@@ -258,3 +255,5 @@
 .icon-goodsfill:before { content: "\e778"; }
 .icon-profilefill:before { content: "\e77a"; }
 .icon-messagefill:before { content: "\e779"; }
+.icon-record:before { content: "\e790"; }
+.icon-countdown:before { content: "\e708"; }
