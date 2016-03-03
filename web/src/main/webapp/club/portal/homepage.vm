@@ -34,16 +34,13 @@
 							<div class="swiper-container swiper-init" data-pagination=".swiper-pagination-h">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
-                                        <img src="$!{env.imgUrl}/image/ad/LCF_2475.jpg" width="100%"></img>
+                                        <img src="$!{env.imgUrl}/image/portal/1.jpg" width="100%"></img>
 									</div>
 									<div class="swiper-slide">
-										<img src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%"></img>
+										<img src="$!{env.imgUrl}/image/portal/2.jpg" width="100%"></img>
 									</div>
 									<div class="swiper-slide">
-                                        <img src="$!{env.imgUrl}/image/ad/LCF_2475.jpg" width="100%"></img>
-									</div>
-									<div class="swiper-slide">
-										<img src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%"></img>
+                                        <img src="$!{env.imgUrl}/image/portal/3.jpg" width="100%"></img>
 									</div>
 								</div>
 								<div class="swiper-pagination swiper-pagination-h"></div>
