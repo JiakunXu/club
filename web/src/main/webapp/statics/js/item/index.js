@@ -25,7 +25,7 @@ var view2 = myApp.addView('#view-2', {
 
 $$('#href-2').on('click', function() {
 			view2.router.load({
-						url : "http://wx.wideka.com:8080/club/item/detail.htm",
+						url : appUrl + "/cart/index.htm",
 						ignoreCache : true,
 						reload : true
 					});
