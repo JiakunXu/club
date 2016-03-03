@@ -14,7 +14,7 @@
 	<div data-page="member.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<a href="$!{env.appUrl}/trade/list.htm" class="item-link item-content" data-ignore-cache="true">
@@ -53,7 +53,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
@@ -73,7 +73,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
