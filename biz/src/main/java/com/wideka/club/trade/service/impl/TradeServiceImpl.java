@@ -129,7 +129,36 @@ public class TradeServiceImpl implements ITradeService {
 
 	@Override
 	public List<Trade> getTradeList(String userId, Long shopId, String[] type) {
-		// TODO Auto-generated method stub
+		if (StringUtils.isBlank(userId) || shopId == null || type == null || type.length == 0) {
+			return null;
+		}
+
+		Trade trade = new Trade();
+		trade.setUserId(userId.trim());
+		trade.setShopId(shopId);
+		trade.setCodes(type);
+
+		// 暂不分页
+		trade.setLimit(10);
+		trade.setOffset(0);
+		trade.setSort("CREATE_DATE");
+		trade.setOrder("DESC");
+
+		return getTradeList(trade);
+	}
+
+	/**
+	 * 
+	 * @param trade
+	 * @return
+	 */
+	private List<Trade> getTradeList(Trade trade) {
+		try {
+			return tradeDao.getTradeList(trade);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+		}
+
 		return null;
 	}
 

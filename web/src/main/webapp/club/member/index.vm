@@ -17,7 +17,7 @@
 			<div class="list-block" style="margin: 10px 0;">
 				<ul>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/trade/list.htm" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media"><i class="fa fa-file-text-o"></i></div>
 							<div class="item-inner">
 								<div class="item-title">全部订单</div>
@@ -25,7 +25,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/trade/list.htm?type=pay" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media" style="margin-left: 12px;"></div>
 							<div class="item-inner">
 								<div class="item-title">待付款的订单</div>
@@ -34,16 +34,16 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/trade/list.htm?type=tosend" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media" style="margin-left: 12px;"></div>
 							<div class="item-inner">
 								<div class="item-title">已付款的订单</div>
-								<div class="item-after">2</div>
+								<div class="item-after"></div>
 							</div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="item-link item-content">
+						<a href="$!{env.appUrl}/trade/list.htm?type=send" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media" style="margin-left: 12px;"></div>
 							<div class="item-inner">
 								<div class="item-title">已发货的订单</div>

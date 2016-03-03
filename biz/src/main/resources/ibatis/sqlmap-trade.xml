@@ -16,27 +16,39 @@
 	
 	<select id="getTradeList" parameterClass="trade" resultClass="trade">
 	<![CDATA[
-		SELECT t.TRADE_ID AS tradeId,
-			   t.TRADE_CODE AS tradeCode,
-			   t.TRADE_NO AS tradeNo,
-			   DATE_FORMAT(t.TRADE_DATE, '%Y-%m-%d') AS tradeDate,
-			   t.LIKE,
-			   DATE_FORMAT(t.LIKE_DATE, '%Y-%m-%d') AS likeDate,
-			   p.ITEM_NAME AS itemName,
-			   q.SELLER_NAME AS sellerName
-		  FROM basis_tb_trade t,
-			   basis_tb_item p,
-			   basis_tb_seller q
-		 WHERE t.ITEM_ID = p.ITEM_ID
-		   AND p.SELLER_ID = q.SELLER_ID
-		   AND t.STATE = 'U'
+		SELECT t.trade_id AS tradeId,
+			   t.trade_no AS tradeNo,
+			   t.trade_price AS tradePrice,
+			   t.coupon_price AS couponPrice,
+			   t.postage,
+			   t.change,
+			   t.receiver_name AS receiverName,
+			   t.receiver_tel AS receiverTel,
+			   DATE_FORMAT(t.create_date, '%Y-%m-%d %T') AS createDate,
+			   DATE_FORMAT(t.modify_date, '%Y-%m-%d %T') AS modifyDate,
+			   DATE_FORMAT(t.pay_date, '%Y-%m-%d %T') AS payDate,
+			   DATE_FORMAT(t.send_date, '%Y-%m-%d %T') AS sendDate,
+			   DATE_FORMAT(t.sign_date, '%Y-%m-%d %T') AS signDate,
+			   DATE_FORMAT(t.feedback_date, '%Y-%m-%d %T') AS feedbackDate,
+			   DATE_FORMAT(t.feedbacked_date, '%Y-%m-%d %T') AS feedbackedDate,
+			   t.type,
+			   IFNULL(t.score, 0),
+			   t.trade_points AS tradePoints,
+			   t.shipment,
+			   t.feedback_type AS feedbackType
+		  FROM basis_tb_trade t
+		 WHERE t.state = 'U'
+		   AND t.shop_id = #shopId#
+		   AND t.user_id = #userId#
+		   AND t.type IN
 	]]>
+		<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
 		<dynamic>
 			<isEmpty property="sort">
-			<![CDATA[ ORDER BY TRADE_ID asc ]]>
+			<![CDATA[ ORDER BY TRADE_ID DESC ]]>
 			</isEmpty>
 			<isNotEmpty property="sort">
-			<![CDATA[ ORDER BY $sort$ $order$, TRADE_ID asc ]]>
+			<![CDATA[ ORDER BY $sort$ $order$, TRADE_ID DESC ]]>
 			</isNotEmpty>
 		</dynamic>
 	<![CDATA[

@@ -15,16 +15,31 @@ public interface ITradeService {
 
 	String CREATE = "create";
 
+	/**
+	 * 临时.
+	 */
 	String CHECK = "check";
 
+	/**
+	 * 待付款.
+	 */
 	String TO_PAY = "topay";
 
 	String PAY = "pay";
 
+	/**
+	 * 已付款.
+	 */
 	String TO_SEND = "tosend";
 
+	/**
+	 * 已发货.
+	 */
 	String SEND = "send";
 
+	/**
+	 * 已签收.
+	 */
 	String SIGN = "sign";
 
 	String FEEDBACK = "feedback";

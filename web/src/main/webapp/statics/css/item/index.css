@@ -1,3 +1,5 @@
+.infinite-scroll-preloader { margin-top:-20px; margin-bottom: 10px; text-align: center; }
+
 .demo-card-header-pic .card-header {
 	height: 50vw;
 	background-size: cover;
