@@ -29,7 +29,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<div class="item-content">
@@ -64,7 +64,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
@@ -76,7 +76,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<div class="item-content">
@@ -93,14 +93,14 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
 				<ul>
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title" style="width: 100%; text-align: center;">
-                                    <span style="font-size: 15px;">￥79.90 + ￥10.00 运费</span><br />
-									<span style="color: #ff5500;">需付：￥89.90</span>
+                                    <span>￥79.90 + ￥10.00 运费</span><br />
+									<span style="font-size: 16px; color: #ff5500;">需付：￥89.90</span>
 								</div>
 							</div>
 						</div>
