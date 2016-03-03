@@ -24,8 +24,7 @@ var view2 = myApp.addView('#view-2', {
 		});
 $$('#href-2').on('click', function() {
 			view2.router.load({
-						url : appUrl + "/cart/index.htm",
-						ignoreCache : true,
+						url : appUrl + "/item/index.htm",
 						reload : true
 					});
 		});
@@ -33,19 +32,34 @@ $$('#href-2').on('click', function() {
 var view3 = myApp.addView('#view-3', {
 			dynamicNavbar : true
 		});
-$$('#href-3').on('click', function() {
-			view3.router.load({
+
+var view4 = myApp.addView('#view-4', {
+			dynamicNavbar : true
+		});
+$$('#href-4').on('click', function() {
+			view4.router.load({
+						url : appUrl + "/cart/index.htm",
+						ignoreCache : true,
+						reload : true
+					});
+		});
+
+var view5 = myApp.addView('#view-5', {
+			dynamicNavbar : true
+		});
+$$('#href-5').on('click', function() {
+			view5.router.load({
 						url : appUrl + "/member/index.htm",
 						reload : true
 					});
 		});
 
 function index_goto(itemId) {
-	mainView.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
+	view2.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
 }
 
 function detail_goto(type) {
-	mainView.router.loadPage({
+	view2.router.loadPage({
 				url : appUrl + "/trade/create.htm?type=" + type,
 				ignoreCache : true
 			});

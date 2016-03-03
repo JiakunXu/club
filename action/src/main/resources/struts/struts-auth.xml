@@ -10,7 +10,7 @@
 		</action>
 
 		<action name="redirect" class="oauth2Action" method="redirect">
-			<result name="success" type="redirect">${env.appUrl}/item/index.htm</result>
+			<result name="success" type="redirect">${env.appUrl}/portal/homepage.htm</result>
 		</action>
 		
 	</package>

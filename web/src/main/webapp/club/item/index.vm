@@ -1,95 +1,43 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<title></title>
-		#ICON()
-		#CSSM(["framework7", "font-awesome"])
-		<link rel="stylesheet" href="$!{env.imgUrl}/css/item/index.css" />
-		#UA()
-	</head>
-	<body>
-		<!-- Views -->
-		<div class="views tabs toolbar-through">
-			<!-- Your main view, should have "view-main" class -->
-			<div id="view-1" class="view view-main tab active" data-page="index-1">
-				<!-- Top Navbar-->
-				<div class="navbar">
-					<div class="navbar-inner">
-						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-						<div class="center sliding">好社惠－你身边的微小店</div>
-					</div>
-				</div>
-				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-				<div class="pages navbar-through toolbar-through">
-					<!-- Page, "data-page" contains page name -->
-					<div data-page="index-1" class="page">
-						<!-- Scrollable page content -->
-						<div class="page-content">
-							<div class="list-block cards-list" style="margin-top: 0;">
-								<ul>
-        							<li class="card demo-card-header-pic">
-        								<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>
-        								<div class="card-content">
-        									<div class="card-content-inner">
-        										<p class="color-gray">特仑苏纯牛奶利乐苗条装250ml×8盒×3提 共24盒</p>
-        										<p>特仑苏纯牛奶来自黄金奶源纬度带，特仑苏专属牧场，海拔、纬度、阳光、水土，精选多国优质牧草品种，汇集各国良种乳牛，造就出天然优质乳蛋白，每100毫升牛奶中蛋白质含量>3.3克，比国家标准高出13.8%，比欧盟标准高出10%。牛奶中的新贵族。</p>
-        									</div>
-        								</div>
-        								<div class="card-footer">
-        									<a href="javascript:index_goto('');" class="">
-												<div class="tuan_g_core">
-													<div class="tuan_g_price">
-														<span>3人团</span>
-														<b>79.90</b>
-													</div>
-													<div class="tuan_g_btn">去开团</div>
-												</div>
-											</a>
-        								</div>
-        							</li>
-								</ul>
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"></div>
+		<div class="center sliding">拼好货</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="item.index" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block cards-list" style="margin-top: 0;">
+				<ul>
+					<li class="card demo-card-header-pic">
+						<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>
+						<div class="card-content">
+							<div class="card-content-inner">
+								<p class="color-gray">特仑苏纯牛奶利乐苗条装250ml×8盒×3提 共24盒</p>
+								<p>特仑苏纯牛奶来自黄金奶源纬度带，特仑苏专属牧场，海拔、纬度、阳光、水土，精选多国优质牧草品种，汇集各国良种乳牛，造就出天然优质乳蛋白，每100毫升牛奶中蛋白质含量>3.3克，比国家标准高出13.8%，比欧盟标准高出10%。牛奶中的新贵族。</p>
 							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			
-			<div id="view-2" class="view tab">
-				<div class="navbar"></div>
-				<div class="pages navbar-through toolbar-through">
-                    <div class="page"></div>
-				</div>
-            </div>
-			
-			<div id="view-3" class="view tab">
-				<div class="navbar"></div>
-				<div class="pages navbar-through toolbar-through">
-					<div class="page"></div>
-                </div>
-            </div>
-			
-			<div class="toolbar tabbar">
-				<div class="toolbar-inner">
-					<a id="href-1" href="#view-1" class="tab-link active">
-						<i class="fa fa-home" style="font-size: 26px;"></i>
-                    </a>
-                    <a id="href-2" href="#view-2" class="tab-link">
-                        <i class="fa fa-shopping-cart" style="font-size: 23px;"></i>
-                    </a>
-					<a id="href-3" href="#view-3" class="tab-link">
-                        <i class="fa fa-user" style="font-size: 23px;"></i>
-                    </a>
-                </div>
-            </div>
+						</div>
+						<div class="card-footer">
+							<a href="javascript:index_goto('');" class="">
+								<div class="tuan_g_core">
+									<div class="tuan_g_price">
+										<span>3人团</span>
+										<b>79.90</b>
+									</div>
+									<div class="tuan_g_btn">去开团</div>
+								</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
         </div>
-		
-		#JSM(["framework7"])
-		#JS_ENV_VAL()
-		<script src="$!{env.imgUrl}/js/item/index.js?t=20160303"></script>		
-	</body>
-</html>  
+    </div>
+</div>

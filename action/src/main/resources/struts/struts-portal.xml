@@ -15,5 +15,9 @@
 			<result name="success">/club/portal/home.vm</result>
 		</action>
 		
+		<action name="homepage" class="portalAction" method="homepage">
+			<result name="success">/club/portal/homepage.vm</result>
+		</action>
+		
 	</package>
 </struts>

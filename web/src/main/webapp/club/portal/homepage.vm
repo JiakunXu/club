@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title></title>
+		#ICON()
+		#CSSM(["framework7", "font-awesome"])
+		<link rel="stylesheet" href="$!{env.imgUrl}/css/portal/homepage.css" />
+		#UA()
+	</head>
+	<body>
+		<!-- Views -->
+		<div class="views tabs toolbar-through">
+			<!-- Your main view, should have "view-main" class -->
+			<div id="view-1" class="view view-main tab active" data-page="index-1">
+				<!-- Top Navbar-->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+						<div class="center sliding">好社惠－你身边的微小店</div>
+					</div>
+				</div>
+				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+				<div class="pages navbar-through toolbar-through">
+					<!-- Page, "data-page" contains page name -->
+					<div data-page="index-1" class="page">
+						<!-- Scrollable page content -->
+						<div class="page-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div id="view-2" class="view tab">
+				<div class="navbar"></div>
+				<div class="pages navbar-through toolbar-through">
+                    <div class="page"></div>
+				</div>
+            </div>
+			
+			<div id="view-3" class="view tab">
+				<div class="navbar"></div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page"></div>
+                </div>
+            </div>
+			
+			<div id="view-4" class="view tab">
+				<div class="navbar"></div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page"></div>
+                </div>
+            </div>
+			
+			<div id="view-5" class="view tab">
+				<div class="navbar"></div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page"></div>
+                </div>
+            </div>
+			
+			<div class="toolbar tabbar">
+				<div class="toolbar-inner">
+					<a id="href-1" href="#view-1" class="tab-link active">
+						<i class="fa fa-home" style="font-size: 26px;"></i>
+                    </a>
+                    <a id="href-2" href="#view-2" class="tab-link">
+                        <i class="fa fa-shopping-bag" style="font-size: 23px;"></i>
+                    </a>
+					<a id="href-3" href="#view-3" class="tab-link">
+                        <i class="fa fa-users" style="font-size: 23px;"></i>
+                    </a>
+					<a id="href-4" href="#view-4" class="tab-link">
+                        <i class="fa fa-shopping-cart" style="font-size: 23px;"></i>
+                    </a>
+					<a id="href-5" href="#view-5" class="tab-link">
+                        <i class="fa fa-user" style="font-size: 26px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+		
+		#JSM(["framework7"])
+		#JS_ENV_VAL()
+		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160303"></script>		
+	</body>
+</html>  
