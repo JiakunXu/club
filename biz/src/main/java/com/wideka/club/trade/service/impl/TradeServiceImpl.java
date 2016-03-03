@@ -129,7 +129,7 @@ public class TradeServiceImpl implements ITradeService {
 
 	@Override
 	public List<Trade> getTradeList(String userId, Long shopId, String[] type) {
-		if (StringUtils.isBlank(userId) || shopId == null || type == null || type.length == 0) {
+		if (StringUtils.isBlank(userId) || shopId == null) {
 			return null;
 		}
 
