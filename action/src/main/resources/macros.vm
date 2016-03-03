@@ -79,6 +79,8 @@
 		#elseif($key == 'framework7')
 			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/framework7.ios.min.css" />
 			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/framework7.ios.colors.min.css" />
+		#elseif($key == 'iconfont')
+			<link rel="stylesheet" href="$!{env.imgUrl}/iconfont/iconfont.css" />
 		#elseif($key == 'iosbadge')
 			<link rel="stylesheet" href="$!{env.imgUrl}/iosbadge/iosbadge.css" />
 		#elseif($key == 'nav')

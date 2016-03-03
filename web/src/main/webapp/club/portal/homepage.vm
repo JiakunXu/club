@@ -8,7 +8,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<title></title>
 		#ICON()
-		#CSSM(["framework7", "font-awesome"])
+		#CSSM(["framework7", "font-awesome", "iconfont"])
 		<link rel="stylesheet" href="$!{env.imgUrl}/css/portal/homepage.css" />
 		#UA()
 	</head>
@@ -81,19 +81,19 @@
 			<div class="toolbar tabbar">
 				<div class="toolbar-inner">
 					<a id="href-1" href="#view-1" class="tab-link active">
-						<i class="fa fa-home" style="font-size: 26px;"></i>
+						<i class="iconfont icon-home" style="font-size: 23px;"></i>
                     </a>
                     <a id="href-2" href="#view-2" class="tab-link">
-                        <i class="fa fa-shopping-bag" style="font-size: 23px;"></i>
+                        <i class="iconfont icon-goods" style="font-size: 23px;"></i>
                     </a>
 					<a id="href-3" href="#view-3" class="tab-link">
-                        <i class="fa fa-users" style="font-size: 23px;"></i>
+                        <i class="iconfont icon-group" style="font-size: 23px;"></i>
                     </a>
 					<a id="href-4" href="#view-4" class="tab-link">
-                        <i class="fa fa-shopping-cart" style="font-size: 23px;"></i>
+                        <i class="iconfont icon-cart" style="font-size: 23px;"></i>
                     </a>
 					<a id="href-5" href="#view-5" class="tab-link">
-                        <i class="fa fa-user" style="font-size: 26px;"></i>
+                        <i class="iconfont icon-people" style="font-size: 26px;"></i>
                     </a>
                 </div>
             </div>
