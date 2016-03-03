@@ -50,5 +50,6 @@
 	<sqlMap resource="ibatis/sqlmap-weixin.msg.text.xml" />
 	<sqlMap resource="ibatis/sqlmap-weixin.msg.video.xml" />
 	<sqlMap resource="ibatis/sqlmap-weixin.msg.voice.xml" />
+	<sqlMap resource="ibatis/sqlmap-wxpay.xml" />
     
 </sqlMapConfig>

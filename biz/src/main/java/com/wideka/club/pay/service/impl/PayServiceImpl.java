@@ -161,7 +161,7 @@ public class PayServiceImpl implements IPayService {
 		final WxNotify notify = (WxNotify) XmlUtil.parse(wxNotify, new WxNotify());
 
 		// 1. 判断回调信息
-		BooleanResult res = wxpayService.notify(notify);
+		BooleanResult res = wxpayService.validateWxNotify(notify);
 		if (!res.getResult()) {
 			return result;
 		}
@@ -201,8 +201,8 @@ public class PayServiceImpl implements IPayService {
 					return result;
 				}
 
-				// 4. 记录回调信息 notifyService;
-				// result = wxpayService.notify(notify);
+				// 4. 记录回调信息.
+				result = wxpayService.createWxNotify(notify);
 				if (!result.getResult()) {
 					ts.setRollbackOnly();
 

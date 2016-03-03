@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="wxpay">
+	
+	<typeAlias alias="wxNotify" type="com.wideka.weixin.api.pay.bo.WxNotify" />
+	
+	<insert id="createWxNotify" parameterClass="wxNotify">
+	<![CDATA[
+		INSERT
+		INTO basis_tb_wxpay_notify
+		  (
+			APP_ID,
+			MCH_ID,
+			DEVICE_INFO,
+			NONCE_STR,
+			SIGN,
+			RESULT_CODE,
+			ERR_CODE,
+			ERR_CODE_DES,
+			OPEN_ID,
+			IS_SUBSCRIBE,
+			TRADE_TYPE,
+			BANK_TYPE,
+			TOTAL_FEE,
+			FEE_TYPE,
+			CASH_FEE,
+			CASH_FEE_TYPE,
+			COUPON_FEE,
+			COUPON_COUNT,
+			TRANSACTION_ID,
+			OUT_TRADE_NO,
+			ATTACH,
+			TIME_END
+		  )
+		  VALUES
+		  (
+			#appId#,
+			#mchId#,
+			#deviceInfo#,
+			#nonceStr#,
+			#sign#,
+			#resultCode#,
+			#errCode#,
+			#errCodeDes#,
+			#openId#,
+			#isSubscribe#,
+			#tradeType#,
+			#bankType#,
+			#totalFee#,
+			#feeType#,
+			#cashFee#,
+			#cashFeeType#,
+			#couponFee#,
+			#couponCount#,
+			#transactionId#,
+			#outTradeNo#,
+			#attach#,
+			#timeEnd#
+		  )
+	]]>
+	</insert>
+		
+</sqlMap>

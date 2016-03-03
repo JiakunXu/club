@@ -12,7 +12,9 @@ import com.wideka.club.framework.exception.ServiceException;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.club.framework.util.EncryptUtil;
+import com.wideka.club.framework.util.LogUtil;
 import com.wideka.club.framework.util.UUIDUtil;
+import com.wideka.club.wxpay.dao.IWxpayDao;
 import com.wideka.weixin.api.pay.IUnifiedOrderService;
 import com.wideka.weixin.api.pay.bo.UnifiedOrder;
 import com.wideka.weixin.api.pay.bo.WxNotify;
@@ -27,6 +29,8 @@ public class WxpayServiceImpl implements IWxpayService {
 	private Logger4jExtend logger = Logger4jCollection.getLogger(WxpayServiceImpl.class);
 
 	private IUnifiedOrderService unifiedOrderService;
+
+	private IWxpayDao wxpayDao;
 
 	private String appId;
 
@@ -115,7 +119,7 @@ public class WxpayServiceImpl implements IWxpayService {
 	}
 
 	@Override
-	public BooleanResult notify(WxNotify wxNotify) {
+	public BooleanResult validateWxNotify(WxNotify wxNotify) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 		result.setCode(IWxpayService.RETURN_CODE_FAIL);
@@ -236,12 +240,35 @@ public class WxpayServiceImpl implements IWxpayService {
 		return false;
 	}
 
+	@Override
+	public BooleanResult createWxNotify(WxNotify wxNotify) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		try {
+			wxpayDao.createWxNotify(wxNotify);
+			result.setResult(true);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(wxNotify), e);
+		}
+
+		return result;
+	}
+
 	public IUnifiedOrderService getUnifiedOrderService() {
 		return unifiedOrderService;
 	}
 
 	public void setUnifiedOrderService(IUnifiedOrderService unifiedOrderService) {
 		this.unifiedOrderService = unifiedOrderService;
+	}
+
+	public IWxpayDao getWxpayDao() {
+		return wxpayDao;
+	}
+
+	public void setWxpayDao(IWxpayDao wxpayDao) {
+		this.wxpayDao = wxpayDao;
 	}
 
 	public String getAppId() {

@@ -41,6 +41,13 @@ public interface IWxpayService {
 	 * @param wxNotify
 	 * @return
 	 */
-	BooleanResult notify(WxNotify wxNotify);
+	BooleanResult validateWxNotify(WxNotify wxNotify);
+
+	/**
+	 * 
+	 * @param wxNotify
+	 * @return
+	 */
+	BooleanResult createWxNotify(WxNotify wxNotify);
 
 }

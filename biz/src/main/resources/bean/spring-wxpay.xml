@@ -7,6 +7,7 @@
 	
 	<bean id="wxpayService" class="com.wideka.club.wxpay.service.impl.WxpayServiceImpl">
 		<property name="unifiedOrderService" ref="unifiedOrderService" />
+		<property name="wxpayDao" ref="wxpayDao" />
 		<property name="appId">
 			<value>${wxpay.app.id}</value>
 		</property>
@@ -23,5 +24,7 @@
 			<value>${wxpay.key}</value>
 		</property>
 	</bean>
+	
+	<bean id="wxpayDao" class="com.wideka.club.wxpay.dao.impl.WxpayDaoImpl" parent="baseDao" />
 	
 </beans>
