@@ -45,7 +45,8 @@ public class PayAction extends BaseAction {
 	 */
 	public String pay() {
 		BooleanResult result =
-			payService.pay(0l, this.getOpenId(), tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()));
+			payService.pay(this.getOpenId(), 0L, tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()),
+				this.getOpenId());
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());

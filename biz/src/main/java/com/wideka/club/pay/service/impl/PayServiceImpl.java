@@ -39,12 +39,18 @@ public class PayServiceImpl implements IPayService {
 	private ITradeService tradeService;
 
 	@Override
-	public BooleanResult pay(Long userId, String openId, String tradeNo, String payType, String ip) {
+	public BooleanResult pay(final String userId, final Long shopId, final String tradeNo, String payType, String ip,
+		String openId) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
-		if (userId == null) {
+		if (StringUtils.isBlank(userId)) {
 			result.setCode("用户信息不能为空.");
+			return result;
+		}
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空.");
 			return result;
 		}
 
@@ -53,19 +59,66 @@ public class PayServiceImpl implements IPayService {
 			return result;
 		}
 
+		// 验证支付方式
+		if (StringUtils.isNotBlank(payType) && !IPayService.PAY_TYPE_ALIPAY.equals(payType)
+			&& !IPayService.PAY_TYPE_WXPAY.equals(payType)) {
+			result.setCode("请重新选择支付方式！");
+			return result;
+		}
+
 		// 锁定订单
 		String key = tradeNo.trim();
 
 		try {
-			memcachedCacheService.add(IMemcachedCacheService.CACHE_KEY_TRADE_NO + key, key,
-				IMemcachedCacheService.CACHE_KEY_TRADE_NO_DEFAULT_EXP);
+			memcachedCacheService.add(IMemcachedCacheService.CACHE_KEY_TRADE_NO + key, key, 30);
 		} catch (ServiceException e) {
 			result.setCode("当前订单已被锁定，请稍后再试。");
 			return result;
 		}
 
-		if (IPayService.PAY_TYPE_ALIPAY.equals(payType)) {
+		// 0. 查询交易订单
+		Trade trade = tradeService.getTrade(userId, shopId, tradeNo);
+		if (trade == null) {
+			result.setCode("当前订单不存在！");
+			return result;
+		}
 
+		// 1. 判断是否属于未付款交易订单
+		String type = trade.getType();
+		if (!ITradeService.CHECK.equals(type) && !ITradeService.TO_PAY.equals(type)) {
+			result.setCode("当前订单已完成支付！");
+			return result;
+		}
+
+		// 2. 临时订单
+		if (ITradeService.CHECK.equals(type)) {
+			// 3. 判断库存
+
+			// 4. 占用库存
+			BooleanResult res1 = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
+				public BooleanResult doInTransaction(TransactionStatus ts) {
+					BooleanResult res0 = new BooleanResult();
+
+					// 4.1 占用库存
+
+					// 4.2 修改交易状态 -> topay
+					res0 = tradeService.topayTrade(userId, shopId, tradeNo);
+					if (!res0.getResult()) {
+						ts.setRollbackOnly();
+
+						return res0;
+					}
+
+					return res0;
+				}
+			});
+
+			if (!res1.getResult()) {
+				return res1;
+			}
+		}
+
+		if (IPayService.PAY_TYPE_ALIPAY.equals(payType)) {
 			return result;
 		}
 
@@ -144,6 +197,7 @@ public class PayServiceImpl implements IPayService {
 					tradeService.payTrade(trade.getTradeNo(), IPayService.PAY_TYPE_WXPAY, notify.getTimeEnd());
 				if (!result.getResult()) {
 					ts.setRollbackOnly();
+
 					return result;
 				}
 
@@ -151,6 +205,7 @@ public class PayServiceImpl implements IPayService {
 				// result = wxpayService.notify(notify);
 				if (!result.getResult()) {
 					ts.setRollbackOnly();
+
 					return result;
 				}
 

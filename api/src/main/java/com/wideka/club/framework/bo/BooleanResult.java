@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * @author xujiakun
+ * @author JiakunXu
  * 
  */
 @XmlRootElement

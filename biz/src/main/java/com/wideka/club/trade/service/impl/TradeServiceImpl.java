@@ -164,8 +164,16 @@ public class TradeServiceImpl implements ITradeService {
 
 	@Override
 	public Trade getTrade(String userId, Long shopId, String tradeNo) {
-		// TODO Auto-generated method stub
-		return null;
+		if (StringUtils.isBlank(userId) || shopId == null || StringUtils.isBlank(tradeNo)) {
+			return null;
+		}
+
+		Trade trade = new Trade();
+		trade.setUserId(userId.trim());
+		trade.setShopId(shopId);
+		trade.setTradeNo(tradeNo.trim());
+
+		return getTrade(trade);
 	}
 
 	@Override
@@ -173,6 +181,40 @@ public class TradeServiceImpl implements ITradeService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public BooleanResult topayTrade(String userId, Long shopId, String tradeNo) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		Trade trade = new Trade();
+		// 待付款
+		trade.setType(ITradeService.TO_PAY);
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空。");
+			return result;
+		}
+		trade.setUserId(userId.trim());
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空。");
+			return result;
+		}
+		trade.setShopId(shopId);
+
+		if (StringUtils.isBlank(tradeNo)) {
+			result.setCode("交易订单不能为空。");
+			return result;
+		}
+		trade.setTradeNo(tradeNo.trim());
+
+		trade.setModifyUser(userId);
+
+		return updateTrade(trade);
+	}
+
+	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	@Override
 	public Trade getTrade(String tradeNo) {
@@ -215,17 +257,7 @@ public class TradeServiceImpl implements ITradeService {
 
 		trade.setModifyUser(payType);
 
-		try {
-			int c = tradeDao.updateTrade(trade);
-			if (c == 1) {
-				result.setResult(true);
-			}
-		} catch (Exception e) {
-			logger.error(LogUtil.parserBean(trade), e);
-			result.setCode("更新交易表失败！");
-		}
-
-		return result;
+		return updateTrade(trade);
 	}
 
 	/**
@@ -241,6 +273,25 @@ public class TradeServiceImpl implements ITradeService {
 		}
 
 		return null;
+	}
+
+	private BooleanResult updateTrade(Trade trade) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		try {
+			int c = tradeDao.updateTrade(trade);
+			if (c == 1) {
+				result.setResult(true);
+			} else {
+				result.setCode("更新交易失败！");
+			}
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+			result.setCode("更新交易表失败！");
+		}
+
+		return result;
 	}
 
 	public TransactionTemplate getTransactionTemplate() {

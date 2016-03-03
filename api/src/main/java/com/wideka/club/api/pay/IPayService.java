@@ -17,13 +17,15 @@ public interface IPayService {
 	 * 支付.
 	 * 
 	 * @param userId
-	 * @param openId
+	 * @param shopId
 	 * @param tradeNo
 	 * @param payType
 	 * @param ip
+	 * @param openId
+	 *            用户在商户appid下的唯一标识.
 	 * @return
 	 */
-	BooleanResult pay(Long userId, String openId, String tradeNo, String payType, String ip);
+	BooleanResult pay(String userId, Long shopId, String tradeNo, String payType, String ip, String openId);
 
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 

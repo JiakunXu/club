@@ -118,6 +118,15 @@ public interface ITradeService {
 	 */
 	BooleanResult cancelTrade(String userId, Long shopId, String tradeId);
 
+	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeNo
+	 * @return
+	 */
+	BooleanResult topayTrade(String userId, Long shopId, String tradeNo);
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	/**
