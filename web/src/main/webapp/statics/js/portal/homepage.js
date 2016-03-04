@@ -23,6 +23,7 @@ var view2 = myApp.addView('#view-2', {
 			dynamicNavbar : true
 		});
 $$('#href-2').on('click', function() {
+			view2.history = new Array(1);
 			view2.router.load({
 						url : appUrl + "/item/index.htm",
 						reload : true
@@ -33,6 +34,7 @@ var view3 = myApp.addView('#view-3', {
 			dynamicNavbar : true
 		});
 $$('#href-3').on('click', function() {
+			view3.history = new Array(1);
 			view3.router.load({
 						url : appUrl + "/facebook/index.htm",
 						reload : true
@@ -43,6 +45,7 @@ var view4 = myApp.addView('#view-4', {
 			dynamicNavbar : true
 		});
 $$('#href-4').on('click', function() {
+			view4.history = new Array(1);
 			view4.router.load({
 						url : appUrl + "/cart/index.htm",
 						ignoreCache : true,
@@ -54,6 +57,7 @@ var view5 = myApp.addView('#view-5', {
 			dynamicNavbar : true
 		});
 $$('#href-5').on('click', function() {
+			view5.history = new Array(1);
 			view5.router.load({
 						url : appUrl + "/member/index.htm",
 						reload : true
