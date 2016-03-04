@@ -24,13 +24,15 @@
 					<div class="card-content-inner">
 						<p>好社惠亭子到社区咯!</p>
                         <img src="$!{env.imgUrl}/image/ad/LCF_2479.jpg" width="100%"></img>
-						<p class="color-gray">赞: 112    评论: 43</p>
+						<p class="color-gray">
+							<i class="iconfont icon-appreciate"></i> 100
+							<i class="iconfont icon-comment" style="margin-left: 20px;"></i> 10</p>
 					</div>
 				</div>
 				<div class="card-footer">
-					<a href="#" class="link">赞</a>
-					<a href="#" class="link">评论</a>
-					<a href="#" class="link">分享</a>
+					<a href="#" class="link"><i class="iconfont icon-appreciate"></i></a>
+					<a href="#" class="link"><i class="iconfont icon-comment"></i></a>
+					<a href="#" class="link"><i class="iconfont icon-share"></i></a>
 				</div>
 			</div> 
         </div>
