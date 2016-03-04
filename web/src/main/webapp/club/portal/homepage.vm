@@ -50,31 +50,31 @@
 								<ul class="mui-flex" style="padding: 0;">
 									<li class="cell" style="">
 										<a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-01.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-01.jpg" width="36" height="36"></img>
 											积分刮券
 										</a>
 									</li>
 									<li class="cell" style="">
 										<a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-02.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-02.jpg" width="36" height="36"></img>
 											充值
 										</a>
 									</li>
 									<li class="cell" style="">
                                         <a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-03.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-03.jpg" width="36" height="36"></img>
                                             天猫国际
                                         </a>
 									</li>
 									<li class="cell" style="">
                                         <a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-04.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-04.jpg" width="36" height="36"></img>
                                             聚划算
                                         </a>
 									</li>
 									<li class="cell" style="">
                                         <a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-05.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-05.jpg" width="36" height="36"></img>
                                             天猫超市
                                         </a>
 									</li>
@@ -82,31 +82,31 @@
 								<ul class="mui-flex" style="padding: 0;">
                                     <li class="cell" style="">
                                         <a class="component type3" href="" style="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-06.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-06.jpg" width="36" height="36"></img>
                                             免费试用
                                         </a>
                                     </li>
                                     <li class="cell" style="">
                                         <a class="component type3" href="" style="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-07.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-07.jpg" width="36" height="36"></img>
                                             新人有礼
                                         </a>
                                     </li>
                                     <li class="cell" style="">
                                         <a class="component type3" href="" style="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-08.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-08.jpg" width="36" height="36"></img>
                                             粉丝趴
                                         </a>
                                     </li>
                                     <li class="cell" style="">
                                         <a class="component type3" href="" style="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-09.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-09.jpg" width="36" height="36"></img>
                                             领钱了
                                         </a>
                                     </li>
                                     <li class="cell" style="">
                                         <a class="component type3" href="" style="">
-                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-10.webp" width="36" height="36"></img>
+                                            <img class="" src="$!{env.imgUrl}/image/portal/cell-10.jpg" width="36" height="36"></img>
                                             分类
                                         </a>
                                     </li>
