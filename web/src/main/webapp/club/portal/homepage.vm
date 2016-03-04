@@ -21,7 +21,7 @@
 				<div class="navbar">
 					<div class="navbar-inner">
 						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-						<div class="center sliding" style="font-weight: 400; color: #ff5500;">好社惠－你身边的微小店</div>
+						<div class="center sliding">好社惠－你身边的微小店</div>
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
