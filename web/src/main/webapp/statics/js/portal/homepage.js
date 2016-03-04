@@ -54,12 +54,19 @@ $$('#href-5').on('click', function() {
 					});
 		});
 
-function index_goto(itemId) {
+function item_index_goto(itemId) {
 	view2.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
 }
 
-function detail_goto(type) {
+function item_detail_goto(type) {
 	view2.router.loadPage({
+				url : appUrl + "/trade/create.htm?type=" + type,
+				ignoreCache : true
+			});
+}
+
+function cart_index_goto(type) {
+	view4.router.loadPage({
 				url : appUrl + "/trade/create.htm?type=" + type,
 				ignoreCache : true
 			});
@@ -82,7 +89,7 @@ myApp.onPageInit('pay.index', function(page) {
 					});
 		});
 
-function pay() {
+function pay_index_pay() {
 	myApp.showIndicator();
 
 	$$('#pay/wxpay').trigger("submit");

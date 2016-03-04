@@ -3,7 +3,7 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="left"></div>
-		<div class="center sliding">会员中心</div>
+		<div class="center sliding" style="font-weight: 400; color: #ff5500;">会员中心</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 		</div>

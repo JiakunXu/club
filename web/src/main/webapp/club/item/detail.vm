@@ -3,7 +3,7 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-		<div class="center sliding">商品</div>
+		<div class="center sliding" style="font-weight: 400; color: #ff5500;">商品</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 		</div>
@@ -44,11 +44,11 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<a class="kt_item" href="javascript:detail_goto('');">
+					<a class="kt_item" href="javascript:item_detail_goto('');">
 						<div class="kt_price"><b>79.90</b><i> / </i>件</div>
 						<div class="kt_btn"><b>3人团</b></div>
 					</a>
-					<a class="kt_item kt_item_buy" href="javascript:detail_goto('');">
+					<a class="kt_item kt_item_buy" href="javascript:item_detail_goto('');">
 						<div class="kt_price"><b>135.00</b><i> / </i>件</div>
 						<div class="kt_btn">单独购买</div>
 					</a>

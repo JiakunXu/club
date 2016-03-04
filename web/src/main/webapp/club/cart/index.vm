@@ -3,7 +3,7 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="left"></div>
-		<div class="center sliding">购物车</div>
+		<div class="center sliding" style="font-weight: 400; color: #ff5500;">购物车</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 		</div>
@@ -14,6 +14,36 @@
 	<div data-page="cart.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			<div class="list-block" style="font-size: 13px; margin: 10px 0;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">店铺：好社惠</div>
+								<div class="item-after"><a href="#">编辑</a></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<label class="label-checkbox item-content">
+                            <input type="checkbox" name="my-checkbox"></input>
+							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+							<div class="item-inner">
+								<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img>
+								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
+								<div class="item-after">￥79.9</div>
+							</div>
+                        </label>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="bottom-fix" style="padding:0; margin-bottom: 44px;">
+        		<div class="bottom-cart">
+        			<div class="total-price">合计：<span class="js-total-price">79.90</span>元</div>
+        			<a href="javascript:cart_index_goto('');" class="btn btn-orange-dark">结算(1)</a>
+        		</div>
+        	</div>
         </div>
     </div>
 </div>

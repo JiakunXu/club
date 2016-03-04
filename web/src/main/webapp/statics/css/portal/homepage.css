@@ -182,9 +182,97 @@ a.component.type3 img {
 }
 
 .kt_btn:after {
-    background-image: url(../../image/item/0.png);
+    background-image: url(../../image/portal/0.png);
     background-repeat: no-repeat;
     background-size: 365px 490px;
+}
+
+
+
+.bottom-fix {
+    display: block;
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 6px 7px;
+    border-top: 1px solid #ccc;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(226,227,231,0.33)), to(rgba(248,248,248,0.33)));
+    background-image: -webkit-linear-gradient(bottom, rgba(226,227,231,0.33) 0%, rgba(248,248,248,0.33) 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(226,227,231,0.33) 0%, rgba(248,248,248,0.33) 100%);
+    background-image: linear-gradient(to top, rgba(226,227,231,0.33) 0%, rgba(248,248,248,0.33) 100%);
+    background-color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+.bottom-fix .bottom-cart {
+    padding: 0 10px;
+    height: 40px;
+    background-color: #ffffff;
+    font-weight: 500;
+    color: #f60;
+    position: relative;
+}
+
+.bottom-fix .bottom-cart .total-price {
+    padding-right: 80px;
+    text-align: center;
+    font-weight: 700;
+    width: auto;
+    margin-left: 55px;
+}
+
+.bottom-fix .bottom-cart>div {
+    height: 0;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.bottom-fix .bottom-cart a {
+    position: absolute;
+    right: 10px;
+    padding: 4px 10px;
+    top: 5px;
+    height: 30px;
+    margin-top: 0px;
+    min-width: 75px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bottom-fix .btn {
+    font-size: 14px;
+}
+
+.btn.btn-orange-dark {
+    color: #fff;
+    border-color: #f15a0c;
+    background-color: #f15a0c;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 5px 4px;
+    margin: 0;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 18px;
+    -webkit-appearance: none;
 }
 
 

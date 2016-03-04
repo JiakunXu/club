@@ -3,7 +3,7 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-		<div class="center sliding">支付</div>
+		<div class="center sliding" style="font-weight: 400; color: #ff5500;">支付</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 		</div>
@@ -109,7 +109,7 @@
 				</ul>
             </div>
 			<div class="content-block">
-				<p><a href="javascript:pay();" class="button button-big button-fill color-green" style="background: #44b549;">微信安全支付</a></p>
+				<p><a href="javascript:pay_index_pay();" class="button button-big button-fill color-green" style="background: #44b549;">微信安全支付</a></p>
             </div>
 			
 			<form id="pay/wxpay" action="$!{env.appUrl}/wxpay/pay.htm" method="post" class="ajax-submit">
