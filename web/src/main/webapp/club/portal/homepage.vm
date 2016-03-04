@@ -170,6 +170,6 @@
 		
 		#JSM(["framework7"])
 		#JS_ENV_VAL()
-		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160305"></script>		
+		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160306"></script>		
 	</body>
 </html>  
