@@ -9,6 +9,7 @@
 	<include file="struts/struts-cart.xml" />
 	<include file="struts/struts-error.xml" />
 	<include file="struts/struts-express.xml" />
+	<include file="struts/struts-facebook.xml" />
 	<include file="struts/struts-item.xml" />
 	<include file="struts/struts-login.xml" />
 	<include file="struts/struts-member.xml" />

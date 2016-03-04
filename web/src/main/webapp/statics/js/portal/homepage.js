@@ -32,6 +32,12 @@ $$('#href-2').on('click', function() {
 var view3 = myApp.addView('#view-3', {
 			dynamicNavbar : true
 		});
+$$('#href-3').on('click', function() {
+			view3.router.load({
+						url : appUrl + "/facebook/index.htm",
+						reload : true
+					});
+		});
 
 var view4 = myApp.addView('#view-4', {
 			dynamicNavbar : true
