@@ -33,7 +33,7 @@
 						<a href="javascript:trade_list_goto('$!{trade.tradeId}');" class="item-link item-content">
 							<div class="item-media"><img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img></div>
 							<div class="item-inner">
-								<div class="item-title">特仑苏纯牛奶利乐苗条装250ml×8盒×3提 共24盒}</div>
+								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
 								<div class="item-after">￥79.9</div>
 							</div>
                         </a>
