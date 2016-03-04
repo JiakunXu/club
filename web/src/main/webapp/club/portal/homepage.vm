@@ -160,7 +160,7 @@
                         <i class="iconfont icon-cart" style="font-size: 23px;"></i>
                     </a>
 					<a id="href-5" href="#view-5" class="tab-link">
-                        <i class="iconfont icon-people" style="font-size: 23px;"></i>
+                        <i class="iconfont icon-my" style="font-size: 23px;"></i>
                     </a>
                 </div>
             </div>
