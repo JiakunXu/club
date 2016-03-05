@@ -150,6 +150,18 @@
         		});
         
         wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: '好社惠', // 分享标题
+                link: '$!{env.appUrl}/homepage.htm', // 分享链接
+                imgUrl: '$!{env.imgUrl}/image/portal/logo.jpg', // 分享图标
+                success: function () { 
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () { 
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+			
         	wx.onMenuShareAppMessage({
         		title : '好社惠', // 分享标题
         		desc : '好社惠365社区便利亭为百姓日常生活消费提供支付便利,满足百姓日常生活中的消费账单如缴纳水电煤电话、手机费充值、信用卡还款转账、购买航空机票等交易需求的同时，为社区居民提供从工厂到消费者的最安全、最实惠、最便捷的社区直营奶站到家服务。', // 分享描述
