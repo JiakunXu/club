@@ -68,24 +68,6 @@ $$('#href-5').on('click', function() {
 			}
 		});
 
-function item_list_goto(itemId) {
-	view2.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
-}
-
-function item_detail_goto(type) {
-	view2.router.loadPage({
-				url : appUrl + "/trade/create.htm?type=" + type,
-				ignoreCache : true
-			});
-}
-
-function cart_index_goto(type) {
-	view4.router.loadPage({
-				url : appUrl + "/trade/create.htm?type=" + type,
-				ignoreCache : true
-			});
-}
-
 myApp.onPageInit('pay.index', function(page) {
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
@@ -132,6 +114,6 @@ function getBrandWCPayRequest(data) {
 					}
 				});
 	} catch (e) {
-		alert(e);
+		myApp.alert(e, '错误');
 	}
 }

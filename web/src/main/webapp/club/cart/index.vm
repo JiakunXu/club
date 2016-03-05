@@ -41,7 +41,7 @@
 			<div class="bottom-fix" style="padding:0; margin-bottom: 44px;">
         		<div class="bottom-cart">
         			<div class="total-price">合计：<span class="js-total-price">79.90</span>元</div>
-        			<a href="javascript:cart_index_goto('');" class="btn btn-orange-dark">结算(1)</a>
+        			<a href="$!{env.appUrl}/trade/create.htm?type=" class="btn btn-orange-dark" data-ignore-cache="true">结算(1)</a>
         		</div>
         	</div>
         </div>

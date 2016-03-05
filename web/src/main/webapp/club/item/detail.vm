@@ -44,11 +44,11 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<a class="kt_item" href="javascript:item_detail_goto('');">
+					<a class="kt_item" href="$!{env.appUrl}/trade/create.htm?type=" data-ignore-cache="true">
 						<div class="kt_price"><b>79.90</b><i> / </i>件</div>
 						<div class="kt_btn"><b>3人团</b></div>
 					</a>
-					<a class="kt_item kt_item_buy" href="javascript:item_detail_goto('');">
+					<a class="kt_item kt_item_buy" href="$!{env.appUrl}/trade/create.htm?type=" data-ignore-cache="true">
 						<div class="kt_price"><b>135.00</b><i> / </i>件</div>
 						<div class="kt_btn">单独购买</div>
 					</a>
