@@ -30,9 +30,9 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<a href="#" class="link"><i class="iconfont icon-appreciate"></i></a>
-					<a href="#" class="link"><i class="iconfont icon-comment"></i></a>
-					<a href="#" class="link"><i class="iconfont icon-share"></i></a>
+					<a href="#" class="link"><i class="iconfont icon-appreciate" style="font-size: 23px;"></i></a>
+					<a href="#" class="link"><i class="iconfont icon-comment" style="font-size: 23px;"></i></a>
+					<a href="#" class="link"><i class="iconfont icon-share" style="font-size: 23px;"></i></a>
 				</div>
 			</div> 
         </div>
