@@ -19,7 +19,7 @@
 				<div class="pull-to-refresh-arrow"></div>
 			</div>
 			#foreach($trade in $!{tradeList})
-			<div class="list-block" style="font-size: 13px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 13px;">
 				<ul>
 					<li>
 						<div class="item-content">

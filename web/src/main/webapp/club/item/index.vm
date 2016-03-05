@@ -14,7 +14,7 @@
 	<div data-page="item.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block cards-list" style="margin-top: 0;">
+			<div class="list-block cards-list">
 				<ul>
 					<li class="card demo-card-header-pic">
 						<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>
@@ -38,7 +38,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="list-block cards-list" style="margin-top: 0;">
+			<div class="list-block cards-list">
 				<ul>
 					<li class="card demo-card-header-pic">
 						<div style="background-image:url($!{env.imgUrl}/image/item/index-1.jpg)" valign="bottom" class="card-header color-white no-border"></div>

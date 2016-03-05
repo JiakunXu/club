@@ -2,6 +2,10 @@
 	color: #ff5500;
 }
 
+.list-block {
+    margin: 10px 0;
+}
+
 .tabbar a.active {
     color: #ff5500;
 }

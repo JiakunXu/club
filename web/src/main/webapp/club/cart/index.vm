@@ -14,7 +14,7 @@
 	<div data-page="cart.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block" style="font-size: 13px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 13px;">
 				<ul>
 					<li>
 						<div class="item-content">

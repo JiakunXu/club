@@ -14,7 +14,7 @@
 	<div data-page="pay.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block" style="margin: 10px 0;">
+			<div class="list-block">
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
@@ -29,7 +29,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px;">
 				<ul>
 					<li>
 						<div class="item-content">
@@ -65,7 +65,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px;">
 				<ul>
 					<li>
 						<a href="#" class="item-link item-content">
@@ -77,7 +77,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px;">
 				<ul>
 					<li>
 						<div class="item-content">
@@ -94,7 +94,7 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="font-size: 15px; margin: 10px 0;">
+			<div class="list-block" style="font-size: 15px;">
 				<ul>
 					<li>
 						<div class="item-content">
