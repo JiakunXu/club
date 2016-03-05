@@ -97,24 +97,29 @@
                 </div>
             </div>
 			
-			<div class="toolbar tabbar">
+			<div class="toolbar tabbar tabbar-labels">
 				<div class="toolbar-inner">
 					<a id="href-1" href="#view-1" class="tab-link active">
 						<i class="icon iconfont icon-home" style="font-size: 25px;"></i>
+						<span class="tabbar-label">首页</span>
                     </a>
                     <a id="href-2" href="#view-2" class="tab-link">
                         <i class="icon iconfont icon-goods" style="font-size: 25px;"></i>
+						<span class="tabbar-label">团一团</span>
                     </a>
 					<a id="href-3" href="#view-3" class="tab-link">
                         <i class="icon iconfont icon-group" style="font-size: 25px;">
 							<span class="badge bg-red">1</span>
+							<span class="tabbar-label">社区</span>
 						</i>
                     </a>
 					<a id="href-4" href="#view-4" class="tab-link">
                         <i class="icon iconfont icon-cart" style="font-size: 25px;"></i>
+						<span class="tabbar-label">购物车</span>
                     </a>
 					<a id="href-5" href="#view-5" class="tab-link">
                         <i class="icon iconfont icon-my" style="font-size: 25px;"></i>
+						<span class="tabbar-label">会员中心</span>
                     </a>
                 </div>
             </div>
