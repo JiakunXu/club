@@ -1,5 +1,9 @@
 package com.wideka.club.portal.action;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.StringUtils;
+
 import com.wideka.club.api.weixin.IWeixinService;
 import com.wideka.club.api.weixin.bo.Ticket;
 import com.wideka.club.framework.action.BaseAction;
@@ -36,7 +40,12 @@ public class PortalAction extends BaseAction {
 	 * @return
 	 */
 	public String homepage() {
-		ticket = weixinService.getTicket(env.getProperty("appUrl") + "/homepage.htm");
+		HttpServletRequest request = getServletRequest();
+		String requestURL = request.getRequestURL().toString();
+		String queryString = request.getQueryString();
+
+		ticket =
+			weixinService.getTicket(StringUtils.isNotEmpty(queryString) ? requestURL : requestURL + "?" + queryString);
 
 		return SUCCESS;
 	}
