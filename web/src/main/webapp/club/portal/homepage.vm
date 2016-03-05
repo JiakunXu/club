@@ -110,8 +110,8 @@
 					<a id="href-3" href="#view-3" class="tab-link">
                         <i class="icon iconfont icon-group" style="font-size: 25px;">
 							<span class="badge bg-red">1</span>
-							<span class="tabbar-label">社区</span>
 						</i>
+						<span class="tabbar-label">社区</span>
                     </a>
 					<a id="href-4" href="#view-4" class="tab-link">
                         <i class="icon iconfont icon-cart" style="font-size: 25px;"></i>
