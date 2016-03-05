@@ -15,7 +15,7 @@ public class ItemAction extends BaseAction {
 	 * 
 	 * @return
 	 */
-	public String index() {
+	public String list() {
 		return SUCCESS;
 	}
 

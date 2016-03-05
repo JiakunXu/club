@@ -25,7 +25,7 @@ var view2 = myApp.addView('#view-2', {
 $$('#href-2').on('click', function() {
 			if (view2.history.length == 1) {
 				view2.router.load({
-							url : appUrl + "/item/index.htm",
+							url : appUrl + "/item/list.htm",
 							reload : true
 						});
 			}

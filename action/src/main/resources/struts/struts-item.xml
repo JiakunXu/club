@@ -5,8 +5,8 @@
 	<package name="{http://club}club$item"
 		extends="{http://club}club$framework" namespace="/item">
 
-		<action name="index" class="itemAction" method="index">
-			<result name="success">/club/item/index.vm</result>
+		<action name="list" class="itemAction" method="list">
+			<result name="success">/club/item/list.vm</result>
 		</action>
 		
 		<action name="detail" class="itemAction" method="detail">

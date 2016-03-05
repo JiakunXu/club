@@ -70,6 +70,14 @@ public class TradeAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public String detail() {
+		return SUCCESS;
+	}
+
 	public ITradeService getTradeService() {
 		return tradeService;
 	}
