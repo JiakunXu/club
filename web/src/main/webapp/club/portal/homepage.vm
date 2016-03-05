@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<title>好社惠－你身边的微小店</title>
+		<title>好社惠</title>
 		#ICON()
 		#CSSM(["framework7", "iconfont"])
 		<link rel="stylesheet" href="$!{env.imgUrl}/css/portal/homepage.css" />
