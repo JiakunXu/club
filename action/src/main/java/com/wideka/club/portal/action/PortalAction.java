@@ -40,8 +40,8 @@ public class PortalAction extends BaseAction {
 	 * @return
 	 */
 	public String homepage() {
+		String requestURL = env.getProperty("appUrl") + "/homepage.htm";
 		HttpServletRequest request = getServletRequest();
-		String requestURL = request.getRequestURL().toString();
 		String queryString = request.getQueryString();
 
 		ticket =
