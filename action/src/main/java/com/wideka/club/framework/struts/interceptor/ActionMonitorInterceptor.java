@@ -22,9 +22,8 @@ import com.wideka.club.framework.util.ClientUtil;
 import com.wideka.club.framework.util.DateUtil;
 
 /**
- * ActionMonitorInterceptor.
  * 
- * @author xujiakun
+ * @author JiakunXu
  * 
  */
 public class ActionMonitorInterceptor implements Interceptor {
@@ -35,10 +34,10 @@ public class ActionMonitorInterceptor implements Interceptor {
 
 	private IMemcachedCacheService memcachedCacheService;
 
-	public void init() {
+	public void destroy() {
 	}
 
-	public void destroy() {
+	public void init() {
 	}
 
 	public String intercept(ActionInvocation invocation) throws Exception {

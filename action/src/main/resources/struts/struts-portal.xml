@@ -16,6 +16,7 @@
 		</action>
 		
 		<action name="homepage" class="portalAction" method="homepage">
+			<interceptor-ref name="oauth2Stack" />
 			<result name="success">/club/portal/homepage.vm</result>
 		</action>
 		

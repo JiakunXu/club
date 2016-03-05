@@ -14,9 +14,8 @@ import com.wideka.club.api.ca.ICAService;
 import com.wideka.club.api.user.bo.User;
 
 /**
- * AuthencationInterceptor.
  * 
- * @author xujiakun
+ * @author JiakunXu
  * 
  */
 public class AuthenticationInterceptor implements Interceptor {
@@ -27,10 +26,10 @@ public class AuthenticationInterceptor implements Interceptor {
 
 	private ICAService caService;
 
-	public void init() {
+	public void destroy() {
 	}
 
-	public void destroy() {
+	public void init() {
 	}
 
 	public String intercept(ActionInvocation invocation) throws Exception {
