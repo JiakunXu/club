@@ -45,7 +45,7 @@ public class PortalAction extends BaseAction {
 		String queryString = request.getQueryString();
 
 		ticket =
-			weixinService.getTicket(StringUtils.isNotEmpty(queryString) ? requestURL : requestURL + "?" + queryString);
+			weixinService.getTicket(StringUtils.isEmpty(queryString) ? requestURL : requestURL + "?" + queryString);
 
 		return SUCCESS;
 	}
