@@ -65,6 +65,10 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	private IMenuService menuService;
 
+	private String appId;
+
+	private String appSecret;
+
 	private String corpId;
 
 	private String corpSecret;
@@ -75,7 +79,43 @@ public class WeixinServiceImpl implements IWeixinService {
 			return null;
 		}
 
-		BooleanResult result = ticketService.getTicket(corpId, corpSecret);
+		BooleanResult result = ticketService.getTicket(appId, appSecret);
+		if (!result.getResult()) {
+			return null;
+		}
+
+		String t = result.getCode();
+		String nonceStr = UUIDUtil.generate();
+		String timestamp = Long.toString(System.currentTimeMillis() / 1000);
+		String signature;
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("jsapi_ticket=").append(t).append("&noncestr=").append(nonceStr).append("&timestamp=")
+			.append(timestamp).append("&url=").append(url.trim());
+
+		try {
+			signature = EncryptUtil.encryptSHA(sb.toString());
+		} catch (IOException e) {
+			logger.error(e);
+			return null;
+		}
+
+		Ticket ticket = new Ticket();
+		ticket.setAppId(appId);
+		ticket.setNonceStr(nonceStr);
+		ticket.setTimestamp(timestamp);
+		ticket.setSignature(signature);
+
+		return ticket;
+	}
+
+	@Override
+	public Ticket getTicket4Corp(String url) {
+		if (StringUtils.isBlank(url)) {
+			return null;
+		}
+
+		BooleanResult result = ticketService.getTicket4Corp(corpId, corpSecret);
 		if (!result.getResult()) {
 			return null;
 		}
@@ -716,6 +756,22 @@ public class WeixinServiceImpl implements IWeixinService {
 
 	public void setMenuService(IMenuService menuService) {
 		this.menuService = menuService;
+	}
+
+	public String getAppId() {
+		return appId;
+	}
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+	}
+
+	public String getAppSecret() {
+		return appSecret;
+	}
+
+	public void setAppSecret(String appSecret) {
+		this.appSecret = appSecret;
 	}
 
 	public String getCorpId() {

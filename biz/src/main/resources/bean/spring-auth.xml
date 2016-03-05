@@ -12,10 +12,10 @@
 	<bean id="authService" class="com.wideka.club.auth.service.impl.AuthServiceImpl">
 		<property name="oauth2Service" ref="oauth2Service" />
 		<property name="appId">
-			<value>${wxpay.app.id}</value>
+			<value>${weixin.app.id}</value>
 		</property>
 		<property name="appSecret">
-			<value>${wxpay.app.secret}</value>
+			<value>${weixin.app.secret}</value>
 		</property>
 	</bean>
 	

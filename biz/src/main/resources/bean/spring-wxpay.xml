@@ -9,19 +9,19 @@
 		<property name="unifiedOrderService" ref="unifiedOrderService" />
 		<property name="wxpayDao" ref="wxpayDao" />
 		<property name="appId">
-			<value>${wxpay.app.id}</value>
+			<value>${weixin.app.id}</value>
 		</property>
 		<property name="appSecret">
-			<value>${wxpay.app.secret}</value>
+			<value>${weixin.app.secret}</value>
 		</property>
 		<property name="mchId">
-			<value>${wxpay.mch.id}</value>
+			<value>${weixin.mch.id}</value>
 		</property>
 		<property name="notifyUrl">
-			<value>${wxpay.notify.url}</value>
+			<value>${weixin.notify.url}</value>
 		</property>
 		<property name="key">
-			<value>${wxpay.key}</value>
+			<value>${weixin.key}</value>
 		</property>
 	</bean>
 	

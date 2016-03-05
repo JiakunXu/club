@@ -11,10 +11,18 @@ public interface ITicketService {
 
 	/**
 	 * 
+	 * @param appId
+	 * @param appSecret
+	 * @return
+	 */
+	BooleanResult getTicket(String appId, String appSecret);
+
+	/**
+	 * 
 	 * @param corpId
 	 * @param corpSecret
 	 * @return
 	 */
-	BooleanResult getTicket(String corpId, String corpSecret);
+	BooleanResult getTicket4Corp(String corpId, String corpSecret);
 
 }

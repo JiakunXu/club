@@ -25,6 +25,66 @@ public class TokenServiceImpl implements ITokenService {
 	private IAccessTokenService accessTokenService;
 
 	@Override
+	public BooleanResult getToken(String grantType, String appId, String appSecret) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		if (StringUtils.isBlank(grantType)) {
+			result.setCode("grantType 不能为空.");
+			return result;
+		}
+
+		if (StringUtils.isBlank(appId)) {
+			result.setCode("appId 不能为空.");
+			return result;
+		}
+
+		if (StringUtils.isBlank(appSecret)) {
+			result.setCode("appSecret 不能为空.");
+			return result;
+		}
+
+		String token = null;
+		String key = grantType.trim() + "&" + appId.trim() + "&" + appSecret.trim();
+
+		try {
+			token = (String) memcachedCacheService.get(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key);
+		} catch (ServiceException e) {
+			logger.error(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, e);
+		}
+
+		if (StringUtils.isNotBlank(token)) {
+			result.setCode(token);
+			result.setResult(true);
+			return result;
+		}
+
+		AccessToken accessToken = null;
+
+		try {
+			accessToken = accessTokenService.getToken(grantType, appId, appSecret);
+		} catch (RuntimeException e) {
+			logger.error(e);
+
+			result.setCode(e.getMessage());
+			return result;
+		}
+
+		token = accessToken.getAccessToken();
+
+		try {
+			memcachedCacheService.set(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, token,
+				accessToken.getExpiresIn());
+		} catch (ServiceException e) {
+			logger.error(IMemcachedCacheService.CACHE_KEY_WX_TOKEN + key, e);
+		}
+
+		result.setCode(token);
+		result.setResult(true);
+		return result;
+	}
+
+	@Override
 	public BooleanResult getToken(String corpId, String corpSecret) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);

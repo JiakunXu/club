@@ -74,6 +74,12 @@
 		<property name="agentService" ref="agentService" />
 		<property name="messageService" ref="messageService" />
 		<property name="menuService" ref="menuService" />
+		<property name="appId">
+			<value>${weixin.app.id}</value>
+		</property>
+		<property name="appSecret">
+			<value>${weixin.app.secret}</value>
+		</property>
 		<property name="corpId">
 			<value>${weixin.corp.id}</value>
 		</property>
