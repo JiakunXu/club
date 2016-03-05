@@ -13,5 +13,9 @@
 			<result name="success">/club/trade/list.vm</result>
 		</action>
 		
+		<action name="detail" class="tradeAction" method="detail">
+			<result name="success">/club/trade/detail.vm</result>
+		</action>
+		
 	</package>
 </struts>

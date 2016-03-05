@@ -122,6 +122,6 @@
 		
 		#JSM(["framework7"])
 		#JS_ENV_VAL()
-		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160306"></script>		
+		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160307"></script>		
 	</body>
 </html>  

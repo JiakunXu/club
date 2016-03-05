@@ -1,0 +1,91 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">订单详情</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="trade.detail" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="iconfont icon-location" style="font-size: 25px;"></i></div>
+							<div class="item-inner" style="font-size: 14px;">
+								<div class="item-title">
+									收货人：张三<span style="float: right;">13333333333</span><br />
+									收货地址：中国上海市松江区新飞路1500号
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="font-size: 15px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">店铺：好社惠</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img></div>
+							<div class="item-inner">
+								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
+								<div class="item-after">￥79.9</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">运费</div>
+								<div class="item-after">￥10.00</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">合计</div>
+								<div class="item-after" style="color: #ff5500;">￥89.90</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			<div class="list-block" style="font-size: 15px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title" style="width: 100%; text-align: center;">
+                                    <span>￥79.90 + ￥10.00 运费</span><br />
+									<span style="font-size: 16px; color: #ff5500;">实付：￥89.90</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title">订单号：$!{tradeNo}</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>

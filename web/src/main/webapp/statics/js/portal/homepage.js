@@ -68,7 +68,7 @@ $$('#href-5').on('click', function() {
 			}
 		});
 
-function item_index_goto(itemId) {
+function item_list_goto(itemId) {
 	view2.router.loadPage(appUrl + "/item/detail.htm?itemId=" + itemId);
 }
 
