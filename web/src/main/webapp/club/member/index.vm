@@ -15,39 +15,32 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="list-block" style="font-size: 15px;">
+				<ul class="page-settings">
+					<li class="row" style="text-align: center;">
+						<a href="$!{env.appUrl}/trade/list.htm?type=pay" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
+							<h3>0</h3>
+							<div class="color-gray">待付款</div>
+                        </a>
+						<a href="$!{env.appUrl}/trade/list.htm?type=tosend" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
+							<h3>0</h3>
+							<div class="color-gray">待发货</div>
+                        </a>
+						<a href="$!{env.appUrl}/trade/list.htm?type=send" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
+							<h3>0</h3>
+							<div class="color-gray">已发货</div>
+                        </a>
+						<a href="$!{env.appUrl}/trade/list.htm?type=sign" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
+							<h3>0</h3>
+							<div class="color-gray">已完成</div>
+                        </a>
+					</li>
+                </ul>
 				<ul>
 					<li>
 						<a href="$!{env.appUrl}/trade/list.htm" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media"><i class="iconfont icon-text"></i></div>
 							<div class="item-inner">
 								<div class="item-title">全部订单</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="$!{env.appUrl}/trade/list.htm?type=pay" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media" style="margin-left: 15px;"></div>
-							<div class="item-inner">
-								<div class="item-title">待付款的订单</div>
-								<div class="item-after"></div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="$!{env.appUrl}/trade/list.htm?type=tosend" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media" style="margin-left: 15px;"></div>
-							<div class="item-inner">
-								<div class="item-title">已付款的订单</div>
-								<div class="item-after"></div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="$!{env.appUrl}/trade/list.htm?type=send" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media" style="margin-left: 15px;"></div>
-							<div class="item-inner">
-								<div class="item-title">已发货的订单</div>
-								<div class="item-after"></div>
 							</div>
 						</a>
 					</li>

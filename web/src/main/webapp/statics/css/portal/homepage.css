@@ -348,3 +348,19 @@ a.component.type3 img {
 	margin-bottom: 10px;
 	text-align: center;
 }
+
+
+
+.page-settings .row h3 {
+    margin: 0.6rem 0 0 0;
+}
+
+.page-settings .row .color-gray {
+    margin: 0 0 0.6rem 0;
+    font-size: 0.8rem;
+}
+
+.page-settings .col-25 + .col-25 {
+    border-left: 1px solid #ccc;
+    border-left-style: dashed;
+}
