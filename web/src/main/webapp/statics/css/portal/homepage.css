@@ -364,3 +364,7 @@ a.component.type3 img {
     border-left: 1px solid #ccc;
     border-left-style: dashed;
 }
+
+.list-block .page-settings:after {
+	height: 0;
+}

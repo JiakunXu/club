@@ -18,15 +18,15 @@
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
 						<a href="$!{env.appUrl}/trade/list.htm?type=pay" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
-							<h3>0</h3>
+							<h3>10</h3>
 							<div class="color-gray">待付款</div>
                         </a>
 						<a href="$!{env.appUrl}/trade/list.htm?type=tosend" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
-							<h3>0</h3>
+							<h3>7</h3>
 							<div class="color-gray">待发货</div>
                         </a>
 						<a href="$!{env.appUrl}/trade/list.htm?type=send" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
-							<h3>0</h3>
+							<h3>3</h3>
 							<div class="color-gray">已发货</div>
                         </a>
 						<a href="$!{env.appUrl}/trade/list.htm?type=sign" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
