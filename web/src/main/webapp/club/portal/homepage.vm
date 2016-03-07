@@ -53,7 +53,7 @@
 										</a>
 									</li>
 									<li class="cell" style="">
-                                        <a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
+                                        <a class="component type3 external" href="$!{env.appUrl}/express/index.htm" style="padding:4px" 0px="" 0px;="">
                                             <img class="" src="$!{env.imgUrl}/image/portal/kdsf.png" width="36" height="36"></img>快递收发
                                         </a>
 									</li>

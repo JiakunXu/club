@@ -293,10 +293,10 @@ a.component.type3 img {
 	font-size: 14px;
 }
 
-.bottom-fix .bottom-cart a {
+.bottom-fix .bottom-cart button {
 	position: absolute;
 	right: 10px;
-	padding: 4px 10px;
+	padding: 5px 10px;
 	top: 5px;
 	height: 30px;
 	margin-top: 0px;
