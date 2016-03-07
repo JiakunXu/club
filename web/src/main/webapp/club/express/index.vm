@@ -54,7 +54,7 @@
                                         运单查询
                                     </p>
                                 </a>
-                                <a href="#" class="weui_grid item-link item-content">
+                                <a href="$!{env.appUrl}/express/rate.htm" class="weui_grid item-link item-content">
                                     <div class="weui_grid_icon">
                                         <img src="$!{env.imgUrl}/image/weixin/icon_nav_toast.png" alt="" />
                                     </div>
@@ -62,7 +62,7 @@
                                         运费查询
                                     </p>
                                 </a>
-                                <a href="#" class="weui_grid item-link item-content">
+                                <a href="$!{env.appUrl}/express/time.htm" class="weui_grid item-link item-content">
                                     <div class="weui_grid_icon">
                                         <img src="$!{env.imgUrl}/image/weixin/icon_nav_icons.png" alt="" />
                                     </div>
@@ -78,7 +78,7 @@
                                         服务网点
                                     </p>
                                 </a>
-                                <a href="#" class="weui_grid item-link item-content">
+                                <a href="$!{env.appUrl}/express/range.htm" class="weui_grid item-link item-content">
                                     <div class="weui_grid_icon">
                                         <img src="$!{env.imgUrl}/image/weixin/icon_nav_dialog.png" alt="" />
                                     </div>

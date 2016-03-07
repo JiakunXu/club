@@ -11,8 +11,8 @@
 	<div data-page="ship" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			<div class="content-block-title">寄件人信息</div>
 			<form id="ship" action="#" method="post" class="list-block ajax-submit">
-				<div class="content-block-title">寄件人信息</div>
 				<ul>
 					<li>
 						<div class="item-content">

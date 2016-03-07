@@ -32,12 +32,24 @@ public class ExpressAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	public String rate() {
+		return SUCCESS;
+	}
+
+	public String time() {
+		return SUCCESS;
+	}
+
 	/**
 	 * 服务网点.
 	 * 
 	 * @return
 	 */
 	public String store() {
+		return SUCCESS;
+	}
+
+	public String range() {
 		return SUCCESS;
 	}
 

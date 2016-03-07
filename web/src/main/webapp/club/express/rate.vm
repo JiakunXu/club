@@ -1,0 +1,87 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">运费查询</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="rate" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title label">原寄地</div>
+								<div class="item-input">
+									<div class="row no-gutter">
+    									<div class="col-33"><select id="province_0" ></select></div>
+                    					<div class="col-33"><select id="city_0" ></select></div>
+                    					<div class="col-33"><select id="area_0" ></select></div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title label">目的地</div>
+								<div class="item-input">
+									<div class="row no-gutter">
+    									<div class="col-33"><select id="province_1" ></select></div>
+                    					<div class="col-33"><select id="city_1" ></select></div>
+                    					<div class="col-33"><select id="area_1" ></select></div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title label">重量(kg)</div>
+								<div class="item-input">
+                                    <input type="number" value="1" placeholder="输入快件重量进行查询"></input>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title label" style="width: 50px;">体积</div>
+								<div class="item-input">
+                                    <div class="row no-gutter">
+    									<div class="col-33 item-inner">
+											<div class="item-title label">长</div>
+                                            <div class="item-input"><input type="number" value="1"></input></div>
+                                            <div class="item-after">cm</div>
+										</div>
+                                       <div class="col-33 item-inner">
+											<div class="item-title label">宽</div>
+                                            <div class="item-input"><input type="number" value="1"></input></div>
+                                            <div class="item-after">cm</div>
+										</div>
+                                        <div class="col-33 item-inner">
+											<div class="item-title label">高</div>
+                                            <div class="item-input"><input type="number" value="1"></input></div>
+                                            <div class="item-after">cm</div>
+										</div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="#" class="button button-big">查询</a>
+    			</div>
+			</div>
+        </div>
+    </div>
+</div>

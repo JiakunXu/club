@@ -1,0 +1,37 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">收送范围</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="range" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block-title">查询地区</div>
+			<div class="list-block">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-input">
+									<div class="row no-gutter">
+    									<div class="col-33"><select id="province" ></select></div>
+                    					<div class="col-33"><select id="city" ></select></div>
+                    					<div class="col-33"><select id="area" ></select></div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="content-block">
+    				<a href="#" class="button button-big">查询</a>
+    			</div>
+			</div>
+        </div>
+    </div>
+</div>

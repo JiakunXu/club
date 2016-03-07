@@ -29,12 +29,54 @@ myApp.onPageInit('ship', function(page) {
 			$.fn.cityTools(e);
 		});
 
+myApp.onPageInit('rate', function(page) {
+			$.fn.cityTools({
+						provinceId : "province_0",
+						cityId : "city_0",
+						countyId : "area_0",
+						dfCode : '310'
+					});
+
+			$.fn.cityTools({
+						provinceId : "province_1",
+						cityId : "city_1",
+						countyId : "area_1",
+						dfCode : '3301'
+					});
+		});
+
+myApp.onPageInit('time', function(page) {
+			$.fn.cityTools({
+						provinceId : "province_0",
+						cityId : "city_0",
+						countyId : "area_0",
+						dfCode : '310'
+					});
+
+			$.fn.cityTools({
+						provinceId : "province_1",
+						cityId : "city_1",
+						countyId : "area_1",
+						dfCode : '3301'
+					});
+		});
+
 myApp.onPageInit('store', function(page) {
 	var script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src = "http://api.map.baidu.com/api?v=2.0&ak=57GsXSutGfXcANaX3GfW1FqZ&callback=init";
 	document.body.appendChild(script);
 });
+
+myApp.onPageInit('range', function(page) {
+			var e = {
+				provinceId : "province",
+				cityId : "city",
+				countyId : "area",
+				dfCode : '310'
+			};
+			$.fn.cityTools(e);
+		});
 
 function init() {
 	var script = document.createElement("script");

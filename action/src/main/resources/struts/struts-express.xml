@@ -17,8 +17,20 @@
 			<result name="success">/club/express/waybill.vm</result>
 		</action>
 		
+		<action name="rate" class="expressAction" method="rate">
+			<result name="success">/club/express/rate.vm</result>
+		</action>
+		
+		<action name="time" class="expressAction" method="time">
+			<result name="success">/club/express/time.vm</result>
+		</action>
+		
 		<action name="store" class="expressAction" method="store">
 			<result name="success">/club/express/store.vm</result>
+		</action>
+		
+		<action name="range" class="expressAction" method="range">
+			<result name="success">/club/express/range.vm</result>
 		</action>
 		
 	</package>
