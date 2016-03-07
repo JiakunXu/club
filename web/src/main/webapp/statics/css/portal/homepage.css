@@ -279,18 +279,30 @@ a.component.type3 img {
 	position: relative;
 }
 
+.bottom-fix .bottom-cart .select-all.checked {
+    color: #f60;
+}
+
+.bottom-fix .bottom-cart .select-all {
+    font-weight: 500;
+    float: left;
+    width: 60px;
+    height: 40px;
+    color: #ccc;
+}
+
+.bottom-fix .bottom-cart>div {
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+}
+
 .bottom-fix .bottom-cart .total-price {
 	padding-right: 80px;
 	text-align: center;
 	font-weight: 700;
 	width: auto;
 	margin-left: 55px;
-}
-
-.bottom-fix .bottom-cart>div {
-	height: 0;
-	line-height: 40px;
-	font-size: 14px;
 }
 
 .bottom-fix .bottom-cart button {
