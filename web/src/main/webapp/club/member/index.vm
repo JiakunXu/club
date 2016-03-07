@@ -17,7 +17,7 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
-						<a href="$!{env.appUrl}/trade/list.htm?type=pay" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
+						<a href="$!{env.appUrl}/trade/list.htm?type=topay" class="col-25 item-link" style="width: 25%;" data-ignore-cache="true">
 							<h3>10</h3>
 							<div class="color-gray">待付款</div>
                         </a>

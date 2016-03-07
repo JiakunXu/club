@@ -57,12 +57,14 @@ public class TradeAction extends BaseAction {
 		Long shopId = 0L;
 
 		// 待付款
-		if ("pay".equals(type)) {
+		if ("topay".equals(type)) {
 			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "check", "topay" });
 		} else if ("tosend".equals(type)) {
 			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "tosend" });
 		} else if ("send".equals(type)) {
 			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "send" });
+		} else if ("sign".equals(type)) {
+			tradeList = tradeService.getTradeList(userId, shopId, new String[] { "sign" });
 		} else {
 			tradeList = tradeService.getTradeList(userId, shopId, null);
 		}
