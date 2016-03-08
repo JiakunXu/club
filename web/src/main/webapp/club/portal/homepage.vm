@@ -43,7 +43,7 @@
 							<div class="" style="background-color:#ffffff;">
 								<ul class="mui-flex" style="padding: 0;">
 									<li class="cell" style="">
-										<a class="component type3" href="" style="padding:4px" 0px="" 0px;="">
+										<a class="component type3" href="$!{env.appUrl}/item/detail.htm" style="padding:4px" 0px="" 0px;="">
                                             <img class="" src="$!{env.imgUrl}/image/portal/lxsp.png" width="36" height="36"></img>冷鲜食品
 										</a>
 									</li>
