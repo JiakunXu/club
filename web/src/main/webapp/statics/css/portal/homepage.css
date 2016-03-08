@@ -1,3 +1,4 @@
+/* 整体布局 */
 .navbar .navbar-inner .center {
 	color: #ff5500;
 }
@@ -16,6 +17,7 @@
 
 
 
+/* 首页导航模块 */
 .mui-flex, .mui-flex *, .mui-flex :after, .mui-flex :before {
 	box-sizing: border-box;
 }
@@ -62,6 +64,7 @@ a.component.type3 img {
 
 
 
+/* 商品列表模块 */
 .demo-card-header-pic .card-header {
 	height: 50vw;
 	background-size: cover;
@@ -207,6 +210,7 @@ a.component.type3 img {
 
 
 
+/* facebook */
 .facebook-card .card-header {
 	display: block;
 	padding: 10px;
@@ -247,6 +251,7 @@ a.component.type3 img {
 
 
 
+/* 购物车 */
 .bottom-fix {
 	display: block;
 	z-index: 100;
@@ -355,6 +360,7 @@ a.component.type3 img {
 
 
 
+/* 会员中心 */
 .page-settings .row h3 {
     margin: 0.6rem 0 0 0;
 }
