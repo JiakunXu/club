@@ -305,7 +305,7 @@ a.component.type3 img {
 	margin-left: 55px;
 }
 
-.bottom-fix .bottom-cart button {
+.bottom-fix .bottom-cart a {
 	position: absolute;
 	right: 10px;
 	padding: 5px 10px;
