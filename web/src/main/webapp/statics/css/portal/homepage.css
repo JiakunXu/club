@@ -10,6 +10,10 @@
     color: #ff5500;
 }
 
+.tabbar.tabbar-hidden, .tabbar.toolbar-hidden, .toolbar.tabbar-hidden, .toolbar.toolbar-hidden {
+    display: none;
+}
+
 
 
 .mui-flex, .mui-flex *, .mui-flex :after, .mui-flex :before {
