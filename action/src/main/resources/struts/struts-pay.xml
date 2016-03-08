@@ -15,17 +15,15 @@
 	<!-- alipay 支付 -->
 	<package name="{http://club}club$alipay"
 		extends="{http://club}club$framework" namespace="/alipay">
-		<action name="pay" class="payAction" method="pay">
-		</action>
+		<action name="pay" class="payAction" method="pay"></action>
 	</package>
 	
 	<!-- wx 支付 -->
 	<package name="{http://club}club$wxpay"
 		extends="{http://club}club$framework" namespace="/wxpay">
-		<action name="pay" class="payAction" method="pay">
-		</action>
-		<action name="notify" class="payAction" method="wxNotify">
-		</action>
+		<action name="pay" class="payAction" method="pay"></action>
+		<action name="refund" class="payAction" method="refund"></action>
+		<action name="notify" class="payAction" method="wxNotify"></action>
 	</package>
 
 </struts>

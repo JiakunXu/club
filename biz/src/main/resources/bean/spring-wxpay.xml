@@ -7,6 +7,7 @@
 	
 	<bean id="wxpayService" class="com.wideka.club.wxpay.service.impl.WxpayServiceImpl">
 		<property name="unifiedOrderService" ref="unifiedOrderService" />
+		<property name="refundService" ref="refundService" />
 		<property name="wxpayDao" ref="wxpayDao" />
 		<property name="appId">
 			<value>${weixin.app.id}</value>

@@ -42,7 +42,13 @@
 						<div class="item-content">
 							<div class="item-inner">
                                 <div class="item-title">总价：<span style="color: #ff5500;">￥89.90</span></div>
-								<div class="item-after"></div>
+								<div class="item-after">
+									#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
+									<a href="#" class="button">付款</a>
+									#elseif($!{trade.type} == 'tosend')
+									<a href="javascript:trade_list_refund('$!{trade.tradeNo}');" class="button">退款</a>
+									#end
+								</div>
 							</div>
 						</div>
 					</li>
@@ -54,8 +60,8 @@
 				<div class="preloader"></div>
 			</div>
 		</div>
-		<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="post" class="ajax-submit">
-        	<input type="hidden" name="tradeId" id="trade_list_tradeId"/>
+		<form id="trade/list/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="post" class="ajax-submit">
+        	<input type="hidden" name="tradeNo" id="trade_list_tradeNo"/>
         </form>
     </div>
 </div>

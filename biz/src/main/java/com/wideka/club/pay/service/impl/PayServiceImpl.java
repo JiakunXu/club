@@ -18,7 +18,9 @@ import com.wideka.club.framework.exception.ServiceException;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.club.framework.util.DateUtil;
+import com.wideka.club.framework.util.UUIDUtil;
 import com.wideka.club.framework.util.XmlUtil;
+import com.wideka.weixin.api.pay.bo.Refund;
 import com.wideka.weixin.api.pay.bo.WxNotify;
 
 /**
@@ -132,6 +134,80 @@ public class PayServiceImpl implements IPayService {
 			try {
 				result.setCode(wxpayService.getBrandWCPayRequest(tradeNo, "订单号：" + tradeNo, null, null,
 					Integer.parseInt(price.toString()), ip, timeStart, timeExpire, openId));
+				result.setResult(true);
+			} catch (ServiceException e) {
+				logger.error(e);
+
+				result.setCode(e.getMessage());
+			}
+
+			return result;
+		}
+
+		result.setCode("支付类型.");
+		return result;
+	}
+
+	@Override
+	public BooleanResult refund(String userId, Long shopId, final String tradeNo) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空.");
+			return result;
+		}
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空.");
+			return result;
+		}
+
+		if (StringUtils.isBlank(tradeNo)) {
+			result.setCode("交易信息不能为空.");
+			return result;
+		}
+
+		// 锁定订单
+		String key = tradeNo.trim();
+
+		try {
+			memcachedCacheService.add(IMemcachedCacheService.CACHE_KEY_TRADE_NO + key, key, 30);
+		} catch (ServiceException e) {
+			result.setCode("当前订单已被锁定，请稍后再试。");
+			return result;
+		}
+
+		// 0. 查询交易订单
+		Trade trade = tradeService.getTrade(userId, shopId, tradeNo);
+		if (trade == null) {
+			result.setCode("当前订单不存在！");
+			return result;
+		}
+
+		// 1. 判断是否属于未付款交易订单
+		String type = trade.getType();
+		if (!ITradeService.TO_SEND.equals(type)) {
+			result.setCode("当前订单尚未付款或已发货！");
+			return result;
+		}
+
+		String payType = trade.getPayType();
+
+		if (IPayService.PAY_TYPE_ALIPAY.equals(payType)) {
+			return result;
+		}
+
+		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
+			BigDecimal price = trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
+			int fee = Integer.parseInt(price.toString());
+
+			try {
+				Refund refund =
+					wxpayService.refund(null, null, trade.getTradeNo(), DateUtil.getNowDateminStr()
+						+ UUIDUtil.generate().substring(9), fee, fee, null);
+
+				result.setCode(refund.getOutRefundNo());
 				result.setResult(true);
 			} catch (ServiceException e) {
 				logger.error(e);

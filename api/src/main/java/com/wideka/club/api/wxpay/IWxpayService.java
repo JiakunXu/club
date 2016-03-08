@@ -2,6 +2,7 @@ package com.wideka.club.api.wxpay;
 
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.exception.ServiceException;
+import com.wideka.weixin.api.pay.bo.Refund;
 import com.wideka.weixin.api.pay.bo.WxNotify;
 
 /**
@@ -34,6 +35,21 @@ public interface IWxpayService {
 	 */
 	String getBrandWCPayRequest(String tradeNo, String body, String detail, String attach, int totalFee, String ip,
 		String timeStart, String timeExpire, String openId) throws ServiceException;
+
+	/**
+	 * 
+	 * @param deviceInfo
+	 * @param transactionId
+	 * @param outTradeNo
+	 * @param outRefundNo
+	 * @param totalFee
+	 * @param refundFee
+	 * @param refundFeeType
+	 * @return
+	 * @throws ServiceException
+	 */
+	Refund refund(String deviceInfo, String transactionId, String outTradeNo, String outRefundNo, int totalFee,
+		int refundFee, String refundFeeType) throws ServiceException;
 
 	/**
 	 * 支付通知.

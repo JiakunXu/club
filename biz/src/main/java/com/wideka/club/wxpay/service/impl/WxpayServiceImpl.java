@@ -15,7 +15,9 @@ import com.wideka.club.framework.util.EncryptUtil;
 import com.wideka.club.framework.util.LogUtil;
 import com.wideka.club.framework.util.UUIDUtil;
 import com.wideka.club.wxpay.dao.IWxpayDao;
+import com.wideka.weixin.api.pay.IRefundService;
 import com.wideka.weixin.api.pay.IUnifiedOrderService;
+import com.wideka.weixin.api.pay.bo.Refund;
 import com.wideka.weixin.api.pay.bo.UnifiedOrder;
 import com.wideka.weixin.api.pay.bo.WxNotify;
 
@@ -29,6 +31,8 @@ public class WxpayServiceImpl implements IWxpayService {
 	private Logger4jExtend logger = Logger4jCollection.getLogger(WxpayServiceImpl.class);
 
 	private IUnifiedOrderService unifiedOrderService;
+
+	private IRefundService refundService;
 
 	private IWxpayDao wxpayDao;
 
@@ -116,6 +120,27 @@ public class WxpayServiceImpl implements IWxpayService {
 		unifiedOrder.setOpenId(openId);
 
 		return unifiedOrderService.unifiedOrder(unifiedOrder, key);
+	}
+
+	@Override
+	public Refund refund(String deviceInfo, String transactionId, String outTradeNo, String outRefundNo, int totalFee,
+		int refundFee, String refundFeeType) throws ServiceException {
+		Refund refund = new Refund();
+
+		refund.setAppId(appId);
+		refund.setMchId(mchId);
+		refund.setDeviceInfo(deviceInfo);
+		refund.setNonceStr(UUIDUtil.generate());
+		// refund.setSign("");
+		refund.setTransactionId(transactionId);
+		refund.setOutTradeNo(outTradeNo);
+		refund.setOutRefundNo(outRefundNo);
+		refund.setTotalFee(totalFee);
+		refund.setRefundFee(refundFee);
+		refund.setRefundFeeType(refundFeeType);
+		refund.setOpUserId(mchId);
+
+		return refundService.refund(refund, key);
 	}
 
 	@Override
@@ -261,6 +286,14 @@ public class WxpayServiceImpl implements IWxpayService {
 
 	public void setUnifiedOrderService(IUnifiedOrderService unifiedOrderService) {
 		this.unifiedOrderService = unifiedOrderService;
+	}
+
+	public IRefundService getRefundService() {
+		return refundService;
+	}
+
+	public void setRefundService(IRefundService refundService) {
+		this.refundService = refundService;
 	}
 
 	public IWxpayDao getWxpayDao() {

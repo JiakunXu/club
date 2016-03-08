@@ -59,6 +59,24 @@ public class PayAction extends BaseAction {
 	}
 
 	/**
+	 * 退款.
+	 * 
+	 * @return
+	 */
+	public String refund() {
+		BooleanResult result = payService.refund(this.getOpenId(), 0L, tradeNo);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(500);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
+	/**
 	 * 回调.
 	 * 
 	 * @return

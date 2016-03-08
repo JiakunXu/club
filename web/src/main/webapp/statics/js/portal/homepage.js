@@ -117,3 +117,31 @@ function getBrandWCPayRequest(data) {
 		myApp.alert(e, '错误');
 	}
 }
+
+myApp.onPageInit('trade.list', function(page) {
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+					});
+
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '信息', function() {
+									view5.router.back();
+								});
+					});
+
+			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '错误');
+					});
+		});
+
+function trade_list_refund(tradeNo) {
+	myApp.confirm('确定申请退款？', '订单管理', function() {
+				myApp.showIndicator();
+
+				$$('#trade_list_tradeNo').val(tradeNo);
+				$$('#trade/list/refund').trigger("submit");
+			});
+}

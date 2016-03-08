@@ -25,8 +25,6 @@ public interface ITradeService {
 	 */
 	String TO_PAY = "topay";
 
-	String PAY = "pay";
-
 	/**
 	 * 已付款.
 	 */

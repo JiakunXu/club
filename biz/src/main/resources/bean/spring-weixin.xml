@@ -125,6 +125,7 @@
 	<bean id="menuService" class="com.wideka.weixin.menu.service.impl.MenuServiceImpl"></bean>
 	<bean id="messageService" class="com.wideka.weixin.message.service.impl.MessageServiceImpl"></bean>
 	<bean id="oauth2Service" class="com.wideka.weixin.auth.service.impl.OAuth2ServiceImpl"></bean>
+	<bean id="refundService" class="com.wideka.weixin.pay.service.impl.RefundServiceImpl"></bean>
 	<bean id="tagService" class="com.wideka.weixin.tag.service.impl.TagServiceImpl"></bean>
 	<bean id="unifiedOrderService" class="com.wideka.weixin.pay.service.impl.UnifiedOrderServiceImpl"></bean>
 	<bean id="userService" class="com.wideka.weixin.user.service.impl.UserServiceImpl"></bean>
