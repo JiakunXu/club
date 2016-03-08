@@ -138,7 +138,7 @@
 		
 		#JSM(["framework7", "weixin"])
 		#JS_ENV_VAL()
-		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160307"></script>
+		<script src="$!{env.imgUrl}/js/portal/homepage.js?t=20160308"></script>
 		<script>
         wx.config({
         			debug : false,
