@@ -1,0 +1,79 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">收货地址</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="user.address" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="userAddress" action="#" method="post" class="ajax-submit">
+				<div class="list-block" style="font-size: 15px;">
+    				<ul>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">收货人</div>
+    								<div class="item-input">
+    									<input type="text" name="userAddress.contactName" placeholder="名字" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">联系电话</div>
+    								<div class="item-input">
+    									<input type="text" name="userAddress.tel" placeholder="手机或固话" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">选择地区</div>
+    								<div class="item-input">
+    									<div class="row no-gutter">
+        									<div class="col-33"><select id="province" ></select></div>
+                        					<div class="col-33"><select id="city" ></select></div>
+                        					<div class="col-33"><select id="area" ></select></div>
+                                        </div>
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">详细地址</div>
+    								<div class="item-input">
+    									<input type="text" name="userAddress.address" placeholder="街道门牌信息" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">邮政编码</div>
+    								<div class="item-input">
+    									<input type="text" name="userAddress.postalCode" placeholder="邮政编码(选填)" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    				</ul>
+    				<div class="content-block">
+        				<a href="javascript:user_address_create();" class="button button-big button-fill" style="background: #44b549;">保存</a>
+        			</div>
+                </div>
+			</form>
+        </div>
+    </div>
+</div>

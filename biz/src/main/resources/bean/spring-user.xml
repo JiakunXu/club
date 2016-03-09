@@ -7,4 +7,14 @@
 	
 	<bean id="userDao" class="com.wideka.club.user.dao.impl.UserDaoImpl" parent="baseDao" />
 	
+	<bean id="userAddressAction" class="com.wideka.club.user.action.UserAddressAction" parent="baseAction" scope="request">
+		<property name="userAddressService" ref="userAddressService" />
+	</bean>
+	<bean id="userAddressService" class="com.wideka.club.user.service.impl.UserAddressServiceImpl">
+		<property name="transactionTemplate" ref="transactionTemplate" />
+		<property name="tradeService" ref="tradeService" />
+		<property name="userAddressDao" ref="userAddressDao" />
+	</bean>
+	<bean id="userAddressDao" class="com.wideka.club.user.dao.impl.UserAddressDaoImpl" parent="baseDao" />
+	
 </beans>

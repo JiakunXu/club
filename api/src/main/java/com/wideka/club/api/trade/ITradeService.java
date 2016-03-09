@@ -117,6 +117,16 @@ public interface ITradeService {
 	Trade getTrade(String userId, Long shopId, String tradeNo);
 
 	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeNo
+	 * @param trade
+	 * @return
+	 */
+	BooleanResult updateReceiver(String userId, Long shopId, String tradeNo, Trade trade);
+
+	/**
 	 * 取消订单.
 	 * 
 	 * @param userId

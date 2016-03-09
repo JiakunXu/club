@@ -68,6 +68,15 @@ $$('#href-5').on('click', function() {
 			}
 		});
 
+myApp.onPageInit('user.address', function(page) {
+			$.fn.cityTools({
+						provinceId : "province",
+						cityId : "city",
+						countyId : "area",
+						dfCode : '3301'
+					});
+		});
+
 myApp.onPageInit('pay.index', function(page) {
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
