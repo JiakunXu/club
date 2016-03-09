@@ -200,14 +200,15 @@ public class PayServiceImpl implements IPayService {
 
 		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
 			BigDecimal price = trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
-			int fee = Integer.parseInt(price.toString());
+			// Integer.parseInt(price.toString())
+			int fee = 1;
 
 			try {
 				Refund refund =
 					wxpayService.refund(null, null, trade.getTradeNo(), DateUtil.getNowDateminStr()
 						+ UUIDUtil.generate().substring(9), fee, fee, null);
 
-				result.setCode(refund.getOutRefundNo());
+				result.setCode("申请退款成功。");
 				result.setResult(true);
 			} catch (ServiceException e) {
 				logger.error(e);
