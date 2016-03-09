@@ -81,7 +81,7 @@ public class AuthAction extends BaseAction {
 					.convertToOpenId(userId, StringUtils.isNotBlank(agentId) ? Integer.valueOf(agentId) : null);
 
 			if (!result.getResult()) {
-				this.getServletResponse().setStatus(500);
+				this.getServletResponse().setStatus(599);
 			}
 
 			this.setResourceResult(result.getCode());
@@ -93,7 +93,7 @@ public class AuthAction extends BaseAction {
 			BooleanResult result = weixinService.convertToUserId(openId);
 
 			if (!result.getResult()) {
-				this.getServletResponse().setStatus(500);
+				this.getServletResponse().setStatus(599);
 			}
 
 			this.setResourceResult(result.getCode());

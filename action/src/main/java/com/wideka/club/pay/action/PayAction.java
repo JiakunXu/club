@@ -51,7 +51,7 @@ public class PayAction extends BaseAction {
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
 		} else {
-			this.getServletResponse().setStatus(500);
+			this.getServletResponse().setStatus(599);
 			this.setResourceResult(result.getCode());
 		}
 
@@ -69,7 +69,7 @@ public class PayAction extends BaseAction {
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
 		} else {
-			this.getServletResponse().setStatus(500);
+			this.getServletResponse().setStatus(599);
 			this.setResourceResult(result.getCode());
 		}
 

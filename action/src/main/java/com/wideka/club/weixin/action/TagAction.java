@@ -122,7 +122,7 @@ public class TagAction extends BaseAction {
 			if (result.getResult()) {
 				this.setResourceResult("成功！");
 			} else {
-				this.getServletResponse().setStatus(500);
+				this.getServletResponse().setStatus(599);
 				this.setResourceResult(result.getCode());
 			}
 
@@ -135,7 +135,7 @@ public class TagAction extends BaseAction {
 			if (result.getResult()) {
 				this.setResourceResult("成功！");
 			} else {
-				this.getServletResponse().setStatus(500);
+				this.getServletResponse().setStatus(599);
 				this.setResourceResult(result.getCode());
 			}
 
@@ -148,7 +148,7 @@ public class TagAction extends BaseAction {
 			if (result.getResult()) {
 				this.setResourceResult("成功！");
 			} else {
-				this.getServletResponse().setStatus(500);
+				this.getServletResponse().setStatus(599);
 				this.setResourceResult(result.getCode());
 			}
 

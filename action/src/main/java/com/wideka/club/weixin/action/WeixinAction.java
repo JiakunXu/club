@@ -94,7 +94,7 @@ public class WeixinAction extends BaseAction {
 		if (result.getResult()) {
 			this.getServletResponse().setStatus(200);
 		} else {
-			this.getServletResponse().setStatus(500);
+			this.getServletResponse().setStatus(599);
 		}
 
 		this.setResourceResult(result.getCode());
