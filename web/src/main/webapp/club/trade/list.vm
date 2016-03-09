@@ -46,7 +46,7 @@
 									#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
 									<a href="#" class="button">付款</a>
 									#elseif($!{trade.type} == 'tosend')
-									<a href="javascript:trade_list_refund('$!{trade.tradeNo}');" class="button">退款</a>
+									<a href="javascript:trade_list_refund('$!{trade.tradeNo}');" class="button">申请退款</a>
 									#end
 								</div>
 							</div>

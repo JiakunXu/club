@@ -27,6 +27,14 @@ public interface IPayService {
 	 */
 	BooleanResult pay(String userId, Long shopId, String tradeNo, String payType, String ip, String openId);
 
+	/**
+	 * 申请退款.
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeNo
+	 * @return
+	 */
 	BooleanResult refund(String userId, Long shopId, final String tradeNo);
 
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<

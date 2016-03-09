@@ -44,6 +44,16 @@ public interface ITradeService {
 
 	String FEEDBACKED = "feedbacked";
 
+	/**
+	 * 申请退款.
+	 */
+	String TO_REFUND = "torefund";
+
+	/**
+	 * 已退款.
+	 */
+	String REFUND = "refund";
+
 	String CANCEL = "cancel";
 
 	/**

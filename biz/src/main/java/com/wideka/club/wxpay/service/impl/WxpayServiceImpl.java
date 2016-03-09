@@ -46,6 +46,8 @@ public class WxpayServiceImpl implements IWxpayService {
 
 	private String key;
 
+	private String sslPath;
+
 	@Override
 	public String getBrandWCPayRequest(String tradeNo, String body, String detail, String attach, int totalFee,
 		String ip, String timeStart, String timeExpire, String openId) throws ServiceException {
@@ -140,7 +142,11 @@ public class WxpayServiceImpl implements IWxpayService {
 		refund.setRefundFeeType(refundFeeType);
 		refund.setOpUserId(mchId);
 
-		return refundService.refund(refund, key);
+		try {
+			return refundService.refund(refund, key, sslPath);
+		} catch (RuntimeException e) {
+			throw new ServiceException(e.getMessage());
+		}
 	}
 
 	@Override
@@ -342,6 +348,14 @@ public class WxpayServiceImpl implements IWxpayService {
 
 	public void setKey(String key) {
 		this.key = key;
+	}
+
+	public String getSslPath() {
+		return sslPath;
+	}
+
+	public void setSslPath(String sslPath) {
+		this.sslPath = sslPath;
 	}
 
 }

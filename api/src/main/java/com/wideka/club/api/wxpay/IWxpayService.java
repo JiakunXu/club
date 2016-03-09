@@ -37,6 +37,7 @@ public interface IWxpayService {
 		String timeStart, String timeExpire, String openId) throws ServiceException;
 
 	/**
+	 * 申请退款.
 	 * 
 	 * @param deviceInfo
 	 * @param transactionId

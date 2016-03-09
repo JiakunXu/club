@@ -24,6 +24,9 @@
 		<property name="key">
 			<value>${weixin.key}</value>
 		</property>
+		<property name="sslPath">
+			<value>${weixin.ssl.path}</value>
+		</property>
 	</bean>
 	
 	<bean id="wxpayDao" class="com.wideka.club.wxpay.dao.impl.WxpayDaoImpl" parent="baseDao" />
