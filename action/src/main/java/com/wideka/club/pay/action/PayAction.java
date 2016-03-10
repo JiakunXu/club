@@ -30,7 +30,7 @@ public class PayAction extends BaseAction {
 	private String tradeNo;
 
 	/**
-	 * 首页.
+	 * 支付首页.
 	 * 
 	 * @return
 	 */
