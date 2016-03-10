@@ -11,7 +11,8 @@
 	<div data-page="user.address" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<form id="userAddress" action="#" method="post" class="ajax-submit">
+			<form id="user/address/create" action="$!{env.appUrl}/address/create.htm" method="post" class="ajax-submit">
+				<input type="hidden" name="tradeNo" value="$!{tradeNo}" />
 				<div class="list-block" style="font-size: 15px;">
     				<ul>
     					<li>
@@ -40,9 +41,10 @@
     								<div class="item-title label">选择地区</div>
     								<div class="item-input">
     									<div class="row no-gutter">
-        									<div class="col-33"><select id="province" ></select></div>
-                        					<div class="col-33"><select id="city" ></select></div>
-                        					<div class="col-33"><select id="area" ></select></div>
+        									<div class="col-33"><select id="user_address_province" name="userAddress.province" ></select></div>
+                        					<div class="col-33"><select id="user_address_city" name="userAddress.city" ></select></div>
+                        					<div class="col-33"><select id="user_address_area" name="userAddress.area" ></select></div>
+											<input type="hidden" id="user_address_backCode" name="userAddress.backCode" />
                                         </div>
     								</div>
     							</div>

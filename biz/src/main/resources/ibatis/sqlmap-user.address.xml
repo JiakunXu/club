@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="user.address">
+	
+	<typeAlias alias="userAddress" type="com.wideka.club.api.user.bo.UserAddress" />
+	
+	<select id="getUserAddress" parameterClass="userAddress" resultClass="userAddress">
+	<![CDATA[
+		SELECT t.add_id  AS addId,
+		  t.contact_name AS contactName,
+		  t.province,
+		  t.city,
+		  t.area,
+		  t.back_code AS backCode,
+		  t.address,
+		  t.postal_code AS postalCode,
+		  t.tel
+		FROM MALL.MALL_TB_USER_ADDRESS t
+		WHERE t.state  = 'U'
+		AND t.defaults = #defaults#
+		AND t.user_id  = #userId#
+	]]>
+	</select>
+	
+	<insert id="createUserAddress" parameterClass="userAddress">
+	<![CDATA[
+		INSERT
+		INTO basis_tb_user_address
+		  (
+			USER_ID,
+			CONTACT_NAME,
+			PROVINCE,
+			CITY,
+			AREA,
+			BACK_CODE,
+			ADDRESS,
+			POSTAL_CODE,
+			TEL,
+			ALIAS,
+			DEFAULTS,
+			STATE,
+			CREATE_DATE,
+			CREATE_USER,
+			MODIFY_DATE,
+			MODIFY_USER
+		  )
+		  VALUES
+		  (
+			#userId:VARCHAR#,
+			#contactName:VARCHAR#,
+			#province:VARCHAR#,
+			#city:VARCHAR#,
+			#area:VARCHAR#,
+			#backCode:VARCHAR#,
+			#address:VARCHAR#,
+			#postalCode:VARCHAR#,
+			#tel:VARCHAR#,
+			#contactName:VARCHAR#,
+			'Y',
+			'U',
+			NOW(),
+			#userId:VARCHAR#,
+			NOW(),
+			#userId:VARCHAR#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="addId">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+	
+	<update id="removeDefaultUserAddress" parameterClass="userAddress">
+	<![CDATA[
+		UPDATE basis_tb_user_address t
+		SET t.modify_date = NOW(),
+		  t.modify_user   = #userId#,
+		  t.defaults      = 'N'
+		WHERE t.state     = 'U'
+		AND t.defaults    = 'Y'
+		AND t.user_id     = #userId#
+	]]>
+	</update>
+	
+</sqlMap>

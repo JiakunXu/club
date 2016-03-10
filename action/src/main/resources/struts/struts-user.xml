@@ -10,4 +10,9 @@
 		</action>
 		
 	</package>
+	
+	<package name="{http://club}club$address"
+		extends="{http://club}club$framework" namespace="/address">
+		<action name="create" class="userAddressAction" method="create"></action>
+	</package>
 </struts>

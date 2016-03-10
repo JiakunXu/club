@@ -92,6 +92,9 @@ public class UserAddressServiceImpl implements IUserAddressService {
 			}
 		});
 
+		if (res.getResult()) {
+			res.setCode("保存成功。");
+		}
 		return res;
 	}
 

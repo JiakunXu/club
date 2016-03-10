@@ -17,7 +17,7 @@
 			<div class="list-block">
 				<ul>
 					<li>
-						<a href="$!{env.appUrl}/user/address.htm" class="item-link item-content" data-ignore-cache="true">
+						<a href="$!{env.appUrl}/user/address.htm?tradeNo=$!{tradeNo}" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-media"><i class="iconfont icon-location" style="font-size: 25px;"></i></div>
 							<div class="item-inner" style="font-size: 14px;">
 								<div class="item-title">

@@ -3,6 +3,7 @@ package com.wideka.club.user.action;
 import com.wideka.club.api.user.IUserAddressService;
 import com.wideka.club.api.user.bo.UserAddress;
 import com.wideka.club.framework.action.BaseAction;
+import com.wideka.club.framework.bo.BooleanResult;
 
 /**
  * 
@@ -24,6 +25,19 @@ public class UserAddressAction extends BaseAction {
 
 	public String index() {
 		return SUCCESS;
+	}
+
+	public String create() {
+		BooleanResult result = userAddressService.createUserAddress(this.getOpenId(), userAddress, 0L, tradeNo);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
 	}
 
 	public IUserAddressService getUserAddressService() {

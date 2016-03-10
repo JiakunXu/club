@@ -35,6 +35,7 @@
 	<sqlMap resource="ibatis/sqlmap-monitor.log.xml" />
 	<sqlMap resource="ibatis/sqlmap-monitor.method.xml" />
 	<sqlMap resource="ibatis/sqlmap-trade.xml" />
+	<sqlMap resource="ibatis/sqlmap-user.address.xml" />
 	<sqlMap resource="ibatis/sqlmap-user.xml" />
 	<sqlMap resource="ibatis/sqlmap-weixin.event.batch.job.xml" />
 	<sqlMap resource="ibatis/sqlmap-weixin.event.click.xml" />
