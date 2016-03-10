@@ -17,6 +17,47 @@
 
 
 
+/* color */
+.weui_btn_default {
+  background-color: #F7F7F7;
+  color: #454545;
+}
+.weui_btn_default:not(.weui_btn_disabled):visited {
+  color: #454545;
+}
+.weui_btn_default:not(.weui_btn_disabled):active {
+  color: #A1A1A1;
+  background-color: #DEDEDE;
+}
+.weui_btn_primary {
+  background-color: #04BE02;
+}
+.weui_btn_primary:not(.weui_btn_disabled):visited {
+  color: #FFFFFF;
+}
+.weui_btn_primary:not(.weui_btn_disabled):active {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: #039702;
+}
+.weui_btn_warn {
+  background-color: #EF4F4F;
+}
+.weui_btn_warn:not(.weui_btn_disabled):visited {
+  color: #FFFFFF;
+}
+.weui_btn_warn:not(.weui_btn_disabled):active {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: #C13E3E;
+}
+.weui_btn_disabled {
+  color: rgba(255, 255, 255, 0.6);
+}
+.weui_btn_disabled.weui_btn_default {
+  color: #C9C9C9;
+}
+
+
+
 /* 首页导航模块 */
 .mui-flex, .mui-flex *, .mui-flex :after, .mui-flex :before {
 	box-sizing: border-box;
