@@ -16,33 +16,33 @@ public interface IOrderService {
 	/**
 	 * 创建订单明细信息.
 	 * 
-	 * @param userId
 	 * @param shopId
 	 * @param tradeId
 	 * @param itemId
+	 * @param modifyUser
 	 * @return
 	 */
-	BooleanResult createOrder(String userId, Long shopId, Long tradeId, String itemId);
+	BooleanResult createOrder(Long shopId, Long tradeId, String itemId, String modifyUser);
 
 	/**
 	 * 根据购物车批量创建订单明细信息.
 	 * 
-	 * @param userId
 	 * @param shopId
 	 * @param tradeId
 	 * @param cartId
+	 * @param modifyUser
 	 * @return
 	 */
-	BooleanResult createOrder(String userId, Long shopId, Long tradeId, String[] cartId);
+	BooleanResult createOrder(Long shopId, Long tradeId, String[] cartId, String modifyUser);
 
 	/**
 	 * 买家查询(首先调用 ITradeService.getTrade).
 	 * 
 	 * @param userId
 	 * @param shopId
-	 * @param tradeId
+	 * @param tradeNo
 	 * @return
 	 */
-	List<Order> getOrderList(String userId, Long shopId, String tradeId);
+	List<Order> getOrderList(String userId, Long shopId, String tradeNo);
 
 }

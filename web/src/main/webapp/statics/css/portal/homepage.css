@@ -322,7 +322,7 @@ a.component.type3 img {
 
 .bottom-fix .bottom-cart {
 	padding: 0 10px;
-	height: 40px;
+	height: 50px;
 	background-color: #ffffff;
 	font-weight: 500;
 	color: #f60;
@@ -337,13 +337,13 @@ a.component.type3 img {
     font-weight: 500;
     float: left;
     width: 60px;
-    height: 40px;
+    height: 50px;
     color: #ccc;
 }
 
 .bottom-fix .bottom-cart>div {
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
 	font-size: 14px;
 }
 
@@ -359,7 +359,7 @@ a.component.type3 img {
 	position: absolute;
 	right: 10px;
 	padding: 5px 10px;
-	top: 5px;
+	top: 10px;
 	height: 30px;
 	margin-top: 0px;
 	min-width: 75px;

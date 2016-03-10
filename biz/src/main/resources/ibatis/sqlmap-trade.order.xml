@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="trade.order">
+	
+	<typeAlias alias="order" type="com.wideka.club.api.trade.bo.Order" />
+
+	<insert id="createOrder4Item" parameterClass="order">
+	<![CDATA[
+		INSERT
+		INTO basis_tb_order
+		  (
+			TRADE_ID,
+			ITEM_ID,
+			ITEM_NAME,
+			SKU_ID,
+			PROPERTIES_NAME,
+			PRICE,
+			`CHANGE`,
+			POINTS,
+			QUANTITY,
+			STATE,
+			CREATE_DATE,
+			CREATE_USER,
+			MODIFY_DATE,
+			MODIFY_USER
+		  )
+		  (SELECT #tradeId#,
+			  t.item_id,
+			  t.item_name,
+			  0,
+			  '',
+			  t.price,
+			  0,
+			  0,
+			  1,
+			  'U',
+			  NOW(),
+			  #modifyUser#,
+			  NOW(),
+			  #modifyUser#
+			FROM basis_tb_item t
+			WHERE t.state = 'U'
+			AND t.shop_id = #shopId#
+			AND t.item_id = #itemId#
+		  )
+	]]>
+		<selectKey resultClass="java.lang.Long" keyProperty="orderId">
+		<![CDATA[
+			SELECT LAST_INSERT_ID()
+		]]>
+		</selectKey>
+	</insert>
+		
+	<insert id="createOrder4Cart" parameterClass="order">
+	<![CDATA[
+		INSERT
+		INTO MALL.MALL_TB_ORDER
+		  (
+			ORDER_ID,
+			TRADE_ID,
+			SKU_ID,
+			ITEM_NAME,
+			PROPERTIES_NAME,
+			QUANTITY,
+			PRICE,
+			CHANGE,
+			STATE,
+			CREATE_DATE,
+			MODIFY_DATE,
+			MODIFY_USER,
+			ITEM_ID,
+			POINTS
+		  )
+		  (SELECT MALL.MALL_SEQ_ORDER.nextval,
+			  #tradeId#,
+			  t.sku_id,
+			  p.item_name,
+			  q.properties_name,
+			  t.quantity,
+			  CASE
+				WHEN k.points_id IS NULL
+				THEN
+				  CASE
+					WHEN q.price IS NULL
+					THEN p.price
+					ELSE q.price
+				  END
+				ELSE 0
+			  END,
+			  0,
+			  'U',
+			  sysdate,
+			  sysdate,
+			  #modifyUser#,
+			  t.item_id,
+			  NVL(k.points,0)
+			FROM MALL.MALL_TB_CART t,
+			  MALL.MALL_TB_ITEM p,
+			  (SELECT qq.item_id,
+				qq.sku_id,
+				qq.properties_name,
+				qq.price
+			  FROM MALL.MALL_TB_ITEM_SKU qq
+			  WHERE qq.state = 'U'
+			  )q,
+			  (SELECT kk.points_id,
+				kk.points
+			  FROM MALL.MALL_TB_POINTS kk
+			  WHERE kk.state = 'U'
+			  AND kk.shop_id = #shopId#
+			  )k
+			WHERE t.item_id = p.item_id
+			AND t.sku_id    = q.sku_id(+)
+			AND t.points_id = k.points_id (+)
+			AND t.state     = 'U'
+			AND p.state     = 'U'
+			AND p.shop_id   = #shopId#
+			AND t.cart_id  IN
+	]]>
+		<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
+	<![CDATA[
+		  )
+	]]>
+	</insert>
+	
+	<select id="getOrderList" parameterClass="order" resultClass="order">
+	<![CDATA[
+		SELECT t.order_id   AS orderId,
+		  t.item_name       AS itemName,
+		  t.properties_name AS propertiesName,
+		  t.quantity,
+		  t.price,
+		  t.points,
+		  t.change,
+		  t.item_id AS itemId,
+		  t.sku_id  AS skuId,
+		  CASE
+			WHEN q.stock IS NULL
+			THEN p.stock
+			ELSE q.stock
+		  END AS stock
+		FROM MALL.MALL_TB_ORDER t,
+		  MALL.MALL_TB_ITEM p,
+		  (SELECT qq.sku_id,
+			qq.stock
+		  FROM MALL.MALL_TB_ITEM_SKU qq
+		  WHERE qq.state = 'U'
+		  )q
+		WHERE t.item_id = p.item_id
+		AND t.sku_id    = q.sku_id(+)
+		AND t.state     = 'U'
+		AND p.state     = 'U'
+		AND p.shop_id   = #shopId#
+		AND t.trade_id  = #tradeId#
+	]]>
+	</select>
+	
+</sqlMap>

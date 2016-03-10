@@ -19,6 +19,8 @@
 	
 	<!-- 订单信息 -->
 	<bean id="orderService" class="com.wideka.club.trade.service.impl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDao" />
 	</bean>
+	<bean id="orderDao" class="com.wideka.club.trade.dao.impl.OrderDaoImpl" parent="baseDao" />
 	
 </beans>
