@@ -14,6 +14,21 @@
 	<div data-page="pay.index" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			<div class="list-block" style="background: #f7f7f8; margin-top: -1px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="iconfont icon-text" style="font-size: 25px;"></i></div>
+							<div class="item-inner" style="font-size: 12px;">
+								<div class="item-title">
+									您于 2016/03/10 15:00:00 下的订单<br />
+									请在 57分00秒 内付款，超时订单将自动取消。
+								</div>
+							</div>
+						</div>
+					</li>
+                </ul>
+            </div>
 			<div class="list-block">
 				<ul>
 					<li>
