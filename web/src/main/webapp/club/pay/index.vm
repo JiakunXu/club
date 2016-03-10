@@ -14,7 +14,7 @@
 	<div data-page="pay.index" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block" style="background: #f7f7f8; margin-top: -1px;">
+			<div class="list-block" style="background: #f7f7f8;">
 				<ul>
 					<li>
 						<div class="item-content">
