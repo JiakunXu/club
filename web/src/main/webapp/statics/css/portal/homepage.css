@@ -336,7 +336,7 @@ a.component.type3 img {
 .bottom-fix .bottom-cart .select-all {
     font-weight: 500;
     float: left;
-    width: 60px;
+    width: 65px;
     height: 50px;
     color: #ccc;
 }
@@ -344,7 +344,7 @@ a.component.type3 img {
 .bottom-fix .bottom-cart>div {
 	height: 50px;
 	line-height: 50px;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .bottom-fix .bottom-cart .total-price {
