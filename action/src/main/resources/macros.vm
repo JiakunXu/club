@@ -39,7 +39,7 @@
 		#elseif($key == 'iscroll')
 			<script src="$!{env.imgUrl}/iscroll/iscroll-lite.js"></script>
 		#elseif($key == 'jquery')
-			<script src="$!{env.imgUrl}/jquery/jquery-1.11.1.min.js"></script>
+			<script src="$!{env.imgUrl}/jquery/jquery-1.12.1.min.js"></script>
 		#elseif($key == 'jquery.citytools')
 			<script src="$!{env.imgUrl}/jquery.citytools/jquery.citytools.min.js"></script>
 		#elseif($key == 'jquery.cookie')
