@@ -70,7 +70,7 @@
     					</li>
     				</ul>
     				<div class="content-block">
-        				<a href="javascript:user_address_create();" class="button button-big button-fill" style="background: #44b549;">保存</a>
+        				<a href="javascript:user_address_create();" class="button button-big button-fill weui_btn_primary">保存</a>
         			</div>
                 </div>
 			</form>
