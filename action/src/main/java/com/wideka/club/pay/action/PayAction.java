@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.wideka.club.api.pay.IPayService;
+import com.wideka.club.api.trade.ITradeService;
+import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
@@ -24,10 +26,14 @@ public class PayAction extends BaseAction {
 
 	private IPayService payService;
 
+	private ITradeService tradeService;
+
 	/**
 	 * 交易支付.
 	 */
 	private String tradeNo;
+
+	private Trade trade;
 
 	/**
 	 * 支付首页.
@@ -35,6 +41,8 @@ public class PayAction extends BaseAction {
 	 * @return
 	 */
 	public String index() {
+		trade = tradeService.getTrade(this.getOpenId(), 0L, tradeNo);
+
 		return SUCCESS;
 	}
 
@@ -128,12 +136,28 @@ public class PayAction extends BaseAction {
 		this.payService = payService;
 	}
 
+	public ITradeService getTradeService() {
+		return tradeService;
+	}
+
+	public void setTradeService(ITradeService tradeService) {
+		this.tradeService = tradeService;
+	}
+
 	public String getTradeNo() {
 		return tradeNo;
 	}
 
 	public void setTradeNo(String tradeNo) {
 		this.tradeNo = tradeNo;
+	}
+
+	public Trade getTrade() {
+		return trade;
+	}
+
+	public void setTrade(Trade trade) {
+		this.trade = trade;
 	}
 
 }

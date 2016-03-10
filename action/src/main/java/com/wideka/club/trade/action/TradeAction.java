@@ -30,6 +30,8 @@ public class TradeAction extends BaseAction {
 
 	private List<Trade> tradeList;
 
+	private Trade trade;
+
 	/**
 	 * 创建临时订单.
 	 * 
@@ -77,6 +79,8 @@ public class TradeAction extends BaseAction {
 	 * @return
 	 */
 	public String detail() {
+		trade = tradeService.getTrade(this.getOpenId(), 0L, tradeNo);
+
 		return SUCCESS;
 	}
 
@@ -110,6 +114,14 @@ public class TradeAction extends BaseAction {
 
 	public void setTradeList(List<Trade> tradeList) {
 		this.tradeList = tradeList;
+	}
+
+	public Trade getTrade() {
+		return trade;
+	}
+
+	public void setTrade(Trade trade) {
+		this.trade = trade;
 	}
 
 }

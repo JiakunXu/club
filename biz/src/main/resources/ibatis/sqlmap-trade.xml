@@ -126,13 +126,19 @@
 	<select id="getTrade" parameterClass="trade" resultClass="trade">
 	<![CDATA[
 		SELECT t.trade_id AS tradeId,
-		       t.trade_no AS tradeNo,
-		       t.type,
-		       t.pay_type AS payType,
-		       t.trade_price AS tradePrice,
-		       t.coupon_price AS couponPrice,
-		       t.postage,
-		       t.change
+			   t.trade_no AS tradeNo,
+			   t.type,
+			   t.pay_type AS payType,
+			   t.trade_price AS tradePrice,
+			   t.coupon_price AS couponPrice,
+			   t.postage,
+			   t.change,
+			   t.receiver_name AS receiverName,
+			   t.receiver_province AS receiverProvince,
+			   t.receiver_city AS receiverCity,
+			   t.receiver_area AS receiverArea,
+			   t.receiver_address AS receiverAddress,
+			   t.receiver_tel AS receiverTel
 		  FROM basis_tb_trade t
 		 WHERE t.trade_no = #tradeNo#
 	]]>

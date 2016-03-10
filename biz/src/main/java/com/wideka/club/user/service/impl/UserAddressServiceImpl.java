@@ -123,6 +123,11 @@ public class UserAddressServiceImpl implements IUserAddressService {
 			return result;
 		}
 
+		if (StringUtils.isBlank(userAddress.getTel()) || userAddress.getTel().length() > 25) {
+			result.setCode("联系电话信息不能为空或过长！");
+			return result;
+		}
+
 		if (StringUtils.isBlank(userAddress.getProvince())) {
 			result.setCode("省不能为空！");
 			return result;
@@ -143,13 +148,8 @@ public class UserAddressServiceImpl implements IUserAddressService {
 			return result;
 		}
 
-		if (StringUtils.isBlank(userAddress.getPostalCode()) || userAddress.getPostalCode().length() > 10) {
+		if (StringUtils.isNotBlank(userAddress.getPostalCode()) && userAddress.getPostalCode().length() > 10) {
 			result.setCode("邮政编码信息不能为空或过长！");
-			return result;
-		}
-
-		if (StringUtils.isBlank(userAddress.getTel()) || userAddress.getTel().length() > 25) {
-			result.setCode("联系电话信息不能为空或过长！");
 			return result;
 		}
 

@@ -11,6 +11,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.wideka.club.api.trade.IOrderService;
 import com.wideka.club.api.trade.ITradeService;
 import com.wideka.club.api.trade.bo.Trade;
+import com.wideka.club.api.user.IUserAddressService;
+import com.wideka.club.api.user.bo.UserAddress;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
@@ -29,6 +31,8 @@ public class TradeServiceImpl implements ITradeService {
 	private Logger4jExtend logger = Logger4jCollection.getLogger(TradeServiceImpl.class);
 
 	private TransactionTemplate transactionTemplate;
+
+	private IUserAddressService userAddressService;
 
 	private IOrderService orderService;
 
@@ -50,9 +54,12 @@ public class TradeServiceImpl implements ITradeService {
 		}
 
 		if (StringUtils.isBlank(itemId)) {
-			result.setCode("购物车不能为空！");
+			result.setCode("商品信息不能为空！");
 			return result;
 		}
+
+		// 获取默认收货地址
+		final UserAddress userAddress = userAddressService.getDefaultUserAddress(userId.trim());
 
 		BooleanResult res = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
 			public BooleanResult doInTransaction(TransactionStatus ts) {
@@ -67,7 +74,7 @@ public class TradeServiceImpl implements ITradeService {
 				trade.setUserId(userId);
 				trade.setShopId(shopId);
 				// 交易价格
-				trade.setTradePrice(BigDecimal.ZERO);
+				trade.setTradePrice(BigDecimal.ONE);
 				// 积分兑换
 				trade.setTradePoints(BigDecimal.ZERO);
 				trade.setCouponPrice(BigDecimal.ZERO);
@@ -77,14 +84,16 @@ public class TradeServiceImpl implements ITradeService {
 				trade.setType(ITradeService.CHECK);
 
 				// 收货地址
-				trade.setReceiverName(null);
-				trade.setReceiverProvince(null);
-				trade.setReceiverCity(null);
-				trade.setReceiverArea(null);
-				trade.setReceiverBackCode(null);
-				trade.setReceiverAddress(null);
-				trade.setReceiverZip(null);
-				trade.setReceiverTel(null);
+				if (userAddress != null) {
+					trade.setReceiverName(userAddress.getContactName());
+					trade.setReceiverProvince(userAddress.getProvince());
+					trade.setReceiverCity(userAddress.getCity());
+					trade.setReceiverArea(userAddress.getArea());
+					trade.setReceiverBackCode(userAddress.getBackCode());
+					trade.setReceiverAddress(userAddress.getAddress());
+					trade.setReceiverZip(userAddress.getPostalCode());
+					trade.setReceiverTel(userAddress.getTel());
+				}
 
 				// 14位日期 ＋ 11位随机数
 				trade.setTradeNo(DateUtil.getNowDateminStr() + UUIDUtil.generate().substring(9));
@@ -333,6 +342,14 @@ public class TradeServiceImpl implements ITradeService {
 
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;
+	}
+
+	public IUserAddressService getUserAddressService() {
+		return userAddressService;
+	}
+
+	public void setUserAddressService(IUserAddressService userAddressService) {
+		this.userAddressService = userAddressService;
 	}
 
 	public IOrderService getOrderService() {
