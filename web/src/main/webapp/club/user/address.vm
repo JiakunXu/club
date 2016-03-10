@@ -20,7 +20,7 @@
     							<div class="item-inner">
     								<div class="item-title label">收货人</div>
     								<div class="item-input">
-    									<input type="text" name="userAddress.contactName" placeholder="名字" />
+    									<input type="text" name="userAddress.contactName" value="$!{userAddress.contactName}" placeholder="名字" />
     								</div>
     							</div>
     						</div>
@@ -30,7 +30,7 @@
     							<div class="item-inner">
     								<div class="item-title label">联系电话</div>
     								<div class="item-input">
-    									<input type="text" name="userAddress.tel" placeholder="手机或固话" />
+    									<input type="text" name="userAddress.tel" value="$!{userAddress.tel}" placeholder="手机或固话" />
     								</div>
     							</div>
     						</div>
@@ -44,7 +44,7 @@
         									<div class="col-33"><select id="user_address_province" name="userAddress.province" ></select></div>
                         					<div class="col-33"><select id="user_address_city" name="userAddress.city" ></select></div>
                         					<div class="col-33"><select id="user_address_area" name="userAddress.area" ></select></div>
-											<input type="hidden" id="user_address_backCode" name="userAddress.backCode" />
+											<input type="hidden" id="user_address_backCode" name="userAddress.backCode" value="$!{userAddress.backCode}" />
                                         </div>
     								</div>
     							</div>
@@ -55,7 +55,7 @@
     							<div class="item-inner">
     								<div class="item-title label">详细地址</div>
     								<div class="item-input">
-    									<input type="text" name="userAddress.address" placeholder="街道门牌信息" />
+    									<input type="text" name="userAddress.address" value="$!{userAddress.address}" placeholder="街道门牌信息" />
     								</div>
     							</div>
     						</div>
@@ -65,7 +65,7 @@
     							<div class="item-inner">
     								<div class="item-title label">邮政编码</div>
     								<div class="item-input">
-    									<input type="text" name="userAddress.postalCode" placeholder="邮政编码(选填)" />
+    									<input type="text" name="userAddress.postalCode" value="$!{userAddress.postalCode}" placeholder="邮政编码(选填)" />
     								</div>
     							</div>
     						</div>

@@ -24,6 +24,8 @@ public class UserAddressAction extends BaseAction {
 	private String tradeNo;
 
 	public String index() {
+		userAddress = userAddressService.getDefaultUserAddress(this.getOpenId());
+
 		return SUCCESS;
 	}
 

@@ -17,7 +17,7 @@
 		  t.address,
 		  t.postal_code AS postalCode,
 		  t.tel
-		FROM MALL.MALL_TB_USER_ADDRESS t
+		FROM basis_tb_user_address t
 		WHERE t.state  = 'U'
 		AND t.defaults = #defaults#
 		AND t.user_id  = #userId#

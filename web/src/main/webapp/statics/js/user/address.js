@@ -3,7 +3,7 @@ myApp.onPageInit('user.address', function(page) {
 						provinceId : "user_address_province",
 						cityId : "user_address_city",
 						countyId : "user_address_area",
-						dfCode : '3301',
+						dfCode : $$('#user_address_backCode').val(),
 						backCodeId : "user_address_backCode"
 					});
 
