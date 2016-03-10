@@ -6,7 +6,7 @@ myApp.onPageInit('trade.list', function(page) {
 						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '信息', function() {
-									view5.router.back();
+									myApp.getCurrentView().router.back();
 								});
 					});
 

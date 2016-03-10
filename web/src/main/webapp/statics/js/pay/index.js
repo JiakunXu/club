@@ -37,7 +37,7 @@ function getBrandWCPayRequest(data) {
 					WeixinJSBridge.log(res.err_msg);
 
 					if (res.err_msg == 'get_brand_wcpay_request:ok') {
-						view2.router.back();
+						myApp.getCurrentView().router.back();
 					} else if (res.err_msg == 'get_brand_wcpay_request:fail') {
 						myApp.alert(res.err_code + res.err_desc + res.err_msg,
 								'错误');
