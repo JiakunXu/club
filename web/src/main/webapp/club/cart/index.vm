@@ -13,7 +13,7 @@
 	<!-- Page, data-page contains page name-->
 	<div data-page="cart.index" class="page">
 		<!-- Scrollable page content-->
-		<div class="page-content">
+		<div class="page-content" style="padding-bottom: 100px;">
 			<div class="list-block" style="font-size: 13px;">
 				<ul>
 					<li>
