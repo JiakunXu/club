@@ -9,6 +9,8 @@
 			<result name="success" type="redirect">${env.appUrl}/pay/index.htm?tradeNo=${tradeNo}</result>
 		</action>
 		
+		<action name="stats" class="tradeAction" method="stats"></action>
+		
 		<action name="list" class="tradeAction" method="list">
 			<result name="success">/club/trade/list.vm</result>
 		</action>

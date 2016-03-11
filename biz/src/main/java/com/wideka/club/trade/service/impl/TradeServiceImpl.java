@@ -132,7 +132,30 @@ public class TradeServiceImpl implements ITradeService {
 
 	@Override
 	public int getTradeCount(String userId, Long shopId, String[] type) {
-		// TODO Auto-generated method stub
+		if (StringUtils.isBlank(userId) || shopId == null) {
+			return 0;
+		}
+
+		Trade trade = new Trade();
+		trade.setUserId(userId.trim());
+		trade.setShopId(shopId);
+		trade.setCodes(type);
+
+		return getTradeCount(trade);
+	}
+
+	/**
+	 * 
+	 * @param trade
+	 * @return
+	 */
+	private int getTradeCount(Trade trade) {
+		try {
+			return tradeDao.getTradeCount(trade);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+		}
+
 		return 0;
 	}
 

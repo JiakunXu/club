@@ -76,7 +76,15 @@
 		SELECT COUNT(1)
 		  FROM basis_tb_trade t
 		 WHERE t.STATE = 'U'
+		   AND t.shop_id = #shopId#
+		   AND t.user_id = #userId#
 	]]>
+		<dynamic>
+			<isNotEmpty property="codes" prepend="and">
+			<![CDATA[ t.type IN ]]>
+				<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
+			</isNotEmpty>
+		</dynamic>
 	</select>
 	
 	<select id="getTradeList" parameterClass="trade" resultClass="trade">

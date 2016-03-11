@@ -50,6 +50,27 @@ public class TradeAction extends BaseAction {
 	}
 
 	/**
+	 * 订单数据统计.
+	 * 
+	 * @return
+	 */
+	public String stats() {
+		StringBuilder sb = new StringBuilder();
+
+		String userId = this.getOpenId();
+		Long shopId = 0L;
+
+		sb.append(tradeService.getTradeCount(userId, shopId, new String[] { "check", "topay" })).append("&");
+		sb.append(tradeService.getTradeCount(userId, shopId, new String[] { "tosend" })).append("&");
+		sb.append(tradeService.getTradeCount(userId, shopId, new String[] { "send" })).append("&");
+		sb.append(tradeService.getTradeCount(userId, shopId, new String[] { "sign" }));
+
+		this.setResourceResult(sb.toString());
+
+		return RESOURCE_RESULT;
+	}
+
+	/**
 	 * 订单列表.
 	 * 
 	 * @return
