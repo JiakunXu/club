@@ -118,8 +118,21 @@ public class OrderServiceImpl implements IOrderService {
 	}
 
 	@Override
-	public List<Order> getOrderList(String userId, Long shopId, String tradeNo) {
-		// TODO Auto-generated method stub
+	public List<Order> getOrderList(String userId, Long shopId, Long tradeId) {
+		if (StringUtils.isBlank(userId) || shopId == null || tradeId == null) {
+			return null;
+		}
+
+		Order order = new Order();
+		order.setShopId(shopId);
+		order.setTradeId(tradeId);
+
+		try {
+			return orderDao.getOrderList(order);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(order), e);
+		}
+
 		return null;
 	}
 

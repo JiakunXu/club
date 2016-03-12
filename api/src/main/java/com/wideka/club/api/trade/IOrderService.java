@@ -40,9 +40,9 @@ public interface IOrderService {
 	 * 
 	 * @param userId
 	 * @param shopId
-	 * @param tradeNo
+	 * @param tradeId
 	 * @return
 	 */
-	List<Order> getOrderList(String userId, Long shopId, String tradeNo);
+	List<Order> getOrderList(String userId, Long shopId, Long tradeId);
 
 }

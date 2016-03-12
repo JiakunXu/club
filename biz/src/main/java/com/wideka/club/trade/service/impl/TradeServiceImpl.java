@@ -1,19 +1,27 @@
 package com.wideka.club.trade.service.impl;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import com.wideka.club.api.cache.IMemcachedCacheService;
+import com.wideka.club.api.item.bo.Item;
+import com.wideka.club.api.item.bo.ItemSku;
 import com.wideka.club.api.trade.IOrderService;
 import com.wideka.club.api.trade.ITradeService;
+import com.wideka.club.api.trade.bo.Order;
 import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.api.user.IUserAddressService;
 import com.wideka.club.api.user.bo.UserAddress;
 import com.wideka.club.framework.bo.BooleanResult;
+import com.wideka.club.framework.exception.ServiceException;
 import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.club.framework.util.DateUtil;
@@ -31,6 +39,8 @@ public class TradeServiceImpl implements ITradeService {
 	private Logger4jExtend logger = Logger4jCollection.getLogger(TradeServiceImpl.class);
 
 	private TransactionTemplate transactionTemplate;
+
+	private IMemcachedCacheService memcachedCacheService;
 
 	private IUserAddressService userAddressService;
 
@@ -242,9 +252,56 @@ public class TradeServiceImpl implements ITradeService {
 	}
 
 	@Override
-	public BooleanResult cancelTrade(String userId, Long shopId, String tradeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public BooleanResult cancelTrade(String userId, Long shopId, String tradeNo) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		final Trade trade = new Trade();
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空。");
+			return result;
+		}
+		trade.setUserId(userId.trim());
+		trade.setModifyUser(userId);
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空！");
+			return result;
+		}
+		trade.setShopId(shopId);
+
+		if (StringUtils.isBlank(tradeNo)) {
+			result.setCode("订单信息不能为空！");
+			return result;
+		}
+		trade.setTradeNo(tradeNo.trim());
+
+		// 锁定当前订单
+		try {
+			memcachedCacheService.add(IMemcachedCacheService.CACHE_KEY_TRADE_NO + tradeNo.trim(), tradeNo,
+				IMemcachedCacheService.CACHE_KEY_TRADE_NO_DEFAULT_EXP);
+		} catch (ServiceException e) {
+			result.setCode("当前订单已被锁定，请稍后再试！");
+			return result;
+		}
+
+		// 0. 查询 未付款交易订单
+		Trade t = getTrade(trade);
+		if (t == null) {
+			result.setCode("当前订单不存在！");
+			return result;
+		}
+
+		if (!ITradeService.CHECK.equals(t.getType()) && !ITradeService.TO_PAY.equals(t.getType())) {
+			result.setCode("当前订单已付款或取消！");
+			return result;
+		}
+
+		// 处理 订单明细数据 需要用到
+		trade.setTradeId(t.getTradeId());
+
+		return cancelTrade(trade, t.getType(), t.getUserId());
 	}
 
 	@Override
@@ -359,12 +416,129 @@ public class TradeServiceImpl implements ITradeService {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param trade
+	 * @param type
+	 * @param modifyUser
+	 * @return
+	 */
+	private BooleanResult cancelTrade(final Trade trade, String type, String modifyUser) {
+		// 是否需要释放库存
+		boolean f = false;
+		// item sku 表库存
+		List<ItemSku> skus = null;
+		// item 表库存 即不存在 sku
+		List<Item> items = null;
+		// 用于统计 还有 sku 的商品的合计库存数
+		String[] itemIds = null;
+
+		// 根据 type 判断 是否需要 释放已占库存
+		if (ITradeService.TO_PAY.equals(type)) {
+			// 需要释放库存
+			f = true;
+
+			// 1. 判断库存
+			List<Order> orderList = orderService.getOrderList(trade.getUserId(), trade.getShopId(), trade.getTradeId());
+			if (orderList == null || orderList.size() == 0) {
+				BooleanResult result = new BooleanResult();
+				result.setResult(false);
+				result.setCode("当前订单明细不存在！");
+
+				return result;
+			}
+
+			// 存放各个商品库存数量 存在 购物相同商品 的情况
+			Map<String, Integer> map = new HashMap<String, Integer>();
+
+			for (Order order : orderList) {
+				String key = order.getItemId() + "&" + order.getSkuId();
+				if (!map.containsKey(key)) {
+					map.put(key, order.getStock());
+				}
+
+				int quantity = order.getQuantity();
+				int stock = map.get(key);
+
+				map.put(key, stock + quantity);
+			}
+
+			// 根据 map 组装 skuList
+			skus = new ArrayList<ItemSku>();
+			items = new ArrayList<Item>();
+			itemIds = new String[orderList.size()];
+			int i = 0;
+
+			for (Map.Entry<String, Integer> m : map.entrySet()) {
+				String[] key = m.getKey().split("&");
+
+				// if skuId is null or 0 then 商品没有规格
+				if (StringUtils.isBlank(key[1]) || "0".equals(key[1])) {
+					Item item = new Item();
+					item.setItemId(Long.valueOf(key[0]));
+					item.setStock(m.getValue());
+
+					items.add(item);
+
+					continue;
+				}
+
+				ItemSku sku = new ItemSku();
+				sku.setItemId(key[0]);
+				sku.setSkuId(key[1]);
+				sku.setStock(m.getValue());
+
+				skus.add(sku);
+
+				itemIds[i++] = key[0];
+			}
+		}
+
+		// type 取消
+		trade.setType(ITradeService.CANCEL);
+		// 是否需要释放库存
+		final boolean flag = f;
+		// item sku 表库存
+		final List<ItemSku> skuList = skus;
+		// item 表库存 即不存在 sku
+		final List<Item> itemList = items;
+		// 用于统计 还有 sku 的商品的合计库存数
+		final String[] itemId = itemIds;
+
+		BooleanResult res = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
+			public BooleanResult doInTransaction(TransactionStatus ts) {
+				// 1. 订单状态取消
+				BooleanResult result = updateTrade(trade);
+				if (!result.getResult()) {
+					ts.setRollbackOnly();
+
+					return result;
+				}
+
+				return result;
+			}
+		});
+
+		if (res.getResult()) {
+			res.setCode("取消成功。");
+		}
+		return res;
+	}
+
 	public TransactionTemplate getTransactionTemplate() {
 		return transactionTemplate;
 	}
 
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;
+	}
+
+	public IMemcachedCacheService getMemcachedCacheService() {
+		return memcachedCacheService;
+	}
+
+	public void setMemcachedCacheService(IMemcachedCacheService memcachedCacheService) {
+		this.memcachedCacheService = memcachedCacheService;
 	}
 
 	public IUserAddressService getUserAddressService() {

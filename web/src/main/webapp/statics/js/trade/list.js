@@ -17,11 +17,20 @@ myApp.onPageInit('trade.list', function(page) {
 					});
 		});
 
+function trade_list_cancel(tradeNo) {
+	myApp.confirm('确定取消订单？', '订单管理', function() {
+				myApp.showIndicator();
+
+				$$('#trade_list_cancel_tradeNo').val(tradeNo);
+				$$('#trade/list/cancel').trigger("submit");
+			});
+}
+
 function trade_list_refund(tradeNo) {
 	myApp.confirm('确定申请退款？', '订单管理', function() {
 				myApp.showIndicator();
 
-				$$('#trade_list_tradeNo').val(tradeNo);
+				$$('#trade_list_refund_tradeNo').val(tradeNo);
 				$$('#trade/list/refund').trigger("submit");
 			});
 }

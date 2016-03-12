@@ -96,6 +96,24 @@ public class TradeAction extends BaseAction {
 	}
 
 	/**
+	 * 取消尚未付款的订单.
+	 * 
+	 * @return
+	 */
+	public String cancel() {
+		BooleanResult result = tradeService.cancelTrade(this.getOpenId(), 0L, tradeNo);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
+	/**
 	 * 
 	 * @return
 	 */

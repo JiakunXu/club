@@ -11,6 +11,7 @@
 	</bean>
 	<bean id="tradeService" class="com.wideka.club.trade.service.impl.TradeServiceImpl">
 		<property name="transactionTemplate" ref="transactionTemplate" />
+		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="userAddressService" ref="userAddressService" />
 		<property name="orderService" ref="orderService" />
 		<property name="tradeDao" ref="tradeDao" />

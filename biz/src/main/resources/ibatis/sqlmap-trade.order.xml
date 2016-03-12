@@ -127,33 +127,27 @@
 	
 	<select id="getOrderList" parameterClass="order" resultClass="order">
 	<![CDATA[
-		SELECT t.order_id   AS orderId,
-		  t.item_name       AS itemName,
-		  t.properties_name AS propertiesName,
-		  t.quantity,
-		  t.price,
-		  t.points,
-		  t.change,
-		  t.item_id AS itemId,
-		  t.sku_id  AS skuId,
-		  CASE
-			WHEN q.stock IS NULL
-			THEN p.stock
-			ELSE q.stock
-		  END AS stock
-		FROM MALL.MALL_TB_ORDER t,
-		  MALL.MALL_TB_ITEM p,
-		  (SELECT qq.sku_id,
-			qq.stock
-		  FROM MALL.MALL_TB_ITEM_SKU qq
-		  WHERE qq.state = 'U'
-		  )q
-		WHERE t.item_id = p.item_id
-		AND t.sku_id    = q.sku_id(+)
-		AND t.state     = 'U'
-		AND p.state     = 'U'
-		AND p.shop_id   = #shopId#
-		AND t.trade_id  = #tradeId#
+		SELECT t.order_id AS orderId,
+			   t.item_name AS itemName,
+			   t.properties_name AS propertiesName,
+			   t.quantity,
+			   t.price,
+			   t.points,
+			   t.change,
+			   t.item_id AS itemId,
+			   t.sku_id AS skuId,
+			   CASE WHEN q.stock IS NULL THEN p.stock ELSE q.stock END AS stock
+		  FROM basis_tb_order t
+		  left join basis_tb_item p on t.item_id = p.item_id
+		  left join(
+		SELECT qq.sku_id, qq.stock
+		  FROM basis_tb_item_sku qq
+		 WHERE qq.state= 'U') q on t.sku_id = q.sku_id
+		 WHERE p.item_id is not null
+		   AND t.state = 'U'
+		   AND p.state = 'U'
+		   AND p.shop_id = #shopId#
+		   AND t.trade_id = #tradeId#
 	]]>
 	</select>
 	

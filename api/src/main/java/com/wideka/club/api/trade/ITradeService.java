@@ -131,10 +131,10 @@ public interface ITradeService {
 	 * 
 	 * @param userId
 	 * @param shopId
-	 * @param tradeId
+	 * @param tradeNo
 	 * @return
 	 */
-	BooleanResult cancelTrade(String userId, Long shopId, String tradeId);
+	BooleanResult cancelTrade(String userId, Long shopId, String tradeNo);
 
 	/**
 	 * 临时订单 -> 待付款订单.
