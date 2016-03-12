@@ -14,7 +14,8 @@
 	<div data-page="pay.index" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<div class="list-block" style="background: #f7f7f8;">
+			#if($!{trade.type} == 'topay')
+			<div class="list-block">
 				<ul>
 					<li>
 						<div class="item-content">
@@ -29,6 +30,7 @@
 					</li>
                 </ul>
             </div>
+			#end
 			<div class="list-block">
 				<ul>
 					<li>
