@@ -19,6 +19,14 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 
+myApp.addNotification({
+			title : '来自好社惠的消息',
+			subtitle : '',
+			message : '好社惠快递收发平台即将上线，敬请期待。',
+			media : '<img width="33" height="33" style="border-radius:100%" src="'
+					+ imgUrl + '/image/portal/logo.jpg">'
+		});
+
 myApp.onPageInit('ship', function(page) {
 			var e = {
 				provinceId : "province",

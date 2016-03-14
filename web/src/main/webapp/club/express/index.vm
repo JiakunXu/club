@@ -30,7 +30,7 @@
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-				<div class="pages navbar-through toolbar-through">
+				<div class="pages navbar-through">
 					<!-- Page, "data-page" contains page name -->
 					<div data-page="index" class="page">
 						<!-- Scrollable page content -->
@@ -87,6 +87,17 @@
                                     </p>
                                 </a>
                             </div>
+							
+							<div class="row no-gutter" style="margin-top: 20px;">
+                                <div class="col-50"><img src="$!{env.imgUrl}/image/portal/ad-4.png" width="100%"></img></div>
+								<div class="col-50"><img src="$!{env.imgUrl}/image/portal/ad-5.png" width="100%"></img></div>
+                            </div>
+							<div class="list-block" style="margin: 10px 0;">
+								<img src="$!{env.imgUrl}/image/portal/ad-2.jpg" width="100%"></img>
+							</div>
+							<div class="list-block" style="margin: 10px 0;">
+								<img src="$!{env.imgUrl}/image/portal/ad-3.jpg" width="100%"></img>
+							</div>
                         </div>
                     </div>
                 </div>
