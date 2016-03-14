@@ -18,7 +18,7 @@ myApp.onPageInit('pay.index', function(page) {
 function pay_index_pay() {
 	myApp.showIndicator();
 
-	$$('#pay/wxpay').trigger("submit");
+	$$('#pay/index/wxpay').trigger("submit");
 }
 
 function getBrandWCPayRequest(data) {

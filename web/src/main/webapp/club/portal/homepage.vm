@@ -139,6 +139,7 @@
 		#JSM(["framework7", "weixin", "jquery", "jquery.citytools"])
 		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/portal/homepage.js"></script>
+		<script src="$!{env.imgUrl}/js/cart/index.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/member/index.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/pay/index.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/trade/list.js" async="async"></script>

@@ -20,7 +20,10 @@
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title">店铺：好社惠</div>
-								<div class="item-after"><a href="#">编辑</a></div>
+								<div class="item-after">
+									<a id="cart/index/edit" href="javascript:cart_index_edit();">编辑</a>
+									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="display: none;">完成</a>
+								</div>
 							</div>
 						</div>
 					</li>
@@ -40,14 +43,15 @@
 			
 			<div class="bottom-fix" style="padding:0; margin-bottom: 50px;">
         		<div class="bottom-cart">
-					<div class="select-all checked">
+					<div id="cart/index/select" class="select-all checked">
 						<label class="label-checkbox">
                             <input type="checkbox" name="my-checkbox" checked="checked"></input>
 							<div class="item-media"><i class="icon icon-form-checkbox" style="margin: -5px 5px 0 0;"></i>全选</div>
                         </label>
 					</div>
-        			<div class="total-price">合计：<span class="js-total-price">79.90</span>元</div>
-        			<a href="$!{env.appUrl}/trade/create.htm?type=" class="btn btn-orange-dark" data-ignore-cache="true">结算(1)</a>
+        			<div id="cart/index/price" class="total-price">合计：<span class="js-total-price">79.90</span>元</div>
+        			<a id="cart/index/btn/create" href="$!{env.appUrl}/trade/create.htm?type=" class="btn btn-orange-dark" data-ignore-cache="true">结算(1)</a>
+					<a id="cart/index/btn/delete" href="#" class="btn btn-red" style="display: none;" data-ignore-cache="true">删除</a>
         		</div>
         	</div>
         </div>

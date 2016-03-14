@@ -333,6 +333,10 @@ a.component.type3 img {
     color: #f60;
 }
 
+.bottom-fix .bottom-cart .select-all.delete {
+    color: #ed5050;
+}
+
 .bottom-fix .bottom-cart .select-all {
     font-weight: 500;
     float: left;
@@ -376,6 +380,12 @@ a.component.type3 img {
 	color: #fff;
 	border-color: #f15a0c;
 	background-color: #f15a0c;
+}
+
+.btn.btn-red {
+    color: #fff;
+    background-color: #ed5050;
+    border-color: #ed5050;
 }
 
 .btn {
