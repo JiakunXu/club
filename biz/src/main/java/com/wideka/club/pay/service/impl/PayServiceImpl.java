@@ -120,6 +120,11 @@ public class PayServiceImpl implements IPayService {
 			}
 		}
 
+		// topay 状态 去 付款 ＝＝ 已经占用库存 需要检查 当前订单 是否超过了付款有效时间
+		if (ITradeService.TO_PAY.equals(type)) {
+
+		}
+
 		if (IPayService.PAY_TYPE_ALIPAY.equals(payType)) {
 			return result;
 		}
