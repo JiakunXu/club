@@ -6,6 +6,7 @@ myApp.onPageInit('trade.list', function(page) {
 						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '信息', function() {
+									member_index_stats();
 									myApp.getCurrentView().router.back();
 								});
 					});
