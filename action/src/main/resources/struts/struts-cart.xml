@@ -9,5 +9,7 @@
 			<result name="success">/club/cart/index.vm</result>
 		</action>
 		
+		<action name="add" class="cartAction" method="add"></action>
+		
 	</package>
 </struts>

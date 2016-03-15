@@ -30,6 +30,7 @@
 	<typeAlias alias="charaRplace" type="com.wideka.club.framework.ibatis.type.CharacterReplaceHanlderCallback" />
 
 	<sqlMap resource="ibatis/global.xml" />
+	<sqlMap resource="ibatis/sqlmap-cart.xml" />
 	<sqlMap resource="ibatis/sqlmap-monitor.action.xml" />
 	<sqlMap resource="ibatis/sqlmap-monitor.cache.xml" />
 	<sqlMap resource="ibatis/sqlmap-monitor.log.xml" />

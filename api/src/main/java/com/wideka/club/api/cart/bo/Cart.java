@@ -27,6 +27,11 @@ public class Cart extends SearchInfo {
 	private String userId;
 
 	/**
+	 * 店铺ID.
+	 */
+	private Long shopId;
+
+	/**
 	 * 商品ID.
 	 */
 	private Long itemId;
@@ -39,7 +44,7 @@ public class Cart extends SearchInfo {
 	/**
 	 * 0 非积分兑换 else 积分兑换.
 	 */
-	private String pointsId;
+	private Long pointsId;
 
 	/**
 	 * 购物车该sku商品的数量.
@@ -57,11 +62,6 @@ public class Cart extends SearchInfo {
 	private String modifyUser;
 
 	// >>>>>>>>>>以下是辅助属性<<<<<<<<<<
-
-	/**
-	 * 关联查询参数.
-	 */
-	private Long shopId;
 
 	/**
 	 * 查询结果.
@@ -109,6 +109,14 @@ public class Cart extends SearchInfo {
 		this.userId = userId;
 	}
 
+	public Long getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(Long shopId) {
+		this.shopId = shopId;
+	}
+
 	public Long getItemId() {
 		return itemId;
 	}
@@ -125,11 +133,11 @@ public class Cart extends SearchInfo {
 		this.skuId = skuId;
 	}
 
-	public String getPointsId() {
+	public Long getPointsId() {
 		return pointsId;
 	}
 
-	public void setPointsId(String pointsId) {
+	public void setPointsId(Long pointsId) {
 		this.pointsId = pointsId;
 	}
 
@@ -155,14 +163,6 @@ public class Cart extends SearchInfo {
 
 	public void setModifyUser(String modifyUser) {
 		this.modifyUser = modifyUser;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
 	}
 
 	public String getItemName() {

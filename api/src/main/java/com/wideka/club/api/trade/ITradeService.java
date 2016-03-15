@@ -57,17 +57,16 @@ public interface ITradeService {
 	String CANCEL = "cancel";
 
 	/**
-	 * 买家下单交易.
+	 * 立即购买.
 	 * 
 	 * @param userId
-	 *            必填.
 	 * @param shopId
-	 *            必填.
 	 * @param itemId
-	 *            商品id.
+	 * @param skuId
+	 * @param quantity
 	 * @return
 	 */
-	BooleanResult createTrade(String userId, Long shopId, String itemId);
+	BooleanResult createTrade(String userId, Long shopId, String itemId, String skuId, String quantity);
 
 	/**
 	 * 买家下单交易.

@@ -38,7 +38,7 @@ public class TradeAction extends BaseAction {
 	 * @return
 	 */
 	public String create() {
-		BooleanResult result = tradeService.createTrade(this.getOpenId(), 0L, "1");
+		BooleanResult result = tradeService.createTrade(this.getOpenId(), 0L, "1", "0", "1");
 
 		if (result.getResult()) {
 			tradeNo = result.getCode();

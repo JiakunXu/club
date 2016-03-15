@@ -6,6 +6,13 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<bean id="cartAction" class="com.wideka.club.cart.action.CartAction" parent="baseAction" scope="request">
+		<property name="cartService" ref="cartService" />
 	</bean>
+	
+	<bean id="cartService" class="com.wideka.club.cart.service.impl.CartServiceImpl">
+		<property name="cartDao" ref="cartDao" />
+	</bean>
+	
+	<bean id="cartDao" class="com.wideka.club.cart.dao.impl.CartDaoImpl" parent="baseDao" />
 	
 </beans>
