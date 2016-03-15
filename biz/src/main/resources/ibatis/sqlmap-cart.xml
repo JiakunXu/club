@@ -48,39 +48,11 @@
 	<select id="getCartList" parameterClass="cart" resultClass="cart">
 	<![CDATA[
 		SELECT t.cart_id AS cartId,
-		  p.item_id      AS itemId,
-		  p.item_name    AS itemName,
-		  t.quantity,
-		  CASE
-			WHEN q.price IS NULL
-			THEN p.price
-			ELSE q.price
-		  END               AS price,
-		  q.properties_name AS propertiesName,
-		  t.points_id       AS pointsId,
-		  k.points
-		FROM MALL.MALL_TB_CART t,
-		  MALL.MALL_TB_ITEM p,
-		  (SELECT qq.sku_id,
-			qq.properties_name,
-			qq.price
-		  FROM MALL.MALL_TB_ITEM_SKU qq
-		  WHERE qq.state = 'U'
-		  )q,
-		  (SELECT kk.points_id,
-			kk.points
-		  FROM MALL.MALL_TB_POINTS kk
-		  WHERE kk.state = 'U'
-		  AND kk.shop_id = #shopId#
-		  )k
-		WHERE t.item_id = p.item_id
-		AND t.sku_id    = q.sku_id (+)
-		AND t.points_id = k.points_id (+)
-		AND t.state     = 'U'
-		AND p.state     = 'U'
-		AND p.shop_id   = #shopId#
-		AND t.user_id   = #userId#
-		ORDER BY t.create_date DESC
+			   t.item_id AS itemId
+		  FROM basis_tb_cart t
+		 WHERE t.state = 'U'
+		   AND t.user_id = #userId#
+		 ORDER BY t.create_date DESC
 	]]>
 	</select>
 	

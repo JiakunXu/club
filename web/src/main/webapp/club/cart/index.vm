@@ -27,6 +27,7 @@
 							</div>
 						</div>
 					</li>
+					#foreach($cart in $!{cartList})
 					<li>
 						<label class="label-checkbox item-content">
                             <input type="checkbox" name="my-checkbox" checked="checked"></input>
@@ -38,6 +39,7 @@
 							</div>
                         </label>
 					</li>
+					#end
 				</ul>
 			</div>
 			

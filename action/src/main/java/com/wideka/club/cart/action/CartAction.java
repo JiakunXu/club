@@ -1,6 +1,9 @@
 package com.wideka.club.cart.action;
 
+import java.util.List;
+
 import com.wideka.club.api.cart.ICartService;
+import com.wideka.club.api.cart.bo.Cart;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
 
@@ -15,11 +18,15 @@ public class CartAction extends BaseAction {
 
 	private ICartService cartService;
 
+	private List<Cart> cartList;
+
 	/**
 	 * 
 	 * @return
 	 */
 	public String index() {
+		cartList = cartService.getCartList(this.getOpenId(), 0L);
+
 		return SUCCESS;
 	}
 
@@ -42,6 +49,14 @@ public class CartAction extends BaseAction {
 
 	public void setCartService(ICartService cartService) {
 		this.cartService = cartService;
+	}
+
+	public List<Cart> getCartList() {
+		return cartList;
+	}
+
+	public void setCartList(List<Cart> cartList) {
+		this.cartList = cartList;
 	}
 
 }

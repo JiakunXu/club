@@ -1,5 +1,8 @@
 package com.wideka.club.api.cart;
 
+import java.util.List;
+
+import com.wideka.club.api.cart.bo.Cart;
 import com.wideka.club.framework.bo.BooleanResult;
 
 /**
@@ -23,5 +26,14 @@ public interface ICartService {
 	 * @return
 	 */
 	BooleanResult createCart(String userId, Long shopId, String itemId, String skuId, String quantity);
+
+	/**
+	 * 获取用户购物车.
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @return
+	 */
+	List<Cart> getCartList(String userId, Long shopId);
 
 }

@@ -1,5 +1,7 @@
 package com.wideka.club.cart.dao;
 
+import java.util.List;
+
 import com.wideka.club.api.cart.bo.Cart;
 
 /**
@@ -15,5 +17,12 @@ public interface ICartDao {
 	 * @return
 	 */
 	Long createCart(Cart cart);
+
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	List<Cart> getCartList(Cart cart);
 
 }

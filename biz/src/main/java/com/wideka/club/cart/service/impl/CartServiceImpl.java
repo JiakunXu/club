@@ -1,9 +1,13 @@
 package com.wideka.club.cart.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 
 import com.wideka.club.api.cart.ICartService;
 import com.wideka.club.api.cart.bo.Cart;
+import com.wideka.club.api.item.bo.ItemFile;
 import com.wideka.club.cart.dao.ICartDao;
 import com.wideka.club.framework.bo.BooleanResult;
 import com.wideka.club.framework.log.Logger4jCollection;
@@ -102,6 +106,51 @@ public class CartServiceImpl implements ICartService {
 			result.setCode("添加成功。");
 		}
 		return result;
+	}
+
+	@Override
+	public List<Cart> getCartList(String userId, Long shopId) {
+		// userId 必填
+		if (StringUtils.isBlank(userId) || shopId == null) {
+			return null;
+		}
+
+		Cart cart = new Cart();
+		cart.setUserId(userId.trim());
+		cart.setShopId(shopId);
+
+		List<Cart> cartList = null;
+
+		try {
+			cartList = cartDao.getCartList(cart);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(cart), e);
+		}
+
+		if (cartList == null || cartList.size() == 0) {
+			return null;
+		}
+
+		String[] itemId = new String[cartList.size()];
+		int i = 0;
+		for (Cart ca : cartList) {
+			itemId[i++] = ca.getItemId().toString();
+		}
+
+		// 2. 获取商品文件信息
+		Map<String, List<ItemFile>> map = null;// itemFileService.getItemFileList(shopId,
+												// itemId);
+
+		// 不存在商品文件 直接返回
+		if (map == null || map.isEmpty()) {
+			return cartList;
+		}
+
+		for (Cart ca : cartList) {
+			ca.setItemFileList(map.get(ca.getItemId()));
+		}
+
+		return cartList;
 	}
 
 	public ICartDao getCartDao() {
