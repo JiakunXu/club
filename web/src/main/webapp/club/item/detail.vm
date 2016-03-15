@@ -61,7 +61,7 @@
 				<p class="buttons-row" style="width: 100%;">
 					<a href="#" class="button button-big" style="border: none; border-left: 1px solid #d9d9d9; color: #333;"><i class="iconfont icon-favor" style="font-size: 20px;"></i> 收藏</a>
 					<a href="#" class="button button-big" style="background-color: #ff9402; border: none; color: #fff;">加入购物车</a>
-					<a href="#" class="button button-big" style="background-color: #ff5000; border: none; color: #fff;">立即购买</a>
+					<a href="$!{env.appUrl}/trade/create.htm?type=" class="button button-big" style="background-color: #ff5000; border: none; color: #fff;" data-ignore-cache="true">立即购买</a>
                 </p>
 			</div>
 		</div>
