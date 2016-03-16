@@ -17,6 +17,24 @@ myApp.onPageInit('cart.index', function(page) {
 					});
 		});
 
+function cart_index_minus(cartId) {
+	$$.get(appUrl + '/cart/minus.htm', {
+				cartId : cartId
+			}, function(data) {
+				$$('#cart/index/quantity').val(data);
+				$$('#cart/index/quantity/edited/' + cartId).htm(data);
+			});
+}
+
+function cart_index_plus(cartId) {
+	$$.get(appUrl + '/cart/plus.htm', {
+				cartId : cartId
+			}, function(data) {
+				$$('#cart/index/quantity').val(data);
+				$$('#cart/index/quantity/edited/' + cartId).htm(data);
+			});
+}
+
 function cart_index_remove() {
 	myApp.showIndicator();
 
@@ -37,7 +55,7 @@ function cart_index_edit() {
 	$$('#cart/index/edit').hide();
 	$$('#cart/index/edited').show();
 
-	$$('div[id="cart/index/quantity/edited"]').hide();
+	$$('div[id^="cart/index/quantity/edited"]').hide();
 	$$('div[id="cart/index/quantity/edit"]').show();
 
 	$$('#cart/index/select').removeClass("checked");
@@ -56,7 +74,7 @@ function cart_index_edited() {
 	$$('#cart/index/edit').show();
 
 	$$('div[id="cart/index/quantity/edit"]').hide();
-	$$('div[id="cart/index/quantity/edited"]').show();
+	$$('div[id^="cart/index/quantity/edited"]').show();
 
 	$$('#cart/index/select').removeClass("delete");
 	$$('#cart/index/select').addClass("checked");

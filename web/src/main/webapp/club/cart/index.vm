@@ -32,8 +32,8 @@
     					<li>
     						<div class="item-content">
 								<label class="label-checkbox">
-                                    <input type="checkbox" name="cartId" value="$!{cart.cartId}" checked="checked"></input>
-									<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                                    <input type="checkbox" name="cartIds" value="$!{cart.cartId}" checked="checked"></input>
+									<div class="item-media" style="width: 28px;"><i class="icon icon-form-checkbox"></i></div>
 								</label>
 								
 								<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
@@ -46,14 +46,14 @@
     								</div>
     								<div class="item-title-row" style="margin-top: 3px;">
     									<div class="item-subtitle" style="font-size: 12px; color: #ccc;">250ml×8盒×3提 共24盒</div>
-    									<div id="cart/index/quantity/edited" class="item-after">×1</div>
+    									<div id="cart/index/quantity/edited/$!{cart.cartId}" class="item-after">×$!{cart.quantity}</div>
     									<div id="cart/index/quantity/edit" class="item-after" style="display: none;">
     										<div class="quantity">
     											<button class="minus" type="button"></button>
-                                                <input type="text" class="txt" value="1"></input>
+                                                <input id="cart/index/quantity" type="text" class="txt" value="$!{cart.quantity}"></input>
     											<button class="plus" type="button"></button>
-    											<div class="response-area response-area-minus"></div>
-    											<div class="response-area response-area-plus"></div>
+    											<div class="response-area response-area-minus" onclick="cart_index_minus('$!{cart.cartId}');"></div>
+    											<div class="response-area response-area-plus" onclick="cart_index_plus('$!{cart.cartId}');"></div>
     										</div>
     									</div>
     								</div>

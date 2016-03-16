@@ -208,6 +208,22 @@ public class CartServiceImpl implements ICartService {
 		return -1;
 	}
 
+	@Override
+	public BooleanResult minus(String userId, Long shopId, String cartId) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		return result;
+	}
+
+	@Override
+	public BooleanResult plus(String userId, Long shopId, String cartId) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		return result;
+	}
+
 	public ICartDao getCartDao() {
 		return cartDao;
 	}

@@ -24,7 +24,9 @@ public class CartAction extends BaseAction {
 	/**
 	 * 删除购物车.
 	 */
-	private String[] cartId;
+	private String[] cartIds;
+
+	private String cartId;
 
 	/**
 	 * 
@@ -60,7 +62,33 @@ public class CartAction extends BaseAction {
 	 * @return
 	 */
 	public String remove() {
-		BooleanResult result = cartService.removeCart(this.getOpenId(), 0L, cartId);
+		BooleanResult result = cartService.removeCart(this.getOpenId(), 0L, cartIds);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
+	public String minus() {
+		BooleanResult result = cartService.minus(this.getOpenId(), 0L, cartId);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
+	public String plus() {
+		BooleanResult result = cartService.plus(this.getOpenId(), 0L, cartId);
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
@@ -88,14 +116,22 @@ public class CartAction extends BaseAction {
 		this.cartList = cartList;
 	}
 
-	public String[] getCartId() {
-		return cartId != null ? Arrays.copyOf(cartId, cartId.length) : null;
+	public String[] getCartIds() {
+		return cartIds != null ? Arrays.copyOf(cartIds, cartIds.length) : null;
 	}
 
-	public void setCartId(String[] cartId) {
-		if (cartId != null) {
-			this.cartId = Arrays.copyOf(cartId, cartId.length);
+	public void setCartIds(String[] cartIds) {
+		if (cartIds != null) {
+			this.cartIds = Arrays.copyOf(cartIds, cartIds.length);
 		}
+	}
+
+	public String getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
 	}
 
 }

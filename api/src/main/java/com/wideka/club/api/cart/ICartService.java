@@ -46,4 +46,22 @@ public interface ICartService {
 	 */
 	BooleanResult removeCart(String userId, Long shopId, String[] cartId);
 
+	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param cartId
+	 * @return
+	 */
+	BooleanResult minus(String userId, Long shopId, String cartId);
+
+	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param cartId
+	 * @return
+	 */
+	BooleanResult plus(String userId, Long shopId, String cartId);
+
 }
