@@ -15,12 +15,12 @@
 		<!-- Scrollable page content-->
 		<div class="page-content" style="padding-bottom: 100px;">
 			<form id="cart/index/form" method="POST" class="ajax-submit">
-    			<div class="list-block" style="font-size: 13px;">
+    			<div class="list-block media-list" style="font-size: 13px;">
     				<ul>
     					<li>
     						<div class="item-content">
-    							<div class="item-inner">
-    								<div class="item-title">店铺：好社惠</div>
+    							<div class="item-inner" style="display: flex;">
+    								<div class="item-title" style="font-weight: 400;">店铺：好社惠</div>
     								<div class="item-after">
     									<a id="cart/index/edit" href="javascript:cart_index_edit();" style="margin: -10px 0px; padding: 10px 0px;">编辑</a>
     									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="margin: -10px 0px; padding: 10px 0px; display: none;">完成</a>
@@ -32,11 +32,19 @@
     					<li>
     						<label class="label-checkbox item-content">
                                 <input type="checkbox" name="cartId" value="$!{cart.cartId}" checked="checked"></input>
-    							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+    							<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
+									<i class="icon icon-form-checkbox"></i>
+									<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img>
+								</div>
     							<div class="item-inner">
-    								<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img>
-    								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
-    								<div class="item-after">￥79.9</div>
+									<div class="item-title-row" style="margin-top: 3px;">
+										<div class="item-title" style="font-weight: 400;">特仑苏纯牛奶利乐苗条装</div>
+										<div class="item-after">￥79.9</div>
+									</div>
+									<div class="item-title-row" style="margin-top: 3px;">
+										<div class="item-subtitle" style="font-size: 12px; color: #ccc;">250ml×8盒×3提 共24盒</div>
+										<div class="item-after">×1</div>
+									</div>
     							</div>
                             </label>
     					</li>
