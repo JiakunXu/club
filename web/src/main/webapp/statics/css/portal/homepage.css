@@ -293,6 +293,97 @@ a.component.type3 img {
 
 
 /* 购物车 */
+.quantity {
+    display: flex;
+    vertical-align: middle;
+    font-size: 0;
+    position: relative;
+}
+
+.quantity button {
+    margin: 0;
+    width: 25px;
+    height: 22px;
+    border: 1px solid #eee;
+    background-color: #f2f2f2;
+    border-radius: 1px;
+    font-size: 16px;
+    line-height: 10px;
+    font-weight: bold;
+    color: #666;
+    padding: 5px;
+    outline: none !important;
+    text-align: center;
+    vertical-align: middle;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.quantity .minus {
+    position: relative;
+    border-radius: 4px 0 0 4px;
+    border-right: 0px none;
+}
+
+.quantity .minus::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    width: 8px;
+    height: 2px;
+    background-color: #6c6c6c;
+}
+
+.quantity .plus {
+    position: relative;
+    border-left: 0px none;
+    border-radius: 0 4px 4px 0;
+}
+
+.quantity .plus::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    width: 8px;
+    height: 2px;
+    background-color: #6c6c6c;
+}
+
+.quantity .plus::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    width: 2px;
+    height: 8px;
+    background-color: #6c6c6c;
+}
+
+.list-block .quantity .txt {
+    border: 1px solid #eee;
+    height: 22px;
+    width: 25px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0;
+}
+
 .bottom-fix {
 	display: block;
 	z-index: 100;

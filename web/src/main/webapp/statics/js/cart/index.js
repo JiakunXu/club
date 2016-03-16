@@ -43,6 +43,9 @@ function cart_index_edit() {
 	$$('#cart/index/edit').hide();
 	$$('#cart/index/edited').show();
 
+	$$('div[id="cart/index/quantity/edited"]').hide();
+	$$('div[id="cart/index/quantity/edit"]').show();
+
 	$$('#cart/index/select').removeClass("checked");
 	$$('#cart/index/select').addClass("delete");
 
@@ -50,11 +53,16 @@ function cart_index_edit() {
 
 	$$('#cart/index/btn/create').hide();
 	$$('#cart/index/btn/delete').show();
+
+	$$('input[name="cartId"]').prop('checked', false);
 }
 
 function cart_index_edited() {
 	$$('#cart/index/edited').hide();
 	$$('#cart/index/edit').show();
+
+	$$('div[id="cart/index/quantity/edit"]').hide();
+	$$('div[id="cart/index/quantity/edited"]').show();
 
 	$$('#cart/index/select').removeClass("delete");
 	$$('#cart/index/select').addClass("checked");
@@ -63,4 +71,6 @@ function cart_index_edited() {
 
 	$$('#cart/index/btn/delete').hide();
 	$$('#cart/index/btn/create').show();
+
+	$$('input[name="cartId"]').prop('checked', true);
 }
