@@ -49,8 +49,8 @@
         		<div class="bottom-cart">
 					<div id="cart/index/select" class="select-all checked">
 						<label class="label-checkbox">
-                            <input type="checkbox" name="my-checkbox" checked="checked"></input>
-							<div class="item-media"><i class="icon icon-form-checkbox" style="margin: -5px 5px 0 0;"></i>全选</div>
+                            <input type="checkbox" checked="checked"></input>
+							<div class="item-media" onclick="cart_index_check();"><i class="icon icon-form-checkbox" style="margin: -5px 5px 0 0;"></i>全选</div>
                         </label>
 					</div>
         			<div id="cart/index/price" class="total-price">合计：<span class="js-total-price">79.90</span>元</div>

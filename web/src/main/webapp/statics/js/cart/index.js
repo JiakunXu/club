@@ -15,6 +15,8 @@ myApp.onPageInit('cart.index', function(page) {
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '错误');
 					});
+
+			cart_index_check_flag = true;
 		});
 
 function cart_index_remove() {
@@ -23,6 +25,18 @@ function cart_index_remove() {
 	$$('#cart/index/form').attr("action", appUrl + "/cart/remove.htm");
 
 	$$('#cart/index/form').trigger("submit");
+}
+
+function cart_index_check() {
+	if (cart_index_check_flag) {
+		$$('input[name="cartId"]').prop('checked', false);
+
+		cart_index_check_flag = false;
+	} else {
+		$$('input[name="cartId"]').prop('checked', true);
+
+		cart_index_check_flag = true;
+	}
 }
 
 function cart_index_edit() {
