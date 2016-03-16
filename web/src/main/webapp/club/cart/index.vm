@@ -30,32 +30,35 @@
     					</li>
     					#foreach($cart in $!{cartList})
     					<li>
-    						<label class="label-checkbox item-content">
-                                <input type="checkbox" name="cartId" value="$!{cart.cartId}" checked="checked"></input>
-    							<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
-									<i class="icon icon-form-checkbox"></i>
+    						<div class="item-content">
+								<label class="label-checkbox">
+                                    <input type="checkbox" name="cartId" value="$!{cart.cartId}" checked="checked"></input>
+									<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+								</label>
+								
+								<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
 									<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img>
 								</div>
     							<div class="item-inner">
-									<div class="item-title-row" style="margin-top: 3px;">
-										<div class="item-title" style="font-weight: 400;">特仑苏纯牛奶利乐苗条装</div>
-										<div class="item-after">￥79.9</div>
-									</div>
-									<div class="item-title-row" style="margin-top: 3px;">
-										<div class="item-subtitle" style="font-size: 12px; color: #ccc;">250ml×8盒×3提 共24盒</div>
-										<div id="cart/index/quantity/edited" class="item-after">×1</div>
-										<div id="cart/index/quantity/edit" class="item-after" style="display: none;">
-											<div class="quantity">
-												<button class="minus" type="button"></button>
+    								<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-title" style="font-weight: 400;">特仑苏纯牛奶利乐苗条装</div>
+    									<div class="item-after">￥79.9</div>
+    								</div>
+    								<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-subtitle" style="font-size: 12px; color: #ccc;">250ml×8盒×3提 共24盒</div>
+    									<div id="cart/index/quantity/edited" class="item-after">×1</div>
+    									<div id="cart/index/quantity/edit" class="item-after" style="display: none;">
+    										<div class="quantity">
+    											<button class="minus" type="button"></button>
                                                 <input type="text" class="txt" value="1"></input>
-												<button class="plus" type="button"></button>
-												<div class="response-area response-area-minus"></div>
-												<div class="response-area response-area-plus"></div>
-											</div>
-										</div>
-									</div>
+    											<button class="plus" type="button"></button>
+    											<div class="response-area response-area-minus"></div>
+    											<div class="response-area response-area-plus"></div>
+    										</div>
+    									</div>
+    								</div>
     							</div>
-                            </label>
+                            </div>
     					</li>
     					#end
     				</ul>
