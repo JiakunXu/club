@@ -15,8 +15,6 @@ myApp.onPageInit('cart.index', function(page) {
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '错误');
 					});
-
-			cart_index_check_flag = true;
 		});
 
 function cart_index_remove() {
@@ -28,14 +26,10 @@ function cart_index_remove() {
 }
 
 function cart_index_check() {
-	if (cart_index_check_flag) {
+	if ($$('#cart/index/check').prop('checked')) {
 		$$('input[name="cartId"]').prop('checked', false);
-
-		cart_index_check_flag = false;
 	} else {
 		$$('input[name="cartId"]').prop('checked', true);
-
-		cart_index_check_flag = true;
 	}
 }
 
@@ -54,7 +48,7 @@ function cart_index_edit() {
 	$$('#cart/index/btn/create').hide();
 	$$('#cart/index/btn/delete').show();
 
-	$$('input[name="cartId"]').prop('checked', false);
+	$$('input[type="checkbox"]').prop('checked', false);
 }
 
 function cart_index_edited() {
@@ -72,5 +66,5 @@ function cart_index_edited() {
 	$$('#cart/index/btn/delete').hide();
 	$$('#cart/index/btn/create').show();
 
-	$$('input[name="cartId"]').prop('checked', true);
+	$$('input[type="checkbox"]').prop('checked', true);
 }
