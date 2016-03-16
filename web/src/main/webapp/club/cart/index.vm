@@ -22,8 +22,8 @@
     							<div class="item-inner">
     								<div class="item-title">店铺：好社惠</div>
     								<div class="item-after">
-    									<a id="cart/index/edit" href="javascript:cart_index_edit();">编辑</a>
-    									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="display: none;">完成</a>
+    									<a id="cart/index/edit" href="javascript:cart_index_edit();" style="margin: -10px 0px; padding: 10px 0px;">编辑</a>
+    									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="margin: -10px 0px; padding: 10px 0px; display: none;">完成</a>
     								</div>
     							</div>
     						</div>
