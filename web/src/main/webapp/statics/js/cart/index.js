@@ -18,7 +18,7 @@ myApp.onPageInit('cart.index', function(page) {
 		});
 
 function cart_index_minus(cartId) {
-	var q = $$('#cart/index/quantity').val();
+	var q = $$('#cart/index/quantity/' + cartId).val();
 
 	if (q == 1) {
 		return;
@@ -28,7 +28,7 @@ function cart_index_minus(cartId) {
 }
 
 function cart_index_plus(cartId) {
-	var q = $$('#cart/index/quantity').val();
+	var q = $$('#cart/index/quantity/' + cartId).val();
 	cart_index_num(cartId, dcmAdd(q, 1));
 }
 
@@ -37,7 +37,7 @@ function cart_index_num(cartId, quantity) {
 				cartId : cartId,
 				quantity : quantity
 			}, function(data) {
-				$$('#cart/index/quantity').val(data);
+				$$('#cart/index/quantity/' + cartId).val(data);
 				$$('#cart/index/quantity/edited/' + cartId).html('×' + data);
 			});
 }

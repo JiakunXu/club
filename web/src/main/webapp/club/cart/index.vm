@@ -50,7 +50,7 @@
     									<div id="cart/index/quantity/edit" class="item-after" style="display: none;">
     										<div class="quantity">
     											<button class="minus" type="button"></button>
-                                                <input id="cart/index/quantity" type="text" class="txt" value="$!{cart.quantity}"></input>
+                                                <input id="cart/index/quantity/$!{cart.cartId}" type="text" class="txt" value="$!{cart.quantity}"></input>
     											<button class="plus" type="button"></button>
     											<div class="response-area response-area-minus" onclick="cart_index_minus('$!{cart.cartId}');"></div>
     											<div class="response-area response-area-plus" onclick="cart_index_plus('$!{cart.cartId}');"></div>
