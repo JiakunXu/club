@@ -20,7 +20,7 @@
 					</h4>
     			</div>
 				<div class="modal-body">
-      				<form class="form-horizontal" role="form" action="$!{env.appUrl}/login.htm" method="post">
+      				<form class="form-horizontal" role="form" action="$!{env.appUrl}/login.htm" method="POST">
     					<div class="form-group text-center">
     						<a class="" id="btn" data-loading-text="正在登录..." href="javascript:submit();">
 								<img alt="Ld-d.png" src="$!{env.imgUrl}/image/weixin/Ld-d.png" width="240" height="50" />

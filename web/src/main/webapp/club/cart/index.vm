@@ -14,34 +14,36 @@
 	<div data-page="cart.index" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content" style="padding-bottom: 100px;">
-			<div class="list-block" style="font-size: 13px;">
-				<ul>
-					<li>
-						<div class="item-content">
-							<div class="item-inner">
-								<div class="item-title">店铺：好社惠</div>
-								<div class="item-after">
-									<a id="cart/index/edit" href="javascript:cart_index_edit();">编辑</a>
-									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="display: none;">完成</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					#foreach($cart in $!{cartList})
-					<li>
-						<label class="label-checkbox item-content">
-                            <input type="checkbox" name="my-checkbox" checked="checked"></input>
-							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-							<div class="item-inner">
-								<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img>
-								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
-								<div class="item-after">￥79.9</div>
-							</div>
-                        </label>
-					</li>
-					#end
-				</ul>
-			</div>
+			<form id="cart/index/form" method="POST" class="ajax-submit">
+    			<div class="list-block" style="font-size: 13px;">
+    				<ul>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title">店铺：好社惠</div>
+    								<div class="item-after">
+    									<a id="cart/index/edit" href="javascript:cart_index_edit();">编辑</a>
+    									<a id="cart/index/edited" href="javascript:cart_index_edited();" style="display: none;">完成</a>
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					#foreach($cart in $!{cartList})
+    					<li>
+    						<label class="label-checkbox item-content">
+                                <input type="checkbox" name="cartId" value="$!{cart.cartId}" checked="checked"></input>
+    							<div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+    							<div class="item-inner">
+    								<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 60px;"></img>
+    								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
+    								<div class="item-after">￥79.9</div>
+    							</div>
+                            </label>
+    					</li>
+    					#end
+    				</ul>
+    			</div>
+            </form>
 			
 			<div class="bottom-fix" style="padding:0; margin-bottom: 50px;">
         		<div class="bottom-cart">
@@ -53,7 +55,7 @@
 					</div>
         			<div id="cart/index/price" class="total-price">合计：<span class="js-total-price">79.90</span>元</div>
         			<a id="cart/index/btn/create" href="$!{env.appUrl}/trade/create.htm?type=" class="btn btn-orange-dark" data-ignore-cache="true">结算(1)</a>
-					<a id="cart/index/btn/delete" href="#" class="btn btn-red" style="display: none;" data-ignore-cache="true">删除</a>
+					<a id="cart/index/btn/delete" href="javascript:cart_index_remove();" class="btn btn-red" style="display: none;" data-ignore-cache="true">删除</a>
         		</div>
         	</div>
         </div>

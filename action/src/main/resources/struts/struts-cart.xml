@@ -11,5 +11,7 @@
 		
 		<action name="add" class="cartAction" method="add"></action>
 		
+		<action name="remove" class="cartAction" method="remove"></action>
+		
 	</package>
 </struts>

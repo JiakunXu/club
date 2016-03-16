@@ -1,5 +1,6 @@
 package com.wideka.club.cart.action;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.wideka.club.api.cart.ICartService;
@@ -21,6 +22,11 @@ public class CartAction extends BaseAction {
 	private List<Cart> cartList;
 
 	/**
+	 * 删除购物车.
+	 */
+	private String[] cartId;
+
+	/**
 	 * 
 	 * @return
 	 */
@@ -30,8 +36,31 @@ public class CartAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 添加购物车.
+	 * 
+	 * @return
+	 */
 	public String add() {
 		BooleanResult result = cartService.createCart(this.getOpenId(), 0L, "0", "0", "1");
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
+	/**
+	 * 移除购物车.
+	 * 
+	 * @return
+	 */
+	public String remove() {
+		BooleanResult result = cartService.removeCart(this.getOpenId(), 0L, cartId);
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
@@ -57,6 +86,16 @@ public class CartAction extends BaseAction {
 
 	public void setCartList(List<Cart> cartList) {
 		this.cartList = cartList;
+	}
+
+	public String[] getCartId() {
+		return cartId != null ? Arrays.copyOf(cartId, cartId.length) : null;
+	}
+
+	public void setCartId(String[] cartId) {
+		if (cartId != null) {
+			this.cartId = Arrays.copyOf(cartId, cartId.length);
+		}
 	}
 
 }

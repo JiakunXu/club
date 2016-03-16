@@ -15,7 +15,7 @@
 	<div data-page="message.video" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<form id="message/video" action="$!{env.appUrl}/weixin/message.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="message/video" action="$!{env.appUrl}/weixin/message.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="send/video"/>
 				<ul>
 					<li>

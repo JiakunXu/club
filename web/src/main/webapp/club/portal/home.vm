@@ -42,7 +42,7 @@
 		
 		#parse("/boss/framework/footer.vm")
 		
-		<form class="" role="form" method="post"></form>
+		<form class="" role="form" method="POST"></form>
 		
 		<iframe id="hideFrame" name="hideFrame" style="display:none"></iframe>
 		#JSM(["jquery", "jquery.cookie", "bootstrap", "bootstrap.table", "bootstrap.table.editable", "bootstrap3.editable"])

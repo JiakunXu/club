@@ -12,7 +12,7 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="content-block-title">寄件人信息</div>
-			<form id="ship" action="#" method="post" class="list-block ajax-submit">
+			<form id="ship" action="#" method="POST" class="list-block ajax-submit">
 				<ul>
 					<li>
 						<div class="item-content">

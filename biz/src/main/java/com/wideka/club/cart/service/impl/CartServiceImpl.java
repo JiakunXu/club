@@ -153,6 +153,59 @@ public class CartServiceImpl implements ICartService {
 		return cartList;
 	}
 
+	@Override
+	public BooleanResult removeCart(String userId, Long shopId, String[] cartId) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		Cart cart = new Cart();
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空！");
+			return result;
+		}
+		cart.setUserId(userId.trim());
+		cart.setModifyUser(userId);
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空！");
+			return result;
+		}
+		cart.setShopId(shopId);
+
+		if (cartId == null || cartId.length == 0) {
+			result.setCode("购物车商品信息不能为空！");
+			return result;
+		}
+		cart.setCodes(cartId);
+
+		cart.setState(ICartService.STATE_REMOVE);
+
+		int n = updateCart(cart);
+		if (n == -1) {
+			result.setCode("购物车更新失败！");
+			return result;
+		}
+
+		result.setResult(true);
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	private int updateCart(Cart cart) {
+		try {
+			return cartDao.updateCart(cart);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(cart), e);
+		}
+
+		return -1;
+	}
+
 	public ICartDao getCartDao() {
 		return cartDao;
 	}

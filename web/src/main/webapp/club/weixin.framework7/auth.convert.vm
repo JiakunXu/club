@@ -16,7 +16,7 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="content-block-title">userid转换成openid接口</div>
-			<form id="auth/convert/convertToOpenId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="auth/convert/convertToOpenId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="auth/convertToOpenId"/>
 				<ul>
 					<li>
@@ -50,7 +50,7 @@
 			</form>
 			
 			<div class="content-block-title">openid转换成userid接口</div>
-			<form id="auth/convert/convertToUserId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="auth/convert/convertToUserId" action="$!{env.appUrl}/weixin/auth.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="auth/convertToUserId"/>
 				<ul>
 					<li>

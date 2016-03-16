@@ -16,7 +16,7 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="content-block-title">更新成员</div>
-			<form id="user/detail/update" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="user/detail/update" action="$!{env.appUrl}/weixin/user.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="user/update"/>
 				<input type="hidden" name="user.userId" value="$!{userId}"/>
 				<ul>
@@ -38,7 +38,7 @@
 			</form>
 			
 			<div class="content-block-title">删除成员</div>
-			<form id="user/detail/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="user/detail/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="user/delete"/>
 				<input type="hidden" name="userId" value="$!{userId}"/>
 				<ul>

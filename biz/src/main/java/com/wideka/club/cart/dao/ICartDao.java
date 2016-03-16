@@ -25,4 +25,11 @@ public interface ICartDao {
 	 */
 	List<Cart> getCartList(Cart cart);
 
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	int updateCart(Cart cart);
+
 }

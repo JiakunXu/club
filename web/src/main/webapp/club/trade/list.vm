@@ -69,10 +69,10 @@
 				<div class="preloader"></div>
 			</div>
 		</div>
-		<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="post" class="ajax-submit">
+		<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="POST" class="ajax-submit">
         	<input type="hidden" name="tradeNo" id="trade_list_cancel_tradeNo"/>
         </form>
-		<form id="trade/list/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="post" class="ajax-submit">
+		<form id="trade/list/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
         	<input type="hidden" name="tradeNo" id="trade_list_refund_tradeNo"/>
         </form>
     </div>

@@ -16,7 +16,7 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="content-block-title">更新部门</div>
-			<form id="department/detail/update" action="$!{env.appUrl}/weixin/department.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="department/detail/update" action="$!{env.appUrl}/weixin/department.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="department/update"/>
 				<input type="hidden" name="department.id" value="$!{id}"/>
 				<ul>
@@ -38,7 +38,7 @@
 			</form>
 			
 			<div class="content-block-title">删除部门</div>
-			<form id="department/detail/delete" action="$!{env.appUrl}/weixin/department.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="department/detail/delete" action="$!{env.appUrl}/weixin/department.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="department/delete"/>
 				<input type="hidden" name="id" value="$!{id}"/>
 				<ul>

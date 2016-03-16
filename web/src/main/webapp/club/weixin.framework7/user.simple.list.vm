@@ -34,7 +34,7 @@
 				<div class="list-block-label"></div>
 			</div>
 		</div>
-		<form id="user/simple/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="ajax-submit">
+		<form id="user/simple/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="POST" class="ajax-submit">
         	<input type="hidden" name="op" value="user/delete"/>
         	<input type="hidden" name="userId" id="user_simple_list_userId"/>
         </form>

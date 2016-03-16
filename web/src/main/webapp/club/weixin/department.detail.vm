@@ -12,7 +12,7 @@
 	<body>
 		<div class="weui_cells_title">更新部门</div>
 		<div class="weui_cells weui_cells_form">
-			<form method="post">
+			<form method="POST">
 				<input type="hidden" name="department.id" value="$!{id}"/>
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">部门</label></div>
@@ -28,7 +28,7 @@
 		
 		<div class="weui_cells_title">删除部门</div>
 		<div class="weui_cells weui_cells_form">
-			<form method="post">
+			<form method="POST">
 				<input type="hidden" name="id" value="$!{id}"/>
             </form>
         </div>

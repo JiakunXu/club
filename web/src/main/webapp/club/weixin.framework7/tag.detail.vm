@@ -16,7 +16,7 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="content-block-title">更新标签名字</div>
-			<form id="tag/detail/update" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="tag/detail/update" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="tag/update"/>
 				<input type="hidden" name="tag.tagId" value="$!{tagId}"/>
 				<ul>
@@ -38,7 +38,7 @@
 			</form>
 			
 			<div class="content-block-title">删除标签</div>
-			<form id="tag/detail/delete" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="tag/detail/delete" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="tag/delete"/>
 				<input type="hidden" name="tagId" value="$!{tagId}"/>
 				<ul>

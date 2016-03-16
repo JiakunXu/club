@@ -15,7 +15,7 @@
 	<div data-page="user.create" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<form id="user/create" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="user/create" action="$!{env.appUrl}/weixin/user.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="user/create"/>
 				<ul>
 					<li>

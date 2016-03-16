@@ -12,7 +12,7 @@
 	<body>
 		<div class="weui_cells_title">userid转换成openid接口</div>
 		<div class="weui_cells weui_cells_form">
-			<form method="post">
+			<form method="POST">
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">UserID</label></div>
                     <div class="weui_cell_bd weui_cell_primary">
@@ -33,7 +33,7 @@
 		
 		<div class="weui_cells_title">openid转换成userid接口</div>
 		<div class="weui_cells weui_cells_form">
-			<form method="post">
+			<form method="POST">
     			<div class="weui_cell">
                     <div class="weui_cell_hd"><label class="weui_label">OpenID</label></div>
                     <div class="weui_cell_bd weui_cell_primary">

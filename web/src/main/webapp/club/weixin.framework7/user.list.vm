@@ -42,7 +42,7 @@
 				<div class="preloader"></div>
 			</div>
 		</div>
-		<form id="user/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="post" class="ajax-submit">
+		<form id="user/list/delete" action="$!{env.appUrl}/weixin/user.framework7.htm" method="POST" class="ajax-submit">
         	<input type="hidden" name="op" value="user/delete"/>
         	<input type="hidden" name="userId" id="user_list_userId"/>
         </form>

@@ -36,4 +36,14 @@ public interface ICartService {
 	 */
 	List<Cart> getCartList(String userId, Long shopId);
 
+	/**
+	 * 移除购物车.
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param cartId
+	 * @return
+	 */
+	BooleanResult removeCart(String userId, Long shopId, String[] cartId);
+
 }

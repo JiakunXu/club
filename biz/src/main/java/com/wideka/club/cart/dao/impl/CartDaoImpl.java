@@ -24,4 +24,9 @@ public class CartDaoImpl extends BaseDaoImpl implements ICartDao {
 		return (List<Cart>) getSqlMapClientTemplate().queryForList("cart.getCartList", cart);
 	}
 
+	@Override
+	public int updateCart(Cart cart) {
+		return getSqlMapClientTemplate().update("cart.updateCart", cart);
+	}
+
 }

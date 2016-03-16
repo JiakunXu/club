@@ -58,14 +58,14 @@
 	
 	<update id="updateCart" parameterClass="cart">
 	<![CDATA[
-		UPDATE MALL.MALL_TB_CART t
+		UPDATE basis_tb_cart t
 		SET t.modify_date = sysdate,
-		  t.modify_user   = #userId#,
+		  t.modify_user   = #modifyUser#,
 		  t.state         = #state#
 		WHERE t.state     = 'U'
 		AND EXISTS
 		  (SELECT 1
-		  FROM MALL.MALL_TB_ITEM p
+		  FROM basis_tb_item p
 		  WHERE p.item_id = t.item_id
 		  AND p.state     = 'U'
 		  AND p.shop_id   = #shopId#

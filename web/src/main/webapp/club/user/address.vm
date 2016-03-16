@@ -11,7 +11,7 @@
 	<div data-page="user.address" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<form id="user/address/create" action="$!{env.appUrl}/address/create.htm" method="post" class="ajax-submit">
+			<form id="user/address/create" action="$!{env.appUrl}/address/create.htm" method="POST" class="ajax-submit">
 				<input type="hidden" name="tradeNo" value="$!{tradeNo}" />
 				<div class="list-block" style="font-size: 15px;">
     				<ul>

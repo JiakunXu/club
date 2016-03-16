@@ -15,7 +15,7 @@
 	<div data-page="tag.create" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			<form id="tag/create" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="post" class="list-block ajax-submit">
+			<form id="tag/create" action="$!{env.appUrl}/weixin/tag.framework7.htm" method="POST" class="list-block ajax-submit">
 				<input type="hidden" name="op" value="tag/create"/>
 				<ul>
 					<li>
