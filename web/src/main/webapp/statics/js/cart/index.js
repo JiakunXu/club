@@ -6,6 +6,7 @@ myApp.onPageInit('cart.index', function(page) {
 						myApp.hideIndicator();
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '信息', function() {
+									view4.router.refreshPage()
 								});
 					});
 

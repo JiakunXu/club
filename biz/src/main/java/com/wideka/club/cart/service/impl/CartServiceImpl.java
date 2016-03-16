@@ -187,7 +187,9 @@ public class CartServiceImpl implements ICartService {
 			return result;
 		}
 
+		result.setCode("删除成功。");
 		result.setResult(true);
+
 		return result;
 	}
 

@@ -42,7 +42,7 @@ public class CartAction extends BaseAction {
 	 * @return
 	 */
 	public String add() {
-		BooleanResult result = cartService.createCart(this.getOpenId(), 0L, "0", "0", "1");
+		BooleanResult result = cartService.createCart(this.getOpenId(), 0L, "1", "0", "1");
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
