@@ -51,17 +51,9 @@ public interface ICartService {
 	 * @param userId
 	 * @param shopId
 	 * @param cartId
+	 * @param quantity
 	 * @return
 	 */
-	BooleanResult minus(String userId, Long shopId, String cartId);
-
-	/**
-	 * 
-	 * @param userId
-	 * @param shopId
-	 * @param cartId
-	 * @return
-	 */
-	BooleanResult plus(String userId, Long shopId, String cartId);
+	BooleanResult updateQuantity(String userId, Long shopId, String cartId, String quantity);
 
 }

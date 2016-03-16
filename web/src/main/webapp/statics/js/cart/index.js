@@ -18,20 +18,27 @@ myApp.onPageInit('cart.index', function(page) {
 		});
 
 function cart_index_minus(cartId) {
-	$$.get(appUrl + '/cart/minus.htm', {
-				cartId : cartId
-			}, function(data) {
-				$$('#cart/index/quantity').val(data);
-				$$('#cart/index/quantity/edited/' + cartId).htm(data);
-			});
+	var q = $$('#cart/index/quantity').val();
+
+	if (q == 1) {
+		return;
+	}
+
+	cart_index_num(cartId, dcmSub(q, 1));
 }
 
 function cart_index_plus(cartId) {
-	$$.get(appUrl + '/cart/plus.htm', {
-				cartId : cartId
+	var q = $$('#cart/index/quantity').val();
+	cart_index_num(cartId, dcmAdd(q, 1));
+}
+
+function cart_index_num(cartId, quantity) {
+	$$.get(appUrl + '/cart/num.htm', {
+				cartId : cartId,
+				quantity : quantity
 			}, function(data) {
 				$$('#cart/index/quantity').val(data);
-				$$('#cart/index/quantity/edited/' + cartId).htm(data);
+				$$('#cart/index/quantity/edited/' + cartId).html('×' + data);
 			});
 }
 

@@ -136,7 +136,7 @@
             </div>
         </div>
 		
-		#JSM(["framework7", "weixin", "jquery", "jquery.citytools"])
+		#JSM(["framework7", "weixin", "jquery", "jquery.citytools", "common"])
 		#JS_ENV_VAL()
 		<script src="$!{env.imgUrl}/js/portal/homepage.js"></script>
 		<script src="$!{env.imgUrl}/js/cart/index.js?t=20160316" async="async"></script>

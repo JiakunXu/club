@@ -209,19 +209,85 @@ public class CartServiceImpl implements ICartService {
 	}
 
 	@Override
-	public BooleanResult minus(String userId, Long shopId, String cartId) {
+	public BooleanResult updateQuantity(String userId, Long shopId, String cartId, String quantity) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
+
+		Cart cart = new Cart();
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空。");
+			return result;
+		}
+		cart.setUserId(userId.trim());
+		cart.setModifyUser(userId);
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空。");
+			return result;
+		}
+		cart.setShopId(shopId);
+
+		if (StringUtils.isBlank(cartId)) {
+			result.setCode("购物车信息不能为空。");
+			return result;
+		}
+		try {
+			cart.setCartId(Long.valueOf(cartId));
+		} catch (NumberFormatException e) {
+			logger.error(cartId, e);
+
+			result.setCode("购物车信息错误。");
+			return result;
+		}
+
+		if (StringUtils.isBlank(quantity)) {
+			result.setCode("购买商品数量不能为空。");
+			return result;
+		}
+
+		int q;
+
+		try {
+			q = Integer.parseInt(quantity);
+		} catch (Exception e) {
+			logger.error(quantity, e);
+			result.setCode("购买商品数量非数字类型。");
+			return result;
+		}
+
+		if (q == 0 || q < 1) {
+			result.setCode("数量不能为0或负。");
+			return result;
+		}
+
+		cart.setQuantity(q);
+
+		int n = updateQuantity(cart);
+		if (n != 1) {
+			result.setCode(String.valueOf(q - 1));
+			return result;
+		}
+
+		result.setCode(String.valueOf(q));
+		result.setResult(true);
 
 		return result;
 	}
 
-	@Override
-	public BooleanResult plus(String userId, Long shopId, String cartId) {
-		BooleanResult result = new BooleanResult();
-		result.setResult(false);
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	private int updateQuantity(Cart cart) {
+		try {
+			return cartDao.updateQuantity(cart);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(cart), e);
+		}
 
-		return result;
+		return -1;
 	}
 
 	public ICartDao getCartDao() {

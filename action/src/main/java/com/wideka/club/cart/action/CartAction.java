@@ -28,6 +28,8 @@ public class CartAction extends BaseAction {
 
 	private String cartId;
 
+	private String quantity;
+
 	/**
 	 * 
 	 * @return
@@ -74,21 +76,12 @@ public class CartAction extends BaseAction {
 		return RESOURCE_RESULT;
 	}
 
-	public String minus() {
-		BooleanResult result = cartService.minus(this.getOpenId(), 0L, cartId);
-
-		if (result.getResult()) {
-			this.setResourceResult(result.getCode());
-		} else {
-			this.getServletResponse().setStatus(599);
-			this.setResourceResult(result.getCode());
-		}
-
-		return RESOURCE_RESULT;
-	}
-
-	public String plus() {
-		BooleanResult result = cartService.plus(this.getOpenId(), 0L, cartId);
+	/**
+	 * 
+	 * @return
+	 */
+	public String num() {
+		BooleanResult result = cartService.updateQuantity(this.getOpenId(), 0L, cartId, quantity);
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
@@ -132,6 +125,14 @@ public class CartAction extends BaseAction {
 
 	public void setCartId(String cartId) {
 		this.cartId = cartId;
+	}
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
 
 }

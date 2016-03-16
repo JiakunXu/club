@@ -63,22 +63,28 @@
 	<update id="updateCart" parameterClass="cart">
 	<![CDATA[
 		UPDATE basis_tb_cart t
-		SET t.modify_date = NOW(),
-		  t.modify_user   = #modifyUser#,
-		  t.state         = #state#
-		WHERE t.state     = 'U'
-		AND EXISTS
-		  (SELECT 1
-		  FROM basis_tb_item p
-		  WHERE p.item_id = t.item_id
-		  AND p.state     = 'U'
-		  AND p.shop_id   = #shopId#
-		  )
-		AND t.user_id  = #userId#
-		AND t.shop_id  = #shopId#
-		AND t.cart_id IN 
+		   SET t.modify_date = NOW(),
+			   t.modify_user = #modifyUser#,
+			   t.state = #state#
+		 WHERE t.state = 'U'
+		   AND t.user_id = #userId#
+		   AND t.shop_id = #shopId#
+		   AND t.cart_id IN
 	]]>
 		<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
+	</update>
+	
+	<update id="updateQuantity" parameterClass="cart">
+	<![CDATA[
+		UPDATE basis_tb_cart t
+		   SET t.modify_date = NOW(),
+			   t.modify_user = #modifyUser#,
+			   t.quantity = #quantity#
+		 WHERE t.state = 'U'
+		   AND t.user_id = #userId#
+		   AND t.shop_id = #shopId#
+		   AND t.cart_id = #cartId#
+	]]>
 	</update>
 	
 	<select id="getCartStats" parameterClass="cart" resultClass="cart">

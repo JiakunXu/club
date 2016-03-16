@@ -13,9 +13,7 @@
 		
 		<action name="remove" class="cartAction" method="remove"></action>
 		
-		<action name="minus" class="cartAction" method="minus"></action>
-		
-		<action name="plus" class="cartAction" method="plus"></action>
+		<action name="num" class="cartAction" method="num"></action>
 		
 	</package>
 </struts>

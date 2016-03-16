@@ -32,4 +32,11 @@ public interface ICartDao {
 	 */
 	int updateCart(Cart cart);
 
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	int updateQuantity(Cart cart);
+
 }
