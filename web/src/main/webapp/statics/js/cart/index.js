@@ -52,9 +52,9 @@ function cart_index_remove() {
 
 function cart_index_check() {
 	if ($$('#cart/index/check').prop('checked')) {
-		$$('input[name="cartId"]').prop('checked', false);
+		$$('input[name="cartIds"]').prop('checked', false);
 	} else {
-		$$('input[name="cartId"]').prop('checked', true);
+		$$('input[name="cartIds"]').prop('checked', true);
 	}
 }
 
