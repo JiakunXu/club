@@ -216,20 +216,20 @@ public class CartServiceImpl implements ICartService {
 		Cart cart = new Cart();
 
 		if (StringUtils.isBlank(userId)) {
-			result.setCode("用户信息不能为空。");
+			result.setCode("0");
 			return result;
 		}
 		cart.setUserId(userId.trim());
 		cart.setModifyUser(userId);
 
 		if (shopId == null) {
-			result.setCode("店铺信息不能为空。");
+			result.setCode("0");
 			return result;
 		}
 		cart.setShopId(shopId);
 
 		if (StringUtils.isBlank(cartId)) {
-			result.setCode("购物车信息不能为空。");
+			result.setCode("0");
 			return result;
 		}
 		try {
@@ -237,12 +237,12 @@ public class CartServiceImpl implements ICartService {
 		} catch (NumberFormatException e) {
 			logger.error(cartId, e);
 
-			result.setCode("购物车信息错误。");
+			result.setCode("0");
 			return result;
 		}
 
 		if (StringUtils.isBlank(quantity)) {
-			result.setCode("购买商品数量不能为空。");
+			result.setCode("1");
 			return result;
 		}
 
@@ -252,12 +252,12 @@ public class CartServiceImpl implements ICartService {
 			q = Integer.parseInt(quantity);
 		} catch (Exception e) {
 			logger.error(quantity, e);
-			result.setCode("购买商品数量非数字类型。");
+			result.setCode("1");
 			return result;
 		}
 
 		if (q == 0 || q < 1) {
-			result.setCode("数量不能为0或负。");
+			result.setCode("1");
 			return result;
 		}
 
