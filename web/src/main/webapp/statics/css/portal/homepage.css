@@ -384,6 +384,21 @@ a.component.type3 img {
     border-radius: 0;
 }
 
+.quantity .response-area {
+    width: 32px;
+    height: 60px;
+    top: -20px;
+    position: absolute;
+}
+
+.quantity .response-area-minus {
+    left: -5px;
+}
+
+.quantity .response-area-plus {
+    right: -5px;
+}
+
 .bottom-fix {
 	display: block;
 	z-index: 100;
