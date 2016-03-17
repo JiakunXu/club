@@ -13,7 +13,7 @@
 	<!-- Page, data-page contains page name-->
 	<div data-page="item.detail" class="page no-tabbar">
 		<!-- Scrollable page content-->
-		<div class="page-content" style="padding-bottom: 44px;">
+		<div class="page-content" style="padding-bottom: 50px;">
 			<div class="card" style="margin: 0;">
 				<div valign="bottom" class="color-white no-border">
 					<!-- Slider -->
@@ -57,8 +57,8 @@
         </div>
 		
 		<div class="toolbar">
-			<div class="toolbar-inner">
-				<p class="buttons-row" style="width: 100%;">
+			<div class="toolbar-inner" style="padding: 0;">
+				<p class="buttons-row" style="width: 100%; margin: 0;">
 					<a href="#" class="button button-big" style="border: 1px solid #d9d9d9; border-right-width: 0px; color: #333;">收藏</a>
 					<a href="javascript:item_detail_cart();" class="button button-big" style="background-color: #ff9402; border: 1px solid #d9d9d9; border-left-width: 0px; border-right-width: 0px; color: #fff;">加入购物车</a>
 					<a href="$!{env.appUrl}/trade/create.htm?type=" class="button button-big" style="background-color: #ff5000; border: 1px solid #d9d9d9; border-left-width: 0px; color: #fff;" data-ignore-cache="true">立即购买</a>
