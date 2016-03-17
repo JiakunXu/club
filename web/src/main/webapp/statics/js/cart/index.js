@@ -1,43 +1,50 @@
 myApp.onPageInit('cart.index', function(page) {
-	$$('form.ajax-submit').on('beforeSubmit', function(e) {
-			});
+			$$('form.ajax-submit').on('beforeSubmit', function(e) {
+					});
 
-	$$('form.ajax-submit').on('submitted', function(e) {
-				myApp.hideIndicator();
-				var xhr = e.detail.xhr;
-				myApp.alert(xhr.responseText, '信息', function() {
-							view4.router.refreshPage()
-						});
-			});
+			$$('form.ajax-submit').on('submitted', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '信息', function() {
+									view4.router.refreshPage()
+								});
+					});
 
-	$$('form.ajax-submit').on('submitError', function(e) {
-				myApp.hideIndicator();
-				var xhr = e.detail.xhr;
-				myApp.alert(xhr.responseText, '错误');
-			});
+			$$('form.ajax-submit').on('submitError', function(e) {
+						myApp.hideIndicator();
+						var xhr = e.detail.xhr;
+						myApp.alert(xhr.responseText, '错误');
+					});
 
-	$$('.item-content .label-checkbox .item-media').on('click', function(e) {
-		var total = 0;
-		var count = 0;
+			cart_index_check();
+			$$('#cart/index/check').prop('checked', true)
 
-		$$("input[name='cartIds']").each(function(e) {
-			if (this.checked) {
-				total = dcmAdd(total, dcmMul($$("#cart/index/price/"
-										+ this.value).val(),
-								$$("#cart/index/quantity/" + this.value).val()));
-				count++;
-			}
+			$$("input[name='cartIds']").on('change', function(e) {
+						cart_index_stats();
+					});
 		});
 
-		if (count == 0) {
-			$$(".js-total-price").html(0);
-			$$(".btn.btn-orange-dark").html("结算");
-		} else {
-			$$(".js-total-price").html(total);
-			$$(".btn.btn-orange-dark").html("结算(" + count + ")");
+function cart_index_stats() {
+	var total = 0;
+	var count = 0;
+
+	$$("input[name='cartIds']").each(function(e) {
+		if (this.checked) {
+			total = dcmAdd(total, dcmMul($$("#cart/index/price/" + this.value)
+									.val(), $$("#cart/index/quantity/"
+									+ this.value).val()));
+			count++;
 		}
 	});
-});
+
+	if (count == 0) {
+		$$(".js-total-price").html(0);
+		$$(".btn.btn-orange-dark").html("结算");
+	} else {
+		$$(".js-total-price").html(total);
+		$$(".btn.btn-orange-dark").html("结算(" + count + ")");
+	}
+}
 
 function cart_index_minus(cartId) {
 	var q = $$('#cart/index/quantity/' + cartId).val();
@@ -75,8 +82,13 @@ function cart_index_remove() {
 function cart_index_check() {
 	if ($$('#cart/index/check').prop('checked')) {
 		$$('input[name="cartIds"]').prop('checked', false);
+
+		$$(".js-total-price").html(0);
+		$$(".btn.btn-orange-dark").html("结算");
 	} else {
 		$$('input[name="cartIds"]').prop('checked', true);
+
+		cart_index_stats();
 	}
 }
 
