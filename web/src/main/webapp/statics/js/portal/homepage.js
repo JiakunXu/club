@@ -65,6 +65,16 @@ $$('#href-5').on('click', function() {
 			}
 		});
 
+$$('#view_2_click').on('click', function() {
+			if (view2.history.length == 1) {
+				view2.router.load({
+							url : appUrl + "/item/list.htm"
+						});
+			}
+
+			$$('#href-2').addClass("active");
+		});
+
 myApp.addNotification({
 			title : '来自好社惠的消息',
 			subtitle : '',
