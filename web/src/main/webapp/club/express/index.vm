@@ -47,7 +47,7 @@
 							</div>
 							
 							<div class="" style="background-color:#ffffff;">
-								<ul class="mui-flex" style="padding: 0;">
+								<ul class="mui-flex" style="padding: 0; margin-bottom: 0;">
 									<li class="cell" style="">
 										<a class="component type3" href="$!{env.appUrl}/express/ship.htm" style="padding:4px" 0px="" 0px;="">
                                             <img class="" src="$!{env.imgUrl}/image/express/jj.png" width="36" height="36"></img>寄件
@@ -64,7 +64,7 @@
                                         </a>
 									</li>
 								</ul>
-								<ul class="mui-flex" style="padding: 0;">
+								<ul class="mui-flex" style="padding: 0; margin-top: 0;">
 									<li class="cell" style="">
                                         <a class="component type3" href="$!{env.appUrl}/express/time.htm" style="padding:4px" 0px="" 0px;="">
                                             <img class="" src="$!{env.imgUrl}/image/express/sxcx.png" width="36" height="36"></img>时效查询
