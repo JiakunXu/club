@@ -1,5 +1,6 @@
 package com.wideka.club.cart.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -137,17 +138,19 @@ public class CartServiceImpl implements ICartService {
 			itemId[i++] = ca.getItemId().toString();
 		}
 
-		// 2. 获取商品文件信息
-		Map<String, List<ItemFile>> map = null;// itemFileService.getItemFileList(shopId,
-												// itemId);
+		// 2. 获取商品信息
 
-		// 不存在商品文件 直接返回
-		if (map == null || map.isEmpty()) {
-			return cartList;
-		}
+		// 3. 获取商品文件信息
+		Map<String, List<ItemFile>> map = null;// itemFileService.getItemFileList(shopId,
 
 		for (Cart ca : cartList) {
-			ca.setItemFileList(map.get(ca.getItemId()));
+			ca.setItemName("特仑苏纯牛奶利乐苗条装");
+			ca.setPropertiesName("250ml×8盒×3提 共24盒");
+			ca.setPrice(BigDecimal.valueOf(79.9));
+
+			if (map != null && !map.isEmpty()) {
+				ca.setItemFileList(map.get(ca.getItemId()));
+			}
 		}
 
 		return cartList;

@@ -18,10 +18,10 @@
 			<!-- Your main view, should have "view-main" class -->
 			<div id="view-1" class="view view-main tab active" data-page="index-1">
 				<!-- Top Navbar-->
-				<div class="navbar">
+				<div class="navbar" style="background: #ff5500;">
 					<div class="navbar-inner">
 						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-						<div class="center sliding">好社惠－你身边的微小店</div>
+						<div class="center sliding" style="color: white;">好社惠－你身边的微小店</div>
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
