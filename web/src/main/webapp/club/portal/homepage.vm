@@ -18,10 +18,10 @@
 			<!-- Your main view, should have "view-main" class -->
 			<div id="view-1" class="view view-main tab active" data-page="index-1">
 				<!-- Top Navbar-->
-				<div class="navbar" style="background: #ff5500;">
+				<div class="navbar">
 					<div class="navbar-inner">
 						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-						<div class="center sliding" style="color: white;">好社惠－你身边的微小店</div>
+						<div class="center sliding">好社惠－你身边的微小店</div>
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
@@ -43,7 +43,7 @@
 							<div class="" style="background-color:#ffffff;">
 								<ul class="mui-flex" style="padding: 0;">
 									<li class="cell" style="">
-										<a class="component type3" href="$!{env.appUrl}/item/detail.htm" style="padding:4px" 0px="" 0px;="">
+										<a class="component type3" href="$!{env.appUrl}/item/list.htm" style="padding:4px" 0px="" 0px;="">
                                             <img class="" src="$!{env.imgUrl}/image/portal/lxsp.png" width="36" height="36"></img>冷鲜食品
 										</a>
 									</li>
