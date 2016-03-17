@@ -43,7 +43,7 @@
                                         <img src="$!{env.imgUrl}/image/express/ad-1.png" width="100%"></img>
 									</div>
 								</div>
-								<div class="swiper-pagination swiper-pagination-h"></div>
+								<!-- div class="swiper-pagination swiper-pagination-h"></div -->
 							</div>
 							
 							<div class="" style="background-color:#ffffff;">
