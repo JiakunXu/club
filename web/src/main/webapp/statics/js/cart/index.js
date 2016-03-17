@@ -15,6 +15,10 @@ myApp.onPageInit('cart.index', function(page) {
 						var xhr = e.detail.xhr;
 						myApp.alert(xhr.responseText, '错误');
 					});
+
+			$$('.item-content .label-checkbox .item-media').on('click',
+					function(e) {
+					});
 		});
 
 function cart_index_minus(cartId) {
