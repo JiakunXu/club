@@ -6,13 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<title></title>
+		<title>好社惠</title>
 		#ICON()
-		#CSSM(["weui", "framework7"])
+		#CSSM(["framework7", "iconfont"])
+		<link rel="stylesheet" href="$!{env.imgUrl}/css/portal/homepage.css" />
 		<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 		<style>
-		.page_title { text-align: center; font-size: 34px; color: #3cc51f; font-weight: 400; margin: 0 15%; }
-		.page_desc { text-align: center; color: #888; font-size: 14px; }
 		.icon_nav { width:28px; height:28px; display:block; }
 		.infinite-scroll-preloader { margin-top:-20px; margin-bottom: 10px; text-align: center; }
 		 #allmap {width: 100%; height: 100%; overflow: hidden; margin:0; }
@@ -21,82 +20,75 @@
 	</head>
 	<body>
 		<!-- Views -->
-		<div class="views">
+		<div class="views tabs toolbar-through">
 			<!-- Your main view, should have "view-main" class -->
-			<div class="view view-main">
+			<div id="view-1" class="view view-main tab active" data-page="index-1">
 				<!-- Top Navbar-->
 				<div class="navbar">
 					<div class="navbar-inner">
+						<!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+						<div class="center sliding">好社惠-快递收发平台</div>
 					</div>
 				</div>
 				<!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-				<div class="pages navbar-through">
+				<div class="pages navbar-through toolbar-through">
 					<!-- Page, "data-page" contains page name -->
-					<div data-page="index" class="page">
+					<div data-page="index-1" class="page">
 						<!-- Scrollable page content -->
 						<div class="page-content">
-                            <h1 class="page_title" style="margin-top: 30px;">好社惠</h1>
-							<p class="page_desc">快递收发平台</p>
-                            <div class="weui_grids">
-								<a href="$!{env.appUrl}/express/ship.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_button.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        寄件
-                                    </p>
-                                </a>
-                                <a href="$!{env.appUrl}/express/waybill.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_article.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        运单查询
-                                    </p>
-                                </a>
-                                <a href="$!{env.appUrl}/express/rate.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_toast.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        运费查询
-                                    </p>
-                                </a>
-                                <a href="$!{env.appUrl}/express/time.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_icons.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        时效查询
-                                    </p>
-                                </a>
-                                <a href="$!{env.appUrl}/express/store.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_actionSheet.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        服务网点
-                                    </p>
-                                </a>
-                                <a href="$!{env.appUrl}/express/range.htm" class="weui_grid item-link item-content">
-                                    <div class="weui_grid_icon">
-                                        <img src="$!{env.imgUrl}/image/weixin/icon_nav_dialog.png" alt="" />
-                                    </div>
-                                    <p class="weui_grid_label">
-                                        收送范围
-                                    </p>
-                                </a>
-                            </div>
-							
-							<div class="row no-gutter" style="margin-top: 20px;">
-                                <div class="col-50"><img src="$!{env.imgUrl}/image/portal/ad-4.png" width="100%"></img></div>
-								<div class="col-50"><img src="$!{env.imgUrl}/image/portal/ad-5.png" width="100%"></img></div>
-                            </div>
-							<div class="list-block" style="margin: 10px 0;">
-								<img src="$!{env.imgUrl}/image/portal/ad-2.jpg" width="100%"></img>
+							 <!-- Slider -->
+							<div class="swiper-container swiper-init" data-pagination=".swiper-pagination-h">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+                                        <img src="$!{env.imgUrl}/image/express/ad-1.png" width="100%"></img>
+									</div>
+								</div>
+								<div class="swiper-pagination swiper-pagination-h"></div>
 							</div>
-							<div class="list-block" style="margin: 10px 0;">
-								<img src="$!{env.imgUrl}/image/portal/ad-3.jpg" width="100%"></img>
+							
+							<div class="" style="background-color:#ffffff;">
+								<ul class="mui-flex" style="padding: 0;">
+									<li class="cell" style="">
+										<a class="component type3" href="$!{env.appUrl}/express/ship.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/jj.png" width="36" height="36"></img>寄件
+										</a>
+									</li>
+									<li class="cell" style="">
+										<a class="component type3" href="$!{env.appUrl}/express/waybill.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/ydcx.png" width="36" height="36"></img>运单查询
+										</a>
+									</li>
+									<li class="cell" style="">
+                                        <a class="component type3" href="$!{env.appUrl}/express/rate.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/yfcx.png" width="36" height="36"></img>运费查询
+                                        </a>
+									</li>
+								</ul>
+								<ul class="mui-flex" style="padding: 0;">
+									<li class="cell" style="">
+                                        <a class="component type3" href="$!{env.appUrl}/express/time.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/sxcx.png" width="36" height="36"></img>时效查询
+                                        </a>
+									</li>
+									<li class="cell" style="">
+                                        <a class="component type3" href="$!{env.appUrl}/express/store.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/fwwd.png" width="36" height="36"></img>服务网点
+                                        </a>
+									</li>
+									<li class="cell" style="">
+                                        <a class="component type3" href="$!{env.appUrl}/express/range.htm" style="padding:4px" 0px="" 0px;="">
+                                            <img class="" src="$!{env.imgUrl}/image/express/ssfw.png" width="36" height="36"></img>收送范围
+                                        </a>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="row no-gutter">
+                                <div class="col-50"><img src="$!{env.imgUrl}/image/express/ad-2.png" width="100%"></img></div>
+								<div class="col-50"><img src="$!{env.imgUrl}/image/express/ad-3.png" width="100%"></img></div>
+                            </div>
+							<div class="list-block">
+								<img src="$!{env.imgUrl}/image/express/ad-4.png" width="100%"></img>
 							</div>
                         </div>
                     </div>
@@ -106,7 +98,6 @@
 		
 		#JSM(["framework7", "jquery", "jquery.citytools"])
 		#JS_ENV_VAL()
-		
-		<script src="$!{env.imgUrl}/js/express/index.js?t=20160226"></script>		
+		<script src="$!{env.imgUrl}/js/express/index.js?t=20160226"></script>
 	</body>
-</html>  
+</html>
