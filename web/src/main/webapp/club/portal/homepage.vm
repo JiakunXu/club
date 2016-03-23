@@ -81,28 +81,28 @@
             </div>
 			
 			<div id="view-2" class="view tab">
-				<div class="navbar"></div>
+				<div class="navbar"><div class="navbar-inner"></div></div>
 				<div class="pages navbar-through toolbar-through">
                     <div class="page"></div>
 				</div>
             </div>
 			
 			<div id="view-3" class="view tab">
-				<div class="navbar"></div>
+				<div class="navbar"><div class="navbar-inner"></div></div>
 				<div class="pages navbar-through toolbar-through">
 					<div class="page"></div>
                 </div>
             </div>
 			
 			<div id="view-4" class="view tab">
-				<div class="navbar"></div>
+				<div class="navbar"><div class="navbar-inner"></div></div>
 				<div class="pages navbar-through toolbar-through">
 					<div class="page"></div>
                 </div>
             </div>
 			
 			<div id="view-5" class="view tab">
-				<div class="navbar"></div>
+				<div class="navbar"><div class="navbar-inner"></div></div>
 				<div class="pages navbar-through toolbar-through">
 					<div class="page"></div>
                 </div>

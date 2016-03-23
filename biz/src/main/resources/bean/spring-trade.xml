@@ -14,6 +14,7 @@
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="userAddressService" ref="userAddressService" />
 		<property name="orderService" ref="orderService" />
+		<property name="cartService" ref="cartService" />
 		<property name="tradeDao" ref="tradeDao" />
 	</bean>
 	<bean id="tradeDao" class="com.wideka.club.trade.dao.impl.TradeDaoImpl" parent="baseDao" />

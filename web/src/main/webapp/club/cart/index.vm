@@ -76,7 +76,7 @@
                     </label>
 				</div>
     			<div id="cart/index/price" class="total-price">合计：<span class="js-total-price">0</span>元</div>
-    			<a id="cart/index/btn/create" href="$!{env.appUrl}/trade/create.htm?type=" class="btn btn-orange-dark" data-ignore-cache="true">结算</a>
+    			<a id="cart/index/btn/create" href="javascript:cart_index_create();" class="btn btn-orange-dark" data-ignore-cache="true">结算</a>
 				<a id="cart/index/btn/delete" href="javascript:cart_index_remove();" class="btn btn-red" style="display: none;" data-ignore-cache="true">删除</a>
     		</div>
         </div>

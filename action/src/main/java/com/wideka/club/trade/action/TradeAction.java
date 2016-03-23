@@ -19,6 +19,11 @@ public class TradeAction extends BaseAction {
 	private ITradeService tradeService;
 
 	/**
+	 * 购物车.
+	 */
+	private String[] cartIds;
+
+	/**
 	 * 交易编号(第三方支付).
 	 */
 	private String tradeNo;
@@ -38,7 +43,14 @@ public class TradeAction extends BaseAction {
 	 * @return
 	 */
 	public String create() {
-		BooleanResult result = tradeService.createTrade(this.getOpenId(), 0L, "1", "0", "1");
+		BooleanResult result = null;
+
+		// 直接购买
+		if (cartIds == null || cartIds.length == 0) {
+			result = tradeService.createTrade(this.getOpenId(), 0L, "1", "0", "1");
+		} else {
+			result = tradeService.createTrade(this.getOpenId(), 0L, cartIds);
+		}
 
 		if (result.getResult()) {
 			tradeNo = result.getCode();
@@ -129,6 +141,14 @@ public class TradeAction extends BaseAction {
 
 	public void setTradeService(ITradeService tradeService) {
 		this.tradeService = tradeService;
+	}
+
+	public String[] getCartIds() {
+		return cartIds;
+	}
+
+	public void setCartIds(String[] cartIds) {
+		this.cartIds = cartIds;
 	}
 
 	public String getTradeNo() {

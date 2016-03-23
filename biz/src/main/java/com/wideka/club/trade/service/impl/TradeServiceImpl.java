@@ -12,6 +12,8 @@ import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.wideka.club.api.cache.IMemcachedCacheService;
+import com.wideka.club.api.cart.ICartService;
+import com.wideka.club.api.cart.bo.Cart;
 import com.wideka.club.api.item.bo.Item;
 import com.wideka.club.api.item.bo.ItemSku;
 import com.wideka.club.api.trade.IOrderService;
@@ -46,6 +48,8 @@ public class TradeServiceImpl implements ITradeService {
 
 	private IOrderService orderService;
 
+	private ICartService cartService;
+
 	private ITradeDao tradeDao;
 
 	@Override
@@ -79,7 +83,7 @@ public class TradeServiceImpl implements ITradeService {
 
 				// 1. 创建交易
 				// create trade
-				Long tradeId;
+				Long tradeId = null;
 
 				Trade trade = new Trade();
 				trade.setUserId(userId);
@@ -136,9 +140,108 @@ public class TradeServiceImpl implements ITradeService {
 	}
 
 	@Override
-	public BooleanResult createTrade(String userId, Long shopId, String[] cartId) {
-		// TODO Auto-generated method stub
-		return null;
+	public BooleanResult createTrade(final String userId, final Long shopId, final String[] cartId) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空！");
+			return result;
+		}
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空！");
+			return result;
+		}
+
+		if (cartId == null || cartId.length == 0) {
+			result.setCode("购物车不能为空！");
+			return result;
+		}
+
+		// 获取选中商品总计价格，兑换积分，运费
+		final Cart cart = cartService.getCartStats(userId.trim(), shopId, cartId);
+
+		// 合计价格 合计积分 最小运费
+		if (cart.getPrice() == null || cart.getPoints() == null || cart.getPostage() == null) {
+			result.setCode("购物车商品总价为空！");
+			return result;
+		}
+
+		// 获取默认收货地址
+		final UserAddress userAddress = userAddressService.getDefaultUserAddress(userId.trim());
+
+		BooleanResult res = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
+			public BooleanResult doInTransaction(TransactionStatus ts) {
+				BooleanResult result = new BooleanResult();
+				result.setResult(false);
+
+				// 1. 创建交易
+				// create trade
+				Long tradeId = null;
+
+				Trade trade = new Trade();
+				trade.setUserId(userId.trim());
+				trade.setShopId(shopId);
+				// 交易价格
+				trade.setTradePrice(cart.getPrice());
+				// 积分兑换
+				trade.setTradePoints(BigDecimal.ZERO);
+				trade.setCouponPrice(BigDecimal.ZERO);
+				trade.setPostage(cart.getPostage());
+				trade.setChange(BigDecimal.ZERO);
+				// 买家结算
+				trade.setType(ITradeService.CHECK);
+
+				// 收货地址
+				if (userAddress != null) {
+					trade.setReceiverName(userAddress.getContactName());
+					trade.setReceiverProvince(userAddress.getProvince());
+					trade.setReceiverCity(userAddress.getCity());
+					trade.setReceiverArea(userAddress.getArea());
+					trade.setReceiverBackCode(userAddress.getBackCode());
+					trade.setReceiverAddress(userAddress.getAddress());
+					trade.setReceiverZip(userAddress.getPostalCode());
+					trade.setReceiverTel(userAddress.getTel());
+				}
+
+				// 14位日期 ＋ 11位随机数
+				trade.setTradeNo(DateUtil.getNowDateminStr() + UUIDUtil.generate().substring(9));
+
+				// 交易订单 关联 购物车
+				StringBuilder sb = new StringBuilder();
+				for (String id : cartId) {
+					if (sb.length() > 0) {
+						sb.append(",");
+					}
+					sb.append(id);
+				}
+				trade.setCartId(sb.toString());
+
+				try {
+					tradeId = tradeDao.createTrade(trade);
+				} catch (Exception e) {
+					logger.error(LogUtil.parserBean(trade), e);
+					ts.setRollbackOnly();
+
+					result.setCode("创建交易失败！");
+					return result;
+				}
+
+				// 2. 创建订单
+				result = orderService.createOrder(tradeId, shopId, cartId, userId.trim());
+				if (!result.getResult()) {
+					ts.setRollbackOnly();
+
+					return result;
+				}
+
+				result.setCode(trade.getTradeNo());
+				return result;
+			}
+		});
+
+		return res;
 	}
 
 	@Override
@@ -556,6 +659,14 @@ public class TradeServiceImpl implements ITradeService {
 
 	public void setOrderService(IOrderService orderService) {
 		this.orderService = orderService;
+	}
+
+	public ICartService getCartService() {
+		return cartService;
+	}
+
+	public void setCartService(ICartService cartService) {
+		this.cartService = cartService;
 	}
 
 	public ITradeDao getTradeDao() {

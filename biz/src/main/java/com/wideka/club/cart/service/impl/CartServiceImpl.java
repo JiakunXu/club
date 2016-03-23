@@ -293,6 +293,26 @@ public class CartServiceImpl implements ICartService {
 		return -1;
 	}
 
+	@Override
+	public Cart getCartStats(String userId, Long shopId, String[] cartId) {
+		if (StringUtils.isBlank(userId) || shopId == null || cartId == null || cartId.length == 0) {
+			return new Cart();
+		}
+
+		Cart cart = new Cart();
+		cart.setUserId(userId.trim());
+		cart.setShopId(shopId);
+		cart.setCodes(cartId);
+
+		try {
+			return cartDao.getCartStats(cart);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(cart), e);
+		}
+
+		return cart;
+	}
+
 	public ICartDao getCartDao() {
 		return cartDao;
 	}

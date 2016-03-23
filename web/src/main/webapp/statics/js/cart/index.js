@@ -3,12 +3,20 @@ myApp.onPageInit('cart.index', function(page) {
 					});
 
 			$$('form.ajax-submit').on('submitted', function(e) {
-						myApp.hideIndicator();
-						var xhr = e.detail.xhr;
-						myApp.alert(xhr.responseText, '信息', function() {
-									view4.router.refreshPage()
-								});
-					});
+				myApp.hideIndicator();
+				var xhr = e.detail.xhr;
+
+				if (cart_index_flag == "create") {
+					view4.router.load({
+								url : appUrl + "/pay/index.htm?tradeNo="
+										+ xhr.responseText
+							});
+				} else if (cart_index_flag == "remove") {
+					myApp.alert(xhr.responseText, '信息', function() {
+								view4.router.refreshPage()
+							});
+				}
+			});
 
 			$$('form.ajax-submit').on('submitError', function(e) {
 						myApp.hideIndicator();
@@ -71,7 +79,21 @@ function cart_index_num(cartId, quantity) {
 			});
 }
 
+var cart_index_flag;
+
+function cart_index_create() {
+	cart_index_flag = "create";
+
+	myApp.showIndicator();
+
+	$$('#cart/index/form').attr("action", appUrl + "/trade/create.htm");
+
+	$$('#cart/index/form').trigger("submit");
+}
+
 function cart_index_remove() {
+	cart_index_flag = "remove";
+
 	myApp.showIndicator();
 
 	$$('#cart/index/form').attr("action", appUrl + "/cart/remove.htm");

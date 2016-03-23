@@ -56,68 +56,53 @@
 	<insert id="createOrder4Cart" parameterClass="order">
 	<![CDATA[
 		INSERT
-		INTO MALL.MALL_TB_ORDER
+		INTO basis_tb_order
 		  (
-			ORDER_ID,
 			TRADE_ID,
-			SKU_ID,
+			ITEM_ID,
 			ITEM_NAME,
+			SKU_ID,
 			PROPERTIES_NAME,
-			QUANTITY,
 			PRICE,
-			CHANGE,
+			`CHANGE`,
+			POINTS,
+			QUANTITY,
 			STATE,
 			CREATE_DATE,
+			CREATE_USER,
 			MODIFY_DATE,
-			MODIFY_USER,
-			ITEM_ID,
-			POINTS
+			MODIFY_USER
 		  )
-		  (SELECT MALL.MALL_SEQ_ORDER.nextval,
-			  #tradeId#,
-			  t.sku_id,
-			  p.item_name,
-			  q.properties_name,
-			  t.quantity,
-			  CASE
-				WHEN k.points_id IS NULL
-				THEN
-				  CASE
-					WHEN q.price IS NULL
-					THEN p.price
-					ELSE q.price
-				  END
-				ELSE 0
-			  END,
-			  0,
-			  'U',
-			  sysdate,
-			  sysdate,
-			  #modifyUser#,
-			  t.item_id,
-			  NVL(k.points,0)
-			FROM MALL.MALL_TB_CART t,
-			  MALL.MALL_TB_ITEM p,
-			  (SELECT qq.item_id,
-				qq.sku_id,
-				qq.properties_name,
-				qq.price
-			  FROM MALL.MALL_TB_ITEM_SKU qq
-			  WHERE qq.state = 'U'
-			  )q,
-			  (SELECT kk.points_id,
-				kk.points
-			  FROM MALL.MALL_TB_POINTS kk
-			  WHERE kk.state = 'U'
-			  AND kk.shop_id = #shopId#
-			  )k
-			WHERE t.item_id = p.item_id
-			AND t.sku_id    = q.sku_id(+)
-			AND t.points_id = k.points_id (+)
-			AND t.state     = 'U'
-			AND p.state     = 'U'
-			AND p.shop_id   = #shopId#
-			AND t.cart_id  IN
+		  (SELECT #tradeId#,
+			   t.item_id,
+			   p.item_name,
+			   t.sku_id,
+			   q.properties_name,
+			   CASE WHEN k.points_id IS NULL THEN CASE WHEN q.price IS NULL THEN p.price ELSE q.price END ELSE 0 END,
+			   0,
+			   IFNULL(k.points, 0),
+			   t.quantity,
+			   'U',
+			   NOW(),
+				#modifyUser#,
+			   NOW(),
+				#modifyUser#
+		  FROM basis_tb_cart t
+		  LEFT JOIN basis_tb_item p ON t.item_id = p.item_id
+		  LEFT JOIN(
+		SELECT qq.item_id, qq.sku_id, qq.properties_name, qq.price
+		  FROM basis_tb_item_sku qq
+		 WHERE qq.state = 'U') q ON t.sku_id = q.sku_id
+		  LEFT JOIN(
+		SELECT kk.points_id, kk.points
+		  FROM basis_tb_points kk
+		 WHERE kk.state = 'U'
+		   AND kk.shop_id = #shopId#
+				 ) k ON t.points_id = k.points_id
+		 WHERE t.state = 'U'
+		   AND p.state = 'U'
+		   AND p.shop_id = #shopId#
+		   AND t.cart_id  IN
 	]]>
 		<iterate property="codes" open="(" close=")" conjunction=",">#codes[]#</iterate>
 	<![CDATA[
@@ -138,11 +123,11 @@
 			   t.sku_id AS skuId,
 			   CASE WHEN q.stock IS NULL THEN p.stock ELSE q.stock END AS stock
 		  FROM basis_tb_order t
-		  left join basis_tb_item p on t.item_id = p.item_id
-		  left join(
+		  LEFT JOIN basis_tb_item p ON t.item_id = p.item_id
+		  LEFT JOIN(
 		SELECT qq.sku_id, qq.stock
 		  FROM basis_tb_item_sku qq
-		 WHERE qq.state= 'U') q on t.sku_id = q.sku_id
+		 WHERE qq.state= 'U') q ON t.sku_id = q.sku_id
 		 WHERE p.item_id is not null
 		   AND t.state = 'U'
 		   AND p.state = 'U'

@@ -56,4 +56,14 @@ public interface ICartService {
 	 */
 	BooleanResult updateQuantity(String userId, Long shopId, String cartId, String quantity);
 
+	/**
+	 * 统计商品总金额 运费.
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param cartId
+	 * @return
+	 */
+	Cart getCartStats(String userId, Long shopId, String[] cartId);
+
 }
