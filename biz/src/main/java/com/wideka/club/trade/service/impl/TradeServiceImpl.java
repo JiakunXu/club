@@ -229,7 +229,7 @@ public class TradeServiceImpl implements ITradeService {
 				}
 
 				// 2. 创建订单
-				result = orderService.createOrder(tradeId, shopId, cartId, userId.trim());
+				result = orderService.createOrder(shopId, tradeId, cartId, userId.trim());
 				if (!result.getResult()) {
 					ts.setRollbackOnly();
 
