@@ -314,12 +314,24 @@ public class TradeServiceImpl implements ITradeService {
 			return null;
 		}
 
-		Trade trade = new Trade();
-		trade.setUserId(userId.trim());
-		trade.setShopId(shopId);
-		trade.setTradeNo(tradeNo.trim());
+		Trade t = new Trade();
+		t.setUserId(userId.trim());
+		t.setShopId(shopId);
+		t.setTradeNo(tradeNo.trim());
 
-		return getTrade(trade);
+		Trade trade = getTrade(t);
+
+		if (trade == null) {
+			return null;
+		}
+
+		List<Order> orderList = orderService.getOrderList(userId, shopId, trade.getTradeId());
+
+		if (orderList != null && orderList.size() > 0) {
+			trade.setOrderList(orderList);
+		}
+
+		return trade;
 	}
 
 	@Override

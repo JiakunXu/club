@@ -55,6 +55,7 @@
 							</div>
 						</div>
 					</li>
+					#foreach($order in $!{trade.orderList})
 					<li>
 						<div class="item-content">
 							<div class="item-media"><img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img></div>
@@ -64,6 +65,7 @@
 							</div>
 						</div>
 					</li>
+					#end
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
