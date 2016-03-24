@@ -45,7 +45,7 @@
 					<li>
 						<div class="item-content">
 							<div class="item-inner">
-                                <div class="item-title">总价：<span style="color: #ff5500;">￥89.90</span></div>
+                                <div class="item-title">总价：<span style="color: #ff5500;">￥$!{trade.price}</span></div>
 								<div class="item-after">
 									#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
 									<a href="$!{env.appUrl}/pay/index.htm?tradeNo=$!{trade.tradeNo}" class="button color-orange" data-ignore-cache="true">付款</a>

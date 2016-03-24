@@ -47,7 +47,7 @@ public class TradeAction extends BaseAction {
 
 		// 直接购买
 		if (cartIds == null || cartIds.length == 0) {
-			result = tradeService.createTrade(this.getOpenId(), 0L, "1", "0", "1");
+			result = tradeService.createTrade(this.getOpenId(), 0L, "1", "1", "1");
 
 			if (result.getResult()) {
 				tradeNo = result.getCode();

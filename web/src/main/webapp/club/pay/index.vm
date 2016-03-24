@@ -60,8 +60,8 @@
 						<div class="item-content">
 							<div class="item-media"><img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img></div>
 							<div class="item-inner">
-								<div class="item-title">特仑苏纯牛奶利乐苗条装<br/>250ml×8盒×3提 共24盒</div>
-								<div class="item-after">￥79.9</div>
+								<div class="item-title">$!{order.itemName}<br/>$!{order.propertiesName}</div>
+								<div class="item-after">￥$!{order.price}</div>
 							</div>
 						</div>
 					</li>
@@ -70,7 +70,7 @@
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title">运费</div>
-								<div class="item-after">￥10.00</div>
+								<div class="item-after">￥$!{trade.postage}</div>
 							</div>
 						</div>
 					</li>
@@ -78,7 +78,7 @@
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title">合计</div>
-								<div class="item-after" style="color: #ff5500;">￥89.90</div>
+								<div class="item-after" style="color: #ff5500;">￥$!{trade.price}</div>
 							</div>
 						</div>
 					</li>
@@ -119,8 +119,8 @@
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title" style="width: 100%; text-align: center;">
-                                    <span>￥79.90 + ￥10.00 运费</span><br />
-									<span style="font-size: 16px; color: #ff5500;">需付：￥89.90</span>
+									<span>￥$!{trade.tradePrice} + ￥$!{trade.postage} 运费</span><br />
+									<span style="font-size: 16px; color: #ff5500;">需付：￥$!{trade.price}</span>
 								</div>
 							</div>
 						</div>

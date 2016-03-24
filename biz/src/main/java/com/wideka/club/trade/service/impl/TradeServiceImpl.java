@@ -53,7 +53,7 @@ public class TradeServiceImpl implements ITradeService {
 	private ITradeDao tradeDao;
 
 	@Override
-	public BooleanResult createTrade(final String userId, final Long shopId, final String itemId, String skuId,
+	public BooleanResult createTrade(final String userId, final Long shopId, final String itemId, final String skuId,
 		String quantity) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
@@ -124,7 +124,7 @@ public class TradeServiceImpl implements ITradeService {
 				}
 
 				// 2. 创建订单
-				result = orderService.createOrder(shopId, tradeId, itemId, userId);
+				result = orderService.createOrder(shopId, tradeId, itemId, skuId, userId);
 				if (!result.getResult()) {
 					ts.setRollbackOnly();
 

@@ -27,23 +27,28 @@
 			MODIFY_USER
 		  )
 		  (SELECT #tradeId#,
-			  t.item_id,
-			  t.item_name,
-			  0,
-			  '',
-			  t.price,
-			  0,
-			  0,
-			  1,
-			  'U',
-			  NOW(),
-			  #modifyUser#,
-			  NOW(),
-			  #modifyUser#
-			FROM basis_tb_item t
-			WHERE t.state = 'U'
-			AND t.shop_id = #shopId#
-			AND t.item_id = #itemId#
+			   t.item_id,
+			   t.item_name,
+			   #skuId#,
+			   q.properties_name,
+			   CASE WHEN q.price IS NULL THEN t.price ELSE q.price END,
+			   0,
+			   0,
+			   1,
+			   'U',
+			   NOW(),
+			   #modifyUser#,
+			   NOW(),
+			   #modifyUser#
+		  FROM basis_tb_item t
+		  LEFT JOIN(
+		SELECT qq.item_id, qq.properties_name, qq.price
+		  FROM basis_tb_item_sku qq
+		 WHERE qq.state = 'U'
+		   AND qq.sku_id = #skuId#) q ON t.item_id = q.item_id
+		 WHERE t.state = 'U'
+		   AND t.shop_id = #shopId#
+		   AND t.item_id = #itemId#
 		  )
 	]]>
 		<selectKey resultClass="java.lang.Long" keyProperty="orderId">
@@ -84,9 +89,9 @@
 			   t.quantity,
 			   'U',
 			   NOW(),
-				#modifyUser#,
+			   #modifyUser#,
 			   NOW(),
-				#modifyUser#
+			   #modifyUser#
 		  FROM basis_tb_cart t
 		  LEFT JOIN basis_tb_item p ON t.item_id = p.item_id
 		  LEFT JOIN(
