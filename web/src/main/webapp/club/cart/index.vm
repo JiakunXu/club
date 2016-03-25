@@ -15,11 +15,11 @@
 		<!-- Scrollable page content-->
 		<div class="page-content" style="padding-bottom: 100px;">
 			<form id="cart/index/form" method="POST" class="ajax-submit">
-    			<div class="list-block media-list" style="font-size: 13px;">
+    			<div class="list-block media-list" style="font-size: 14px;">
     				<ul>
     					<li>
     						<div class="item-content">
-    							<div class="item-inner" style="display: flex;">
+    							<div class="item-inner" style="display: inherit;">
     								<div class="item-title" style="font-weight: 400;">店铺：好社惠</div>
     								<div class="item-after">
     									<a id="cart/index/edit" href="javascript:cart_index_edit();" style="margin: -10px 0px; padding: 10px 0px;">编辑</a>
@@ -42,7 +42,7 @@
     							<div class="item-inner">
     								<div class="item-title-row" style="margin-top: 3px;">
     									<div class="item-title" style="font-weight: 400;">$!{cart.itemName}</div>
-    									<div class="item-after">￥79.9</div>
+    									<div class="item-after">￥$!{cart.price}</div>
                                         <input type="hidden" id="cart/index/price/$!{cart.cartId}" value="$!{cart.price}"></input>
     								</div>
     								<div class="item-title-row" style="margin-top: 3px;">

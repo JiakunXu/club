@@ -29,38 +29,46 @@
 					</li>
 				</ul>
             </div>
-			<div class="list-block" style="font-size: 15px;">
+			<div class="list-block media-list" style="font-size: 15px;">
 				<ul>
 					<li>
 						<div class="item-content">
-							<div class="item-inner">
-								<div class="item-title">店铺：好社惠</div>
+							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400;">店铺：好社惠</div>
 							</div>
 						</div>
 					</li>
 					#foreach($order in $!{trade.orderList})
 					<li>
 						<div class="item-content">
-							<div class="item-media"><img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img></div>
+							<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
+								<img src="$!{env.imgUrl}/image/item/detail-3.jpg" style="width: 50px;"></img>
+							</div>
 							<div class="item-inner">
-								<div class="item-title">$!{order.itemName}<br/>$!{order.propertiesName}</div>
-								<div class="item-after">￥$!{order.price}</div>
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-title" style="font-weight: 400;">$!{order.itemName}</div>
+									<div class="item-after">￥$!{order.price}</div>
+								</div>
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-subtitle" style="font-size: 13px; color: #ccc;">$!{order.propertiesName}</div>
+									<div class="item-after">×$!{order.quantity}</div>
+								</div>
 							</div>
 						</div>
 					</li>
 					#end
 					<li>
 						<div class="item-content">
-							<div class="item-inner">
-								<div class="item-title">运费</div>
+							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400;">运费</div>
 								<div class="item-after">￥$!{trade.postage}</div>
 							</div>
 						</div>
 					</li>
 					<li>
 						<div class="item-content">
-							<div class="item-inner">
-								<div class="item-title">合计</div>
+							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400;">合计</div>
 								<div class="item-after" style="color: #ff5500;">￥$!{trade.price}</div>
 							</div>
 						</div>

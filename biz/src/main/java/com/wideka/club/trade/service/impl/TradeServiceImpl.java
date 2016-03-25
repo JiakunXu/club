@@ -279,18 +279,28 @@ public class TradeServiceImpl implements ITradeService {
 			return null;
 		}
 
-		Trade trade = new Trade();
-		trade.setUserId(userId.trim());
-		trade.setShopId(shopId);
-		trade.setCodes(type);
+		Trade t = new Trade();
+		t.setUserId(userId.trim());
+		t.setShopId(shopId);
+		t.setCodes(type);
 
 		// 暂不分页
-		trade.setLimit(10);
-		trade.setOffset(0);
-		trade.setSort("CREATE_DATE");
-		trade.setOrder("DESC");
+		t.setLimit(10);
+		t.setOffset(0);
+		t.setSort("CREATE_DATE");
+		t.setOrder("DESC");
 
-		return getTradeList(trade);
+		List<Trade> tradeList = getTradeList(t);
+
+		if (tradeList == null || tradeList.size() == 0) {
+			return null;
+		}
+
+		for (Trade trade : tradeList) {
+			trade.setOrderList(orderService.getOrderList(userId, shopId, trade.getTradeId()));
+		}
+
+		return tradeList;
 	}
 
 	/**
