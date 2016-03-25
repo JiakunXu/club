@@ -294,7 +294,10 @@ a.component.type3 img {
 
 /* 购物车 */
 .quantity {
-    display: flex;
+    display: -webkit-box!important;
+    display: -webkit-flex!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
     vertical-align: middle;
     font-size: 0;
     position: relative;
