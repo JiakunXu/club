@@ -184,7 +184,7 @@ public class PayServiceImpl implements IPayService {
 		}
 
 		// 0. 查询交易订单
-		Trade trade = tradeService.getTrade(userId, shopId, tradeNo);
+		final Trade trade = tradeService.getTrade(userId, shopId, tradeNo);
 		if (trade == null) {
 			result.setCode("当前订单不存在！");
 			return result;
@@ -204,22 +204,32 @@ public class PayServiceImpl implements IPayService {
 		}
 
 		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
-			BigDecimal price = trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
-			// Integer.parseInt(price.toString())
-			int fee = 1;
+			result = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
+				public BooleanResult doInTransaction(TransactionStatus ts) {
+					BooleanResult res0 = new BooleanResult();
 
-			try {
-				Refund refund =
-					wxpayService.refund(null, null, trade.getTradeNo(), DateUtil.getNowDateminStr()
-						+ UUIDUtil.generate().substring(9), fee, fee, null);
+					BigDecimal price =
+						trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
+					// Integer.parseInt(price.toString())
+					int fee = 1;
 
-				result.setCode("申请退款成功。");
-				result.setResult(true);
-			} catch (ServiceException e) {
-				logger.error(e);
+					try {
+						Refund refund =
+							wxpayService.refund(null, null, trade.getTradeNo(), DateUtil.getNowDateminStr()
+								+ UUIDUtil.generate().substring(9), fee, fee, null);
 
-				result.setCode(e.getMessage());
-			}
+						res0.setCode("申请退款成功。");
+						res0.setResult(true);
+					} catch (ServiceException e) {
+						ts.setRollbackOnly();
+
+						res0.setCode(e.getMessage());
+						return res0;
+					}
+
+					return res0;
+				}
+			});
 
 			return result;
 		}

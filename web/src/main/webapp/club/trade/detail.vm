@@ -53,6 +53,14 @@
 									<div class="item-subtitle" style="font-size: 13px; color: #ccc;">$!{order.propertiesName}</div>
 									<div class="item-after">×$!{order.quantity}</div>
 								</div>
+								#if($!{trade.type} == 'tosend' || $!{trade.type} == 'send')
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-title"></div>
+									<div class="item-after">
+										<a href="javascript:trade_detail_refund('$!{trade.tradeNo}');" class="button color-red">申请退款</a>
+									</div>
+								</div>
+								#end
 							</div>
 						</div>
 					</li>
@@ -97,5 +105,8 @@
 				</ul>
             </div>
         </div>
+		<form id="trade/detail/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
+        	<input type="hidden" name="tradeNo" id="trade_detail_refund_tradeNo"/>
+        </form>
     </div>
 </div>

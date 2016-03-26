@@ -65,8 +65,6 @@
 								<div class="item-after">
 									#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
 									<a href="$!{env.appUrl}/pay/index.htm?tradeNo=$!{trade.tradeNo}" class="button color-orange" data-ignore-cache="true">付款</a>
-									#elseif($!{trade.type} == 'tosend')
-									<a href="javascript:trade_list_refund('$!{trade.tradeNo}');" class="button color-red">申请退款</a>
 									#elseif($!{trade.type} == 'send' || $!{trade.type} == 'sign')
 									<a href="#" class="button color-gray">物流</a>
     									#if($!{trade.type} == 'sign')
@@ -87,9 +85,6 @@
 		</div>
 		<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="POST" class="ajax-submit">
         	<input type="hidden" name="tradeNo" id="trade_list_cancel_tradeNo"/>
-        </form>
-		<form id="trade/list/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
-        	<input type="hidden" name="tradeNo" id="trade_list_refund_tradeNo"/>
         </form>
     </div>
 </div>

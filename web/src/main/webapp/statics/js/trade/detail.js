@@ -1,4 +1,4 @@
-myApp.onPageInit('trade.list', function(page) {
+myApp.onPageInit('trade.detail', function(page) {
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 
@@ -18,11 +18,11 @@ myApp.onPageInit('trade.list', function(page) {
 					});
 		});
 
-function trade_list_cancel(tradeNo) {
-	myApp.confirm('确定取消订单？', '订单管理', function() {
+function trade_detail_refund(tradeNo) {
+	myApp.confirm('确定申请退款？', '订单管理', function() {
 				myApp.showIndicator();
 
-				$$('#trade_list_cancel_tradeNo').val(tradeNo);
-				$$('#trade/list/cancel').trigger("submit");
+				$$('#trade_detail_refund_tradeNo').val(tradeNo);
+				$$('#trade/detail/refund').trigger("submit");
 			});
 }
