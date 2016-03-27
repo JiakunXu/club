@@ -62,9 +62,9 @@
 						</div>
 					</li>
 				</ul>
-				<div class="content-block">
-    				<a href="#" class="button button-big">查询</a>
-    			</div>
+			</div>
+			<div class="content-block">
+				<a href="#" class="button button-big">查询</a>
 			</div>
         </div>
     </div>

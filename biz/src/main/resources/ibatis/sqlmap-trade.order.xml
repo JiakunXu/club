@@ -141,4 +141,20 @@
 	]]>
 	</select>
 	
+	<select id="getOrder" parameterClass="order" resultClass="order">
+	<![CDATA[
+		SELECT t.order_id AS orderId,
+			   t.item_name AS itemName,
+			   t.properties_name AS propertiesName,
+			   t.quantity,
+			   t.price,
+			   t.points,
+			   t.change
+		  FROM basis_tb_order t
+		 WHERE t.state = 'U'
+		   AND t.trade_id = #tradeId#
+		   AND t.order_id = #orderId#
+	]]>
+	</select>
+	
 </sqlMap>

@@ -462,6 +462,45 @@ public class TradeServiceImpl implements ITradeService {
 		return updateTrade(trade);
 	}
 
+	@Override
+	public Trade getOrder(String userId, Long shopId, String tradeNo, String orderId) {
+		if (StringUtils.isBlank(userId) || shopId == null || StringUtils.isBlank(tradeNo)
+			|| StringUtils.isBlank(orderId)) {
+			return null;
+		}
+
+		Long id = null;
+
+		try {
+			id = Long.valueOf(orderId);
+		} catch (NumberFormatException e) {
+			logger.error(e);
+
+			return null;
+		}
+
+		Trade t = new Trade();
+		t.setUserId(userId.trim());
+		t.setShopId(shopId);
+		t.setTradeNo(tradeNo.trim());
+
+		Trade trade = getTrade(t);
+
+		if (trade == null) {
+			return null;
+		}
+
+		Order order = orderService.getOrder(userId, shopId, trade.getTradeId(), id);
+
+		if (order != null) {
+			List<Order> orderList = new ArrayList<Order>();
+			orderList.add(order);
+			trade.setOrderList(orderList);
+		}
+
+		return trade;
+	}
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	@Override

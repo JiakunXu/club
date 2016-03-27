@@ -29,4 +29,9 @@ public class OrderDaoImpl extends BaseDaoImpl implements IOrderDao {
 		return (List<Order>) getSqlMapClientTemplate().queryForList("trade.order.getOrderList", order);
 	}
 
+	@Override
+	public Order getOrder(Order order) {
+		return (Order) getSqlMapClientTemplate().queryForObject("trade.order.getOrder", order);
+	}
+
 }

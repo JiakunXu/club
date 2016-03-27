@@ -32,4 +32,11 @@ public interface IOrderDao {
 	 */
 	List<Order> getOrderList(Order order);
 
+	/**
+	 * 
+	 * @param order
+	 * @return
+	 */
+	Order getOrder(Order order);
+
 }

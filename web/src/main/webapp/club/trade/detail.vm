@@ -57,7 +57,7 @@
 								<div class="item-title-row" style="margin-top: 3px;">
 									<div class="item-title"></div>
 									<div class="item-after">
-										<a href="javascript:trade_detail_refund('$!{trade.tradeNo}');" class="button color-red">申请退款</a>
+										<a href="$!{env.appUrl}/trade/refund.htm?tradeNo=$!{trade.tradeNo}&orderId=$!{order.orderId}" class="button color-red" data-ignore-cache="true">申请退款</a>
 									</div>
 								</div>
 								#end
@@ -105,8 +105,5 @@
 				</ul>
             </div>
         </div>
-		<form id="trade/detail/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
-        	<input type="hidden" name="tradeNo" id="trade_detail_refund_tradeNo"/>
-        </form>
     </div>
 </div>

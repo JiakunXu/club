@@ -145,6 +145,16 @@ public interface ITradeService {
 	 */
 	BooleanResult topayTrade(String userId, Long shopId, String tradeNo);
 
+	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeNo
+	 * @param orderId
+	 * @return
+	 */
+	Trade getOrder(String userId, Long shopId, String tradeNo, String orderId);
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	/**

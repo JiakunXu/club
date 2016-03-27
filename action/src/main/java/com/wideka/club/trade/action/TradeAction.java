@@ -38,6 +38,11 @@ public class TradeAction extends BaseAction {
 	private Trade trade;
 
 	/**
+	 * 订单明细.
+	 */
+	private String orderId;
+
+	/**
 	 * 创建临时订单.
 	 * 
 	 * @return
@@ -144,6 +149,17 @@ public class TradeAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 申请退款.
+	 * 
+	 * @return
+	 */
+	public String refund() {
+		trade = tradeService.getOrder(this.getOpenId(), 0L, tradeNo, orderId);
+
+		return SUCCESS;
+	}
+
 	public ITradeService getTradeService() {
 		return tradeService;
 	}
@@ -190,6 +206,14 @@ public class TradeAction extends BaseAction {
 
 	public void setTrade(Trade trade) {
 		this.trade = trade;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 }

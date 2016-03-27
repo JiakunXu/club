@@ -1,4 +1,4 @@
-myApp.onPageInit('trade.detail', function(page) {
+myApp.onPageInit('trade.refund', function(page) {
 			$$('form.ajax-submit').on('beforeSubmit', function(e) {
 					});
 
@@ -18,11 +18,10 @@ myApp.onPageInit('trade.detail', function(page) {
 					});
 		});
 
-function trade_detail_refund(tradeNo) {
+function trade_refund_refund(tradeNo) {
 	myApp.confirm('确定申请退款？', '订单管理', function() {
 				myApp.showIndicator();
 
-				$$('#trade_detail_refund_tradeNo').val(tradeNo);
-				$$('#trade/detail/refund').trigger("submit");
+				$$('#trade/refund/refund').trigger("submit");
 			});
 }

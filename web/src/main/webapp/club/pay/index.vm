@@ -140,7 +140,6 @@
             </div>
 			
 			<form id="pay/index/wxpay" action="$!{env.appUrl}/wxpay/pay.htm" method="POST" class="ajax-submit">
-				<input type="hidden" name="openId" value="$!{openId}"></input>
 				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
             </form>
         </div>

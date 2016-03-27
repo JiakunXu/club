@@ -82,9 +82,9 @@
 			<div class="infinite-scroll-preloader">
 				<div class="preloader"></div>
 			</div>
+			<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="POST" class="ajax-submit">
+            	<input type="hidden" name="tradeNo" id="trade_list_cancel_tradeNo"/>
+            </form>
 		</div>
-		<form id="trade/list/cancel" action="$!{env.appUrl}/trade/cancel.htm" method="POST" class="ajax-submit">
-        	<input type="hidden" name="tradeNo" id="trade_list_cancel_tradeNo"/>
-        </form>
     </div>
 </div>

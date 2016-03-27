@@ -1,0 +1,128 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">申请退款</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="trade.refund" class="page no-tabbar">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<form id="trade/refund/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
+				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
+    			<div class="list-block media-list" style="font-size: 15px;">
+    				<ul>
+						<li>
+    						<div class="item-content">
+								#set($order = $!{trade.orderList.get(0)})
+    							<div class="item-inner">
+    								<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-title" style="font-weight: 400;">商品名称</div>
+    									<div class="item-after">$!{order.itemName}</div>
+    								</div>
+    								<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-title" style="font-weight: 400;">订单金额</div>
+    									<div class="item-after">$!{order.total}</div>
+    								</div>
+									<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-title" style="font-weight: 400;">订单编号</div>
+    									<div class="item-after">$!{tradeNo}</div>
+    								</div>
+									<div class="item-title-row" style="margin-top: 3px;">
+    									<div class="item-title" style="font-weight: 400;">交易时间</div>
+    									<div class="item-after"></div>
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner" style="display: inherit;">
+    								<div class="item-title label" style="font-weight: 400;">处理方式</div>
+									<div class="item-input">
+    									<select style="font-size: 15px;" name="" >
+											<option selected>请选择处理方式</option>
+											<option>我要退款，但不退货</option>
+										</select>
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner" style="display: inherit;">
+    								<div class="item-title label" style="font-weight: 400;">退款原因</div>
+    								<div class="item-input">
+    									<select style="font-size: 15px;" name="" >
+											<option selected>请选择退款原因</option>
+											<option>买／卖双方协商一致</option>
+											<option>买错／买多／不想要</option>
+											<option>商品质量问题</option>
+											<option>未收到货品</option>
+											<option>其他</option>
+										</select>
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner" style="display: inherit;">
+    								<div class="item-title label" style="font-weight: 400;">退款金额</div>
+    								<div class="item-input">
+    									<input type="text" style="font-size: 15px;" name="" value="$!{order.total}" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    				</ul>
+                </div>
+				
+				<div class="list-block" style="font-size: 15px;">
+    				<ul>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">手机号码</div>
+    								<div class="item-input">
+    									<input type="text" style="font-size: 15px;" name="" placeholder="填写手机号便于卖家联系您" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">备注信息</div>
+    								<div class="item-input">
+    									<input type="text" style="font-size: 15px;" name="" placeholder="最多可填写200个字" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    					<li>
+    						<div class="item-content">
+    							<div class="item-inner">
+    								<div class="item-title label">图片举证</div>
+    								<div class="item-input">
+    									<input type="text" style="font-size: 15px;" name="" placeholder="可上传5张图片" />
+    								</div>
+    							</div>
+    						</div>
+    					</li>
+    				</ul>
+				</div>
+						
+    			<div class="content-block">
+        			<p><a href="javascript:trade_refund_refund();" class="button button-big button-fill weui_btn_primary">提交</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

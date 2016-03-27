@@ -149,6 +149,26 @@ public class OrderServiceImpl implements IOrderService {
 		return null;
 	}
 
+	@Override
+	public Order getOrder(String userId, Long shopId, Long tradeId, Long orderId) {
+		if (StringUtils.isBlank(userId) || shopId == null || tradeId == null) {
+			return null;
+		}
+
+		Order order = new Order();
+		order.setShopId(shopId);
+		order.setTradeId(tradeId);
+		order.setOrderId(orderId);
+
+		try {
+			return orderDao.getOrder(order);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(order), e);
+		}
+
+		return null;
+	}
+
 	public IOrderDao getOrderDao() {
 		return orderDao;
 	}

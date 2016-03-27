@@ -46,4 +46,14 @@ public interface IOrderService {
 	 */
 	List<Order> getOrderList(String userId, Long shopId, Long tradeId);
 
+	/**
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeId
+	 * @param orderId
+	 * @return
+	 */
+	Order getOrder(String userId, Long shopId, Long tradeId, Long orderId);
+
 }
