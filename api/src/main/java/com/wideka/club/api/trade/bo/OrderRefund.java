@@ -26,6 +26,10 @@ public class OrderRefund implements Serializable {
 	 */
 	private BigDecimal refundFee;
 
+	private String tel;
+
+	private String remark;
+
 	/**
 	 * 操作人ID.
 	 */
@@ -69,6 +73,22 @@ public class OrderRefund implements Serializable {
 
 	public void setRefundFee(BigDecimal refundFee) {
 		this.refundFee = refundFee;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public String getModifyUser() {

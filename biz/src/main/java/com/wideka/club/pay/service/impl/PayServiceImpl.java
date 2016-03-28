@@ -215,7 +215,7 @@ public class PayServiceImpl implements IPayService {
 		}
 
 		// 2. 退款订单编号
-		final String refundNo = DateUtil.getNowDateminStr() + UUIDUtil.generate().substring(9);
+		final String refundNo = UUIDUtil.generate().substring(4);
 
 		String payType = trade.getPayType();
 

@@ -45,6 +45,20 @@
 		</selectKey>
 	</insert>
 	
+	<update id="updateCart" parameterClass="cart">
+	<![CDATA[
+		UPDATE basis_tb_cart t
+		   SET t.modify_date = NOW(),
+			   t.modify_user = #modifyUser#,
+			   t.quantity = t.quantity+ #quantity#
+		 WHERE t.state = 'U'
+		   AND t.user_id = #userId#
+		   AND t.shop_id = #shopId#
+		   AND t.item_id = #itemId#
+		   AND t.sku_id  = #skuId#
+	]]>
+	</update>
+	
 	<select id="getCartList" parameterClass="cart" resultClass="cart">
 	<![CDATA[
 		SELECT t.cart_id AS cartId,
@@ -60,7 +74,7 @@
 	]]>
 	</select>
 	
-	<update id="updateCart" parameterClass="cart">
+	<update id="removeCart" parameterClass="cart">
 	<![CDATA[
 		UPDATE basis_tb_cart t
 		   SET t.modify_date = NOW(),

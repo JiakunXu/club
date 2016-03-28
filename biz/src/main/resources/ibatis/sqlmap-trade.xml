@@ -146,7 +146,14 @@
 			   t.receiver_city AS receiverCity,
 			   t.receiver_area AS receiverArea,
 			   t.receiver_address AS receiverAddress,
-			   t.receiver_tel AS receiverTel
+			   t.receiver_tel AS receiverTel,
+			   DATE_FORMAT(t.create_date, '%Y-%m-%d %T') AS createDate,
+			   DATE_FORMAT(t.modify_date, '%Y-%m-%d %T') AS modifyDate,
+			   DATE_FORMAT(t.pay_date, '%Y-%m-%d %T') AS payDate,
+			   DATE_FORMAT(t.send_date, '%Y-%m-%d %T') AS sendDate,
+			   DATE_FORMAT(t.sign_date, '%Y-%m-%d %T') AS signDate,
+			   DATE_FORMAT(t.feedback_date, '%Y-%m-%d %T') AS feedbackDate,
+			   DATE_FORMAT(t.feedbacked_date, '%Y-%m-%d %T') AS feedbackedDate
 		  FROM basis_tb_trade t
 		 WHERE t.trade_no = #tradeNo#
 	]]>

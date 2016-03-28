@@ -10,7 +10,7 @@ import java.util.UUID;
  */
 public final class UUIDUtil {
 	// 随机种子
-	private static char[] x36s = "0123456789abcdefghijklmnopqrstuvwxyz".toCharArray();
+	private static char[] x36s = "012345678901234567890123456789012345".toCharArray();
 
 	// 随机数长度
 	private static final short LEN = 20;

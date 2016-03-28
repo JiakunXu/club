@@ -83,3 +83,5 @@ myApp.addNotification({
 			media : '<img width="33" height="33" style="border-radius:100%" src="'
 					+ imgUrl + '/image/portal/logo.jpg">'
 		});
+
+setTimeout("myApp.closeNotification('.notifications')", 3000);

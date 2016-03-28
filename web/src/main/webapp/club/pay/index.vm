@@ -35,7 +35,7 @@
 				<ul>
 					<li>
 						<a href="$!{env.appUrl}/user/address.htm?tradeNo=$!{tradeNo}" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media"><i class="iconfont icon-location" style="font-size: 25px;"></i></div>
+							<div class="item-media"><i class="iconfont icon-location" style="font-size: 20px;"></i></div>
 							<div class="item-inner" style="font-size: 14px;">
 								<div class="item-title">
 									收货人：$!{trade.receiverName}<span style="float: right;">$!{trade.receiverTel}</span><br />
@@ -64,7 +64,7 @@
 							<div class="item-inner">
 								<div class="item-title-row" style="margin-top: 3px;">
 									<div class="item-title" style="font-weight: 400;">$!{order.itemName}</div>
-									<div class="item-after">￥$!{order.price}</div>
+									<div class="item-after">￥$!formatUtil.getAmountFormat($!{order.price})</div>
 								</div>
 								<div class="item-title-row" style="margin-top: 3px;">
 									<div class="item-subtitle" style="font-size: 13px; color: #ccc;">$!{order.propertiesName}</div>
@@ -78,7 +78,7 @@
 						<div class="item-content">
 							<div class="item-inner" style="display: inherit;">
 								<div class="item-title" style="font-weight: 400;">运费</div>
-								<div class="item-after">￥$!{trade.postage}</div>
+								<div class="item-after">￥$!formatUtil.getAmountFormat($!{trade.postage})</div>
 							</div>
 						</div>
 					</li>
@@ -86,7 +86,7 @@
 						<div class="item-content">
 							<div class="item-inner" style="display: inherit;">
 								<div class="item-title" style="font-weight: 400;">合计</div>
-								<div class="item-after" style="color: #ff5500;">￥$!{trade.price}</div>
+								<div class="item-after" style="color: #ff5500;">￥$!formatUtil.getAmountFormat($!{trade.price})</div>
 							</div>
 						</div>
 					</li>
@@ -127,8 +127,8 @@
 						<div class="item-content">
 							<div class="item-inner">
 								<div class="item-title" style="width: 100%; text-align: center;">
-									<span>￥$!{trade.tradePrice} + ￥$!{trade.postage} 运费</span><br />
-									<span style="font-size: 16px; color: #ff5500;">需付：￥$!{trade.price}</span>
+									<div>￥$!formatUtil.getAmountFormat($!{trade.tradePrice}) + ￥$!formatUtil.getAmountFormat($!{trade.postage}) 运费</div>
+									<div style="font-size: 16px; color: #ff5500;">需付：￥$!formatUtil.getAmountFormat($!{trade.price})</div>
 								</div>
 							</div>
 						</div>

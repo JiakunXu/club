@@ -42,7 +42,7 @@
     							<div class="item-inner">
     								<div class="item-title-row" style="margin-top: 3px;">
     									<div class="item-title" style="font-weight: 400;">$!{cart.itemName}</div>
-    									<div class="item-after">￥$!{cart.price}</div>
+    									<div class="item-after">￥$!formatUtil.getAmountFormat($!{cart.price})</div>
                                         <input type="hidden" id="cart/index/price/$!{cart.cartId}" value="$!{cart.price}"></input>
     								</div>
     								<div class="item-title-row" style="margin-top: 3px;">

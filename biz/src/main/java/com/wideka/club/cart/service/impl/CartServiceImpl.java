@@ -38,6 +38,7 @@ public class CartServiceImpl implements ICartService {
 			return result;
 		}
 		cart.setUserId(userId.trim());
+		cart.setModifyUser(userId);
 
 		if (shopId == null) {
 			result.setCode("店铺信息不能为空。");
@@ -94,6 +95,14 @@ public class CartServiceImpl implements ICartService {
 
 		cart.setQuantity(q);
 
+		// 1. 更新购物车(相同规格商品 只增加数量)
+		if (updateCart(cart) == 1) {
+			result.setCode("添加成功。");
+			result.setResult(true);
+			return result;
+		}
+
+		// 2. 创建购物车
 		try {
 			cartDao.createCart(cart);
 			result.setResult(true);
@@ -107,6 +116,21 @@ public class CartServiceImpl implements ICartService {
 			result.setCode("添加成功。");
 		}
 		return result;
+	}
+
+	/**
+	 * 
+	 * @param cart
+	 * @return
+	 */
+	private int updateCart(Cart cart) {
+		try {
+			return cartDao.updateCart(cart);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(cart), e);
+		}
+
+		return -1;
 	}
 
 	@Override
@@ -184,7 +208,7 @@ public class CartServiceImpl implements ICartService {
 
 		cart.setState(ICartService.STATE_REMOVE);
 
-		int n = updateCart(cart);
+		int n = removeCart(cart);
 		if (n == -1) {
 			result.setCode("购物车更新失败！");
 			return result;
@@ -201,9 +225,9 @@ public class CartServiceImpl implements ICartService {
 	 * @param cart
 	 * @return
 	 */
-	private int updateCart(Cart cart) {
+	private int removeCart(Cart cart) {
 		try {
-			return cartDao.updateCart(cart);
+			return cartDao.removeCart(cart);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(cart), e);
 		}
