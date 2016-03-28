@@ -16,9 +16,11 @@ import com.wideka.club.api.cart.ICartService;
 import com.wideka.club.api.cart.bo.Cart;
 import com.wideka.club.api.item.bo.Item;
 import com.wideka.club.api.item.bo.ItemSku;
+import com.wideka.club.api.trade.IOrderRefundService;
 import com.wideka.club.api.trade.IOrderService;
 import com.wideka.club.api.trade.ITradeService;
 import com.wideka.club.api.trade.bo.Order;
+import com.wideka.club.api.trade.bo.OrderRefund;
 import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.api.user.IUserAddressService;
 import com.wideka.club.api.user.bo.UserAddress;
@@ -47,6 +49,8 @@ public class TradeServiceImpl implements ITradeService {
 	private IUserAddressService userAddressService;
 
 	private IOrderService orderService;
+
+	private IOrderRefundService orderRefundService;
 
 	private ICartService cartService;
 
@@ -501,6 +505,12 @@ public class TradeServiceImpl implements ITradeService {
 		return trade;
 	}
 
+	@Override
+	public BooleanResult createOrderRefund(Long shopId, String tradeNo, String refundNo, Long orderId,
+		OrderRefund orderRefund, String modifyUser) {
+		return orderRefundService.createOrderRefund(shopId, tradeNo, refundNo, orderId, orderRefund, modifyUser);
+	}
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	@Override
@@ -720,6 +730,14 @@ public class TradeServiceImpl implements ITradeService {
 
 	public void setOrderService(IOrderService orderService) {
 		this.orderService = orderService;
+	}
+
+	public IOrderRefundService getOrderRefundService() {
+		return orderRefundService;
+	}
+
+	public void setOrderRefundService(IOrderRefundService orderRefundService) {
+		this.orderRefundService = orderRefundService;
 	}
 
 	public ICartService getCartService() {

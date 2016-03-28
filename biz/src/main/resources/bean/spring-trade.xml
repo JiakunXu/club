@@ -14,6 +14,7 @@
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
 		<property name="userAddressService" ref="userAddressService" />
 		<property name="orderService" ref="orderService" />
+		<property name="orderRefundService" ref="orderRefundService" />
 		<property name="cartService" ref="cartService" />
 		<property name="tradeDao" ref="tradeDao" />
 	</bean>
@@ -24,5 +25,11 @@
 		<property name="orderDao" ref="orderDao" />
 	</bean>
 	<bean id="orderDao" class="com.wideka.club.trade.dao.impl.OrderDaoImpl" parent="baseDao" />
+	
+	<!-- 退款订单信息 -->
+	<bean id="orderRefundService" class="com.wideka.club.trade.service.impl.OrderRefundServiceImpl">
+		<property name="orderRefundDao" ref="orderRefundDao" />
+	</bean>
+	<bean id="orderRefundDao" class="com.wideka.club.trade.dao.impl.OrderRefundDaoImpl" parent="baseDao" />
 	
 </beans>

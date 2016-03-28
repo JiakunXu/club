@@ -38,7 +38,7 @@ public class TradeAction extends BaseAction {
 	private Trade trade;
 
 	/**
-	 * 订单明细.
+	 * 订单明细编号.
 	 */
 	private String orderId;
 

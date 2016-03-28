@@ -1,5 +1,6 @@
 package com.wideka.club.api.pay;
 
+import com.wideka.club.api.trade.bo.OrderRefund;
 import com.wideka.club.framework.bo.BooleanResult;
 
 /**
@@ -33,9 +34,12 @@ public interface IPayService {
 	 * @param userId
 	 * @param shopId
 	 * @param tradeNo
+	 * @param orderId
+	 * @param orderRefund
+	 *            退款信息.
 	 * @return
 	 */
-	BooleanResult refund(String userId, Long shopId, final String tradeNo);
+	BooleanResult refund(String userId, Long shopId, String tradeNo, String orderId, OrderRefund orderRefund);
 
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 

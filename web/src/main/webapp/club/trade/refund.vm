@@ -15,7 +15,6 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<form id="trade/refund/refund" action="$!{env.appUrl}/wxpay/refund.htm" method="POST" class="ajax-submit">
-				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
     			<div class="list-block media-list" style="font-size: 15px;">
     				<ul>
 						<li>
@@ -46,7 +45,7 @@
     							<div class="item-inner" style="display: inherit;">
     								<div class="item-title label" style="font-weight: 400;">处理方式</div>
 									<div class="item-input">
-    									<select style="font-size: 15px;" name="" >
+    									<select style="font-size: 15px;" name="orderRefund." >
 											<option selected>请选择处理方式</option>
 											<option>我要退款，但不退货</option>
 										</select>
@@ -59,7 +58,7 @@
     							<div class="item-inner" style="display: inherit;">
     								<div class="item-title label" style="font-weight: 400;">退款原因</div>
     								<div class="item-input">
-    									<select style="font-size: 15px;" name="" >
+    									<select style="font-size: 15px;" name="orderRefund." >
 											<option selected>请选择退款原因</option>
 											<option>买／卖双方协商一致</option>
 											<option>买错／买多／不想要</option>
@@ -76,7 +75,7 @@
     							<div class="item-inner" style="display: inherit;">
     								<div class="item-title label" style="font-weight: 400;">退款金额</div>
     								<div class="item-input">
-    									<input type="text" style="font-size: 15px;" name="" value="$!{order.total}" />
+    									<input type="text" style="font-size: 15px;" name="orderRefund.refundFee" value="$!{order.total}" />
     								</div>
     							</div>
     						</div>
@@ -91,7 +90,7 @@
     							<div class="item-inner">
     								<div class="item-title label">手机号码</div>
     								<div class="item-input">
-    									<input type="text" style="font-size: 15px;" name="" placeholder="填写手机号便于卖家联系您" />
+    									<input type="text" style="font-size: 15px;" name="orderRefund." placeholder="填写手机号便于卖家联系您" />
     								</div>
     							</div>
     						</div>
@@ -101,7 +100,7 @@
     							<div class="item-inner">
     								<div class="item-title label">备注信息</div>
     								<div class="item-input">
-    									<input type="text" style="font-size: 15px;" name="" placeholder="最多可填写200个字" />
+    									<input type="text" style="font-size: 15px;" name="orderRefund." placeholder="最多可填写200个字" />
     								</div>
     							</div>
     						</div>
@@ -119,6 +118,9 @@
     				</ul>
 				</div>
 						
+				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
+				<input type="hidden" name="orderId" value="$!{order.orderId}"></input>
+				
     			<div class="content-block">
         			<p><a href="javascript:trade_refund_refund();" class="button button-big button-fill weui_btn_primary">提交</a></p>
                 </div>

@@ -2,6 +2,7 @@ package com.wideka.club.api.trade;
 
 import java.util.List;
 
+import com.wideka.club.api.trade.bo.OrderRefund;
 import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.framework.bo.BooleanResult;
 
@@ -146,6 +147,7 @@ public interface ITradeService {
 	BooleanResult topayTrade(String userId, Long shopId, String tradeNo);
 
 	/**
+	 * 获取某一交易某一订单明细信息(用于退款).
 	 * 
 	 * @param userId
 	 * @param shopId
@@ -154,6 +156,20 @@ public interface ITradeService {
 	 * @return
 	 */
 	Trade getOrder(String userId, Long shopId, String tradeNo, String orderId);
+
+	/**
+	 * 退款申请.
+	 * 
+	 * @param shopId
+	 * @param tradeNo
+	 * @param refundNo
+	 * @param orderId
+	 * @param orderRefund
+	 * @param modifyUser
+	 * @return
+	 */
+	BooleanResult createOrderRefund(Long shopId, String tradeNo, String refundNo, Long orderId,
+		OrderRefund orderRefund, String modifyUser);
 
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 

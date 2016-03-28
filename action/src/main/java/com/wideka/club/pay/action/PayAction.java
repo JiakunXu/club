@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import com.wideka.club.api.pay.IPayService;
 import com.wideka.club.api.trade.ITradeService;
+import com.wideka.club.api.trade.bo.OrderRefund;
 import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.framework.action.BaseAction;
 import com.wideka.club.framework.bo.BooleanResult;
@@ -34,6 +35,16 @@ public class PayAction extends BaseAction {
 	private String tradeNo;
 
 	private Trade trade;
+
+	/**
+	 * 订单明细编号.
+	 */
+	private String orderId;
+
+	/**
+	 * 退款订单信息.
+	 */
+	private OrderRefund orderRefund;
 
 	/**
 	 * 支付首页.
@@ -72,7 +83,7 @@ public class PayAction extends BaseAction {
 	 * @return
 	 */
 	public String refund() {
-		BooleanResult result = payService.refund(this.getOpenId(), 0L, tradeNo);
+		BooleanResult result = payService.refund(this.getOpenId(), 0L, tradeNo, orderId, orderRefund);
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
@@ -158,6 +169,22 @@ public class PayAction extends BaseAction {
 
 	public void setTrade(Trade trade) {
 		this.trade = trade;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public OrderRefund getOrderRefund() {
+		return orderRefund;
+	}
+
+	public void setOrderRefund(OrderRefund orderRefund) {
+		this.orderRefund = orderRefund;
 	}
 
 }

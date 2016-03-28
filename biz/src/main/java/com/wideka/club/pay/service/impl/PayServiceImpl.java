@@ -11,6 +11,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.wideka.club.api.cache.IMemcachedCacheService;
 import com.wideka.club.api.pay.IPayService;
 import com.wideka.club.api.trade.ITradeService;
+import com.wideka.club.api.trade.bo.OrderRefund;
 import com.wideka.club.api.trade.bo.Trade;
 import com.wideka.club.api.wxpay.IWxpayService;
 import com.wideka.club.framework.bo.BooleanResult;
@@ -130,8 +131,7 @@ public class PayServiceImpl implements IPayService {
 		}
 
 		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
-			BigDecimal price =
-				new BigDecimal("0.01").multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
+			BigDecimal price = trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
 			String timeStart = DateUtil.getNowDateminStr();
 			String timeExpire =
 				DateUtil.datetime(DateUtil.addMinutes(new Date(), 15), DateUtil.DEFAULT_DATEFULLTIME_FORMAT);
@@ -154,7 +154,8 @@ public class PayServiceImpl implements IPayService {
 	}
 
 	@Override
-	public BooleanResult refund(String userId, Long shopId, final String tradeNo) {
+	public BooleanResult refund(final String userId, final Long shopId, final String tradeNo, String orderId,
+		final OrderRefund orderRefund) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
@@ -172,6 +173,22 @@ public class PayServiceImpl implements IPayService {
 			result.setCode("交易信息不能为空.");
 			return result;
 		}
+
+		if (StringUtils.isBlank(orderId)) {
+			result.setCode("订单信息不能为空.");
+			return result;
+		}
+
+		Long id = null;
+		try {
+			id = Long.valueOf(orderId);
+		} catch (NumberFormatException e) {
+			logger.error(e);
+
+			result.setCode("订单信息不正确.");
+			return result;
+		}
+		final Long ordreId = id;
 
 		// 锁定订单
 		String key = tradeNo.trim();
@@ -197,6 +214,9 @@ public class PayServiceImpl implements IPayService {
 			return result;
 		}
 
+		// 2. 退款订单编号
+		final String refundNo = DateUtil.getNowDateminStr() + UUIDUtil.generate().substring(9);
+
 		String payType = trade.getPayType();
 
 		if (IPayService.PAY_TYPE_ALIPAY.equals(payType)) {
@@ -206,23 +226,33 @@ public class PayServiceImpl implements IPayService {
 		if (IPayService.PAY_TYPE_WXPAY.equals(payType)) {
 			result = transactionTemplate.execute(new TransactionCallback<BooleanResult>() {
 				public BooleanResult doInTransaction(TransactionStatus ts) {
-					BooleanResult res0 = new BooleanResult();
+					BooleanResult res0 =
+						tradeService.createOrderRefund(shopId, trade.getTradeNo(), refundNo, ordreId, orderRefund,
+							userId.toString());
 
-					BigDecimal price =
+					if (!res0.getResult()) {
+						ts.setRollbackOnly();
+
+						return res0;
+					}
+
+					BigDecimal price1 =
 						trade.getPrice().multiply(new BigDecimal("100")).setScale(0, BigDecimal.ROUND_HALF_UP);
-					// Integer.parseInt(price.toString())
-					int fee = 1;
+					int fee = Integer.parseInt(price1.toString());
+					BigDecimal price2 =
+						orderRefund.getRefundFee().multiply(new BigDecimal("100"))
+							.setScale(0, BigDecimal.ROUND_HALF_UP);
+					int refundFee = Integer.parseInt(price2.toString());
 
 					try {
 						Refund refund =
-							wxpayService.refund(null, null, trade.getTradeNo(), DateUtil.getNowDateminStr()
-								+ UUIDUtil.generate().substring(9), fee, fee, null);
+							wxpayService.refund(null, null, trade.getTradeNo(), refundNo, fee, refundFee, null);
 
 						res0.setCode("申请退款成功。");
-						res0.setResult(true);
 					} catch (ServiceException e) {
 						ts.setRollbackOnly();
 
+						res0.setResult(false);
 						res0.setCode(e.getMessage());
 						return res0;
 					}
