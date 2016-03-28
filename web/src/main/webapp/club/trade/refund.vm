@@ -35,7 +35,7 @@
     								</div>
 									<div class="item-title-row" style="margin-top: 3px;">
     									<div class="item-title" style="font-weight: 400;">交易时间</div>
-    									<div class="item-after"></div>
+    									<div class="item-after">$!{trade.createDate}</div>
     								</div>
     							</div>
     						</div>
