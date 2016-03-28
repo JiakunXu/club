@@ -27,6 +27,7 @@
 							</div>
 						</div>
 					</li>
+					#if($!{trade.type} == 'send' || $!{trade.type} == 'sign')
 					<li>
 						<a href="#" class="item-link item-content" data-ignore-cache="true">
 							<div class="item-inner">
@@ -35,6 +36,7 @@
 							</div>
 						</a>
 					</li>
+					#end
 				</ul>
             </div>
 			<div class="list-block media-list" style="font-size: 15px;">
