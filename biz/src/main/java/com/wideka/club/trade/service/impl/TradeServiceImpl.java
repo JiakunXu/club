@@ -511,6 +511,43 @@ public class TradeServiceImpl implements ITradeService {
 		return orderRefundService.createOrderRefund(shopId, tradeNo, refundNo, orderId, orderRefund, modifyUser);
 	}
 
+	@Override
+	public BooleanResult signTrade(String userId, Long shopId, String tradeNo) {
+		BooleanResult result = new BooleanResult();
+		result.setResult(false);
+
+		Trade trade = new Trade();
+		// 签收
+		trade.setType(ITradeService.SIGN);
+
+		if (StringUtils.isBlank(userId)) {
+			result.setCode("用户信息不能为空。");
+			return result;
+		}
+		trade.setUserId(userId.trim());
+
+		if (shopId == null) {
+			result.setCode("店铺信息不能为空。");
+			return result;
+		}
+		trade.setShopId(shopId);
+
+		if (StringUtils.isBlank(tradeNo)) {
+			result.setCode("交易订单不能为空。");
+			return result;
+		}
+		trade.setTradeNo(tradeNo.trim());
+
+		trade.setModifyUser(userId);
+
+		result = updateTrade(trade);
+
+		if (result.getResult()) {
+			result.setCode("操作成功。");
+		}
+		return result;
+	}
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	@Override

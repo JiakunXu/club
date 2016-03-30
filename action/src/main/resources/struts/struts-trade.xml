@@ -25,5 +25,7 @@
 			<result name="success">/club/trade/refund.vm</result>
 		</action>
 		
+		<action name="sign" class="tradeAction" method="sign"></action>
+		
 	</package>
 </struts>

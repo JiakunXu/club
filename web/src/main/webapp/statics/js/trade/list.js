@@ -26,3 +26,12 @@ function trade_list_cancel(tradeNo) {
 				$$('#trade/list/cancel').trigger("submit");
 			});
 }
+
+function trade_list_sign(tradeNo) {
+	myApp.confirm('确定收货？', '订单管理', function() {
+				myApp.showIndicator();
+
+				$$('#trade_list_sign_tradeNo').val(tradeNo);
+				$$('#trade/list/sign').trigger("submit");
+			});
+}

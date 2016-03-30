@@ -160,6 +160,24 @@ public class TradeAction extends BaseAction {
 		return SUCCESS;
 	}
 
+	/**
+	 * 确认收货.
+	 * 
+	 * @return
+	 */
+	public String sign() {
+		BooleanResult result = tradeService.signTrade(this.getOpenId(), 0L, tradeNo);
+
+		if (result.getResult()) {
+			this.setResourceResult(result.getCode());
+		} else {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getCode());
+		}
+
+		return RESOURCE_RESULT;
+	}
+
 	public ITradeService getTradeService() {
 		return tradeService;
 	}

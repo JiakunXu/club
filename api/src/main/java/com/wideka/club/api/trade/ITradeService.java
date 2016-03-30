@@ -171,6 +171,16 @@ public interface ITradeService {
 	BooleanResult createOrderRefund(Long shopId, String tradeNo, String refundNo, Long orderId,
 		OrderRefund orderRefund, String modifyUser);
 
+	/**
+	 * 确认收货.
+	 * 
+	 * @param userId
+	 * @param shopId
+	 * @param tradeNo
+	 * @return
+	 */
+	BooleanResult signTrade(String userId, Long shopId, String tradeNo);
+
 	// >>>>>>>>>>以下是第三方交易平台<<<<<<<<<<
 
 	/**
