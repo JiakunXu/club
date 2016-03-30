@@ -142,9 +142,10 @@ public interface ITradeService {
 	 * @param userId
 	 * @param shopId
 	 * @param tradeNo
+	 * @param remark
 	 * @return
 	 */
-	BooleanResult topayTrade(String userId, Long shopId, String tradeNo);
+	BooleanResult topayTrade(String userId, Long shopId, String tradeNo, String remark);
 
 	/**
 	 * 获取某一交易某一订单明细信息(用于退款).

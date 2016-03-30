@@ -18,6 +18,7 @@ myApp.onPageInit('pay.index', function(page) {
 function pay_index_pay() {
 	myApp.showIndicator();
 
+	$$('#pay_index_wxpay_remark').val($$('#pay_index_input_remark').val());
 	$$('#pay/index/wxpay').trigger("submit");
 }
 

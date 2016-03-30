@@ -20,13 +20,15 @@ public interface IPayService {
 	 * @param userId
 	 * @param shopId
 	 * @param tradeNo
+	 * @param remark
 	 * @param payType
 	 * @param ip
 	 * @param openId
 	 *            用户在商户appid下的唯一标识.
 	 * @return
 	 */
-	BooleanResult pay(String userId, Long shopId, String tradeNo, String payType, String ip, String openId);
+	BooleanResult pay(String userId, Long shopId, String tradeNo, String remark, String payType, String ip,
+		String openId);
 
 	/**
 	 * 申请退款.

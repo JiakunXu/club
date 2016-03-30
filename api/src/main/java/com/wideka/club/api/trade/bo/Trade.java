@@ -167,6 +167,11 @@ public class Trade extends SearchInfo {
 	private String receiverTel;
 
 	/**
+	 * 给卖家留言.
+	 */
+	private String receiverRemark;
+
+	/**
 	 * 购物车(存在多个id: 1,2,3,4,5).
 	 */
 	private String cartId;
@@ -484,6 +489,14 @@ public class Trade extends SearchInfo {
 
 	public void setReceiverTel(String receiverTel) {
 		this.receiverTel = receiverTel;
+	}
+
+	public String getReceiverRemark() {
+		return receiverRemark;
+	}
+
+	public void setReceiverRemark(String receiverRemark) {
+		this.receiverRemark = receiverRemark;
 	}
 
 	public String getCartId() {

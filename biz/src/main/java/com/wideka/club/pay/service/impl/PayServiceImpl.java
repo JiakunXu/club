@@ -42,8 +42,8 @@ public class PayServiceImpl implements IPayService {
 	private ITradeService tradeService;
 
 	@Override
-	public BooleanResult pay(final String userId, final Long shopId, final String tradeNo, String payType, String ip,
-		String openId) {
+	public BooleanResult pay(final String userId, final Long shopId, final String tradeNo, final String remark,
+		String payType, String ip, String openId) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
@@ -105,7 +105,7 @@ public class PayServiceImpl implements IPayService {
 					// 4.1 占用库存
 
 					// 4.2 修改交易状态 -> topay
-					res0 = tradeService.topayTrade(userId, shopId, tradeNo);
+					res0 = tradeService.topayTrade(userId, shopId, tradeNo, remark);
 					if (!res0.getResult()) {
 						ts.setRollbackOnly();
 

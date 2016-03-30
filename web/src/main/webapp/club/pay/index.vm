@@ -14,7 +14,7 @@
 	<div data-page="pay.index" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			#if($!{trade.type} == 'topay')
+			#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
 			<div class="list-block">
 				<ul>
 					<li>
@@ -67,7 +67,7 @@
 									<div class="item-after">￥$!formatUtil.getAmountFormat($!{order.price})</div>
 								</div>
 								<div class="item-title-row" style="margin-top: 3px;">
-									<div class="item-subtitle" style="font-size: 13px; color: #ccc;">$!{order.propertiesName}</div>
+									<div class="item-subtitle" style="font-size: 13px; color: #8e8e93;">$!{order.propertiesName}</div>
 									<div class="item-after">×$!{order.quantity}</div>
 								</div>
 							</div>
@@ -79,6 +79,19 @@
 							<div class="item-inner" style="display: inherit;">
 								<div class="item-title" style="font-weight: 400;">运费</div>
 								<div class="item-after">￥$!formatUtil.getAmountFormat($!{trade.postage})</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="display: inherit;">
+								#if($!{trade.type} == 'check')
+								<div class="item-input">
+									<input type="text" style="font-size: 13px;" id="pay_index_input_remark" placeholder="给卖家留言..." />
+								</div>
+								#else
+								<div class="item-title" style="font-weight: 400; font-size: 13px;">买家留言：$!{trade.receiverRemark}</div>
+								#end
 							</div>
 						</div>
 					</li>
@@ -141,6 +154,7 @@
 			
 			<form id="pay/index/wxpay" action="$!{env.appUrl}/wxpay/pay.htm" method="POST" class="ajax-submit">
 				<input type="hidden" name="tradeNo" value="$!{tradeNo}"></input>
+				<input type="hidden" id="pay_index_wxpay_remark" name="remark"></input>
             </form>
         </div>
     </div>

@@ -435,7 +435,7 @@ public class TradeServiceImpl implements ITradeService {
 	}
 
 	@Override
-	public BooleanResult topayTrade(String userId, Long shopId, String tradeNo) {
+	public BooleanResult topayTrade(String userId, Long shopId, String tradeNo, String remark) {
 		BooleanResult result = new BooleanResult();
 		result.setResult(false);
 
@@ -460,6 +460,10 @@ public class TradeServiceImpl implements ITradeService {
 			return result;
 		}
 		trade.setTradeNo(tradeNo.trim());
+
+		if (StringUtils.isNotEmpty(remark)) {
+			trade.setReceiverRemark(remark);
+		}
 
 		trade.setModifyUser(userId);
 

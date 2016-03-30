@@ -37,6 +37,11 @@ public class PayAction extends BaseAction {
 	private Trade trade;
 
 	/**
+	 * 给卖家留言.
+	 */
+	private String remark;
+
+	/**
 	 * 订单明细编号.
 	 */
 	private String orderId;
@@ -64,8 +69,8 @@ public class PayAction extends BaseAction {
 	 */
 	public String pay() {
 		BooleanResult result =
-			payService.pay(this.getOpenId(), 0L, tradeNo, "wxpay", ClientUtil.getIpAddr(this.getServletRequest()),
-				this.getOpenId());
+			payService.pay(this.getOpenId(), 0L, tradeNo, remark, "wxpay",
+				ClientUtil.getIpAddr(this.getServletRequest()), this.getOpenId());
 
 		if (result.getResult()) {
 			this.setResourceResult(result.getCode());
@@ -169,6 +174,14 @@ public class PayAction extends BaseAction {
 
 	public void setTrade(Trade trade) {
 		this.trade = trade;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public String getOrderId() {
