@@ -14,27 +14,29 @@
 	<div data-page="pay.index" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
-			#if($!{trade.type} == 'check' || $!{trade.type} == 'topay')
 			<div class="list-block">
 				<ul>
 					<li>
 						<div class="item-content">
-							<div class="item-media"><i class="iconfont icon-text" style="font-size: 25px;"></i></div>
+							<div class="item-media"><i class="iconfont icon-text" style="font-size: 20px;"></i></div>
 							<div class="item-inner" style="font-size: 12px;">
 								<div class="item-title">
-									您于 2016/03/10 15:00:00 下的订单<br />
-									请在 57分00秒 内付款，超时订单将自动取消。
+									您于 $!{trade.createDate} 下的订单<br />
+									请在 59分59秒 内付款，超时订单将自动取消。
 								</div>
 							</div>
 						</div>
 					</li>
                 </ul>
             </div>
-			#end
 			<div class="list-block">
 				<ul>
 					<li>
+						#if($!{trade.type} == 'check')
 						<a href="$!{env.appUrl}/user/address.htm?tradeNo=$!{tradeNo}" class="item-link item-content" data-ignore-cache="true">
+						#else
+						<div class="item-content">
+						#end
 							<div class="item-media"><i class="iconfont icon-location" style="font-size: 20px;"></i></div>
 							<div class="item-inner" style="font-size: 14px;">
 								<div class="item-title">
@@ -42,7 +44,11 @@
 									收货地址：$!{trade.receiverProvince}$!{trade.receiverCity}$!{trade.receiverArea}$!{trade.receiverAddress}
 								</div>
 							</div>
+						#if($!{trade.type} == 'check')
 						</a>
+						#else
+						</div>
+						#end
 					</li>
 				</ul>
             </div>
@@ -90,7 +96,9 @@
 									<input type="text" style="font-size: 13px;" id="pay_index_input_remark" placeholder="给卖家留言..." />
 								</div>
 								#else
-								<div class="item-title" style="font-weight: 400; font-size: 13px;">买家留言：$!{trade.receiverRemark}</div>
+								<div class="item-title" style="font-weight: 400; font-size: 13px;">
+									买家留言：#if($!stringUtil.isNotEmpty($!{trade.receiverRemark})) $!{trade.receiverRemark} #else 无 #end
+								</div>
 								#end
 							</div>
 						</div>
@@ -108,12 +116,20 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul>
 					<li>
+						#if($!{trade.type} == 'check')
 						<a href="#" class="item-link item-content">
+						#else
+						<div class="item-content">
+						#end
 							<div class="item-inner">
 								<div class="item-title">优惠</div>
 								<div class="item-after">使用优惠</div>
 							</div>
+						#if($!{trade.type} == 'check')
 						</a>
+						#else
+						</div>
+						#end
 					</li>
 				</ul>
             </div>

@@ -86,6 +86,15 @@
 					<li>
 						<div class="item-content">
 							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400; font-size: 13px;">
+									买家留言：#if($!stringUtil.isNotEmpty($!{trade.receiverRemark})) $!{trade.receiverRemark} #else 无 #end
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="display: inherit;">
 								<div class="item-title" style="font-weight: 400;">合计</div>
 								<div class="item-after" style="color: #ff5500;">￥$!formatUtil.getAmountFormat($!{trade.price})</div>
 							</div>
