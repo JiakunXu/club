@@ -18,6 +18,9 @@
 				<div class="preloader"></div>
 				<div class="pull-to-refresh-arrow"></div>
 			</div>
+			
+            <div class="more"></div>
+			
 			#foreach($trade in $!{tradeList})
 			<div class="list-block media-list" style="font-size: 14px;">
 				<ul>
