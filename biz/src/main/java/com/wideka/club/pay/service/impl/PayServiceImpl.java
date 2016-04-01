@@ -20,9 +20,9 @@ import com.wideka.club.framework.log.Logger4jCollection;
 import com.wideka.club.framework.log.Logger4jExtend;
 import com.wideka.club.framework.util.DateUtil;
 import com.wideka.club.framework.util.UUIDUtil;
-import com.wideka.club.framework.util.XmlUtil;
 import com.wideka.weixin.api.pay.bo.Refund;
 import com.wideka.weixin.api.pay.bo.WxNotify;
+import com.wideka.weixin.framework.util.XmlUtil;
 
 /**
  * 
